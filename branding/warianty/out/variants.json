@@ -1,0 +1,38 @@
+[
+  {
+    "key": "a-pinezka",
+    "name": "A · Pinezka",
+    "concept": "Kontynuacja obecnego znaku: pinezka lokalizacji z sercem i błyskawicą. Najprostsza odpowiedź na pytanie „gdzie?” – tu.",
+    "neg_bg": "#C8102E"
+  },
+  {
+    "key": "b-lupa",
+    "name": "B · Lupa",
+    "concept": "Szkło powiększające z sercem AED w soczewce – symbol wyszukiwania. Mówi „znajdź defibrylator” i dobrze działa jako ikona aplikacji.",
+    "neg_bg": "#0B3D91"
+  },
+  {
+    "key": "c-kropka",
+    "name": "C · Kropka nad i",
+    "concept": "Logotyp typograficzny: kropkę nad „i” zastępuje pinezka z sercem. Znak ukryty w nazwie – minimalistyczny, nowoczesny, łatwy do zapamiętania.",
+    "neg_bg": "#C8102E"
+  },
+  {
+    "key": "d-tablica",
+    "name": "D · Tablica",
+    "concept": "Kwadratowa tablica jak oznakowanie w przestrzeni publicznej, z sercem AED i znacznikiem „tu jest”. Napis w dwóch wierszach – instytucjonalny i czytelny z daleka.",
+    "neg_bg": "#0B3D91"
+  },
+  {
+    "key": "e-celownik",
+    "name": "E · Celownik",
+    "concept": "Znacznik „jesteś tutaj” z map nawigacyjnych otacza serce AED. Kojarzy się z geolokalizacją i szybkim namierzeniem najbliższego urządzenia.",
+    "neg_bg": "#0B3D91"
+  },
+  {
+    "key": "f-pytajnik",
+    "name": "F · Pytajnik",
+    "concept": "Nazwa jako pytanie, które zadaje każdy świadek zatrzymania krążenia. Kropkę pytajnika zastępuje serce – odpowiedzią jest dostęp do danych.",
+    "neg_bg": "#C8102E"
+  }
+]
