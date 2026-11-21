@@ -69,7 +69,86 @@ function previewTile(base: Base, lat: number, lon: number, zoom: number): string
     : `https://tile.openstreetmap.org/${z}/${x}/${y}.png`;
 }
 
-export default function AedMap({ points, origin, selected, highlight, onSelect, onPickOrigin, fitTo, hover }: Props) {
+/** never auto-zoom closer than this – street context stays visible */
+const MAX_AUTO_ZOOM = 16;
+
+/**
+ * Bring `b` into view without jumping: leaves the map alone when it already shows `b` at street level,
+ * otherwise flies to it (capped at MAX_AUTO_ZOOM). `panel` keeps clear of the AED detail panel
+ * (400px on the right from 640px up, bottom sheet on phones).
+ */
+function fitGently(m: L.Map, b: L.LatLngBounds, panel: boolean) {
+  const size = m.getSize();
+  if (size.x === 0) return;
+  const sheet = panel && size.x < 640;
+  const tl = L.point(48, 48);
+  const br = L.point(panel && !sheet ? 440 : 48, sheet ? Math.round(size.y * 0.6) : 48);
+  const view = L.latLngBounds(m.containerPointToLatLng(tl), m.containerPointToLatLng(size.subtract(br)));
+  if (m.getZoom() >= 14 && view.contains(b)) return;
+  m.flyToBounds(b, { paddingTopLeft: tl, paddingBottomRight: br, maxZoom: MAX_AUTO_ZOOM, duration: 0.6 });
+}
+
+/**
+ * Draws `path` into `lines` progressively from start to end (ease-out, 0.6–1.4 s depending on length),
+ * then calls `done`. Works with the canvas renderer, so it extends the geometry frame by frame.
+ */
+function drawPath(lines: L.Polyline[], path: [number, number][], signal: AbortSignal, done: () => void) {
+  const pts = path.map((p) => L.latLng(p));
+  const cum = [0];
+  for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + pts[i - 1].distanceTo(pts[i]));
+  const total = cum[cum.length - 1];
+  const finish = () => {
+    lines.forEach((l) => l.setLatLngs(pts));
+    done();
+  };
+  if (total === 0 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return finish();
+
+  const duration = Math.min(1400, Math.max(600, total * 1.2));
+  const t0 = performance.now();
+  let raf = 0;
+  let seg = 1;
+  const frame = (now: number) => {
+    const t = Math.min(1, (now - t0) / duration);
+    if (t === 1) return finish();
+    const d = total * (1 - Math.pow(1 - t, 3)); // ease-out cubic
+    while (seg < pts.length - 1 && cum[seg] < d) seg++;
+    const a = pts[seg - 1];
+    const b = pts[seg];
+    const k = cum[seg] === cum[seg - 1] ? 1 : (d - cum[seg - 1]) / (cum[seg] - cum[seg - 1]);
+    const head = L.latLng(a.lat + (b.lat - a.lat) * k, a.lng + (b.lng - a.lng) * k);
+    const partial = [...pts.slice(0, seg), head];
+    lines.forEach((l) => l.setLatLngs(partial));
+    raf = requestAnimationFrame(frame);
+  };
+  raf = requestAnimationFrame(frame);
+  signal.addEventListener("abort", () => cancelAnimationFrame(raf));
+}
+
+/** Walking route from OpenStreetMap data (FOSSGIS OSRM, foot profile). null when unavailable. */
+const routeCache = new Map<string, [number, number][] | null>();
+async function walkingRoute(from: [number, number], to: [number, number], signal: AbortSignal): Promise<[number, number][] | null> {
+  const key = [...from, ...to].map((v) => v.toFixed(5)).join(",");
+  if (routeCache.has(key)) return routeCache.get(key)!;
+  const ctrl = new AbortController();
+  const timeout = setTimeout(() => ctrl.abort(), 6000);
+  signal.addEventListener("abort", () => ctrl.abort());
+  try {
+    const url = `https://routing.openstreetmap.de/routed-foot/route/v1/foot/${from[1]},${from[0]};${to[1]},${to[0]}?overview=full&geometries=geojson`;
+    const res = await fetch(url, { signal: ctrl.signal });
+    if (!res.ok) return null; // e.g. rate limit – try again next time
+    const data = await res.json();
+    const coords: [number, number][] | undefined = data?.routes?.[0]?.geometry?.coordinates;
+    const path = coords?.length ? coords.map(([lon, lat]) => [lat, lon] as [number, number]) : null;
+    routeCache.set(key, path);
+    return path;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+export default function AedMap({ points, origin, selected, onSelect, onPickOrigin, fitTo, hover }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const cluster = useRef<L.MarkerClusterGroup | null>(null);
@@ -78,6 +157,7 @@ export default function AedMap({ points, origin, selected, highlight, onSelect, 
   const hoverMarker = useRef<L.Marker | null>(null);
   const hlLayer = useRef<L.LayerGroup | null>(null);
   const pendingFit = useRef<L.LatLngBounds | null>(null);
+  const panelOpen = useRef(false);
   const bases = useRef<Record<Base, L.Layer> | null>(null);
   const [base, setBase] = useState<Base>(savedBase);
   const [thumb, setThumb] = useState("");
@@ -112,6 +192,7 @@ export default function AedMap({ points, origin, selected, highlight, onSelect, 
     bases.current = { satellite, map: streets };
     bases.current[base].addTo(m);
     // AED data attribution stays visible on every base layer
+    m.attributionControl.addAttribution('Trasa: <a href="https://routing.openstreetmap.de/about.html">FOSSGIS OSRM</a>');
     m.attributionControl.addAttribution('AED: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> (ODbL), dane.gov.pl');
     m.on("click", (e: L.LeafletMouseEvent) => cbs.current.onPickOrigin(e.latlng.lat, e.latlng.lng));
     hlLayer.current = L.layerGroup().addTo(m);
@@ -129,7 +210,7 @@ export default function AedMap({ points, origin, selected, highlight, onSelect, 
       if (m.getSize().x > 0 && pendingFit.current) {
         const b = pendingFit.current;
         pendingFit.current = null;
-        m.fitBounds(b, { padding: [60, 60], maxZoom: 17 });
+        fitGently(m, b, panelOpen.current);
       }
     });
     ro.observe(el.current);
@@ -189,29 +270,42 @@ export default function AedMap({ points, origin, selected, highlight, onSelect, 
     if (!m || !fitTo?.length) return;
     const b = L.latLngBounds(fitTo);
     if (m.getSize().x === 0) pendingFit.current = b;
-    else m.fitBounds(b, { padding: [60, 60], maxZoom: 17 });
+    else fitGently(m, b, panelOpen.current);
   }, [fitTo]);
-
-  // nearest list highlight lines
-  useEffect(() => {
-    const lg = hlLayer.current;
-    if (!lg) return;
-    lg.clearLayers();
-  }, [highlight]);
 
   useEffect(() => {
     const m = map.current;
     if (!m) return;
+    const lg = hlLayer.current!;
+    panelOpen.current = !!selected;
     selMarker.current?.remove();
+    lg.clearLayers();
     if (!selected) return;
-    selMarker.current = L.marker([selected.lat, selected.lon], { icon: iconFor(0, true), zIndexOffset: 2000 }).addTo(m);
-    hlLayer.current?.clearLayers();
-    L.polyline([origin, [selected.lat, selected.lon]], { color: "#C8102E", weight: 3, dashArray: "6 6" }).addTo(hlLayer.current!);
-    if (m.getSize().x === 0) {
-      pendingFit.current = L.latLngBounds([origin, [selected.lat, selected.lon]]);
-    } else if (!m.getBounds().pad(-0.15).contains([selected.lat, selected.lon])) {
-      m.flyTo([selected.lat, selected.lon], Math.max(m.getZoom(), 16), { duration: 0.6 });
-    }
+    const dest: [number, number] = [selected.lat, selected.lon];
+    selMarker.current = L.marker(dest, { icon: iconFor(0, true), zIndexOffset: 2000 }).addTo(m);
+    if (m.getSize().x === 0) pendingFit.current = L.latLngBounds([origin, dest]);
+    else fitGently(m, L.latLngBounds([origin, dest]), true);
+
+    const ctrl = new AbortController();
+    walkingRoute(origin, dest, ctrl.signal)
+      .then((path) => {
+        if (ctrl.signal.aborted) return;
+        // no walking route (service down, timeout, rate limit) – fall back to a straight dashed line
+        if (!path) {
+          L.polyline([origin, dest], { color: "#C8102E", weight: 3, dashArray: "6 6", interactive: false }).addTo(lg);
+          return;
+        }
+        fitGently(m, L.latLngBounds(path).extend(dest), true);
+        // white casing under the red line keeps the route readable on the orthophoto
+        const casing = L.polyline([], { color: "#fff", weight: 8, opacity: 0.9, lineCap: "round", lineJoin: "round", interactive: false }).addTo(lg);
+        const line = L.polyline([], { color: "#C8102E", weight: 4.5, lineCap: "round", lineJoin: "round", interactive: false }).addTo(lg);
+        drawPath([casing, line], path, ctrl.signal, () => {
+          // the last metres from the street to the AED itself (routes snap to the nearest footway)
+          L.polyline([path[path.length - 1], dest], { color: "#C8102E", weight: 3, dashArray: "2 6", lineCap: "round", interactive: false }).addTo(lg);
+        });
+      })
+      .catch(() => {});
+    return () => ctrl.abort();
   }, [selected, origin]);
 
   useEffect(() => {
