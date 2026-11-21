@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Pokaż AED – design tokens
+   White is the primary surface; medical red = emergency/brand; hospital navy =
+   trust/information; AED green only for "available/open" status.
+   Border radius is capped at 4px across the whole UI.
+--------------------------------------------------------------------------- */
+@theme {
+  --font-sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --color-brand: #c8102e;        /* ratowniczy czerwony */
+  --color-brand-dark: #a00d25;
+  --color-brand-soft: #fdecee;
+  --color-navy: #0b3d91;         /* szpitalny granat */
+  --color-navy-dark: #082c6c;
+  --color-navy-soft: #e8eef9;
+  --color-ok: #0f7b3f;           /* zieleń AED (ISO 7010) */
+  --color-ok-soft: #e7f5ec;
+  --color-warn: #9a5b00;
+  --color-warn-soft: #fff4e0;
+  --color-ink: #101828;
+  --color-muted: #475467;
+  --color-line: #d0d5dd;
+  --color-surface: #f5f7fa;
+
+  --radius-*: initial;
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+  --radius: 4px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
+  --radius-full: 4px;
+}
+
+@layer base {
+  html { color: var(--color-ink); background: #fff; -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--font-sans); font-feature-settings: "cv11", "ss01"; }
+  :focus-visible { outline: 3px solid var(--color-navy); outline-offset: 2px; }
+  ::selection { background: var(--color-navy-soft); }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 min-h-[44px]; }
+  .btn-primary { @apply bg-brand text-white hover:bg-brand-dark; }
+  .btn-navy { @apply bg-navy text-white hover:bg-navy-dark; }
+  .btn-outline { @apply border border-line bg-white text-ink hover:bg-surface; }
+  .btn-ghost { @apply text-navy hover:bg-navy-soft; }
+  .card { @apply rounded border border-line bg-white; }
+  .label { @apply mb-1.5 block text-sm font-semibold text-ink; }
+  .input { @apply block w-full rounded border border-line bg-white px-3 py-2.5 text-sm text-ink placeholder:text-muted/70 focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/25 min-h-[44px]; }
+  .badge { @apply inline-flex items-center gap-1 rounded-sm px-1.5 py-0.5 text-xs font-semibold; }
+  .h-section { @apply text-2xl font-bold tracking-tight text-ink sm:text-3xl; }
+  .eyebrow { @apply text-xs font-bold uppercase tracking-[0.12em] text-brand; }
+}
+
+/* Leaflet tweaks: square clusters, consistent with the 4px radius system */
+.leaflet-container { font-family: var(--font-sans); background: #eef1f5; }
+.aed-cluster { display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700;
+  font-size: 12px; background: var(--color-navy); border: 2px solid #fff; border-radius: 4px;
+  box-shadow: 0 1px 3px rgb(16 24 40 / 0.35); }
+.aed-cluster.lg { background: var(--color-navy-dark); }
+.aed-pin { filter: drop-shadow(0 1px 1.5px rgb(16 24 40 / 0.45)); }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { border-radius: 4px; }
+.leaflet-bar a, .leaflet-bar { border-radius: 4px !important; }
