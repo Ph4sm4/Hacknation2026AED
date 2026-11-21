@@ -405,3 +405,4 @@ aggregate_fields:
   - {name: dostep_24h, type: boolean, label: "Dostęp całodobowy", description: "Wyliczane z godzin dostępności."}
   - {name: wskaznik_jakosci, type: integer, label: "Wskaźnik jakości (0–100)", description: "Kompletność, aktualność i potwierdzenie przez wiele źródeł."}
   - {name: problemy_jakosci, type: string, label: "Problemy jakości", description: "Lista wykrytych problemów (oddzielone „|”)."}
+  - {name: adres_zrodlo, type: string, label: "Pochodzenie adresu", description: "„źródło rekordu” albo „PRG GUGiK – najbliższy punkt adresowy (N m)”, gdy adres wyznaczono automatycznie z państwowego rejestru adresów, bo źródło go nie podało."}

@@ -13,6 +13,7 @@ from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
 
+from . import coverage, geocode
 from . import normalize as N
 from .geo import GridIndex, voivodeship
 from .schema import ROOT, load_schema
@@ -118,6 +119,9 @@ def run() -> dict:
 
     records = merged_official + osm_rest
 
+    # --- enrich: missing address + gmina from GUGiK (cached, see aed.geocode); official export stays as published
+    geocode.apply(records)
+
     # --- enrich + score
     for r in records:
         if not r["wojewodztwo"]:
@@ -132,6 +136,8 @@ def run() -> dict:
             r["wojewodztwo"] = voivodeship(r["szerokosc_geograficzna"], r["dlugosc_geograficzna"])
 
     stats = build_stats(records, official, matches, src_by_key)
+    stats["pokrycie"] = coverage.build(records)
+    stats["adresy_z_prg"] = sum(1 for r in records if r["adres_zrodlo"].startswith(geocode.SOURCE_LABEL))
     export(records, official, stats, schema)
     return stats
 
@@ -226,6 +232,9 @@ def main() -> None:
           f"połączone {s['matched_official_osm']} · śr. jakość {s['avg_quality']}")
     print("Województwa:", s["per_voivodeship"])
     print("Problemy:", s["problems"])
+    p = s.get("pokrycie") or {}
+    print(f"Adresy z PRG GUGiK: {s['adresy_z_prg']} · gminy bez AED: {p.get('gminy_bez_aed')}/{p.get('gminy')} · "
+          f"AED bez gminy: {p.get('aed_bez_gminy')} · powiaty na mapie: {p.get('powiaty_na_mapie')}")
 
 
 if __name__ == "__main__":

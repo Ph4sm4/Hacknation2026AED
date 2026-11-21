@@ -15,12 +15,12 @@ export default function CampaignPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-line bg-white">
+      <section className="relative overflow-hidden bg-white">
         <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-brand lg:block" aria-hidden />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 lg:grid-cols-2 lg:py-20">
           <div className="flex flex-col justify-center">
             <p className="eyebrow">Akcja społeczna · dane.gov.pl</p>
-            <h1 className="mt-3 text-5xl font-extrabold leading-[1.02] tracking-tight text-navy sm:text-6xl">
+            <h1 className="mt-5 text-5xl font-extrabold leading-[1.02] tracking-[-0.035em] text-ink sm:text-6xl">
               Gdzie<span className="text-brand">AED</span>?
               <br />
               Każda minuta
@@ -39,7 +39,7 @@ export default function CampaignPage() {
                 Zobacz wzorcowy zakres
               </Link>
             </div>
-            <p className="mt-6 font-bold text-navy">#GdzieAED</p>
+            <p className="mt-8 text-2xl font-black tracking-[-0.03em] text-brand">#GdzieAED</p>
           </div>
           <div className="flex items-center justify-center lg:justify-end">
             <div className="flex aspect-square w-full max-w-[420px] flex-col items-center justify-center gap-6 bg-brand p-10 text-white lg:bg-transparent">
@@ -53,8 +53,8 @@ export default function CampaignPage() {
       </section>
 
       {/* Numbers */}
-      <section className="border-b border-line bg-navy text-white" aria-label="Skala problemu">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-3">
+      <section className="bg-ink text-white" aria-label="Skala problemu">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-3">
           <Num value={s ? fmt.format(s.total) : "…"} label="defibrylatorów zebraliśmy z rozproszonych źródeł" />
           <Num value={s ? fmt.format(s.official_records) : "…"} label="z nich pochodzi z oficjalnych danych dysponentów w dane.gov.pl" accent />
           <Num value={s ? `${Math.round((100 * s.missing_hours) / s.total)}%` : "…"} label="nie ma informacji, w jakich godzinach AED jest dostępne" />
@@ -77,7 +77,7 @@ export default function CampaignPage() {
           ].map(([Icon, t, d]) => {
             const I = Icon as typeof Clock;
             return (
-              <div key={t as string} className="border-t-4 border-brand pt-4">
+              <div key={t as string} className="rounded-2xl bg-surface p-5">
                 <I className="h-7 w-7 text-brand" aria-hidden />
                 <h3 className="mt-3 text-lg font-bold">{t as string}</h3>
                 <p className="mt-1 text-sm text-muted">{d as string}</p>
@@ -88,7 +88,7 @@ export default function CampaignPage() {
       </section>
 
       {/* Steps */}
-      <section className="border-y border-line bg-surface">
+      <section className="bg-surface">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <h2 className="h-section">Trzy kroki dla dysponenta</h2>
           <ol className="mt-8 grid gap-6 md:grid-cols-3">
@@ -98,7 +98,7 @@ export default function CampaignPage() {
               ["Opublikuj w dane.gov.pl", "Otrzymujesz plik XML harwestera – portal sam pobiera aktualizacje."],
             ].map(([t, d], i) => (
               <li key={t} className="card p-6">
-                <span className="text-5xl font-extrabold text-brand">{i + 1}</span>
+                <span className="text-[15px] font-medium tabular-nums text-brand">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-2 text-lg font-bold">{t}</h3>
                 <p className="mt-1 text-sm text-muted">{d}</p>
               </li>
@@ -118,7 +118,7 @@ export default function CampaignPage() {
                 Wolontariusze OpenStreetMap zmapowali tysiące urządzeń i wskazali ich dysponentów. To gotowa lista instytucji do zaproszenia – ich dane wystarczy
                 potwierdzić i opublikować jako oficjalne.
               </p>
-              <div className="mt-6 flex items-center gap-3 rounded border-l-4 border-brand bg-brand-soft p-4">
+              <div className="mt-6 flex items-center gap-3 rounded-2xl bg-brand-soft p-4">
                 <HeartPulse className="h-6 w-6 shrink-0 text-brand" aria-hidden />
                 <p className="text-sm font-semibold text-ink">Jedna instytucja = dziesiątki AED w otwartych danych w jeden dzień.</p>
               </div>
@@ -137,7 +137,7 @@ export default function CampaignPage() {
       )}
 
       {/* Brand */}
-      <section className="border-t border-line bg-white">
+      <section className="bg-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-12 md:flex-row md:items-center">
           <div>
             <h2 className="text-2xl font-bold">Materiały akcji</h2>
@@ -165,9 +165,9 @@ export default function CampaignPage() {
 
 function Num({ value, label, accent }: { value: string; label: string; accent?: boolean }) {
   return (
-    <div className={`border-l-4 pl-4 ${accent ? "border-brand" : "border-white/40"}`}>
-      <p className="text-5xl font-extrabold tabular-nums tracking-tight">{value}</p>
-      <p className="mt-1 text-sm text-white/85">{label}</p>
+    <div>
+      <p className={`text-5xl font-extrabold leading-none tabular-nums tracking-[-0.035em] sm:text-6xl ${accent ? "text-brand" : "text-white"}`}>{value}</p>
+      <p className="mt-3 max-w-xs text-sm text-white/75">{label}</p>
     </div>
   );
 }

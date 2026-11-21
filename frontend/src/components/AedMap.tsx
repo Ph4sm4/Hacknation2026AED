@@ -1,7 +1,8 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet.markercluster";
-import { useEffect, useRef } from "react";
+import { Layers } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { Point } from "../lib/api";
 
 type Props = {
@@ -42,6 +43,30 @@ function iconFor(flags: number, big = false) {
   return icon;
 }
 
+type Base = "satellite" | "map";
+const BASE_KEY = "gdzieaed.map-base";
+const BASE_LABEL: Record<Base, string> = { satellite: "Satelita", map: "Mapa" };
+
+function savedBase(): Base {
+  try {
+    return localStorage.getItem(BASE_KEY) === "map" ? "map" : "satellite";
+  } catch {
+    return "satellite";
+  }
+}
+
+/** URL of the single tile under the map centre – the live thumbnail of the *other* base layer. */
+function previewTile(base: Base, lat: number, lon: number, zoom: number): string {
+  const z = Math.max(3, Math.min(18, Math.round(zoom) - 1));
+  const n = 2 ** z;
+  const x = Math.floor(((lon + 180) / 360) * n);
+  const r = (lat * Math.PI) / 180;
+  const y = Math.floor(((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2) * n);
+  return base === "satellite"
+    ? `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`
+    : `https://tile.openstreetmap.org/${z}/${x}/${y}.png`;
+}
+
 export default function AedMap({ points, origin, selected, highlight, onSelect, onPickOrigin, fitTo }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
@@ -50,20 +75,50 @@ export default function AedMap({ points, origin, selected, highlight, onSelect, 
   const selMarker = useRef<L.Marker | null>(null);
   const hlLayer = useRef<L.LayerGroup | null>(null);
   const pendingFit = useRef<L.LatLngBounds | null>(null);
+  const bases = useRef<Record<Base, L.Layer> | null>(null);
+  const [base, setBase] = useState<Base>(savedBase);
+  const [thumb, setThumb] = useState("");
   const cbs = useRef({ onSelect, onPickOrigin });
   cbs.current = { onSelect, onPickOrigin };
 
   useEffect(() => {
     if (!el.current || map.current) return;
-    const m = L.map(el.current, { zoomControl: false, preferCanvas: true }).setView(origin, 15);
-    L.control.zoom({ position: "bottomleft", zoomInTitle: "Przybliż", zoomOutTitle: "Oddal" }).addTo(m);
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
+    const m = L.map(el.current, { zoomControl: false, preferCanvas: true, maxZoom: 20 }).setView(origin, 15);
+    L.control.zoom({ position: "bottomright", zoomInTitle: "Przybliż", zoomOutTitle: "Oddal" }).addTo(m);
+
+    // Satellite (default): official orthophoto of Poland from GUGiK (Geoportal WMS) + street / place labels
+    const ortho = L.tileLayer.wms("https://mapy.geoportal.gov.pl/wss/service/PZGIK/ORTO/WMS/StandardResolution", {
+      layers: "Raster",
+      format: "image/jpeg",
+      version: "1.3.0",
+      maxZoom: 20,
+      attribution: 'Ortofotomapa © <a href="https://www.geoportal.gov.pl">GUGiK</a>',
+    });
+    const esri = (name: string) =>
+      L.tileLayer(`https://server.arcgisonline.com/ArcGIS/rest/services/Reference/${name}/MapServer/tile/{z}/{y}/{x}`, {
+        maxZoom: 20,
+        maxNativeZoom: 19,
+        attribution: "Opisy © Esri",
+      });
+    const satellite = L.layerGroup([ortho, esri("World_Transportation"), esri("World_Boundaries_and_Places")]);
+    const streets = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 20,
+      maxNativeZoom: 19,
       attribution: '© <a href="https://www.openstreetmap.org/copyright">współtwórcy OpenStreetMap</a>',
-    }).addTo(m);
+    });
+    bases.current = { satellite, map: streets };
+    bases.current[base].addTo(m);
+    // AED data attribution stays visible on every base layer
+    m.attributionControl.addAttribution('AED: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> (ODbL), dane.gov.pl');
     m.on("click", (e: L.LeafletMouseEvent) => cbs.current.onPickOrigin(e.latlng.lat, e.latlng.lng));
     hlLayer.current = L.layerGroup().addTo(m);
     map.current = m;
+    const updateThumb = () => {
+      const c = m.getCenter();
+      setThumb(previewTile(m.hasLayer(satellite) ? "map" : "satellite", c.lat, c.lng, m.getZoom()));
+    };
+    m.on("moveend", updateThumb);
+    updateThumb();
     // The map may be created inside a hidden container (mobile "Lista" tab) – keep its size in sync
     // and apply a deferred fit once it becomes visible.
     const ro = new ResizeObserver(() => {
@@ -156,5 +211,41 @@ export default function AedMap({ points, origin, selected, highlight, onSelect, 
     }
   }, [selected, origin]);
 
-  return <div ref={el} className="h-full w-full" role="region" aria-label="Mapa defibrylatorów AED. Lista najbliższych urządzeń jest dostępna w panelu obok." />;
+  // Google-Maps-style switch: a live thumbnail of the other base layer, bottom-left
+  const toggleBase = useCallback(() => {
+    const m = map.current;
+    const b = bases.current;
+    if (!m || !b) return;
+    const next: Base = base === "satellite" ? "map" : "satellite";
+    m.removeLayer(b[base]);
+    b[next].addTo(m);
+    setBase(next);
+    const c = m.getCenter();
+    setThumb(previewTile(base, c.lat, c.lng, m.getZoom()));
+    try {
+      localStorage.setItem(BASE_KEY, next);
+    } catch {
+      /* storage unavailable – choice lasts for this visit */
+    }
+  }, [base]);
+
+  const other: Base = base === "satellite" ? "map" : "satellite";
+  return (
+    <div className="relative h-full w-full">
+      <div ref={el} className="h-full w-full" role="region" aria-label="Mapa defibrylatorów AED. Lista najbliższych urządzeń jest dostępna w panelu obok." />
+      <button
+        type="button"
+        onClick={toggleBase}
+        aria-label={`Przełącz widok mapy na: ${BASE_LABEL[other]}`}
+        title={BASE_LABEL[other]}
+        className="group absolute bottom-6 left-4 z-[1000] h-[84px] w-[84px] overflow-hidden rounded-2xl border-[3px] border-white bg-ink/40 shadow-[0_2px_10px_rgb(11_11_12/0.35)] transition-transform duration-200 hover:scale-[1.04] focus-visible:outline-offset-4"
+      >
+        {thumb && <img src={thumb} alt="" className="absolute inset-0 h-full w-full scale-125 object-cover" draggable={false} />}
+        <span className="absolute inset-x-0 bottom-0 flex items-center gap-1.5 bg-gradient-to-t from-black/75 via-black/40 to-transparent px-2 pb-1.5 pt-5 text-[12px] font-semibold text-white">
+          <Layers className="h-3.5 w-3.5 shrink-0" aria-hidden />
+          {BASE_LABEL[other]}
+        </span>
+      </button>
+    </div>
+  );
 }

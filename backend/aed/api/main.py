@@ -10,12 +10,15 @@ import json
 import os
 import re
 import secrets
+from datetime import date
+from functools import lru_cache
 from pathlib import Path
 from typing import Literal
 
 from fastapi import Depends, FastAPI, File, Form, HTTPException, Query, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, Response
+from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, PlainTextResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -24,7 +27,7 @@ from ..build_schema import build_jsonschema, build_tableschema
 from ..pipeline import OUT
 from ..schema import ROOT
 from ..validator import records_to_csv, validate_file
-from . import auth, db
+from . import alerts, auth, db
 from .store import schema, store, to_csv, to_geojson
 
 app = FastAPI(
@@ -34,6 +37,24 @@ app = FastAPI(
     docs_url="/api/docs", openapi_url="/api/openapi.json", redoc_url=None,
 )
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+app.include_router(alerts.router)
+app.add_middleware(GZipMiddleware, minimum_size=1024)
+
+
+@app.middleware("http")
+async def _seo_headers(request: Request, call_next):
+    """Caching and indexing hints: hashed assets are immutable, HTML is revalidated,
+    JSON API answers stay out of search results (downloadable datasets and schema files stay indexable)."""
+    response = await call_next(request)
+    path = request.url.path
+    if path.startswith("/assets/"):
+        response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+    elif path.startswith("/api/"):
+        if not path.startswith(("/api/download/", "/api/schema/")):
+            response.headers["X-Robots-Tag"] = "noindex"
+    elif response.headers.get("content-type", "").startswith("text/html"):
+        response.headers["Cache-Control"] = "no-cache"
+    return response
 
 FRONTEND = Path(os.environ.get("AED_FRONTEND", ROOT / "frontend" / "dist"))
 MAX_UPLOAD = 10 * 1024 * 1024
@@ -113,7 +134,7 @@ def get_aed(aed_id: str):
         raise HTTPException(404, "Nie znaleziono AED")
     with db.connect() as c:
         reps = [dict(x) for x in c.execute(
-            "SELECT kind, comment, created_at FROM reports WHERE aed_id=? ORDER BY id DESC LIMIT 20", (aed_id,))]
+            "SELECT kind, comment, status, created_at FROM reports WHERE aed_id=? ORDER BY id DESC LIMIT 20", (aed_id,))]
     return {**store.with_live(r), "zgloszenia": reps}
 
 
@@ -131,6 +152,75 @@ def report(aed_id: str, body: ReportIn):
     return {"ok": True}
 
 
+# ============================================================================ moderation
+REPORT_STATUS = Literal["nowe", "przyjete", "odrzucone"]
+
+
+def _aed_summary(aed_id: str) -> dict | None:
+    r = store.by_id.get(aed_id)
+    if not r:
+        return None
+    adres = " ".join(x for x in (r["ulica"], r["nr_budynku"]) if x)
+    return {
+        "id": r["id"], "nazwa": r["nazwa"] or r["lokalizacja_opis"] or "Defibrylator AED",
+        "adres": ", ".join(x for x in (adres, r["miejscowosc"]) if x), "lokalizacja_opis": r["lokalizacja_opis"],
+        "lat": r["szerokosc_geograficzna"], "lon": r["dlugosc_geograficzna"], "wojewodztwo": r["wojewodztwo"],
+        "dysponent_nazwa": r["dysponent_nazwa"], "kontakt_email": r["kontakt_email"],
+        "kontakt_telefon": r["kontakt_telefon"], "zrodla": r["zrodla"], "osm_id": r["osm_id"],
+    }
+
+
+@app.get("/api/moderation/reports", tags=["moderacja"], summary="Kolejka zgłoszeń mieszkańców")
+def moderation_queue(status: REPORT_STATUS | Literal["wszystkie"] = "nowe", limit: int = Query(100, ge=1, le=500),
+                     _: dict = Depends(auth.require_moderator)):
+    with db.connect() as c:
+        counts = {r[0]: r[1] for r in c.execute("SELECT status, COUNT(*) FROM reports GROUP BY status")}
+        where, args = ("", ()) if status == "wszystkie" else ("WHERE r.status=?", (status,))
+        rows = [dict(x) for x in c.execute(
+            "SELECT r.id, r.aed_id, r.kind, r.comment, r.status, r.created_at, r.moderator_note, r.moderated_at, "
+            "u.email AS moderated_by FROM reports r LEFT JOIN users u ON u.id = r.moderated_by "
+            f"{where} ORDER BY r.id DESC LIMIT ?", (*args, limit))]
+        pending = {r[0]: r[1] for r in c.execute(
+            "SELECT aed_id, COUNT(*) FROM reports WHERE status='nowe' GROUP BY aed_id")}
+    for r in rows:
+        r["aed"] = _aed_summary(r["aed_id"])
+        r["inne_nowe_dla_aed"] = max(0, pending.get(r["aed_id"], 0) - (r["status"] == "nowe"))
+    return {"counts": {k: counts.get(k, 0) for k in ("nowe", "przyjete", "odrzucone")}, "data": rows}
+
+
+class ModerationIn(BaseModel):
+    status: REPORT_STATUS
+    note: str = Field("", max_length=500)
+
+
+@app.post("/api/moderation/reports/{report_id}", tags=["moderacja"], summary="Przyjmij / odrzuć zgłoszenie")
+def moderate(report_id: int, body: ModerationIn, user: dict = Depends(auth.require_moderator)):
+    with db.connect() as c:
+        n = c.execute("UPDATE reports SET status=?, moderator_note=?, moderated_at=datetime('now'), moderated_by=? "
+                      "WHERE id=?", (body.status, body.note.strip(), user["id"], report_id)).rowcount
+    if not n:
+        raise HTTPException(404, "Nie ma takiego zgłoszenia")
+    store.load_moderation()
+    return {"ok": True, "id": report_id, "status": body.status}
+
+
+# ============================================================================ coverage
+@app.get("/api/coverage", tags=["pokrycie"], summary="Pokrycie AED w gminach (ranking, białe plamy)")
+def coverage():
+    f = OUT / "pokrycie_gmin.json"
+    if not f.exists():
+        raise HTTPException(404, "Brak danych o pokryciu – uruchom pipeline (make data)")
+    return JSONResponse(json.loads(f.read_text(encoding="utf-8")))
+
+
+@app.get("/api/coverage/powiaty.geojson", tags=["pokrycie"], summary="Pokrycie AED w powiatach (mapa)")
+def coverage_counties():
+    f = OUT / "pokrycie_powiatow.geojson"
+    if not f.exists():
+        raise HTTPException(404, "Brak danych o pokryciu – uruchom pipeline (make data)")
+    return FileResponse(f, media_type="application/geo+json")
+
+
 DOWNLOADS = {
     "aed_polska.csv": ("aed_polska.csv", "text/csv; charset=utf-8"),
     "aed_polska.xlsx": ("aed_polska.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"),
@@ -138,6 +228,7 @@ DOWNLOADS = {
     "aed_polska.json": ("aed_polska.json", "application/json"),
     "oficjalne.csv": ("aed_oficjalne.csv", "text/csv; charset=utf-8"),
     "statystyki.json": ("statystyki.json", "application/json"),
+    "pokrycie_gmin.csv": ("pokrycie_gmin.csv", "text/csv; charset=utf-8"),
 }
 
 
@@ -265,7 +356,8 @@ def register(body: RegisterIn):
                         (body.email.lower(), auth.hash_password(body.password), body.organization.strip(), body.regon))
         uid = cur.lastrowid
     return {"token": auth.make_token(uid), "user": {"id": uid, "email": body.email.lower(),
-                                                    "organization": body.organization, "regon": body.regon}}
+                                                    "organization": body.organization, "regon": body.regon,
+                                                    "is_moderator": body.email.lower() in auth.moderator_emails()}}
 
 
 @app.post("/api/auth/login", tags=["konto"])
@@ -275,7 +367,8 @@ def login(body: LoginIn):
     if not row or not auth.verify_password(body.password, row["password_hash"]):
         raise HTTPException(401, "Nieprawidłowy e-mail lub hasło")
     return {"token": auth.make_token(row["id"]),
-            "user": {"id": row["id"], "email": row["email"], "organization": row["organization"], "regon": row["regon"]}}
+            "user": {"id": row["id"], "email": row["email"], "organization": row["organization"], "regon": row["regon"],
+                     "is_moderator": row["role"] == "moderator" or row["email"] in auth.moderator_emails()}}
 
 
 @app.get("/api/auth/me", tags=["konto"])
@@ -340,13 +433,86 @@ def claim(q: str = Query(..., min_length=3), user: dict = Depends(auth.current_u
     return {"total": len(rows), "data": [store.with_live(r) for r in rows[:200]]}
 
 
+# ============================================================================ search engines
+SITE_URL_PLACEHOLDER = "__SITE_URL__"
+
+
+def _seo_routes() -> list[dict]:
+    f = FRONTEND / "seo-routes.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else [{"path": "/", "priority": 1, "changefreq": "daily", "dataDriven": True, "noindex": False}]
+
+
+@app.get("/robots.txt", include_in_schema=False)
+def robots(request: Request):
+    base = base_url(request)
+    hidden = [r["path"] for r in _seo_routes() if r.get("noindex")]
+    lines = [
+        "# GdzieAED – mapa defibrylatorów AED i otwarte dane",
+        "User-agent: *",
+        "Allow: /",
+        # datasets and the data standard are meant to be found (e.g. Google Dataset Search)
+        "Allow: /api/download/",
+        "Allow: /api/schema/",
+        "Disallow: /api/",
+        *[f"Disallow: {p}" for p in hidden],
+        "",
+        f"Sitemap: {base}/sitemap.xml",
+        "",
+    ]
+    return PlainTextResponse("\n".join(lines), headers={"Cache-Control": "public, max-age=86400"})
+
+
+def _mtime(f: Path) -> str | None:
+    return date.fromtimestamp(f.stat().st_mtime).isoformat() if f.exists() else None
+
+
+@app.get("/sitemap.xml", include_in_schema=False)
+def sitemap(request: Request):
+    base = base_url(request)
+    built = _mtime(FRONTEND / "seo-routes.json") or date.today().isoformat()
+    data = _mtime(OUT / "aed_polska.json") or built
+    urls = []
+    for r in _seo_routes():
+        if r.get("noindex"):
+            continue
+        lastmod = max(data, built) if r.get("dataDriven") else built
+        urls.append(
+            f"  <url><loc>{base}{r['path']}</loc><lastmod>{lastmod}</lastmod>"
+            f"<changefreq>{r['changefreq']}</changefreq><priority>{r['priority']:.1f}</priority></url>"
+        )
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(urls) + "\n</urlset>\n"
+    return Response(xml, media_type="application/xml", headers={"Cache-Control": "public, max-age=3600"})
+
+
 # ============================================================================ frontend (SPA)
+@lru_cache(maxsize=64)
+def _page(file: str, base: str, mtime: float) -> str:
+    # pre-rendered route HTML with absolute URLs (canonical, og:url, og:image, JSON-LD) on the public origin
+    return Path(file).read_text(encoding="utf-8").replace(SITE_URL_PLACEHOLDER, base)
+
+
+def _html(f: Path, request: Request, status: int = 200) -> HTMLResponse:
+    return HTMLResponse(_page(str(f), base_url(request), f.stat().st_mtime), status_code=status)
+
+
 if FRONTEND.exists():
     app.mount("/assets", StaticFiles(directory=FRONTEND / "assets"), name="assets")
+    # route list comes from the build; an older build without it keeps the plain SPA behaviour (all paths → 200)
+    ROUTE_PATHS = {r["path"] for r in _seo_routes()} if (FRONTEND / "seo-routes.json").exists() else None
 
     @app.get("/{path:path}", include_in_schema=False)
-    def spa(path: str):
+    def spa(path: str, request: Request):
         f = FRONTEND / path
         if path and f.is_file() and FRONTEND in f.resolve().parents:
+            if f.suffix == ".html":
+                return _html(f, request)
             return FileResponse(f)
-        return FileResponse(FRONTEND / "index.html")
+        route = "/" + path.strip("/")
+        if ROUTE_PATHS is None or route in ROUTE_PATHS:
+            page = FRONTEND / path.strip("/") / "index.html" if route != "/" else FRONTEND / "index.html"
+            return _html(page if page.is_file() else FRONTEND / "index.html", request)
+        if path.startswith("api/"):
+            raise HTTPException(404, "Nieznany zasób API")
+        # unknown address: the app still renders its "not found" view, but crawlers get a real 404 + noindex
+        not_found = FRONTEND / "404.html"
+        return _html(not_found if not_found.is_file() else FRONTEND / "index.html", request, status=404)

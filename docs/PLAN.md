@@ -64,7 +64,8 @@ data/sources/*  ──►  adapters (sources.py) ──► universal validator (
 ### Design system
 
 - White primary surface. **Medical red** `#C8102E` (brand / emergency / CTAs), **hospital navy** `#0B3D91` (information, navigation). **AED green** `#0F7B3F` only for the "available / 24/7" status.
-- **Border radius capped at 4px**: Tailwind radius scale is reset in `frontend/src/index.css` (`--radius-*`). Clusters, badges and pins are square or near-square.
+- **Swiss / International style** (since 21.11.2026): black typography on a 12-column grid, red as the single action colour, display headlines, rules instead of shadows.
+- **Soft geometry**: buttons, inputs, badges and map clusters are pill-shaped (`rounded-full`), panels and maps 12–16px. Radius scale in `frontend/src/index.css` (`--radius-*`) and `mobile/constants/aed-theme.ts` (`radius`, `pill`). This replaces the earlier 4px cap.
 - Every password input has an **eye toggle** (`PasswordInput` in `components/ui.tsx`, `aria-pressed`, label "Pokaż/Ukryj hasło").
 - WCAG: skip link, visible focus ring, 44px touch targets, list alternative to the map, `aria-live` results, labels on all inputs, `prefers-reduced-motion`, `lang="pl"`.
 

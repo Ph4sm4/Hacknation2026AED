@@ -17,7 +17,11 @@
 | **Eksport do dane.gov.pl** – XML harwestera `urn:otwarte-dane:harvester:1.13` walidowany względem oficjalnego XSD + DCAT-AP (JSON-LD) | [`backend/aed/publish.py`](backend/aed/publish.py), [`vendor/dane-gov-pl/`](vendor/dane-gov-pl) |
 | **REST API** (OpenAPI) | `/api/docs` |
 | **Aplikacja web** (WCAG 2.2, responsywna): mapa „Znajdź AED”, dane otwarte, standard, portal dysponenta, strona akcji | [`frontend/`](frontend) |
-| **Aplikacja mobilna mObywatelAED** (iOS, Expo): przycisk alarmowy, mapa najbliższych AED, prowadzenie w Google Maps, 112, Siri, tryb offline | [`mobile/`](mobile) |
+| **Geokodowanie odwrotne z PRG GUGiK**: adres i gmina dla rekordów bez adresu, z jawnym oznaczeniem pochodzenia | [`backend/aed/geocode.py`](backend/aed/geocode.py) |
+| **Mapa białych plam i ranking gmin**: AED na 10 tys. mieszkańców (ludność GUS 2024), gminy bez AED | `/pokrycie`, [`backend/aed/coverage.py`](backend/aed/coverage.py) |
+| **Panel moderacji zgłoszeń**: przyjęte zgłoszenie „brak urządzenia” usuwa AED z wyszukiwania najbliższych | `/moderacja` |
+| **Alarm „potrzebny AED” do ratowników w promieniu 1 km**: tryb ratownika, inteligentne role (przynieś AED / pomóż na miejscu), odpowiedzi na żywo | [`backend/aed/api/alerts.py`](backend/aed/api/alerts.py), `mobile/` |
+| **Aplikacja mobilna mObywatelAED** (iOS, Expo): przycisk alarmowy, mapa satelitarna najbliższych AED, trasa piesza (Apple Maps) i nawigacja w Google Maps, metronom RKO, 112, Siri i Przycisk czynności, tryb offline | [`mobile/`](mobile) |
 | **Logotyp** (SVG, PNG, JPG, PDF) i **księga znaku** (PDF) | [`branding/out/`](branding/out) |
 | Zrzuty ekranu do prezentacji | [`docs/screenshots/`](docs/screenshots) |
 | Plan, architektura i decyzje projektowe | [`docs/PLAN.md`](docs/PLAN.md) |
@@ -48,6 +52,15 @@
 2. Widzi przycisk **Zadzwoń 112**, mapę satelitarną z najbliższymi AED i kartę najbliższego urządzenia (miejsce zawieszenia, odległość, czas dojścia, dostępność).
 3. Klika **„Prowadź do AED”**, a Google Maps otwiera trasę pieszą. Komenda Siri „take me to the nearest AED with mObywatelAED” od razu uruchamia nawigację.
 4. Bez internetu aplikacja liczy najbliższe AED z wbudowanej kopii zbioru.
+
+**Społeczność ratowników (aplikacja mobilna)**
+1. Osoba przy poszkodowanym dzwoni 112 i wybiera **„Wezwij ratowników w pobliżu”**. Jej współrzędne, adres (PRG GUGiK) i najbliższy AED trafiają do osób z włączonym trybem ratownika w promieniu 1 km.
+2. Ratownik dostaje powiadomienie z zadaniem. Jeśli jest bliżej AED niż poszkodowanego: „Weź AED z … i zanieś do …”, z nawigacją przez AED. W przeciwnym razie: „Idź do poszkodowanego i pomóż przy uciskaniu”.
+3. Ratownik odpowiada („Przynoszę AED”, „Idę na miejsce”, „Nie mogę”), a osoba wzywająca widzi na żywo, ile osób jest w drodze i kto niesie AED. Alarm można odwołać lub zakończyć; wygasa po 30 minutach.
+
+**Gmina / koordynator akcji (`/pokrycie`)**: widzi mapę powiatów i ranking gmin według liczby AED na 10 tys. mieszkańców, filtruje gminy bez AED i pobiera ranking w CSV, żeby wiedzieć, kogo zaprosić do akcji w pierwszej kolejności.
+
+**Moderator (`/moderacja`)**: przegląda zgłoszenia mieszkańców (brak urządzenia, uszkodzony, zamknięty, potwierdzenie), przyjmuje je lub odrzuca z notatką i pisze do dysponenta. Uprawnienia: `python -m aed.api.moderators add e-mail` albo zmienna `AED_MODERATORS`.
 
 **Integrator / portal (`/dane`, `/api/docs`)**: pobiera zbiór w CSV, XLSX, JSON lub GeoJSON albo korzysta z API (wyszukiwanie, najbliższe AED, filtrowanie, bbox).
 
@@ -84,6 +97,15 @@ Testy (13: walidator na prawdziwych plikach z dane.gov.pl, XML vs oficjalny XSD,
 make test
 ```
 
+### Widoczność w wyszukiwarkach (SEO)
+
+- **Metadane podstron.** Tytuł, opis, adres kanoniczny, Open Graph i Twitter, JSON-LD dla każdej podstrony są w jednym pliku: [`frontend/src/lib/seo.ts`](frontend/src/lib/seo.ts). Rodzaje JSON-LD: `WebSite`, `WebPage`, `HowTo` dla instrukcji AED i `Dataset` dla obu zbiorów, co pozwala trafić do Google Dataset Search.
+- **HTML generowany przy budowaniu.** `npm run build` zapisuje osobny plik HTML dla każdej podstrony z gotowym `<head>` i treścią w `<noscript>`. Podgląd linku na Facebooku, LinkedIn czy Slacku działa więc bez JavaScriptu. Do tego powstają `404.html` (`noindex`) i `seo-routes.json`.
+- **robots.txt i sitemap.xml.** API generuje je na bieżąco. Indeksowane są strony serwisu oraz pliki z `/api/download/` i `/api/schema/`. Pozostałe `/api/` i panel moderacji są wykluczone. Nieznany adres zwraca prawdziwe 404.
+- **Adres serwisu.** Na produkcji ustaw `PUBLIC_BASE_URL=https://twoja-domena.pl`. Na nim powstają adresy kanoniczne, mapa witryny i obrazek podglądu. Bez tej zmiennej API użyje adresu z zapytania.
+- **Weryfikacja domeny.** Opcjonalnie ustaw `GOOGLE_SITE_VERIFICATION` lub `BING_SITE_VERIFICATION` przed `npm run build`. Mapę witryny `https://twoja-domena.pl/sitemap.xml` zgłoś w Google Search Console i Bing Webmaster Tools.
+- **Obrazy.** Obrazek podglądu (1200×630) i ikony powstają ze źródeł SVG poleceniem `sh branding/seo/render.sh` (macOS, `sips`).
+
 ## Zgodność z zasadami dane.gov.pl
 
 - Formaty odczytywalne maszynowo: CSV (UTF-8, przecinek), JSON, GeoJSON, XLSX i XML. Nie używamy PDF ani DOC do udostępniania danych.
@@ -95,7 +117,10 @@ make test
 ## Ograniczenia prototypu
 
 - Źródło m.st. Warszawy (dane.gov.pl, zbiór 39512) wskazuje na API `dane.um.warszawa.pl`, które było niedostępne z sieci prototypu. 113 rekordów OSM ma już powiązanie `ref:api-um-warszawa-pl`.
-- Rekordy OSM często nie mają adresu ani miejscowości. Województwo wyznaczamy geometrycznie, a geokodowanie odwrotne (np. usługą GUGiK) to kolejny krok.
+- Rekordy OSM zwykle nie mają adresu. Uzupełniamy go z PRG GUGiK (najbliższy punkt adresowy w promieniu 100 m) i oznaczamy w polu `adres_zrodlo`. Na terenach wiejskich część punktów nie ma adresu w tym promieniu, wtedy pole zostaje puste.
+- Mapa białych plam pokazuje brak AED w otwartych danych, nie zawsze brak urządzenia w gminie.
+- Alarmy dla ratowników działają bez powiadomień push: aplikacja w trybie ratownika śledzi pozycję w tle i sprawdza alarmy przy każdej aktualizacji, a powiadomienie jest lokalne. Prawdziwy push (gdy aplikacja jest zamknięta) wymaga płatnego konta Apple Developer. Tryb ratownika zużywa więcej baterii.
+- Ratownicy nie są weryfikowani (brak szkolenia/certyfikatu w prototypie). W docelowym wdrożeniu powinna to robić np. współpraca z PRM/WCPR.
 - Kod TERC w danych Legionowa ma 6 cyfr (brak cyfry rodzaju gminy). Walidator zgłasza ostrzeżenie zamiast zgadywać.
 - Zgłoszenia obywateli i zbiory dysponentów trafiają do bazy SQLite. Brakuje jeszcze panelu moderacji i powiadomień e-mail do dysponentów.
 - Konta dysponentów nie są weryfikowane (np. przez login.gov.pl lub węzeł krajowy). W docelowym wdrożeniu powinno to być wymagane.

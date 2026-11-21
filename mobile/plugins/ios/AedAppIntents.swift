@@ -38,6 +38,18 @@ struct NavigateToNearestAedIntent: AppIntent {
 }
 
 @available(iOS 16.0, *)
+struct StartCprMetronomeIntent: AppIntent {
+  static var title: LocalizedStringResource = "Start the CPR metronome"
+  static var description = IntentDescription("Starts the chest-compression metronome (110 per minute) with sound and haptics.")
+  static var openAppWhenRun: Bool = true
+
+  func perform() async throws -> some IntentResult {
+    await openInApp("cpr")
+    return .result()
+  }
+}
+
+@available(iOS 16.0, *)
 struct AedShortcuts: AppShortcutsProvider {
   static var appShortcuts: [AppShortcut] {
     AppShortcut(
@@ -62,6 +74,16 @@ struct AedShortcuts: AppShortcutsProvider {
       ],
       shortTitle: "Navigate to AED",
       systemImageName: "figure.walk"
+    )
+    AppShortcut(
+      intent: StartCprMetronomeIntent(),
+      phrases: [
+        "Start CPR in \(.applicationName)",
+        "Start the CPR metronome in \(.applicationName)",
+        "\(.applicationName) CPR",
+      ],
+      shortTitle: "CPR metronome",
+      systemImageName: "heart.fill"
     )
   }
 }

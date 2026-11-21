@@ -117,3 +117,69 @@ def test_holder_flow(client):
     csv_text = client.get(f"/api/holder/submissions/{s.json()['id']}/data.csv").text
     assert csv_text.count("\n") == 9  # header + 8 rows
     assert client.post("/api/auth/login", json={"email": "a@b.pl", "password": "zle"}).status_code == 401
+
+
+def test_moderation_flow_hides_missing_aed(client, monkeypatch):
+    monkeypatch.setenv("AED_MODERATORS", "mod@gdzieaed.pl")
+    # a citizen report on the nearest AED
+    near = client.get("/api/aed/nearest", params={"lat": 52.2289, "lon": 21.0034, "k": 3}).json()["data"]
+    target = near[0]["id"]
+    assert client.post(f"/api/aed/{target}/reports", json={"kind": "brak_urzadzenia", "comment": "Szafka pusta"}).status_code == 201
+
+    # a plain holder account cannot moderate
+    holder = client.post("/api/auth/register", json={"email": "h@b.pl", "password": "Haslo1234", "organization": "Firma", "regon": ""})
+    hh = {"Authorization": f"Bearer {holder.json()['token']}"}
+    assert client.get("/api/moderation/reports", headers=hh).status_code == 403
+
+    mod = client.post("/api/auth/register", json={"email": "mod@gdzieaed.pl", "password": "Haslo1234", "organization": "GdzieAED", "regon": ""})
+    assert mod.json()["user"]["is_moderator"] is True
+    mh = {"Authorization": f"Bearer {mod.json()['token']}"}
+    queue = client.get("/api/moderation/reports", headers=mh).json()
+    rep = next(r for r in queue["data"] if r["aed_id"] == target)
+    assert queue["counts"]["nowe"] >= 1 and rep["aed"]["id"] == target
+
+    assert client.post(f"/api/moderation/reports/{rep['id']}", headers=mh, json={"status": "przyjete"}).status_code == 200
+    after = client.get("/api/aed/nearest", params={"lat": 52.2289, "lon": 21.0034, "k": 3}).json()["data"]
+    assert target not in [a["id"] for a in after]  # confirmed missing device is no longer suggested
+    assert client.get(f"/api/aed/{target}").json()["zgloszony_problem"] == "brak_urzadzenia"
+
+    # reverting the decision brings it back
+    client.post(f"/api/moderation/reports/{rep['id']}", headers=mh, json={"status": "nowe"})
+    back = client.get("/api/aed/nearest", params={"lat": 52.2289, "lon": 21.0034, "k": 3}).json()["data"]
+    assert target in [a["id"] for a in back]
+
+
+def test_coverage_ranking(client):
+    from aed import gus
+    if not gus.load_gminy():
+        pytest.skip("GUS population table not extracted")
+    cov = client.get("/api/coverage").json()
+    s = cov["podsumowanie"]
+    assert s["gminy"] == len(cov["gminy"]) == 2477
+    assert s["ludnosc"] == sum(g["ludnosc"] for g in cov["gminy"])
+    assert s["gminy_bez_aed"] == sum(1 for g in cov["gminy"] if g["aed"] == 0)
+    gj = client.get("/api/coverage/powiaty.geojson").json()
+    assert gj["type"] == "FeatureCollection" and len(gj["features"]) > 300
+
+
+def test_responder_alert_roles(client):
+    near_aed = {"device_id": "resp_near_aed_0000000", "lat": 52.2350, "lon": 21.0150}
+    near_victim = {"device_id": "resp_near_victim_00000", "lat": 52.2310, "lon": 21.0060}
+    far = {"device_id": "resp_far_away_00000000", "lat": 52.27, "lon": 21.05}
+    for r in (near_aed, near_victim, far):
+        assert client.post("/api/responders/heartbeat", json=r).status_code == 200
+    a = client.post("/api/alerts", json={"device_id": "sender_000000000000000", "lat": 52.2297, "lon": 21.0122}).json()
+    assert a["recipients"] == 2 and a["aed"]
+    seen = {r["device_id"]: client.post("/api/responders/heartbeat", json=r).json()["alerts"] for r in (near_aed, near_victim, far)}
+    assert seen[far["device_id"]] == []
+    for alerts in (seen[near_aed["device_id"]], seen[near_victim["device_id"]]):
+        assert alerts[0]["id"] == a["id"] and alerts[0]["rola"] in ("przynies_aed", "pomoz_na_miejscu")
+    # whoever is closer to the AED than to the casualty is asked to bring it
+    for alerts in seen.values():
+        for x in alerts:
+            assert (x["rola"] == "przynies_aed") == (x["odleglosc_do_aed_m"] <= x["odleglosc_m"])
+    r = client.post(f"/api/alerts/{a['id']}/respond", json={"device_id": near_aed["device_id"], "response": "przynosze_aed"})
+    assert r.json()["odpowiedzi"]["przynosze_aed"] == 1
+    assert client.post("/api/alerts", json={"device_id": "sender_000000000000000", "lat": 52.2297, "lon": 21.0122}).status_code == 429
+    assert client.post(f"/api/alerts/{a['id']}/close", json={"device_id": "someone_else_000000000"}).status_code == 404
+    assert client.post(f"/api/alerts/{a['id']}/close", json={"device_id": "sender_000000000000000"}).json()["status"] == "odwolany"

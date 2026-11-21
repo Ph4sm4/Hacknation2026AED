@@ -3,7 +3,12 @@
 Makieta aplikacji mObywatel (Expo SDK 58, expo-router) z modułem **GdzieAED – najbliższy defibrylator**:
 
 - czerwony przycisk **„Nagły wypadek?”** na ekranie głównym i kafelek w zakładce **Usługi**;
-- ekran alarmowy: **Zadzwoń 112**, mapa 10 najbliższych AED, karta najbliższego urządzenia (miejsce zawieszenia, odległość, czas dojścia, dostępność 24/7) i **„Prowadź do AED”**, czyli trasa piesza w Google Maps;
+- ekran alarmowy: **Zadzwoń 112**, mapa satelitarna 10 najbliższych AED, karta najbliższego urządzenia (adres, miejsce zawieszenia, dostępność 24/7) i **„Prowadź do AED”**, czyli nawigacja piesza w Google Maps;
+- **prawdziwa trasa piesza** (Apple MapKit, moduł `modules/aed-routing`): aplikacja wyznacza trasy do 3 najbliższych AED, wybiera najbliższy *pieszo* (nie w linii prostej) i rysuje trasę na mapie;
+- **wezwij ratowników w pobliżu**: na ekranie alarmowym jeden przycisk wysyła alarm „potrzebny AED” z Twoimi współrzędnymi do osób z włączonym **trybem ratownika** w promieniu 1 km. Ratownik bliżej najbliższego AED dostaje zadanie „weź AED i zanieś”, pozostali „idź pomóc”. Odpowiedzi widać na żywo;
+- **tryb ratownika** (Usługi → Tryb ratownika): zgoda na lokalizację „Zawsze”, pozycja w tle co ok. 15 s, lokalne powiadomienie o alarmie, ekran alarmu z mapą, adresem, współrzędnymi i nawigacją (przez AED);
+- **metronom RKO**: rytm 110 uciśnięć na minutę z dźwiękiem i wibracją, licznik 30 uciśnięć, ekran nie gaśnie;
+- **Przycisk czynności** (iPhone 15 Pro i nowsze): w Ustawieniach → Przycisk czynności → Skrót → mObywatelAED wybierz „Nearest AED” albo „CPR metronome”;
 - **działa offline**: gdy API GdzieAED jest nieosiągalne, aplikacja korzysta z wbudowanej kopii 18 309 AED;
 - **Siri** (development build): „Emergency in mObywatelAED”, „Take me to the nearest AED with mObywatelAED”;
 - skaner kodów QR do weryfikacji stron (zakładka **Kod QR**).
@@ -62,10 +67,23 @@ Frazy (Siri nie obsługuje języka polskiego, dlatego są po angielsku; iOS wyma
 | „Hey Siri, emergency in mObywatelAED” / „I have an emergency in mObywatelAED” | otwiera ekran alarmowy |
 | „Hey Siri, where is the nearest AED in mObywatelAED” | otwiera ekran alarmowy |
 | „Hey Siri, take me to the nearest AED with mObywatelAED” | od razu uruchamia nawigację pieszą w Google Maps |
+| „Hey Siri, start CPR in mObywatelAED” | uruchamia metronom RKO |
 
 **Fraza bez nazwy aplikacji** („Hey Siri, I have an emergency”): w aplikacji **Skróty** dodaj akcję „Find the nearest AED” z mObywatelAED i nazwij skrót „I have an emergency”. Siri uruchamia skróty po ich nazwie.
 
-Deep linki: `mobywatelaed://emergency`, `mobywatelaed://emergency?go=1` (od razu prowadzi do najbliższego AED).
+Deep linki: `mobywatelaed://emergency`, `mobywatelaed://emergency?go=1` (od razu prowadzi do najbliższego AED), `mobywatelaed://cpr` (metronom RKO).
+
+## Demo alarmu na jednym telefonie
+
+1. W aplikacji: Usługi → **Tryb ratownika** → włącz (zgoda na lokalizację „Zawsze” i powiadomienia).
+2. Na Macu (API uruchomione na :8000):
+   ```bash
+   make demo-alert
+   ```
+   Skrypt bierze ostatnią pozycję telefonu i wysyła alarm ok. 300 m obok. W ciągu kilkunastu sekund na telefonie pojawi się powiadomienie; stuknięcie otwiera ekran alarmu z zadaniem.
+3. Z drugim telefonem: na jednym włącz tryb ratownika, na drugim otwórz „Nagły wypadek?” → **Wezwij ratowników w pobliżu**.
+
+Powiadomienia są lokalne (bez push), więc darmowe konto Apple wystarcza. Prawdziwy push wymaga płatnego Apple Developer Program: wtedy usuń plugin `plugins/with-local-notifications-only.js` i wysyłaj alarm przez APNs z backendu.
 
 ## Dane offline
 
