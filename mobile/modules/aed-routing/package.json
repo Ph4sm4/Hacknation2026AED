@@ -1,0 +1,10 @@
+{
+  "name": "aed-routing",
+  "version": "1.0.0",
+  "description": "Walking routes to AEDs with Apple MapKit (MKDirections)",
+  "main": "index.ts",
+  "license": "MIT",
+  "author": "GdzieAED",
+  "homepage": "https://github.com/Ph4sm4/Hacknation2026AED",
+  "private": true
+}

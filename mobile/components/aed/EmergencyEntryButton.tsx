@@ -2,9 +2,9 @@ import { router } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { AED } from '@/constants/aed-theme';
+import { AED, TYPE } from '@/constants/aed-theme';
 
-/** Big red entry point to the emergency AED screen (home screen). */
+/** Big red entry point to the emergency AED screen (home screen) – GdzieAED Swiss style. */
 export function EmergencyEntryButton() {
   return (
     <Pressable
@@ -12,15 +12,18 @@ export function EmergencyEntryButton() {
       accessibilityLabel="Nagły wypadek. Znajdź najbliższy defibrylator AED"
       accessibilityHint="Otwiera mapę najbliższych defibrylatorów i przycisk połączenia z numerem 112"
       onPress={() => router.push('/emergency')}
-      style={({ pressed }) => [styles.button, pressed && { backgroundColor: AED.redDark }]}>
+      style={({ pressed }) => [styles.button, pressed && { backgroundColor: AED.ink }]}>
       <View style={styles.icon}>
-        <IconSymbol name="bolt.heart.fill" size={30} color={AED.red} />
+        <IconSymbol name="bolt.heart.fill" size={28} color={AED.red} />
       </View>
       <View style={{ flex: 1 }}>
+        <Text style={styles.label}>GdzieAED</Text>
         <Text style={styles.title}>Nagły wypadek?</Text>
-        <Text style={styles.subtitle}>Znajdź najbliższy defibrylator AED</Text>
+        <Text style={styles.subtitle}>Najbliższy defibrylator AED i 112</Text>
       </View>
-      <IconSymbol name="chevron.right" size={22} color="#fff" />
+      <Text style={styles.arrow} accessible={false}>
+        →
+      </Text>
     </Pressable>
   );
 }
@@ -31,19 +34,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 14,
     backgroundColor: AED.red,
-    borderRadius: 12,
-    paddingVertical: 14,
+    borderRadius: 4,
+    paddingVertical: 16,
     paddingHorizontal: 16,
-    minHeight: 72,
+    minHeight: 84,
   },
   icon: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 48,
+    height: 48,
+    borderRadius: AED.radius,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  title: { color: '#fff', fontSize: 18, fontWeight: '800' },
-  subtitle: { color: '#fff', fontSize: 14, fontWeight: '500', marginTop: 2 },
+  label: { ...TYPE.label, color: '#fff', opacity: 0.8 },
+  title: { color: '#fff', fontSize: 22, fontWeight: '900', letterSpacing: -0.7, marginTop: 2 },
+  subtitle: { color: '#fff', fontSize: 14, fontWeight: '500', marginTop: 1 },
+  arrow: { color: '#fff', fontSize: 28, fontWeight: '300' },
 });

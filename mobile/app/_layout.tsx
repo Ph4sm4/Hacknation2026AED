@@ -13,6 +13,7 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="emergency" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
+        <Stack.Screen name="cpr" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
         <Stack.Screen name="details" options={{ title: 'Wynik weryfikacji', headerBackTitle: 'Wróć' }} />
         <Stack.Screen name="errorHandler" options={{ title: 'Błąd', headerBackTitle: 'Wróć' }} />
       </Stack>

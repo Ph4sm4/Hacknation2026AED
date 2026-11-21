@@ -12,7 +12,9 @@
       "bundleIdentifier": "pl.hacknation.mobywatel",
       "appleTeamId": "MZ7FLVDB5P",
       "infoPlist": {
-        "LSApplicationQueriesSchemes": ["comgooglemaps"],
+        "LSApplicationQueriesSchemes": [
+          "comgooglemaps"
+        ],
         "NSLocationWhenInUseUsageDescription": "Lokalizacja jest potrzebna, aby pokazać najbliższe defibrylatory AED i poprowadzić Cię do nich."
       }
     },
@@ -55,7 +57,8 @@
           "locationWhenInUsePermission": "Lokalizacja jest potrzebna, aby pokazać najbliższe defibrylatory AED i poprowadzić Cię do nich."
         }
       ],
-      "./plugins/with-aed-siri"
+      "./plugins/with-aed-siri",
+      "expo-audio"
     ],
     "experiments": {
       "typedRoutes": true,

@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { IconSymbol, type IconSymbolName } from '@/components/ui/icon-symbol';
@@ -20,6 +20,28 @@ const SERVICES: Service[] = [
     icon: 'bolt.heart.fill',
     color: AED.red,
     onPress: () => router.push('/emergency'),
+  },
+  {
+    title: 'Metronom RKO',
+    subtitle: 'Rytm uciśnięć klatki piersiowej, 110/min',
+    icon: 'heart.fill',
+    color: AED.red,
+    onPress: () => router.push('/cpr'),
+  },
+  {
+    title: 'AED pod Przyciskiem czynności',
+    subtitle: 'Jedno naciśnięcie otwiera najbliższe AED',
+    icon: 'bolt.heart.fill',
+    color: AED.navy,
+    onPress: () =>
+      Alert.alert(
+        'Przycisk czynności (iPhone 15 Pro i nowsze)',
+        '1. Otwórz Ustawienia → Przycisk czynności.\n' +
+          '2. Przesuń do opcji „Skrót” i stuknij „Wybierz skrót”.\n' +
+          '3. W sekcji mObywatelAED wybierz „Nearest AED” (mapa AED) albo „CPR metronome”.\n\n' +
+          'Przytrzymanie przycisku otworzy od razu wybraną funkcję, także z zablokowanego telefonu.',
+        [{ text: 'Rozumiem' }],
+      ),
   },
   { title: 'Zastrzeż PESEL', subtitle: 'Wkrótce', icon: 'building.columns.fill', color: '#0052A5' },
   { title: 'Pojazdy', subtitle: 'Wkrótce', icon: 'car.fill', color: '#0052A5' },
