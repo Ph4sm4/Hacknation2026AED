@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8">
-<title>Księga znaku – Pokaż AED</title>
+<title>Księga znaku – GdzieAED</title>
 <style>
   @font-face { font-family: "Inter"; font-weight: 100 900; src: url("../frontend/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2"); }
   @font-face { font-family: "Inter"; font-weight: 100 900; src: url("../frontend/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-024F; }
@@ -23,20 +23,16 @@
   .box { border: 1px solid var(--line); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; }
   .cap { font-size: 8.5pt; color: var(--muted); margin-top: 2mm; }
   img { display: block; }
-  /* cover */
   .cover { display: grid; grid-template-columns: 1fr 1fr; padding: 0; }
   .cover .l { padding: 22mm 18mm; display: flex; flex-direction: column; justify-content: space-between; }
-  .cover .r { background: var(--red); display: flex; align-items: center; justify-content: center; }
-  /* colour swatches */
+  .cover .r { background: var(--navy); display: flex; align-items: center; justify-content: center; }
   .sw { border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
   .sw .c { height: 42mm; }
   .sw .t { padding: 4mm; font-size: 9pt; line-height: 1.6; }
   .sw .t b { font-size: 11pt; display: block; margin-bottom: 1mm; }
-  /* clear space */
-  .clear { position: relative; display: inline-block; padding: 18mm; background: repeating-linear-gradient(45deg, #fdecee, #fdecee 3px, #fff 3px, #fff 8px); }
+  .clear { position: relative; display: inline-block; padding: 14mm; background: repeating-linear-gradient(45deg, #fdecee, #fdecee 3px, #fff 3px, #fff 8px); }
   .clear .inner { background: #fff; outline: 1px dashed var(--red); }
   .x { position: absolute; background: var(--navy); color: #fff; font-weight: 800; font-size: 9pt; display: flex; align-items: center; justify-content: center; }
-  /* don'ts */
   .dont { height: 40mm; position: relative; }
   .dont::after { content: ""; position: absolute; top: 3mm; right: 3mm; width: 7mm; height: 7mm; background:
      linear-gradient(45deg, transparent 44%, var(--red) 44%, var(--red) 56%, transparent 56%),
@@ -44,6 +40,9 @@
   table { border-collapse: collapse; width: 100%; font-size: 10pt; }
   td, th { border-bottom: 1px solid var(--line); padding: 2.5mm 2mm; text-align: left; vertical-align: top; }
   th { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .anat { position: relative; display: inline-block; }
+  .tag { position: absolute; font-size: 8.5pt; font-weight: 700; color: var(--navy); white-space: nowrap; }
+  .tag::before { content: ""; position: absolute; background: var(--navy); }
 </style>
 </head>
 <body>
@@ -53,53 +52,56 @@
   <div class="l">
     <div>
       <div class="eyebrow">Księga znaku · wersja 1.0 · 2026</div>
-      <h1>Pokaż AED.<br>Każda minuta<br>się liczy.</h1>
+      <h1>GdzieAED?<br>Każda minuta<br>się liczy.</h1>
       <p class="muted" style="max-width:110mm;margin-top:8mm">Identyfikacja wizualna akcji zachęcającej dysponentów defibrylatorów do udostępniania danych w portalu dane.gov.pl.</p>
     </div>
-    <img src="out/pokaz-aed-logo.svg" style="height:18mm">
+    <img src="out/gdzieaed-logo.svg" style="height:24mm;align-self:flex-start">
   </div>
   <div class="r">
-    <div style="background:#fff;padding:16mm;border-radius:4px"><img src="out/pokaz-aed-znak.svg" style="height:75mm"></div>
+    <img src="out/gdzieaed-logo-pionowe-negatyw.svg" style="width:95mm">
   </div>
 </section>
 
 <!-- 2. Concept -->
 <section class="page">
   <div class="eyebrow">01 · Koncepcja</div>
-  <h2>Znak, który wskazuje, gdzie jest życie</h2>
-  <div class="grid" style="grid-template-columns: 1.2fr 1fr; align-items:center">
+  <h2>Tablica, która odpowiada na pytanie</h2>
+  <div class="grid" style="grid-template-columns: 1.15fr 1fr; align-items:center">
     <div>
       <p style="font-size:13pt;line-height:1.55">
-        Znak łączy trzy elementy: <b>pinezkę lokalizacji</b>, <b>serce</b> i <b>błyskawicę</b> – międzynarodowy symbol defibrylacji.
-        Pinezka mówi „pokaż, gdzie to jest” – bo AED, którego nie ma w danych, dla świadka zdarzenia nie istnieje.
-        Nazwa „Pokaż AED” jest jednocześnie prośbą do dysponentów i wezwaniem do działania: pokaż swoje urządzenie w otwartych danych.
-        Czerwień ratownicza i szpitalny granat budują skojarzenie z ochroną zdrowia i instytucjami publicznymi, a proste, geometryczne kształty
-        zapewniają czytelność od naklejki na drzwiach po ikonę w aplikacji.
+        Znak GdzieAED to kwadratowa tablica – jak oznakowanie, którego szukamy wzrokiem w budynkach i na ulicach.
+        Serce z błyskawicą to powszechnie rozpoznawany symbol defibrylacji, a strzałka pod nim mówi po prostu „tu jest”.
+        Nazwa zapisana w dwóch wierszach – GDZIE / AED – to pytanie, które zadaje każdy świadek nagłego zatrzymania krążenia; znak jest na nie odpowiedzią.
+        Czerwień ratownicza i szpitalny granat budują skojarzenie z ochroną zdrowia i instytucjami publicznymi, a geometryczna forma zapewnia czytelność od naklejki na drzwiach po ikonę w telefonie.
       </p>
-      <p class="muted" style="margin-top:6mm">Hasło akcji: <b style="color:var(--ink)">„Pokaż AED. Każda minuta się liczy.”</b> · Hashtag: <b style="color:var(--ink)">#PokażAED</b></p>
+      <p class="muted" style="margin-top:6mm">Hasło: <b style="color:var(--ink)">„GdzieAED? Każda minuta się liczy.”</b> · Wezwanie do dysponentów: <b style="color:var(--ink)">„Pokaż, gdzie jest Twój AED.”</b> · Hashtag: <b style="color:var(--ink)">#GdzieAED</b></p>
     </div>
-    <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap:5mm; text-align:center">
-      <div><div class="box" style="height:36mm"><svg viewBox="0 0 64 64" width="70" height="70"><path fill="#C8102E" d="M32 2C19.3 2 9 12.1 9 24.6 9 41.5 32 62 32 62s23-20.5 23-37.4C55 12.1 44.7 2 32 2z"/></svg></div><p class="cap">lokalizacja</p></div>
-      <div><div class="box" style="height:36mm"><svg viewBox="16 12 32 30" width="70" height="66"><path fill="#C8102E" d="M32 38.5S18.5 30.4 18.5 21.6c0-4.2 3.3-7.3 7.1-7.3 2.8 0 5 1.5 6.4 3.8 1.4-2.3 3.6-3.8 6.4-3.8 3.8 0 7.1 3.1 7.1 7.3 0 8.8-13.5 16.9-13.5 16.9z"/></svg></div><p class="cap">życie</p></div>
-      <div><div class="box" style="height:36mm"><svg viewBox="24 15 16 22" width="50" height="70"><path fill="#C8102E" d="M34.6 17.2 27.4 27.4h4.3l-1.6 7 7.4-10.6h-4.3l1.4-6.6z"/></svg></div><p class="cap">defibrylacja</p></div>
+    <div style="display:flex;justify-content:flex-start">
+      <div class="anat" style="margin:10mm 0">
+        <img src="out/gdzieaed-znak.svg" style="width:56mm">
+        <span class="tag" style="left:60mm;top:3mm">← tablica = oznakowanie</span>
+        <span class="tag" style="left:60mm;top:22mm">← serce + błyskawica<br>&nbsp;&nbsp;&nbsp;&nbsp;= defibrylacja</span>
+        <span class="tag" style="left:60mm;top:46mm">← strzałka = „tu jest”</span>
+      </div>
     </div>
   </div>
-  <div class="folio"><span>Pokaż AED – księga znaku</span><span>2</span></div>
+  <div class="folio"><span>GdzieAED – księga znaku</span><span>2</span></div>
 </section>
 
 <!-- 3. Versions -->
 <section class="page">
   <div class="eyebrow">02 · Wersje znaku</div>
   <h2>Wersje podstawowe i uzupełniające</h2>
-  <div class="grid" style="grid-template-columns: 1.4fr 1fr; grid-template-rows: 52mm 52mm;">
-    <div><div class="box" style="height:100%"><img src="out/pokaz-aed-logo.svg" style="height:20mm"></div><p class="cap">Wersja podstawowa pozioma – stosowana zawsze, gdy to możliwe</p></div>
-    <div style="grid-row: span 2"><div class="box" style="height:calc(100% - 6mm)"><img src="out/pokaz-aed-logo-pionowe.svg" style="height:58mm"></div><p class="cap">Wersja pionowa – formaty wąskie i kwadratowe</p></div>
-    <div class="grid" style="grid-template-columns: 1fr 1fr; gap:6mm">
-      <div><div class="box" style="height:100%;background:var(--red);border-color:var(--red)"><img src="out/pokaz-aed-logo-negatyw.svg" style="height:11mm"></div><p class="cap">Negatyw na czerwieni</p></div>
-      <div><div class="box" style="height:100%"><img src="out/pokaz-aed-logo-mono.svg" style="height:11mm"></div><p class="cap">Monochromatyczna (druk 1-kolorowy)</p></div>
+  <div class="grid" style="grid-template-columns: 1.3fr 1fr; grid-template-rows: 56mm 56mm; gap:7mm">
+    <div><div class="box" style="height:calc(100% - 6mm)"><img src="out/gdzieaed-logo.svg" style="height:30mm"></div><p class="cap">Wersja podstawowa pozioma – stosowana zawsze, gdy to możliwe</p></div>
+    <div style="grid-row: span 2"><div class="box" style="height:calc(100% - 6mm)"><img src="out/gdzieaed-logo-pionowe.svg" style="width:62mm"></div><p class="cap">Wersja pionowa – formaty wąskie i kwadratowe</p></div>
+    <div class="grid" style="grid-template-columns: 1fr 1fr 0.55fr; gap:5mm">
+      <div><div class="box" style="height:calc(100% - 6mm);background:var(--navy);border-color:var(--navy)"><img src="out/gdzieaed-logo-negatyw.svg" style="height:15mm"></div><p class="cap">Negatyw – na granacie lub czerwieni</p></div>
+      <div><div class="box" style="height:calc(100% - 6mm)"><img src="out/gdzieaed-logo-mono.svg" style="height:15mm"></div><p class="cap">Monochromatyczna</p></div>
+      <div><div class="box" style="height:calc(100% - 6mm)"><img src="out/gdzieaed-znak.svg" style="height:16mm"></div><p class="cap">Sygnet / ikona</p></div>
     </div>
   </div>
-  <div class="folio"><span>Pokaż AED – księga znaku</span><span>3</span></div>
+  <div class="folio"><span>GdzieAED – księga znaku</span><span>3</span></div>
 </section>
 
 <!-- 4. Colours -->
@@ -107,13 +109,13 @@
   <div class="eyebrow">03 · Kolorystyka</div>
   <h2>Barwy akcji</h2>
   <div class="grid" style="grid-template-columns: repeat(4, 1fr)">
-    <div class="sw"><div class="c" style="background:#C8102E"></div><div class="t"><b>Czerwień ratownicza</b>HEX #C8102E<br>RGB 200 16 46<br>CMYK 0 100 85 15<br>Pantone ≈ 186 C<br><span class="muted">Znak, akcenty, wezwania do działania</span></div></div>
-    <div class="sw"><div class="c" style="background:#0B3D91"></div><div class="t"><b>Granat szpitalny</b>HEX #0B3D91<br>RGB 11 61 145<br>CMYK 100 75 0 15<br>Pantone ≈ 288 C<br><span class="muted">Logotyp, informacja, nawigacja</span></div></div>
-    <div class="sw"><div class="c" style="background:#FFFFFF"></div><div class="t"><b>Biel</b>HEX #FFFFFF<br>RGB 255 255 255<br>CMYK 0 0 0 0<br>&nbsp;<br><span class="muted">Kolor dominujący, tło</span></div></div>
-    <div class="sw"><div class="c" style="background:#0F7B3F"></div><div class="t"><b>Zieleń AED (pomocniczy)</b>HEX #0F7B3F<br>RGB 15 123 63<br>CMYK 88 0 49 52<br>&nbsp;<br><span class="muted">Tylko status „dostępny / 24/7”</span></div></div>
+    <div class="sw"><div class="c" style="background:#C8102E"></div><div class="t"><b>Czerwień ratownicza</b>HEX #C8102E<br>RGB 200 16 46<br>CMYK 0 100 85 15<br>Pantone ≈ 186 C<br><span class="muted">Tablica, wyróżnienie „AED”, wezwania do działania</span></div></div>
+    <div class="sw"><div class="c" style="background:#0B3D91"></div><div class="t"><b>Granat szpitalny</b>HEX #0B3D91<br>RGB 11 61 145<br>CMYK 100 75 0 15<br>Pantone ≈ 288 C<br><span class="muted">Słowo „GDZIE”, informacja, tło negatywu</span></div></div>
+    <div class="sw"><div class="c" style="background:#FFFFFF"></div><div class="t"><b>Biel</b>HEX #FFFFFF<br>RGB 255 255 255<br>CMYK 0 0 0 0<br>&nbsp;<br><span class="muted">Kolor dominujący, sygnet na tablicy</span></div></div>
+    <div class="sw"><div class="c" style="background:#0F7B3F"></div><div class="t"><b>Zieleń AED (pomocniczy)</b>HEX #0F7B3F<br>RGB 15 123 63<br>CMYK 88 0 49 52<br>&nbsp;<br><span class="muted">Wyłącznie status „dostępny / 24/7” w aplikacji – nie w znaku</span></div></div>
   </div>
-  <p class="muted" style="margin-top:8mm">Proporcje użycia: biel ok. 70%, granat ok. 20%, czerwień ok. 10%. Zestawienia tekstu: granat i czerwień na bieli spełniają kontrast WCAG 2.2 AA (≥ 4,5:1); biały tekst na czerwieni – AA dla tekstu ≥ 14 pt pogrubionego i większego. Wartości CMYK i Pantone są przybliżone – przy druku należy wykonać proof.</p>
-  <div class="folio"><span>Pokaż AED – księga znaku</span><span>4</span></div>
+  <p class="muted" style="margin-top:8mm">Proporcje użycia: biel ok. 70%, granat ok. 20%, czerwień ok. 10%. Granat i czerwień na bieli spełniają kontrast WCAG 2.2 AA (≥ 4,5:1). Wartości CMYK i Pantone są przybliżone – przy druku należy wykonać proof.</p>
+  <div class="folio"><span>GdzieAED – księga znaku</span><span>4</span></div>
 </section>
 
 <!-- 5. Clear space & minimum size -->
@@ -122,29 +124,29 @@
   <h2>Przestrzeń wokół znaku</h2>
   <div class="grid" style="grid-template-columns: 1.3fr 1fr; align-items:start">
     <div>
-      <div class="clear"><div class="inner"><img src="out/pokaz-aed-logo.svg" style="height:22mm"></div>
-        <div class="x" style="top:0;left:50%;width:11mm;height:18mm;transform:translateX(-50%)">x</div>
-        <div class="x" style="left:0;top:50%;width:18mm;height:11mm;transform:translateY(-50%)">x</div>
+      <div class="clear"><div class="inner"><img src="out/gdzieaed-logo.svg" style="height:28mm"></div>
+        <div class="x" style="top:0;left:21mm;width:7mm;height:14mm;transform:translateX(-50%)">x</div>
+        <div class="x" style="left:0;top:28mm;width:14mm;height:7mm;transform:translateY(-50%)">x</div>
       </div>
-      <p style="margin-top:5mm"><b>x</b> = połowa wysokości znaku (pinezki). Pole ochronne o szerokości <b>x</b> z każdej strony musi być wolne od tekstu, grafik i krawędzi formatu.</p>
+      <p style="margin-top:5mm"><b>x</b> = ¼ wysokości tablicy (sygnetu). Pole ochronne o szerokości <b>2x</b> (połowa wysokości tablicy) z każdej strony musi być wolne od tekstu, grafik i krawędzi formatu. Na schemacie zakreskowano pole ochronne.</p>
     </div>
     <div>
       <h3>Wielkość minimalna</h3>
       <table>
         <tr><th>Wersja</th><th>Druk</th><th>Ekran</th></tr>
-        <tr><td>Pozioma</td><td>25 mm szer.</td><td>120 px szer.</td></tr>
-        <tr><td>Pionowa</td><td>15 mm szer.</td><td>72 px szer.</td></tr>
-        <tr><td>Sam znak</td><td>6 mm wys.</td><td>16 px wys.</td></tr>
+        <tr><td>Pozioma</td><td>28 mm szer.</td><td>130 px szer.</td></tr>
+        <tr><td>Pionowa</td><td>18 mm szer.</td><td>80 px szer.</td></tr>
+        <tr><td>Sygnet</td><td>6 mm</td><td>16 px</td></tr>
       </table>
       <div style="display:flex;align-items:flex-end;gap:8mm;margin-top:8mm">
-        <img src="out/pokaz-aed-logo.svg" style="width:25mm">
-        <img src="out/pokaz-aed-logo-pionowe.svg" style="width:15mm">
-        <img src="out/pokaz-aed-znak.svg" style="height:6mm">
+        <img src="out/gdzieaed-logo.svg" style="width:28mm">
+        <img src="out/gdzieaed-logo-pionowe.svg" style="width:18mm">
+        <img src="out/gdzieaed-znak.svg" style="height:6mm">
       </div>
-      <p class="cap">Poglądowo w skali 1:1 (druk)</p>
+      <p class="cap">Poglądowo w skali 1:1 (druk). Poniżej minimum napis traci czytelność – użyj samego sygnetu.</p>
     </div>
   </div>
-  <div class="folio"><span>Pokaż AED – księga znaku</span><span>5</span></div>
+  <div class="folio"><span>GdzieAED – księga znaku</span><span>5</span></div>
 </section>
 
 <!-- 6. Don'ts -->
@@ -152,42 +154,48 @@
   <div class="eyebrow">05 · Niedozwolone użycie</div>
   <h2>Czego nie robimy ze znakiem</h2>
   <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap:6mm">
-    <div><div class="box dont"><img src="out/pokaz-aed-logo.svg" style="height:9mm;transform:scaleX(1.45)"></div><p class="cap">Nie rozciągaj i nie zmieniaj proporcji</p></div>
-    <div><div class="box dont"><img src="out/pokaz-aed-logo.svg" style="height:9mm;filter:hue-rotate(140deg)"></div><p class="cap">Nie zmieniaj kolorów</p></div>
-    <div><div class="box dont"><img src="out/pokaz-aed-logo.svg" style="height:9mm;transform:rotate(-12deg)"></div><p class="cap">Nie obracaj</p></div>
-    <div><div class="box dont"><img src="out/pokaz-aed-logo.svg" style="height:9mm;filter:drop-shadow(3px 4px 3px rgba(0,0,0,.55))"></div><p class="cap">Nie dodawaj cieni ani efektów</p></div>
-    <div><div class="box dont" style="background:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect width=%2240%22 height=%2240%22 fill=%22%23f2b134%22/><circle cx=%2210%22 cy=%2210%22 r=%228%22 fill=%22%2339a0ed%22/><rect x=%2222%22 y=%2222%22 width=%2214%22 height=%2214%22 fill=%22%2381c784%22/></svg>')"><img src="out/pokaz-aed-logo.svg" style="height:9mm"></div><p class="cap">Nie umieszczaj na niejednolitym tle</p></div>
-    <div><div class="box dont"><div style="display:flex;align-items:center;gap:3mm"><img src="out/pokaz-aed-znak.svg" style="height:12mm"><span style="font-family:Georgia,serif;font-size:18pt;color:#0B3D91;font-style:italic">Pokaż AED</span></div></div><p class="cap">Nie zmieniaj kroju pisma logotypu</p></div>
-    <div><div class="box dont"><div style="background:#C8102E;border-radius:999px;padding:4mm 6mm"><img src="out/pokaz-aed-logo-negatyw.svg" style="height:7mm"></div></div><p class="cap">Nie zamykaj w zaokrąglonych kształtach</p></div>
-    <div><div class="box dont"><div style="display:flex;flex-direction:row-reverse;align-items:center;gap:2mm"><img src="out/pokaz-aed-znak.svg" style="height:11mm"><span style="font-weight:800;font-size:17pt;color:#0B3D91">Pokaż <span style="color:#C8102E">AED</span></span></div></div><p class="cap">Nie zmieniaj układu elementów</p></div>
+    <div><div class="box dont"><img src="out/gdzieaed-logo.svg" style="height:14mm;transform:scaleX(1.5)"></div><p class="cap">Nie rozciągaj i nie zmieniaj proporcji</p></div>
+    <div><div class="box dont"><img src="out/gdzieaed-logo.svg" style="height:14mm;filter:hue-rotate(140deg)"></div><p class="cap">Nie zmieniaj kolorów</p></div>
+    <div><div class="box dont"><img src="out/gdzieaed-logo.svg" style="height:14mm;transform:rotate(-12deg)"></div><p class="cap">Nie obracaj</p></div>
+    <div><div class="box dont"><img src="out/gdzieaed-logo.svg" style="height:14mm;filter:drop-shadow(3px 4px 3px rgba(0,0,0,.55))"></div><p class="cap">Nie dodawaj cieni ani efektów</p></div>
+    <div><div class="box dont" style="background:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect width=%2240%22 height=%2240%22 fill=%22%23f2b134%22/><circle cx=%2210%22 cy=%2210%22 r=%228%22 fill=%22%2339a0ed%22/><rect x=%2222%22 y=%2222%22 width=%2214%22 height=%2214%22 fill=%22%2381c784%22/></svg>')"><img src="out/gdzieaed-logo.svg" style="height:14mm"></div><p class="cap">Nie umieszczaj na niejednolitym tle</p></div>
+    <div><div class="box dont"><div style="display:flex;align-items:center;gap:3mm"><img src="out/gdzieaed-znak.svg" style="height:14mm"><span style="font-family:Georgia,serif;font-size:17pt;line-height:1;color:#0B3D91;font-style:italic">Gdzie<br><span style="color:#C8102E">AED</span></span></div></div><p class="cap">Nie zmieniaj kroju pisma</p></div>
+    <div><div class="box dont"><div style="background:#C8102E;border-radius:999px;padding:3mm"><img src="out/gdzieaed-znak.svg" style="height:13mm;border-radius:999px"></div></div><p class="cap">Nie zaokrąglaj tablicy i nie zamykaj jej w kole</p></div>
+    <div><div class="box dont"><div style="display:flex;align-items:center;gap:2.5mm"><span style="font-weight:800;font-size:15pt;line-height:1;color:#0B3D91;text-align:right">GDZIE<br><span style="color:#C8102E">AED</span></span><img src="out/gdzieaed-znak.svg" style="height:14mm"></div></div><p class="cap">Nie zmieniaj układu elementów</p></div>
   </div>
-  <div class="folio"><span>Pokaż AED – księga znaku</span><span>6</span></div>
+  <div class="folio"><span>GdzieAED – księga znaku</span><span>6</span></div>
 </section>
 
 <!-- 7. Typography & applications -->
 <section class="page">
   <div class="eyebrow">06 · Typografia i zastosowania</div>
   <h2>Krój pisma i przykłady</h2>
-  <div class="grid" style="grid-template-columns: 1fr 1.5fr">
+  <div class="grid" style="grid-template-columns: 1fr 1.6fr">
     <div>
       <p style="font-size:44pt;font-weight:800;line-height:1;margin:0;color:var(--navy)">Aa Ąą Żż</p>
-      <p><b>Inter</b> (SIL Open Font License) – krój logotypu i komunikacji. Nagłówki: ExtraBold 800, tekst: Regular 400 / SemiBold 600.</p>
+      <p><b>Inter</b> (SIL Open Font License) – krój logotypu i komunikacji. Logotyp: ExtraBold 800, wersaliki. Nagłówki: ExtraBold 800, tekst: Regular 400 / SemiBold 600.</p>
       <p class="muted">Krój bezszeryfowy o wysokiej czytelności na ekranach i w małych rozmiarach, z pełnym zestawem polskich znaków diakrytycznych.</p>
     </div>
-    <div class="grid" style="grid-template-columns: 1fr 1fr; gap:6mm">
-      <div style="background:var(--red);color:#fff;border-radius:4px;padding:8mm;display:flex;flex-direction:column;justify-content:space-between;height:86mm">
-        <img src="out/pokaz-aed-logo-negatyw.svg" style="height:8mm;align-self:flex-start">
-        <div><p style="color:#fff;font-size:22pt;font-weight:800;line-height:1.05;margin:0">Masz defibrylator?<br>Pokaż go.</p>
-        <p style="color:#fff;font-size:9pt;margin-top:3mm">Udostępnij dane na dane.gov.pl – każda minuta się liczy.</p></div>
+    <div class="grid" style="grid-template-columns: 1fr 1fr 0.8fr; gap:6mm">
+      <div style="background:var(--navy);border-radius:4px;padding:7mm;display:flex;flex-direction:column;justify-content:space-between;height:92mm">
+        <img src="out/gdzieaed-logo-negatyw.svg" style="height:11mm;align-self:flex-start">
+        <div><p style="color:#fff;font-size:20pt;font-weight:800;line-height:1.05;margin:0">Masz defibrylator?<br>Pokaż, gdzie jest.</p>
+        <p style="color:#fff;font-size:8.5pt;margin-top:3mm">Udostępnij dane na dane.gov.pl – każda minuta się liczy.</p></div>
       </div>
-      <div style="border:1px solid var(--line);border-radius:4px;padding:8mm;display:flex;flex-direction:column;justify-content:space-between;height:86mm">
-        <div style="display:flex;align-items:center;justify-content:space-between"><img src="out/pokaz-aed-znak.svg" style="height:16mm"><span style="background:#0F7B3F;color:#fff;font-weight:800;font-size:9pt;padding:1.5mm 2.5mm;border-radius:2px">24/7</span></div>
-        <div><p style="font-size:18pt;font-weight:800;line-height:1.1;margin:0;color:var(--navy)">Tu jest AED</p>
-        <p style="font-size:9pt;margin-top:2mm" class="muted">Ten defibrylator jest widoczny w otwartych danych dane.gov.pl · #PokażAED</p></div>
+      <div style="border:1px solid var(--line);border-radius:4px;padding:7mm;display:flex;flex-direction:column;justify-content:space-between;height:92mm">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between"><img src="out/gdzieaed-znak.svg" style="height:22mm"><span style="background:#0F7B3F;color:#fff;font-weight:800;font-size:9pt;padding:1.5mm 2.5mm;border-radius:2px">24/7</span></div>
+        <div><p style="font-size:19pt;font-weight:800;line-height:1.05;margin:0;color:var(--navy)">TU JEST <span style="color:var(--red)">AED</span></p>
+        <p style="font-size:8.5pt;margin-top:2mm" class="muted">Ten defibrylator jest widoczny w otwartych danych dane.gov.pl · #GdzieAED</p></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4mm;align-items:center;justify-content:center;background:var(--surface);border-radius:4px">
+        <div style="width:40mm;height:72mm;border:2.5mm solid #101828;border-radius:4px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3mm">
+          <img src="out/gdzieaed-znak.svg" style="height:13mm"><span style="font-size:7pt;font-weight:700;color:var(--navy)">GdzieAED</span>
+        </div>
+        <span class="cap" style="margin:0">ikona aplikacji</span>
       </div>
     </div>
   </div>
-  <div class="folio"><span>Pokaż AED – księga znaku</span><span>7</span></div>
+  <div class="folio"><span>GdzieAED – księga znaku</span><span>7</span></div>
 </section>
 
 </body>

@@ -16,7 +16,7 @@ from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from build_logo import BOLT, HEART, PIN, load_fonts  # noqa: E402
+from brandkit import BOLT, HEART, PIN, load_fonts  # noqa: E402
 
 OUT = Path(__file__).resolve().parent / "out"
 RED, NAVY, WHITE, INK = "#C8102E", "#0B3D91", "#FFFFFF", "#101828"

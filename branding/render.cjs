@@ -6,11 +6,12 @@ const path = require("path");
 
 const OUT = path.join(__dirname, "out");
 const LOGOS = [
-  ["pokaz-aed-logo", "#FFFFFF"],
-  ["pokaz-aed-logo-pionowe", "#FFFFFF"],
-  ["pokaz-aed-logo-negatyw", "#C8102E"],
-  ["pokaz-aed-logo-mono", "#FFFFFF"],
-  ["pokaz-aed-znak", "#FFFFFF"],
+  ["gdzieaed-logo", "#FFFFFF"],
+  ["gdzieaed-logo-pionowe", "#FFFFFF"],
+  ["gdzieaed-logo-negatyw", "#0B3D91"],
+  ["gdzieaed-logo-pionowe-negatyw", "#0B3D91"],
+  ["gdzieaed-logo-mono", "#FFFFFF"],
+  ["gdzieaed-znak", "#FFFFFF"],
 ];
 
 (async () => {
@@ -42,7 +43,7 @@ const LOGOS = [
   }
   await page.goto("file://" + path.join(__dirname, "ksiega-znaku.html"));
   await page.evaluate(() => document.fonts.ready);
-  await page.pdf({ path: path.join(OUT, "pokaz-aed-ksiega-znaku.pdf"), format: "A4", landscape: true, printBackground: true, preferCSSPageSize: true });
-  console.log("✓ pokaz-aed-ksiega-znaku.pdf");
+  await page.pdf({ path: path.join(OUT, "gdzieaed-ksiega-znaku.pdf"), format: "A4", landscape: true, printBackground: true, preferCSSPageSize: true });
+  console.log("✓ gdzieaed-ksiega-znaku.pdf");
   await browser.close();
 })();
