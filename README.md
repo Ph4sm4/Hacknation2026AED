@@ -17,7 +17,10 @@
 | **Eksport do dane.gov.pl** – XML harwestera `urn:otwarte-dane:harvester:1.13` walidowany względem oficjalnego XSD + DCAT-AP (JSON-LD) | [`backend/aed/publish.py`](backend/aed/publish.py), [`vendor/dane-gov-pl/`](vendor/dane-gov-pl) |
 | **REST API** (OpenAPI) | `/api/docs` |
 | **Aplikacja web** (WCAG 2.2, responsywna): mapa „Znajdź AED”, dane otwarte, standard, portal dysponenta, strona akcji | [`frontend/`](frontend) |
-| **Aplikacja mobilna mObywatelAED** (iOS, Expo): przycisk alarmowy, mapa najbliższych AED, prowadzenie w Google Maps, 112, Siri, tryb offline | [`mobile/`](mobile) |
+| **Geokodowanie odwrotne z PRG GUGiK**: adres i gmina dla rekordów bez adresu, z jawnym oznaczeniem pochodzenia | [`backend/aed/geocode.py`](backend/aed/geocode.py) |
+| **Mapa białych plam i ranking gmin**: AED na 10 tys. mieszkańców (ludność GUS 2024), gminy bez AED | `/pokrycie`, [`backend/aed/coverage.py`](backend/aed/coverage.py) |
+| **Panel moderacji zgłoszeń**: przyjęte zgłoszenie „brak urządzenia” usuwa AED z wyszukiwania najbliższych | `/moderacja` |
+| **Aplikacja mobilna mObywatelAED** (iOS, Expo): przycisk alarmowy, mapa satelitarna najbliższych AED, trasa piesza (Apple Maps) i nawigacja w Google Maps, metronom RKO, 112, Siri i Przycisk czynności, tryb offline | [`mobile/`](mobile) |
 | **Logotyp** (SVG, PNG, JPG, PDF) i **księga znaku** (PDF) | [`branding/out/`](branding/out) |
 | Zrzuty ekranu do prezentacji | [`docs/screenshots/`](docs/screenshots) |
 | Plan, architektura i decyzje projektowe | [`docs/PLAN.md`](docs/PLAN.md) |
@@ -48,6 +51,10 @@
 2. Widzi przycisk **Zadzwoń 112**, mapę satelitarną z najbliższymi AED i kartę najbliższego urządzenia (miejsce zawieszenia, odległość, czas dojścia, dostępność).
 3. Klika **„Prowadź do AED”**, a Google Maps otwiera trasę pieszą. Komenda Siri „take me to the nearest AED with mObywatelAED” od razu uruchamia nawigację.
 4. Bez internetu aplikacja liczy najbliższe AED z wbudowanej kopii zbioru.
+
+**Gmina / koordynator akcji (`/pokrycie`)**: widzi mapę powiatów i ranking gmin według liczby AED na 10 tys. mieszkańców, filtruje gminy bez AED i pobiera ranking w CSV, żeby wiedzieć, kogo zaprosić do akcji w pierwszej kolejności.
+
+**Moderator (`/moderacja`)**: przegląda zgłoszenia mieszkańców (brak urządzenia, uszkodzony, zamknięty, potwierdzenie), przyjmuje je lub odrzuca z notatką i pisze do dysponenta. Uprawnienia: `python -m aed.api.moderators add e-mail` albo zmienna `AED_MODERATORS`.
 
 **Integrator / portal (`/dane`, `/api/docs`)**: pobiera zbiór w CSV, XLSX, JSON lub GeoJSON albo korzysta z API (wyszukiwanie, najbliższe AED, filtrowanie, bbox).
 
@@ -95,7 +102,8 @@ make test
 ## Ograniczenia prototypu
 
 - Źródło m.st. Warszawy (dane.gov.pl, zbiór 39512) wskazuje na API `dane.um.warszawa.pl`, które było niedostępne z sieci prototypu. 113 rekordów OSM ma już powiązanie `ref:api-um-warszawa-pl`.
-- Rekordy OSM często nie mają adresu ani miejscowości. Województwo wyznaczamy geometrycznie, a geokodowanie odwrotne (np. usługą GUGiK) to kolejny krok.
+- Rekordy OSM zwykle nie mają adresu. Uzupełniamy go z PRG GUGiK (najbliższy punkt adresowy w promieniu 100 m) i oznaczamy w polu `adres_zrodlo`. Na terenach wiejskich część punktów nie ma adresu w tym promieniu, wtedy pole zostaje puste.
+- Mapa białych plam pokazuje brak AED w otwartych danych, nie zawsze brak urządzenia w gminie.
 - Kod TERC w danych Legionowa ma 6 cyfr (brak cyfry rodzaju gminy). Walidator zgłasza ostrzeżenie zamiast zgadywać.
 - Zgłoszenia obywateli i zbiory dysponentów trafiają do bazy SQLite. Brakuje jeszcze panelu moderacji i powiadomień e-mail do dysponentów.
 - Konta dysponentów nie są weryfikowane (np. przez login.gov.pl lub węzeł krajowy). W docelowym wdrożeniu powinno to być wymagane.
