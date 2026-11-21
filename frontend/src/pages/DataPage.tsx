@@ -257,7 +257,7 @@ function Bars({ data, max, format, mono }: { data: Record<string, number>; max?:
         <li key={k} className="group grid grid-cols-[140px_1fr_56px] items-center gap-3 text-sm sm:grid-cols-[180px_1fr_64px]" title={`${k}: ${format(v)}`}>
           <span className={`truncate text-ink ${mono ? "font-mono text-xs" : ""}`}>{k}</span>
           <span className="h-3.5 bg-surface" aria-hidden>
-            <span className="block h-full rounded-r bg-navy transition-colors group-hover:bg-brand" style={{ width: `${(100 * v) / top}%` }} />
+            <span className="block h-full rounded-r-sm bg-ink transition-colors group-hover:bg-brand" style={{ width: `${(100 * v) / top}%` }} />
           </span>
           <span className="text-right font-semibold tabular-nums text-ink">{format(v)}</span>
         </li>

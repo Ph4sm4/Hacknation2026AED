@@ -79,6 +79,19 @@ export default function MapPage() {
     setMobileView("map");
   }, []);
 
+  // deep link /?aed=AED-PL-… (moderation panel, shared links): centre on that AED and open its details
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get("aed");
+    if (!id) return;
+    api<AED>(`/api/aed/${encodeURIComponent(id)}`)
+      .then((r) => {
+        setOrigin([r.szerokosc_geograficzna, r.dlugosc_geograficzna]);
+        setOriginLabel(`AED: ${displayName(r)}`);
+        setSelected(r);
+      })
+      .catch(() => undefined);
+  }, []);
+
   const pick = useCallback((lat: number, lon: number) => {
     setOrigin([lat, lon]);
     setOriginLabel(`Wybrany punkt: ${lat.toFixed(4)}, ${lon.toFixed(4)}`);
@@ -96,7 +109,7 @@ export default function MapPage() {
   const sel = useMemo(() => (selected ? { id: selected.id, lat: selected.szerokosc_geograficzna, lon: selected.dlugosc_geograficzna } : null), [selected]);
 
   return (
-    <div className="relative flex h-[calc(100dvh-100px)] flex-col lg:flex-row">
+    <div className="relative flex h-[calc(100dvh-110px)] flex-col lg:flex-row">
       {/* mobile view switch */}
       <div className="flex border-b border-line lg:hidden" role="tablist" aria-label="Widok">
         {(["list", "map"] as const).map((v) => (
@@ -105,7 +118,7 @@ export default function MapPage() {
             role="tab"
             aria-selected={mobileView === v}
             onClick={() => setMobileView(v)}
-            className={`flex flex-1 items-center justify-center gap-2 py-3 text-sm font-semibold ${mobileView === v ? "border-b-[3px] border-brand text-brand" : "text-muted"}`}
+            className={`flex flex-1 items-center justify-center gap-2 py-3 text-sm font-bold ${mobileView === v ? "border-b-4 border-brand text-ink" : "border-b-4 border-transparent text-ink/50"}`}
           >
             {v === "list" ? <List className="h-4 w-4" aria-hidden /> : <MapIcon className="h-4 w-4" aria-hidden />}
             {v === "list" ? "Lista" : "Mapa"}
@@ -118,8 +131,9 @@ export default function MapPage() {
         className={`${mobileView === "list" ? "flex" : "hidden"} min-h-0 w-full flex-1 flex-col border-r border-line bg-white lg:flex lg:w-[420px] lg:flex-none`}
         aria-label="Wyszukiwanie defibrylatorów"
       >
-        <div className="space-y-3 border-b border-line p-4">
-          <h1 className="text-xl font-extrabold tracking-tight">Znajdź najbliższy defibrylator</h1>
+        <div className="space-y-4 border-b-2 border-ink p-5">
+          <p className="eyebrow">Znajdź AED</p>
+          <h1 className="text-[32px] font-black leading-[0.95] tracking-[-0.04em]">Najbliższy defibrylator</h1>
           <button onClick={locate} className="btn btn-primary w-full text-base">
             <Crosshair className="h-5 w-5" aria-hidden /> Użyj mojej lokalizacji
           </button>
@@ -139,23 +153,23 @@ export default function MapPage() {
           <fieldset className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
             <legend className="sr-only">Filtry</legend>
             <label className="flex cursor-pointer items-center gap-2">
-              <input type="checkbox" className="h-4 w-4 accent-[#0B3D91]" checked={filters.open_now} onChange={(e) => setFilters((f) => ({ ...f, open_now: e.target.checked }))} />
+              <input type="checkbox" className="h-4 w-4 accent-[#C8102E]" checked={filters.open_now} onChange={(e) => setFilters((f) => ({ ...f, open_now: e.target.checked }))} />
               Dostępne teraz
             </label>
             <label className="flex cursor-pointer items-center gap-2">
-              <input type="checkbox" className="h-4 w-4 accent-[#0B3D91]" checked={filters.public_only} onChange={(e) => setFilters((f) => ({ ...f, public_only: e.target.checked }))} />
+              <input type="checkbox" className="h-4 w-4 accent-[#C8102E]" checked={filters.public_only} onChange={(e) => setFilters((f) => ({ ...f, public_only: e.target.checked }))} />
               Pomiń prywatne
             </label>
           </fieldset>
         </div>
 
-        <div className="flex items-center justify-between border-b border-line bg-surface px-4 py-2 text-xs text-muted">
+        <div className="flex items-center justify-between border-b border-line px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.08em] text-muted">
           <span className="flex items-center gap-1.5 truncate">
-            <MapPin className="h-3.5 w-3.5 shrink-0 text-navy" aria-hidden />
+            <MapPin className="h-3.5 w-3.5 shrink-0 text-brand" aria-hidden />
             {searchRes ? `Wyniki wyszukiwania: ${searchRes.length}` : originLabel}
           </span>
           {searchRes && (
-            <button className="font-semibold text-navy underline" onClick={() => setSearchRes(null)}>
+            <button className="font-bold text-ink underline underline-offset-4" onClick={() => setSearchRes(null)}>
               Wróć do najbliższych
             </button>
           )}
@@ -166,20 +180,23 @@ export default function MapPage() {
             <li key={a.id} className="border-b border-line">
               <button
                 onClick={() => select(a.id)}
-                className={`flex w-full gap-3 px-4 py-3 text-left hover:bg-surface ${selected?.id === a.id ? "bg-navy-soft" : ""}`}
+                className={`flex w-full gap-4 border-l-4 px-5 py-4 text-left hover:bg-surface ${selected?.id === a.id ? "border-brand bg-surface" : "border-transparent"}`}
               >
-                <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded text-sm font-bold ${i === 0 && !searchRes ? "bg-brand text-white" : "bg-navy-soft text-navy"}`}>
-                  {i + 1}
+                <span
+                  className={`w-8 shrink-0 text-2xl font-black leading-none tracking-[-0.04em] tabular-nums ${i === 0 && !searchRes ? "text-brand" : "text-ink/25"}`}
+                  aria-label={`Pozycja ${i + 1}`}
+                >
+                  {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="flex items-start justify-between gap-2">
-                    <span className="font-semibold leading-snug text-ink">{displayName(a)}</span>
-                    {a.odleglosc_m !== undefined && <span className="shrink-0 text-sm font-bold tabular-nums text-navy">{distance(a.odleglosc_m)}</span>}
+                    <span className="font-bold leading-snug tracking-[-0.01em] text-ink">{displayName(a)}</span>
+                    {a.odleglosc_m !== undefined && <span className="shrink-0 text-base font-black tabular-nums tracking-[-0.02em] text-ink">{distance(a.odleglosc_m)}</span>}
                   </span>
                   {a.lokalizacja_opis && <span className="mt-0.5 line-clamp-2 block text-sm text-muted">{a.lokalizacja_opis}</span>}
                   <span className="mt-1.5 flex flex-wrap items-center gap-1.5">
                     <OpenBadge open={a.otwarte_teraz} h24={a.dostep_24h === "tak"} />
-                    {a.dostepnosc && <span className="badge bg-surface text-muted ring-1 ring-line">{ACCESS_LABEL[a.dostepnosc]}</span>}
+                    {a.dostepnosc && <span className="badge text-muted ring-1 ring-inset ring-ink/20">{ACCESS_LABEL[a.dostepnosc]}</span>}
                     {a.czas_dojscia_min !== undefined && (
                       <span className="badge text-muted">
                         <Footprints className="h-3 w-3" aria-hidden /> ~{Math.max(1, Math.round(a.czas_dojscia_min))} min
@@ -277,6 +294,15 @@ function Detail({ aed, origin, onClose }: { aed: AED; origin: [number, number]; 
           </div>
           <h2 className="mt-2 text-lg font-extrabold leading-snug">{displayName(aed)}</h2>
           {address(aed) && <p className="text-sm text-muted">{address(aed)}</p>}
+          {aed.adres_zrodlo?.startsWith("PRG") && (
+            <p className="text-xs text-muted">Adres przybliżony: {aed.adres_zrodlo}</p>
+          )}
+          {aed.zgloszony_problem && (
+            <p className="mt-1 badge bg-brand-soft text-brand">Zgłoszony problem: {aed.zgloszony_problem.replace("_", " ")} (zweryfikowany)</p>
+          )}
+          {aed.potwierdzone_przez_mieszkanca && (
+            <p className="mt-1 badge bg-ok-soft text-ok">Potwierdzony przez mieszkańca {aed.potwierdzone_przez_mieszkanca}</p>
+          )}
         </div>
         <button onClick={onClose} className="btn btn-outline h-10 min-h-0 w-10 shrink-0 p-0" aria-label="Zamknij szczegóły">
           <X className="h-5 w-5" aria-hidden />

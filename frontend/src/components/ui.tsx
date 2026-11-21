@@ -67,13 +67,15 @@ export function TextField({
   );
 }
 
+/** Swiss figure: a rule on top, small caps label, oversized number. Brand tone = red rule + red number. */
 export function Stat({ label, value, sub, tone = "ink" }: { label: string; value: ReactNode; sub?: ReactNode; tone?: "ink" | "brand" | "navy" | "ok" | "warn" }) {
   const color = { ink: "text-ink", brand: "text-brand", navy: "text-navy", ok: "text-ok", warn: "text-warn" }[tone];
+  const rule = tone === "brand" ? "border-brand" : "border-ink";
   return (
-    <div className="card p-4">
-      <p className="text-xs font-semibold uppercase tracking-wide text-muted">{label}</p>
-      <p className={`mt-1 text-3xl font-extrabold tabular-nums tracking-tight ${color}`}>{value}</p>
-      {sub && <p className="mt-1 text-xs text-muted">{sub}</p>}
+    <div className={`border-t-2 ${rule} pt-3`}>
+      <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted">{label}</p>
+      <p className={`mt-2 text-4xl font-black leading-none tracking-[-0.04em] tabular-nums sm:text-5xl ${color}`}>{value}</p>
+      {sub && <p className="mt-2 text-sm text-muted">{sub}</p>}
     </div>
   );
 }
@@ -86,7 +88,7 @@ export function Alert({ tone = "info", title, children }: { tone?: "info" | "ok"
     error: { cls: "border-brand bg-brand-soft text-brand-dark", Icon: XCircle },
   }[tone];
   return (
-    <div role={tone === "error" ? "alert" : "status"} className={`flex gap-3 rounded border-l-4 p-3 text-sm ${map.cls}`}>
+    <div role={tone === "error" ? "alert" : "status"} className={`flex gap-3 rounded-sm border-l-4 p-4 text-sm ${map.cls}`}>
       <map.Icon className="mt-0.5 h-5 w-5 shrink-0" aria-hidden />
       <div>
         {title && <p className="font-bold">{title}</p>}
@@ -99,8 +101,8 @@ export function Alert({ tone = "info", title, children }: { tone?: "info" | "ok"
 export function OpenBadge({ open, h24 }: { open?: boolean | null; h24?: boolean }) {
   if (h24) return <span className="badge bg-ok text-white">24/7</span>;
   if (open === true) return <span className="badge bg-ok-soft text-ok">Dostępny teraz</span>;
-  if (open === false) return <span className="badge bg-brand-soft text-brand-dark">Teraz niedostępny</span>;
-  return <span className="badge bg-surface text-muted ring-1 ring-line">Godziny nieznane</span>;
+  if (open === false) return <span className="badge bg-ink text-white">Teraz niedostępny</span>;
+  return <span className="badge text-muted ring-1 ring-inset ring-ink/20">Godziny nieznane</span>;
 }
 
 export function QualityBar({ value }: { value: number }) {
@@ -115,13 +117,18 @@ export function QualityBar({ value }: { value: number }) {
   );
 }
 
+/** Swiss page opener: label in the narrow column, display headline + lead on the wide one, heavy rule below. */
 export function PageHeader({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
   return (
-    <div className="border-b border-line bg-surface">
-      <div className="mx-auto max-w-7xl px-4 py-10">
-        <p className="eyebrow">{eyebrow}</p>
-        <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">{title}</h1>
-        {children && <div className="mt-3 max-w-3xl text-base text-muted">{children}</div>}
+    <div className="border-b-2 border-ink bg-white">
+      <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-4 px-4 pb-12 pt-10 sm:pb-16 sm:pt-14 lg:grid-cols-12">
+        <div className="lg:col-span-3 lg:pt-3">
+          <p className="eyebrow">{eyebrow}</p>
+        </div>
+        <div className="lg:col-span-9">
+          <h1 className="h-display">{title}</h1>
+          {children && <div className="lead mt-6 max-w-3xl">{children}</div>}
+        </div>
       </div>
     </div>
   );

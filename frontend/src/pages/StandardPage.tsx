@@ -77,7 +77,7 @@ export default function StandardPage() {
               </div>
               <div className="flex rounded border border-line p-0.5" role="group" aria-label="Filtr wymagalności">
                 {(["all", "O"] as const).map((v) => (
-                  <button key={v} onClick={() => setOnly(v)} aria-pressed={only === v} className={`rounded-sm px-3 py-1.5 text-sm font-semibold ${only === v ? "bg-navy text-white" : "text-muted hover:text-ink"}`}>
+                  <button key={v} onClick={() => setOnly(v)} aria-pressed={only === v} className={`rounded-sm px-3 py-1.5 text-sm font-semibold ${only === v ? "bg-ink text-white" : "text-muted hover:text-ink"}`}>
                     {v === "all" ? "Wszystkie" : "Tylko obowiązkowe"}
                   </button>
                 ))}

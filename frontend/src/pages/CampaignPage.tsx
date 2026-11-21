@@ -20,7 +20,7 @@ export default function CampaignPage() {
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 lg:grid-cols-2 lg:py-20">
           <div className="flex flex-col justify-center">
             <p className="eyebrow">Akcja społeczna · dane.gov.pl</p>
-            <h1 className="mt-3 text-5xl font-extrabold leading-[1.02] tracking-tight text-navy sm:text-6xl">
+            <h1 className="mt-5 text-[52px] font-black leading-[0.92] tracking-[-0.05em] text-ink sm:text-7xl lg:text-[88px]">
               Gdzie<span className="text-brand">AED</span>?
               <br />
               Każda minuta
@@ -39,7 +39,7 @@ export default function CampaignPage() {
                 Zobacz wzorcowy zakres
               </Link>
             </div>
-            <p className="mt-6 font-bold text-navy">#GdzieAED</p>
+            <p className="mt-8 text-2xl font-black tracking-[-0.03em] text-brand">#GdzieAED</p>
           </div>
           <div className="flex items-center justify-center lg:justify-end">
             <div className="flex aspect-square w-full max-w-[420px] flex-col items-center justify-center gap-6 bg-brand p-10 text-white lg:bg-transparent">
@@ -53,8 +53,8 @@ export default function CampaignPage() {
       </section>
 
       {/* Numbers */}
-      <section className="border-b border-line bg-navy text-white" aria-label="Skala problemu">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-3">
+      <section className="bg-ink text-white" aria-label="Skala problemu">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-3">
           <Num value={s ? fmt.format(s.total) : "…"} label="defibrylatorów zebraliśmy z rozproszonych źródeł" />
           <Num value={s ? fmt.format(s.official_records) : "…"} label="z nich pochodzi z oficjalnych danych dysponentów w dane.gov.pl" accent />
           <Num value={s ? `${Math.round((100 * s.missing_hours) / s.total)}%` : "…"} label="nie ma informacji, w jakich godzinach AED jest dostępne" />
@@ -165,9 +165,9 @@ export default function CampaignPage() {
 
 function Num({ value, label, accent }: { value: string; label: string; accent?: boolean }) {
   return (
-    <div className={`border-l-4 pl-4 ${accent ? "border-brand" : "border-white/40"}`}>
-      <p className="text-5xl font-extrabold tabular-nums tracking-tight">{value}</p>
-      <p className="mt-1 text-sm text-white/85">{label}</p>
+    <div className={`border-t-2 pt-4 ${accent ? "border-brand" : "border-white/40"}`}>
+      <p className={`text-6xl font-black leading-none tabular-nums tracking-[-0.05em] sm:text-7xl ${accent ? "text-brand" : "text-white"}`}>{value}</p>
+      <p className="mt-3 max-w-xs text-sm text-white/75">{label}</p>
     </div>
   );
 }

@@ -37,12 +37,15 @@ export type AED = {
   otwarte_teraz?: boolean | null;
   odleglosc_m?: number;
   czas_dojscia_min?: number;
-  zgloszenia?: { kind: string; comment: string; created_at: string }[];
+  zgloszenia?: { kind: string; comment: string; status?: string; created_at: string }[];
+  adres_zrodlo?: string;
+  zgloszony_problem?: string | null;
+  potwierdzone_przez_mieszkanca?: string | null;
 };
 
 export type Point = [string, number, number, number, number];
 
-export type User = { id: number; email: string; organization: string; regon: string };
+export type User = { id: number; email: string; organization: string; regon: string; is_moderator?: boolean };
 
 const TOKEN_KEY = "gdzieaed.token";
 

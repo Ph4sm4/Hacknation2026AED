@@ -45,7 +45,7 @@ function AuthPanel() {
             ["Opublikuj", "Dostajesz stały adres zasobu CSV i plik XML harwestera – wklejasz go w dane.gov.pl, a portal sam pobiera aktualizacje."],
           ].map(([t, d], i) => (
             <li key={t} className="flex gap-4">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-navy text-base font-bold text-white">{i + 1}</span>
+              <span className="w-10 shrink-0 text-3xl font-black leading-none tracking-[-0.05em] tabular-nums text-brand">{String(i + 1).padStart(2, "0")}</span>
               <div>
                 <p className="font-bold">{t}</p>
                 <p className="text-sm text-muted">{d}</p>
@@ -479,7 +479,7 @@ function Report({
             <h3 className="font-bold">Szczegóły ({rowIssues.length})</h3>
             <div className="flex gap-1" role="group" aria-label="Filtr poziomu">
               {(["all", "error", "warning", "fix"] as const).map((l) => (
-                <button key={l} onClick={() => setLevelFilter(l)} aria-pressed={levelFilter === l} className={`rounded-sm px-2.5 py-1 text-xs font-semibold ${levelFilter === l ? "bg-navy text-white" : "text-muted hover:bg-white"}`}>
+                <button key={l} onClick={() => setLevelFilter(l)} aria-pressed={levelFilter === l} className={`rounded-sm px-2.5 py-1 text-xs font-semibold ${levelFilter === l ? "bg-ink text-white" : "text-muted hover:bg-white"}`}>
                   {{ all: "Wszystkie", error: "Błędy", warning: "Ostrzeżenia", fix: "Poprawki" }[l]}
                 </button>
               ))}
