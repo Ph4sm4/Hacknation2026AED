@@ -1,19 +1,32 @@
 import * as Location from 'expo-location';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { AppState } from 'react-native';
 
 import { fetchNearest } from './api';
 import { distanceM } from './geo';
 import { nearestOffline, snapshotDate } from './snapshot';
 import type { AedItem, Coords, DataSource } from './types';
 
-/** iOS "Precise location: off" reports accuracy in kilometres; anything worse than this is treated as approximate. */
-export const APPROXIMATE_ACCURACY_M = 500;
+/** Precise location granted, but the fix is still coarser than this – GPS is still locking on (indoors, cold start). */
+export const LOCKING_ACCURACY_M = 100;
+
+/**
+ * Whether the user granted precise location: iOS "Precise Location" (accuracy 'full' | 'reduced'),
+ * Android "Use precise location" ('fine' | 'coarse'). null when the platform does not say.
+ */
+function preciseFrom(perm: Location.LocationPermissionResponse): boolean | null {
+  if (perm.ios?.accuracy) return perm.ios.accuracy === 'full';
+  if (perm.android?.accuracy) return perm.android.accuracy === 'fine';
+  return null;
+}
 
 export type NearestState = {
   status: 'locating' | 'loading' | 'ready' | 'denied' | 'error';
   coords: Coords | null;
   /** Horizontal accuracy of the latest fix in metres (radius of the circle on the map). */
   accuracyM: number | null;
+  /** Precise location permission (false = approximate only, user must switch it on in Settings). */
+  precise: boolean | null;
   items: AedItem[];
   source: DataSource | null;
   /** ISO date of the bundled snapshot when source === "offline". */
@@ -25,6 +38,7 @@ const INITIAL: NearestState = {
   status: 'locating',
   coords: null,
   accuracyM: null,
+  precise: null,
   items: [],
   source: null,
   offlineDate: null,
@@ -41,6 +55,7 @@ export function useNearestAed(k = 10) {
   const lastQuery = useRef<Coords | null>(null);
   const requestId = useRef(0);
   const watch = useRef<Location.LocationSubscription | null>(null);
+  const grantedPrecise = useRef<boolean | null>(null);
 
   const loadFor = useCallback(
     async (coords: Coords) => {
@@ -75,7 +90,8 @@ export function useNearestAed(k = 10) {
   const onPosition = useCallback(
     (pos: Location.LocationObject) => {
       const { latitude, longitude, accuracy } = pos.coords;
-      setState((s) => ({ ...s, accuracyM: accuracy ?? s.accuracyM }));
+      // GPS reports ~1/s while standing still – only re-render when the accuracy circle visibly changes
+      setState((s) => (accuracy == null || Math.round(accuracy) === Math.round(s.accuracyM ?? -1) ? s : { ...s, accuracyM: accuracy }));
       return loadFor({ latitude, longitude });
     },
     [loadFor],
@@ -92,11 +108,14 @@ export function useNearestAed(k = 10) {
         setState((s) => ({ ...s, status: 'denied' }));
         return;
       }
+      grantedPrecise.current = preciseFrom(perm);
+      setState((s) => ({ ...s, precise: grantedPrecise.current }));
       // fast first answer from a recent cached fix, then live GPS updates
       const last = await Location.getLastKnownPositionAsync({ maxAge: 60_000, requiredAccuracy: 100 });
       if (last) await onPosition(last);
       watch.current = await Location.watchPositionAsync(
-        { accuracy: Location.Accuracy.BestForNavigation, distanceInterval: 5 },
+        // no distance filter: a coarse first fix must be able to tighten while the user stands still
+        { accuracy: Location.Accuracy.BestForNavigation, distanceInterval: 0 },
         onPosition,
       );
     } catch {
@@ -114,6 +133,18 @@ export function useNearestAed(k = 10) {
       watch.current?.remove();
       watch.current = null;
     };
+  }, [locate]);
+
+  // back from Settings (e.g. "Precise Location" switched on): restart with the new permission
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', async (next) => {
+      if (next !== 'active') return;
+      const perm = await Location.getForegroundPermissionsAsync().catch(() => null);
+      if (!perm) return;
+      const precise = perm.status === 'granted' ? preciseFrom(perm) : null;
+      if (perm.status === 'granted' && (precise !== grantedPrecise.current || !watch.current)) locate();
+    });
+    return () => sub.remove();
   }, [locate]);
 
   return { ...state, refresh: locate };

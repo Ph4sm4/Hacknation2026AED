@@ -14,7 +14,7 @@ import { AED, TYPE } from '@/constants/aed-theme';
 import { call112, openAppSettings, openWalkingDirections } from '@/lib/aed/actions';
 import { formatDistance, formatWalk } from '@/lib/aed/geo';
 import type { AedItem } from '@/lib/aed/types';
-import { APPROXIMATE_ACCURACY_M, useNearestAed } from '@/lib/aed/useNearestAed';
+import { LOCKING_ACCURACY_M, useNearestAed } from '@/lib/aed/useNearestAed';
 import { useWalkingRoutes, type AedRoute } from '@/lib/aed/useWalkingRoutes';
 
 /**
@@ -23,8 +23,10 @@ import { useWalkingRoutes, type AedRoute } from '@/lib/aed/useWalkingRoutes';
  */
 export default function EmergencyScreen() {
   const { go } = useLocalSearchParams<{ go?: string }>();
-  const { status, coords, accuracyM, items: byDistance, source, offlineDate, error, refresh } = useNearestAed(10);
-  const approximate = accuracyM != null && accuracyM > APPROXIMATE_ACCURACY_M;
+  const { status, coords, accuracyM, precise, items: byDistance, source, offlineDate, error, refresh } = useNearestAed(10);
+  // approximate = the user granted only approximate location; a weak fix with precise location is just GPS locking on
+  const approximate = precise === false;
+  const locking = !approximate && accuracyM != null && accuracyM > LOCKING_ACCURACY_M;
   const [selectedId, setSelectedId] = useState<string | null>(null);
   // re-ranked by real walking time (Apple Maps, else OpenStreetMap routing)
   const { routes, failed, ranked: items } = useWalkingRoutes(
@@ -104,8 +106,8 @@ export default function EmergencyScreen() {
             <IconSymbol name="exclamationmark.triangle.fill" size={22} color={AED.red} />
             <View style={{ flex: 1, gap: 8, alignItems: 'flex-start' }}>
               <Text style={styles.warningText}>
-                Lokalizacja jest przybliżona (±{formatDistance(accuracyM)}). Włącz „Dokładną lokalizację”, aby wskazać
-                najbliższy AED.
+                Lokalizacja jest przybliżona{accuracyM != null ? ` (±${formatDistance(accuracyM)})` : ''}. Włącz „Dokładną
+                lokalizację” dla tej aplikacji, aby wskazać najbliższy AED.
               </Text>
               <SmallButton label="Otwórz ustawienia" onPress={openAppSettings} />
             </View>
@@ -150,7 +152,9 @@ export default function EmergencyScreen() {
         </View>
 
         {accuracyM != null && !approximate && (
-          <Text style={styles.accuracy}>Dokładność Twojej pozycji: ±{formatDistance(accuracyM)}</Text>
+          <Text style={styles.accuracy}>
+            {locking ? `Ustalam dokładną pozycję… ±${formatDistance(accuracyM)}` : `Dokładność Twojej pozycji: ±${formatDistance(accuracyM)}`}
+          </Text>
         )}
 
         {selected && (
