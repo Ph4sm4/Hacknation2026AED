@@ -386,11 +386,11 @@ function Detail({ aed, origin, onClose }: { aed: AED; origin: [number, number]; 
         <button
           type="button"
           onClick={() => setGuide(true)}
-          className="group flex w-full items-center gap-3 rounded-2xl bg-brand-soft p-3 text-left transition-colors hover:bg-brand/15"
+          className="group flex w-full items-center gap-3 rounded-md border border-brand/25 bg-brand-soft p-3 text-left transition-colors hover:bg-brand/15"
         >
           <span className="flex shrink-0 -space-x-3" aria-hidden>
             {GUIDE_STEPS.slice(0, 3).map((s) => (
-              <span key={s.title} className="h-11 w-11 rounded-xl bg-white p-1 ring-2 ring-brand-soft" dangerouslySetInnerHTML={{ __html: s.svg }} />
+              <span key={s.title} className="h-11 w-11 rounded-sm bg-white p-1 ring-2 ring-brand-soft" dangerouslySetInnerHTML={{ __html: s.svg }} />
             ))}
           </span>
           <span className="min-w-0 flex-1">
@@ -401,7 +401,7 @@ function Detail({ aed, origin, onClose }: { aed: AED; origin: [number, number]; 
           </span>
           <ChevronRight className="h-5 w-5 shrink-0 text-brand transition-transform group-hover:translate-x-0.5" aria-hidden />
         </button>
-        {guide && <AedGuideDialog onClose={() => setGuide(false)} />}
+        <AedGuideDialog open={guide} onClose={() => setGuide(false)} />
 
         <dl className="divide-y divide-line border-y border-line text-sm">
           {rows.map(([Icon, k, v]) => (
