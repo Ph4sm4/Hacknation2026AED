@@ -24,7 +24,7 @@ from ..build_schema import build_jsonschema, build_tableschema
 from ..pipeline import OUT
 from ..schema import ROOT
 from ..validator import records_to_csv, validate_file
-from . import auth, db
+from . import alerts, auth, db
 from .store import schema, store, to_csv, to_geojson
 
 app = FastAPI(
@@ -34,6 +34,7 @@ app = FastAPI(
     docs_url="/api/docs", openapi_url="/api/openapi.json", redoc_url=None,
 )
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+app.include_router(alerts.router)
 
 FRONTEND = Path(os.environ.get("AED_FRONTEND", ROOT / "frontend" / "dist"))
 MAX_UPLOAD = 10 * 1024 * 1024

@@ -160,3 +160,26 @@ def test_coverage_ranking(client):
     assert s["gminy_bez_aed"] == sum(1 for g in cov["gminy"] if g["aed"] == 0)
     gj = client.get("/api/coverage/powiaty.geojson").json()
     assert gj["type"] == "FeatureCollection" and len(gj["features"]) > 300
+
+
+def test_responder_alert_roles(client):
+    near_aed = {"device_id": "resp_near_aed_0000000", "lat": 52.2350, "lon": 21.0150}
+    near_victim = {"device_id": "resp_near_victim_00000", "lat": 52.2310, "lon": 21.0060}
+    far = {"device_id": "resp_far_away_00000000", "lat": 52.27, "lon": 21.05}
+    for r in (near_aed, near_victim, far):
+        assert client.post("/api/responders/heartbeat", json=r).status_code == 200
+    a = client.post("/api/alerts", json={"device_id": "sender_000000000000000", "lat": 52.2297, "lon": 21.0122}).json()
+    assert a["recipients"] == 2 and a["aed"]
+    seen = {r["device_id"]: client.post("/api/responders/heartbeat", json=r).json()["alerts"] for r in (near_aed, near_victim, far)}
+    assert seen[far["device_id"]] == []
+    for alerts in (seen[near_aed["device_id"]], seen[near_victim["device_id"]]):
+        assert alerts[0]["id"] == a["id"] and alerts[0]["rola"] in ("przynies_aed", "pomoz_na_miejscu")
+    # whoever is closer to the AED than to the casualty is asked to bring it
+    for alerts in seen.values():
+        for x in alerts:
+            assert (x["rola"] == "przynies_aed") == (x["odleglosc_do_aed_m"] <= x["odleglosc_m"])
+    r = client.post(f"/api/alerts/{a['id']}/respond", json={"device_id": near_aed["device_id"], "response": "przynosze_aed"})
+    assert r.json()["odpowiedzi"]["przynosze_aed"] == 1
+    assert client.post("/api/alerts", json={"device_id": "sender_000000000000000", "lat": 52.2297, "lon": 21.0122}).status_code == 429
+    assert client.post(f"/api/alerts/{a['id']}/close", json={"device_id": "someone_else_000000000"}).status_code == 404
+    assert client.post(f"/api/alerts/{a['id']}/close", json={"device_id": "sender_000000000000000"}).json()["status"] == "odwolany"

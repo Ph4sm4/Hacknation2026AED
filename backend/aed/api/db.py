@@ -39,6 +39,35 @@ CREATE TABLE IF NOT EXISTS submissions (
     status TEXT NOT NULL DEFAULT 'przekazane',
     created_at TEXT DEFAULT (datetime('now'))
 );
+-- volunteer responders: an anonymous device id + its last position (expires, deleted on opt-out)
+CREATE TABLE IF NOT EXISTS responders (
+    device_id TEXT PRIMARY KEY,
+    lat REAL NOT NULL,
+    lon REAL NOT NULL,
+    accuracy REAL,
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+-- "AED needed here" alerts sent from the app
+CREATE TABLE IF NOT EXISTS alerts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender_device TEXT NOT NULL,
+    lat REAL NOT NULL,
+    lon REAL NOT NULL,
+    accuracy REAL,
+    address TEXT DEFAULT '',
+    aed_id TEXT DEFAULT '',
+    recipients INTEGER NOT NULL DEFAULT 0,
+    status TEXT NOT NULL DEFAULT 'aktywny',
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    expires_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS alert_responses (
+    alert_id INTEGER NOT NULL,
+    device_id TEXT NOT NULL,
+    response TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    PRIMARY KEY (alert_id, device_id)
+);
 CREATE TABLE IF NOT EXISTS reports (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     aed_id TEXT NOT NULL,
