@@ -16,6 +16,18 @@ export async function openWalkingDirections(latitude: number, longitude: number)
   await Linking.openURL(web);
 }
 
+/** Walking directions to `dest`, optionally via a waypoint (e.g. pick up the AED on the way). */
+export async function openWalkingRoute(dest: { lat: number; lon: number }, via?: { lat: number; lon: number }) {
+  if (!via) return openWalkingDirections(dest.lat, dest.lon);
+  const q = new URLSearchParams({
+    api: '1',
+    destination: `${dest.lat},${dest.lon}`,
+    waypoints: `${via.lat},${via.lon}`,
+    travelmode: 'walking',
+  });
+  await Linking.openURL(`https://www.google.com/maps/dir/?${q}`);
+}
+
 export async function call112() {
   try {
     await Linking.openURL('tel:112');

@@ -29,6 +29,13 @@ const SERVICES: Service[] = [
     onPress: () => router.push('/cpr'),
   },
   {
+    title: 'Tryb ratownika',
+    subtitle: 'Alarmy „potrzebny AED” w promieniu 1 km',
+    icon: 'figure.walk',
+    color: AED.red,
+    onPress: () => router.push('/responder'),
+  },
+  {
     title: 'AED pod Przyciskiem czynności',
     subtitle: 'Jedno naciśnięcie otwiera najbliższe AED',
     icon: 'bolt.heart.fill',

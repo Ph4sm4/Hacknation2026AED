@@ -5,6 +5,8 @@ import MapView, { Marker, Polyline } from 'react-native-maps';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AedStatusBadges } from '@/components/aed/AedStatusBadge';
+import { CallRespondersPanel } from '@/components/aed/CallRespondersPanel';
+import { MorphPressable } from '@/components/aed/MorphPressable';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { AED, TYPE } from '@/constants/aed-theme';
 import { call112, openAppSettings, openWalkingDirections } from '@/lib/aed/actions';
@@ -70,23 +72,25 @@ export default function EmergencyScreen() {
       </SafeAreaView>
 
       <ScrollView contentContainerStyle={styles.content}>
-        <Pressable
+        <MorphPressable
           accessibilityRole="button"
           accessibilityLabel="Zadzwoń pod numer alarmowy 112"
           onPress={call112}
           style={({ pressed }) => [styles.call, pressed && { backgroundColor: AED.redDark }]}>
           <IconSymbol name="phone.fill" size={24} color="#fff" />
           <Text style={styles.callText}>Zadzwoń 112</Text>
-        </Pressable>
+        </MorphPressable>
 
-        <Pressable
+        <CallRespondersPanel coords={coords} accuracyM={accuracyM} />
+
+        <MorphPressable
           accessibilityRole="button"
           accessibilityLabel="Metronom RKO. Rytm uciśnięć klatki piersiowej"
           onPress={() => router.push('/cpr')}
           style={({ pressed }) => [styles.cprButton, pressed && { opacity: 0.85 }]}>
           <IconSymbol name="heart.fill" size={20} color={AED.ink} />
           <Text style={styles.cprButtonText}>Metronom RKO</Text>
-        </Pressable>
+        </MorphPressable>
 
         {approximate && (
           <View style={styles.warning} accessibilityRole="alert">
@@ -142,14 +146,13 @@ export default function EmergencyScreen() {
         {others.length > 0 && (
           <View style={styles.section}>
             <SectionLabel>Kolejne najbliższe</SectionLabel>
-            {others.map((a, i) => (
+            {others.map((a) => (
               <Pressable
                 key={a.id}
                 accessibilityRole="button"
                 accessibilityLabel={`${a.title}, ${formatDistance(a.distanceM)}. Pokaż na mapie`}
                 onPress={() => setSelectedId(a.id)}
                 style={({ pressed }) => [styles.otherRow, pressed && { backgroundColor: AED.background }]}>
-                <Text style={styles.otherIndex}>{String(i + 2).padStart(2, '0')}</Text>
                 <View style={{ flex: 1 }}>
                   <Text style={styles.otherTitle} numberOfLines={1}>
                     {a.title}
@@ -220,7 +223,7 @@ function AedCard({ aed, nearest, route }: { aed: AedItem; nearest: boolean; rout
         {route ? 'Trasa piesza z Apple Maps, zaznaczona na mapie.' : 'Odległość w linii prostej.'}
       </Text>
       <AedStatusBadges aed={aed} />
-      <Pressable
+      <MorphPressable
         accessibilityRole="button"
         accessibilityLabel={`Prowadź do defibrylatora: ${aed.title}. Otwiera Google Maps`}
         onPress={() => openWalkingDirections(aed.latitude, aed.longitude)}
@@ -228,7 +231,7 @@ function AedCard({ aed, nearest, route }: { aed: AedItem; nearest: boolean; rout
         <IconSymbol name="figure.walk" size={20} color="#fff" />
         <Text style={styles.navigateText}>Prowadź do AED</Text>
         <Text style={styles.navigateSub}>Google Maps</Text>
-      </Pressable>
+      </MorphPressable>
     </View>
   );
 }
@@ -281,9 +284,9 @@ function MapPlaceholder({
 
 function SmallButton({ label, onPress }: { label: string; onPress: () => void }) {
   return (
-    <Pressable accessibilityRole="button" onPress={onPress} style={styles.smallButton}>
+    <MorphPressable accessibilityRole="button" onPress={onPress} style={styles.smallButton}>
       <Text style={styles.smallButtonText}>{label}</Text>
-    </Pressable>
+    </MorphPressable>
   );
 }
 
@@ -308,7 +311,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
     backgroundColor: AED.red,
-    borderRadius: AED.radius,
+    borderRadius: 12,
     minHeight: 64,
   },
   callText: { color: '#fff', fontSize: 24, fontWeight: '900', letterSpacing: -0.8 },
@@ -318,7 +321,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 8,
     minHeight: 52,
-    borderRadius: AED.radius,
+    borderRadius: 12,
     borderWidth: 1.5,
     borderColor: AED.ink,
     backgroundColor: '#fff',
@@ -330,9 +333,7 @@ const styles = StyleSheet.create({
     gap: 10,
     padding: 14,
     borderRadius: AED.radius,
-    backgroundColor: '#fff',
-    borderLeftWidth: 4,
-    borderLeftColor: AED.red,
+    backgroundColor: AED.redTint,
   },
   warningText: { color: AED.ink, fontSize: 14, lineHeight: 19 },
   accuracy: { ...TYPE.label, color: AED.muted, letterSpacing: 1, marginTop: -4 },
@@ -350,20 +351,19 @@ const styles = StyleSheet.create({
     minHeight: 44,
     paddingHorizontal: 16,
     justifyContent: 'center',
-    borderRadius: AED.radius,
+    borderRadius: 12,
     borderWidth: 1.5,
     borderColor: AED.ink,
   },
   smallButtonText: { color: AED.ink, fontWeight: '800', fontSize: 15 },
 
   labelRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  labelSquare: { width: 8, height: 8, backgroundColor: AED.red },
+  labelSquare: { width: 8, height: 8, backgroundColor: AED.red, borderRadius: 4 },
   label: { ...TYPE.label, color: AED.red },
 
   card: {
+    borderRadius: AED.radius,
     backgroundColor: AED.surface,
-    borderTopWidth: 4,
-    borderTopColor: AED.red,
     padding: 18,
     gap: 6,
     marginTop: 4,
@@ -382,16 +382,15 @@ const styles = StyleSheet.create({
     gap: 10,
     minHeight: 56,
     paddingHorizontal: 18,
-    borderRadius: AED.radius,
+    borderRadius: 12,
     backgroundColor: AED.ink,
   },
   navigateText: { flex: 1, color: '#fff', fontSize: 18, fontWeight: '900', letterSpacing: -0.5 },
   navigateSub: { ...TYPE.label, color: '#fff', opacity: 0.6, letterSpacing: 1 },
 
   section: {
+    borderRadius: AED.radius,
     backgroundColor: AED.surface,
-    borderTopWidth: 2,
-    borderTopColor: AED.ink,
     paddingHorizontal: 18,
     paddingVertical: 14,
     gap: 2,
@@ -406,12 +405,11 @@ const styles = StyleSheet.create({
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: AED.line,
   },
-  otherIndex: { width: 32, color: AED.ink, opacity: 0.25, fontSize: 22, fontWeight: '900', letterSpacing: -1 },
   otherTitle: { color: AED.ink, fontSize: 15, fontWeight: '700' },
   otherDistance: { color: AED.ink, fontSize: 17, fontWeight: '900', letterSpacing: -0.5 },
   cprToggle: { flexDirection: 'row', alignItems: 'center', minHeight: AED.touch - 8 },
   cprStepRow: { flexDirection: 'row', gap: 12 },
-  cprStepNum: { width: 28, color: AED.red, fontSize: 17, fontWeight: '900', letterSpacing: -0.5 },
+  cprStepNum: { width: 26, color: AED.red, fontSize: 15, fontWeight: '500', fontVariant: ['tabular-nums'], lineHeight: 21 },
   cprStep: { flex: 1, color: AED.ink, fontSize: 15, lineHeight: 21 },
   footer: { color: AED.muted, fontSize: 12, lineHeight: 17, paddingTop: 8 },
 });

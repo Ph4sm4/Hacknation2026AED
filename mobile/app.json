@@ -15,7 +15,12 @@
         "LSApplicationQueriesSchemes": [
           "comgooglemaps"
         ],
-        "NSLocationWhenInUseUsageDescription": "Lokalizacja jest potrzebna, aby pokazać najbliższe defibrylatory AED i poprowadzić Cię do nich."
+        "NSLocationWhenInUseUsageDescription": "Lokalizacja jest potrzebna, aby pokazać najbliższe defibrylatory AED i poprowadzić Cię do nich.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "W trybie ratownika aplikacja w tle sprawdza, czy ktoś w promieniu 1 km od Ciebie potrzebuje defibrylatora. Możesz go wyłączyć w każdej chwili.",
+        "NSLocalNetworkUsageDescription": "Aplikacja łączy się z serwerem GdzieAED działającym w sieci lokalnej (prototyp).",
+        "UIBackgroundModes": [
+          "location"
+        ]
       }
     },
     "android": {
@@ -54,11 +59,20 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "Lokalizacja jest potrzebna, aby pokazać najbliższe defibrylatory AED i poprowadzić Cię do nich."
+          "locationWhenInUsePermission": "Lokalizacja jest potrzebna, aby pokazać najbliższe defibrylatory AED i poprowadzić Cię do nich.",
+          "locationAlwaysAndWhenInUsePermission": "W trybie ratownika aplikacja w tle sprawdza, czy ktoś w promieniu 1 km od Ciebie potrzebuje defibrylatora. Możesz go wyłączyć w każdej chwili.",
+          "isIosBackgroundLocationEnabled": true
         }
       ],
       "./plugins/with-aed-siri",
-      "expo-audio"
+      "expo-audio",
+      "./plugins/with-local-notifications-only",
+      [
+        "expo-notifications",
+        {
+          "sounds": []
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
