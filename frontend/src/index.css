@@ -100,6 +100,12 @@
   box-shadow: 0 0 0 1px rgb(11 11 12 / 0.25); }
 .aed-cluster.lg { background: var(--color-brand); }
 .aed-pin { filter: drop-shadow(0 1px 1.5px rgb(16 24 40 / 0.45)); }
+/* list hover → radar pulse under the AED on the map */
+.aed-hover { position: relative; pointer-events: none; }
+.aed-hover::before, .aed-hover::after { content: ""; position: absolute; inset: 0; border-radius: 9999px;
+  border: 3px solid var(--color-brand); background: rgb(200 16 46 / 0.12); animation: aed-ping 1.4s cubic-bezier(0.2, 0.7, 0.3, 1) infinite; }
+.aed-hover::after { animation-delay: 0.7s; }
+@keyframes aed-ping { 0% { transform: scale(0.25); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
 .leaflet-popup-content-wrapper { border-radius: 12px; }
 .leaflet-bar { border-radius: 9999px !important; overflow: hidden; }
 .leaflet-bar a { border-radius: 0 !important; }

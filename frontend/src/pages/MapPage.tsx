@@ -21,6 +21,7 @@ export default function MapPage() {
   const [locatingNote, setLocatingNote] = useState("");
   const [filters, setFilters] = useState({ open_now: false, public_only: true });
   const [selected, setSelected] = useState<AED | null>(null);
+  const [hovered, setHovered] = useState<AED | null>(null);
   const [q, setQ] = useState("");
   const [searchRes, setSearchRes] = useState<AED[] | null>(null);
   const [mobileView, setMobileView] = useState<"list" | "map">("list");
@@ -160,6 +161,7 @@ export default function MapPage() {
 
   const list = searchRes ?? nearest;
   const sel = useMemo(() => (selected ? { id: selected.id, lat: selected.szerokosc_geograficzna, lon: selected.dlugosc_geograficzna } : null), [selected]);
+  const hoverPos = useMemo(() => (hovered ? { lat: hovered.szerokosc_geograficzna, lon: hovered.dlugosc_geograficzna } : null), [hovered]);
 
   return (
     <div className="relative flex h-full flex-col lg:flex-row">
@@ -233,12 +235,26 @@ export default function MapPage() {
             <li key={a.id}>
               <button
                 onClick={() => select(a.id)}
-                className={`flex w-full gap-3 rounded-2xl px-3 py-3 text-left hover:bg-surface ${selected?.id === a.id ? "bg-brand-soft" : ""}`}
+                onMouseEnter={() => setHovered(a)}
+                onMouseLeave={() => setHovered((h) => (h?.id === a.id ? null : h))}
+                onFocus={() => setHovered(a)}
+                onBlur={() => setHovered((h) => (h?.id === a.id ? null : h))}
+                className={`group flex w-full gap-3 rounded-md px-3 py-3 text-left transition-[background-color,box-shadow,scale] duration-200 ease-out scale-100 hover:scale-[1.015] focus-visible:scale-[1.015] active:scale-[0.99] ${
+                  selected?.id === a.id ? "bg-brand-soft" : "hover:bg-surface hover:shadow-[0_6px_18px_-10px_rgb(11_11_12/0.35)]"
+                }`}
               >
                 <span className="min-w-0 flex-1">
                   <span className="flex items-start justify-between gap-2">
                     <span className="text-[15px] font-bold leading-snug tracking-[-0.01em] text-ink">{displayName(a)}</span>
-                    {a.odleglosc_m !== undefined && <span className="shrink-0 text-[15px] font-extrabold tabular-nums tracking-[-0.02em] text-ink">{distance(a.odleglosc_m)}</span>}
+                    {a.odleglosc_m !== undefined && (
+                      <span className="flex shrink-0 items-center text-[15px] font-extrabold tabular-nums tracking-[-0.02em] text-ink transition-colors duration-200 group-hover:text-brand">
+                        {distance(a.odleglosc_m)}
+                        <ChevronRight
+                          className="h-4 w-0 -translate-x-1 opacity-0 transition-[width,opacity,transform] duration-200 ease-out group-hover:w-4 group-hover:translate-x-0 group-hover:opacity-100"
+                          aria-hidden
+                        />
+                      </span>
+                    )}
                   </span>
                   {a.lokalizacja_opis && <span className="mt-0.5 line-clamp-2 block text-sm text-muted">{a.lokalizacja_opis}</span>}
                   <MetaRow className="mt-1.5">
@@ -259,7 +275,7 @@ export default function MapPage() {
       {/* map */}
       <div className={`${mobileView === "map" ? "block" : "hidden"} relative isolate min-h-0 flex-1 lg:block`}>
         <Suspense fallback={<div className="flex h-full items-center justify-center text-muted">Ładowanie mapy…</div>}>
-          <AedMap points={points} origin={origin} selected={sel} highlight={nearest.map((n) => n.id)} onSelect={select} onPickOrigin={pick} fitTo={fitTo} />
+          <AedMap points={points} origin={origin} selected={sel} highlight={nearest.map((n) => n.id)} onSelect={select} onPickOrigin={pick} fitTo={fitTo} hover={hoverPos} />
         </Suspense>
         <p className="pointer-events-none absolute left-3 top-3 z-[500] hidden rounded bg-white/95 px-3 py-2 text-xs font-medium text-muted shadow-sm ring-1 ring-line sm:block">
           Kliknij na mapie, aby wyszukać AED wokół wybranego punktu

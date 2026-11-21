@@ -13,6 +13,8 @@ type Props = {
   onSelect: (id: string) => void;
   onPickOrigin: (lat: number, lon: number) => void;
   fitTo?: [number, number][] | null;
+  /** AED under the pointer in the list – pulses on the map */
+  hover?: { lat: number; lon: number } | null;
 };
 
 const COLORS = { h24: "#0F7B3F", pub: "#0B3D91", lim: "#0B3D91", priv: "#667085" };
@@ -67,12 +69,13 @@ function previewTile(base: Base, lat: number, lon: number, zoom: number): string
     : `https://tile.openstreetmap.org/${z}/${x}/${y}.png`;
 }
 
-export default function AedMap({ points, origin, selected, highlight, onSelect, onPickOrigin, fitTo }: Props) {
+export default function AedMap({ points, origin, selected, highlight, onSelect, onPickOrigin, fitTo, hover }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const cluster = useRef<L.MarkerClusterGroup | null>(null);
   const originMarker = useRef<L.Marker | null>(null);
   const selMarker = useRef<L.Marker | null>(null);
+  const hoverMarker = useRef<L.Marker | null>(null);
   const hlLayer = useRef<L.LayerGroup | null>(null);
   const pendingFit = useRef<L.LatLngBounds | null>(null);
   const bases = useRef<Record<Base, L.Layer> | null>(null);
@@ -210,6 +213,19 @@ export default function AedMap({ points, origin, selected, highlight, onSelect, 
       m.flyTo([selected.lat, selected.lon], Math.max(m.getZoom(), 16), { duration: 0.6 });
     }
   }, [selected, origin]);
+
+  useEffect(() => {
+    const m = map.current;
+    hoverMarker.current?.remove();
+    hoverMarker.current = null;
+    if (!m || !hover) return;
+    hoverMarker.current = L.marker([hover.lat, hover.lon], {
+      icon: L.divIcon({ className: "", html: '<div class="aed-hover" style="width:64px;height:64px"></div>', iconSize: [64, 64], iconAnchor: [32, 32] }),
+      interactive: false,
+      keyboard: false,
+      zIndexOffset: -1000,
+    }).addTo(m);
+  }, [hover]);
 
   // Google-Maps-style switch: a live thumbnail of the other base layer, bottom-left
   const toggleBase = useCallback(() => {
