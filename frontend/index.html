@@ -2,14 +2,40 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!--seo:head-->
     <meta name="theme-color" content="#C8102E" />
-    <meta name="description" content="GdzieAED – ogólnopolski, otwarty zbiór danych o defibrylatorach AED. Znajdź najbliższy defibrylator i udostępnij dane w dane.gov.pl." />
+    <meta name="application-name" content="GdzieAED" />
+    <meta name="apple-mobile-web-app-title" content="GdzieAED" />
+    <meta name="author" content="GdzieAED – HackNation 2026" />
+
+    <!-- social previews (Facebook, LinkedIn, Slack, X, Messenger, WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GdzieAED" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:image" content="__SITE_URL__/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="GdzieAED? Każda minuta się liczy. Mapa defibrylatorów AED w Polsce." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="__SITE_URL__/og-image.png" />
+    <meta name="twitter:image:alt" content="GdzieAED? Każda minuta się liczy. Mapa defibrylatorów AED w Polsce." />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>GdzieAED – każda minuta się liczy</title>
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- map tiles: open the connections early (faster Largest Contentful Paint on the map page) -->
+    <link rel="preconnect" href="https://mapy.geoportal.gov.pl" />
+    <link rel="preconnect" href="https://server.arcgisonline.com" />
+    <link rel="dns-prefetch" href="https://tile.openstreetmap.org" />
   </head>
   <body>
     <div id="root"></div>
+    <!--seo:body-->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

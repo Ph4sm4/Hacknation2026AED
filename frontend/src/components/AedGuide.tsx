@@ -8,7 +8,7 @@ export function AedGuideSteps({ dense = false }: { dense?: boolean }) {
   return (
     <ol className={dense ? "grid gap-2" : "grid gap-3 sm:grid-cols-2 lg:grid-cols-5"}>
       {GUIDE_STEPS.map((s, i) => (
-        <li key={s.title} className={`rounded-2xl bg-surface ${dense ? "flex items-center gap-4 p-3" : "p-4"}`}>
+        <li key={s.title} id={dense ? undefined : `krok-${i + 1}`} className={`rounded-2xl bg-surface ${dense ? "flex items-center gap-4 p-3" : "p-4"}`}>
           {/* static, trusted markup from lib/aedGuide.ts */}
           <div
             aria-hidden

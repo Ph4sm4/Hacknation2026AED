@@ -1,6 +1,7 @@
-import { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
+import { Seo } from "./components/Seo";
 import { AuthProvider } from "./lib/auth";
 import MapPage from "./pages/MapPage";
 
@@ -12,31 +13,15 @@ const CoveragePage = lazy(() => import("./pages/CoveragePage"));
 const ModerationPage = lazy(() => import("./pages/ModerationPage"));
 const GuidePage = lazy(() => import("./pages/GuidePage"));
 
-const TITLES: Record<string, string> = {
-  "/": "Znajdź AED",
-  "/dane": "Dane otwarte",
-  "/standard": "Wzorcowy zakres danych",
-  "/dysponent": "Portal dysponenta",
-  "/akcja": "O akcji",
-  "/pokrycie": "Pokrycie AED",
-  "/moderacja": "Moderacja zgłoszeń",
-  "/jak-uzyc-aed": "Jak użyć AED",
-};
-
-function TitleSync() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    document.title = `${TITLES[pathname] ?? "Strona"} · GdzieAED`;
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-}
-
 function NotFound() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-20 text-center">
       <h1 className="text-3xl font-extrabold">Nie znaleziono strony</h1>
-      <a href="/" className="btn btn-primary mt-6">Wróć do mapy AED</a>
+      <p className="mt-3 text-muted">Sprawdź adres albo przejdź do jednej z sekcji serwisu.</p>
+      <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <a href="/" className="btn btn-primary">Wróć do mapy AED</a>
+        <a href="/jak-uzyc-aed" className="btn btn-outline">Jak użyć AED</a>
+      </div>
     </div>
   );
 }
@@ -45,7 +30,7 @@ export function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <TitleSync />
+        <Seo />
         <Suspense fallback={<div className="p-10 text-center text-muted">Ładowanie…</div>}>
           <Routes>
             <Route element={<Layout />}>

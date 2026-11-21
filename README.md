@@ -97,6 +97,15 @@ Testy (13: walidator na prawdziwych plikach z dane.gov.pl, XML vs oficjalny XSD,
 make test
 ```
 
+### Widoczność w wyszukiwarkach (SEO)
+
+- **Metadane podstron.** Tytuł, opis, adres kanoniczny, Open Graph i Twitter, JSON-LD dla każdej podstrony są w jednym pliku: [`frontend/src/lib/seo.ts`](frontend/src/lib/seo.ts). Rodzaje JSON-LD: `WebSite`, `WebPage`, `HowTo` dla instrukcji AED i `Dataset` dla obu zbiorów, co pozwala trafić do Google Dataset Search.
+- **HTML generowany przy budowaniu.** `npm run build` zapisuje osobny plik HTML dla każdej podstrony z gotowym `<head>` i treścią w `<noscript>`. Podgląd linku na Facebooku, LinkedIn czy Slacku działa więc bez JavaScriptu. Do tego powstają `404.html` (`noindex`) i `seo-routes.json`.
+- **robots.txt i sitemap.xml.** API generuje je na bieżąco. Indeksowane są strony serwisu oraz pliki z `/api/download/` i `/api/schema/`. Pozostałe `/api/` i panel moderacji są wykluczone. Nieznany adres zwraca prawdziwe 404.
+- **Adres serwisu.** Na produkcji ustaw `PUBLIC_BASE_URL=https://twoja-domena.pl`. Na nim powstają adresy kanoniczne, mapa witryny i obrazek podglądu. Bez tej zmiennej API użyje adresu z zapytania.
+- **Weryfikacja domeny.** Opcjonalnie ustaw `GOOGLE_SITE_VERIFICATION` lub `BING_SITE_VERIFICATION` przed `npm run build`. Mapę witryny `https://twoja-domena.pl/sitemap.xml` zgłoś w Google Search Console i Bing Webmaster Tools.
+- **Obrazy.** Obrazek podglądu (1200×630) i ikony powstają ze źródeł SVG poleceniem `sh branding/seo/render.sh` (macOS, `sips`).
+
 ## Zgodność z zasadami dane.gov.pl
 
 - Formaty odczytywalne maszynowo: CSV (UTF-8, przecinek), JSON, GeoJSON, XLSX i XML. Nie używamy PDF ani DOC do udostępniania danych.

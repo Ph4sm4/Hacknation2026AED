@@ -10,12 +10,15 @@ import json
 import os
 import re
 import secrets
+from datetime import date
+from functools import lru_cache
 from pathlib import Path
 from typing import Literal
 
 from fastapi import Depends, FastAPI, File, Form, HTTPException, Query, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, Response
+from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, PlainTextResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -35,6 +38,23 @@ app = FastAPI(
 )
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 app.include_router(alerts.router)
+app.add_middleware(GZipMiddleware, minimum_size=1024)
+
+
+@app.middleware("http")
+async def _seo_headers(request: Request, call_next):
+    """Caching and indexing hints: hashed assets are immutable, HTML is revalidated,
+    JSON API answers stay out of search results (downloadable datasets and schema files stay indexable)."""
+    response = await call_next(request)
+    path = request.url.path
+    if path.startswith("/assets/"):
+        response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+    elif path.startswith("/api/"):
+        if not path.startswith(("/api/download/", "/api/schema/")):
+            response.headers["X-Robots-Tag"] = "noindex"
+    elif response.headers.get("content-type", "").startswith("text/html"):
+        response.headers["Cache-Control"] = "no-cache"
+    return response
 
 FRONTEND = Path(os.environ.get("AED_FRONTEND", ROOT / "frontend" / "dist"))
 MAX_UPLOAD = 10 * 1024 * 1024
@@ -413,13 +433,86 @@ def claim(q: str = Query(..., min_length=3), user: dict = Depends(auth.current_u
     return {"total": len(rows), "data": [store.with_live(r) for r in rows[:200]]}
 
 
+# ============================================================================ search engines
+SITE_URL_PLACEHOLDER = "__SITE_URL__"
+
+
+def _seo_routes() -> list[dict]:
+    f = FRONTEND / "seo-routes.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else [{"path": "/", "priority": 1, "changefreq": "daily", "dataDriven": True, "noindex": False}]
+
+
+@app.get("/robots.txt", include_in_schema=False)
+def robots(request: Request):
+    base = base_url(request)
+    hidden = [r["path"] for r in _seo_routes() if r.get("noindex")]
+    lines = [
+        "# GdzieAED – mapa defibrylatorów AED i otwarte dane",
+        "User-agent: *",
+        "Allow: /",
+        # datasets and the data standard are meant to be found (e.g. Google Dataset Search)
+        "Allow: /api/download/",
+        "Allow: /api/schema/",
+        "Disallow: /api/",
+        *[f"Disallow: {p}" for p in hidden],
+        "",
+        f"Sitemap: {base}/sitemap.xml",
+        "",
+    ]
+    return PlainTextResponse("\n".join(lines), headers={"Cache-Control": "public, max-age=86400"})
+
+
+def _mtime(f: Path) -> str | None:
+    return date.fromtimestamp(f.stat().st_mtime).isoformat() if f.exists() else None
+
+
+@app.get("/sitemap.xml", include_in_schema=False)
+def sitemap(request: Request):
+    base = base_url(request)
+    built = _mtime(FRONTEND / "seo-routes.json") or date.today().isoformat()
+    data = _mtime(OUT / "aed_polska.json") or built
+    urls = []
+    for r in _seo_routes():
+        if r.get("noindex"):
+            continue
+        lastmod = max(data, built) if r.get("dataDriven") else built
+        urls.append(
+            f"  <url><loc>{base}{r['path']}</loc><lastmod>{lastmod}</lastmod>"
+            f"<changefreq>{r['changefreq']}</changefreq><priority>{r['priority']:.1f}</priority></url>"
+        )
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(urls) + "\n</urlset>\n"
+    return Response(xml, media_type="application/xml", headers={"Cache-Control": "public, max-age=3600"})
+
+
 # ============================================================================ frontend (SPA)
+@lru_cache(maxsize=64)
+def _page(file: str, base: str, mtime: float) -> str:
+    # pre-rendered route HTML with absolute URLs (canonical, og:url, og:image, JSON-LD) on the public origin
+    return Path(file).read_text(encoding="utf-8").replace(SITE_URL_PLACEHOLDER, base)
+
+
+def _html(f: Path, request: Request, status: int = 200) -> HTMLResponse:
+    return HTMLResponse(_page(str(f), base_url(request), f.stat().st_mtime), status_code=status)
+
+
 if FRONTEND.exists():
     app.mount("/assets", StaticFiles(directory=FRONTEND / "assets"), name="assets")
+    # route list comes from the build; an older build without it keeps the plain SPA behaviour (all paths → 200)
+    ROUTE_PATHS = {r["path"] for r in _seo_routes()} if (FRONTEND / "seo-routes.json").exists() else None
 
     @app.get("/{path:path}", include_in_schema=False)
-    def spa(path: str):
+    def spa(path: str, request: Request):
         f = FRONTEND / path
         if path and f.is_file() and FRONTEND in f.resolve().parents:
+            if f.suffix == ".html":
+                return _html(f, request)
             return FileResponse(f)
-        return FileResponse(FRONTEND / "index.html")
+        route = "/" + path.strip("/")
+        if ROUTE_PATHS is None or route in ROUTE_PATHS:
+            page = FRONTEND / path.strip("/") / "index.html" if route != "/" else FRONTEND / "index.html"
+            return _html(page if page.is_file() else FRONTEND / "index.html", request)
+        if path.startswith("api/"):
+            raise HTTPException(404, "Nieznany zasób API")
+        # unknown address: the app still renders its "not found" view, but crawlers get a real 404 + noindex
+        not_found = FRONTEND / "404.html"
+        return _html(not_found if not_found.is_file() else FRONTEND / "index.html", request, status=404)
