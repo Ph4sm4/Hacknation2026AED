@@ -33,6 +33,10 @@ const MAPPING = {
   'exclamationmark.triangle.fill': 'warning',
   'car.fill': 'directions-car',
   'building.columns.fill': 'account-balance',
+  clock: 'schedule',
+  lock: 'lock',
+  key: 'vpn-key',
+  'person.2': 'group',
 } satisfies IconMapping;
 
 /**

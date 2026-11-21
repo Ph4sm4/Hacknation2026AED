@@ -1,13 +1,16 @@
 import { router } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
+import { MorphPressable } from '@/components/aed/MorphPressable';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { AED, TYPE } from '@/constants/aed-theme';
 
 /** Big red entry point to the emergency AED screen (home screen) – GdzieAED Swiss style. */
 export function EmergencyEntryButton() {
   return (
-    <Pressable
+    <MorphPressable
+      radius={18}
+      pressedRadius={42}
       accessibilityRole="button"
       accessibilityLabel="Nagły wypadek. Znajdź najbliższy defibrylator AED"
       accessibilityHint="Otwiera mapę najbliższych defibrylatorów i przycisk połączenia z numerem 112"
@@ -24,7 +27,7 @@ export function EmergencyEntryButton() {
       <Text style={styles.arrow} accessible={false}>
         →
       </Text>
-    </Pressable>
+    </MorphPressable>
   );
 }
 
@@ -34,7 +37,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 14,
     backgroundColor: AED.red,
-    borderRadius: 4,
+    borderRadius: 12,
     paddingVertical: 16,
     paddingHorizontal: 16,
     minHeight: 84,
@@ -42,7 +45,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 48,
     height: 48,
-    borderRadius: AED.radius,
+    borderRadius: 24,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',

@@ -1,7 +1,7 @@
 /**
  * GdzieAED tokens – same system as the web app (frontend/src/index.css), Swiss / International style:
  * white surface, black typography, medical red as the single action colour, navy only for information,
- * green only for "available / 24/7". Rules instead of shadows; radius capped at 4.
+ * green only for "available / 24/7". Pill-shaped buttons, softly rounded panels.
  */
 export const AED = {
   red: '#C8102E',
@@ -16,7 +16,10 @@ export const AED = {
   line: '#E2E3E6',
   surface: '#FFFFFF',
   background: '#F4F4F2',
-  radius: 2,
+  /** panels, cards, map */
+  radius: 16,
+  /** buttons, badges */
+  pill: 999,
   /** minimum touch target (WCAG 2.5.5 / Apple HIG) */
   touch: 48,
 } as const;

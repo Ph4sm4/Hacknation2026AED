@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { MorphPressable } from '@/components/aed/MorphPressable';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { AED, TYPE } from '@/constants/aed-theme';
 import { call112 } from '@/lib/aed/actions';
@@ -106,31 +107,31 @@ export default function CprScreen() {
         </Text>
 
         <View style={styles.row}>
-          <Pressable
+          <MorphPressable
             accessibilityRole="button"
             accessibilityLabel={running ? 'Wstrzymaj metronom' : 'Wznów metronom'}
             onPress={() => setRunning((r) => !r)}
             style={({ pressed }) => [styles.secondary, pressed && { opacity: 0.8 }]}>
             <Text style={styles.secondaryText}>{running ? 'Pauza' : 'Wznów'}</Text>
-          </Pressable>
-          <Pressable
+          </MorphPressable>
+          <MorphPressable
             accessibilityRole="switch"
             accessibilityState={{ checked: sound }}
             accessibilityLabel="Dźwięk metronomu"
             onPress={() => setSound((s) => !s)}
             style={({ pressed }) => [styles.secondary, pressed && { opacity: 0.8 }]}>
             <Text style={styles.secondaryText}>{sound ? 'Dźwięk: wł.' : 'Dźwięk: wył.'}</Text>
-          </Pressable>
+          </MorphPressable>
         </View>
 
-        <Pressable
+        <MorphPressable
           accessibilityRole="button"
           accessibilityLabel="Zadzwoń pod numer alarmowy 112"
           onPress={call112}
           style={({ pressed }) => [styles.call, pressed && { backgroundColor: AED.redDark }]}>
           <IconSymbol name="phone.fill" size={22} color="#fff" />
           <Text style={styles.callText}>Zadzwoń 112</Text>
-        </Pressable>
+        </MorphPressable>
         <Text style={styles.footnote}>
           Gdy ktoś przyniesie AED: włącz go i wykonuj polecenia głosowe urządzenia. Rytm wg wytycznych ERC (100–120/min).
         </Text>
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
   circle: {
     width: 240,
     height: 240,
-    borderRadius: AED.radius,
+    borderRadius: 120,
     backgroundColor: AED.red,
     alignItems: 'center',
     justifyContent: 'center',
@@ -163,7 +164,7 @@ const styles = StyleSheet.create({
   secondary: {
     flex: 1,
     minHeight: AED.touch + 4,
-    borderRadius: AED.radius,
+    borderRadius: 12,
     borderWidth: 1.5,
     borderColor: AED.ink,
     alignItems: 'center',
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
     minHeight: 64,
-    borderRadius: AED.radius,
+    borderRadius: 12,
     backgroundColor: AED.red,
   },
   callText: { color: '#fff', fontSize: 24, fontWeight: '900', letterSpacing: -0.8 },
