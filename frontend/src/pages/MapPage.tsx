@@ -51,14 +51,25 @@ export default function MapPage() {
       setGeoError("Twoja przeglądarka nie udostępnia lokalizacji.");
       return;
     }
+    const ok = (pos: GeolocationPosition) => {
+      setOrigin([pos.coords.latitude, pos.coords.longitude]);
+      setOriginLabel("Twoja lokalizacja");
+      setSearchRes(null);
+    };
+    const fail = (err: GeolocationPositionError) =>
+      setGeoError(
+        err.code === err.PERMISSION_DENIED
+          ? "Dostęp do lokalizacji jest zablokowany. Zezwól na niego w ustawieniach przeglądarki (ikona obok adresu strony) lub kliknij punkt na mapie."
+          : "Nie udało się ustalić Twojej lokalizacji. Wyszukaj miejsce lub kliknij punkt na mapie.",
+      );
+    // High accuracy first; desktops without GPS often time out, so fall back to network-based position.
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setOrigin([pos.coords.latitude, pos.coords.longitude]);
-        setOriginLabel("Twoja lokalizacja");
-        setSearchRes(null);
-      },
-      () => setGeoError("Nie udało się pobrać lokalizacji. Zezwól na dostęp lub kliknij punkt na mapie."),
-      { enableHighAccuracy: true, timeout: 10000 },
+      ok,
+      (err) =>
+        err.code === err.PERMISSION_DENIED
+          ? fail(err)
+          : navigator.geolocation.getCurrentPosition(ok, fail, { enableHighAccuracy: false, timeout: 15000, maximumAge: 300000 }),
+      { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 },
     );
   };
 
