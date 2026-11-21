@@ -62,7 +62,8 @@
 
 /* Leaflet tweaks: square clusters, consistent with the 4px radius system */
 .leaflet-container { font-family: var(--font-sans); background: #eef1f5; }
-.aed-cluster { display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700;
+/* .leaflet-marker-icon prefix: leaflet.css loads later (lazy chunk) and would reset display */
+.leaflet-marker-icon.aed-cluster { display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700;
   font-size: 12px; background: var(--color-navy); border: 2px solid #fff; border-radius: 4px;
   box-shadow: 0 1px 3px rgb(16 24 40 / 0.35); }
 .aed-cluster.lg { background: var(--color-navy-dark); }
