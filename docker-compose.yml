@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Public address used in dane.gov.pl harvester XML / DCAT links
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-http://localhost:8000}
+      AED_DB: /data/app.sqlite3
+    volumes:
+      - app-data:/data
+volumes:
+  app-data:

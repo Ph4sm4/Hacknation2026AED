@@ -1,0 +1,18 @@
+# dependencies / builds
+node_modules/
+frontend/dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# runtime state
+data/app.sqlite3
+data/.secret
+
+# large generated outputs (rebuilt by `python -m aed.pipeline` / on API start)
+data/out/aed_polska.json
+data/out/aed_polska.geojson
+
+.DS_Store
+.env
