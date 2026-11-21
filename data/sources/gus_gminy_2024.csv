@@ -1,0 +1,2478 @@
+teryt,gmina,rodzaj,powiat,wojewodztwo,powierzchnia_km2,ludnosc
+0201011,Bolesławiec,miejska,powiat bolesławiecki,dolnośląskie,23,37055
+0201022,Bolesławiec,wiejska,powiat bolesławiecki,dolnośląskie,289,15267
+0201032,Gromadka,wiejska,powiat bolesławiecki,dolnośląskie,268,5003
+0201052,Osiecznica,wiejska,powiat bolesławiecki,dolnośląskie,437,7284
+0201062,Warta Bolesławiecka,wiejska,powiat bolesławiecki,dolnośląskie,110,8411
+0201043,Nowogrodziec,miejsko-wiejska,powiat bolesławiecki,dolnośląskie,176,14622
+0202011,Bielawa,miejska,powiat dzierżoniowski,dolnośląskie,36,28027
+0202021,Dzierżoniów,miejska,powiat dzierżoniowski,dolnośląskie,20,30614
+0202041,Piława Górna,miejska,powiat dzierżoniowski,dolnośląskie,21,5904
+0202052,Dzierżoniów,wiejska,powiat dzierżoniowski,dolnośląskie,141,9152
+0202062,Łagiewniki,wiejska,powiat dzierżoniowski,dolnośląskie,125,7118
+0202073,Niemcza,miejsko-wiejska,powiat dzierżoniowski,dolnośląskie,72,5021
+0202033,Pieszyce,miejsko-wiejska,powiat dzierżoniowski,dolnośląskie,64,8904
+0203011,Głogów,miejska,powiat głogowski,dolnośląskie,35,62049
+0203022,Głogów,wiejska,powiat głogowski,dolnośląskie,85,7207
+0203032,Jerzmanowa,wiejska,powiat głogowski,dolnośląskie,63,5879
+0203042,Kotla,wiejska,powiat głogowski,dolnośląskie,128,4411
+0203052,Pęcław,wiejska,powiat głogowski,dolnośląskie,64,2102
+0203062,Żukowice,wiejska,powiat głogowski,dolnośląskie,68,3395
+0204022,Jemielno,wiejska,powiat górowski,dolnośląskie,124,2719
+0204032,Niechlów,wiejska,powiat górowski,dolnośląskie,151,4513
+0204013,Góra,miejsko-wiejska,powiat górowski,dolnośląskie,266,18458
+0204043,Wąsosz,miejsko-wiejska,powiat górowski,dolnośląskie,197,6769
+0205011,Jawor,miejska,powiat jaworski,dolnośląskie,19,20503
+0205032,Męcinka,wiejska,powiat jaworski,dolnośląskie,148,5219
+0205042,Mściwojów,wiejska,powiat jaworski,dolnośląskie,72,3981
+0205052,Paszowice,wiejska,powiat jaworski,dolnośląskie,101,4199
+0205062,Wądroże Wielkie,wiejska,powiat jaworski,dolnośląskie,89,3724
+0205023,Bolków,miejsko-wiejska,powiat jaworski,dolnośląskie,152,9587
+0207011,Kamienna Góra,miejska,powiat kamiennogórski,dolnośląskie,18,17110
+0207022,Kamienna Góra,wiejska,powiat kamiennogórski,dolnośląskie,158,8838
+0207042,Marciszów,wiejska,powiat kamiennogórski,dolnośląskie,82,4228
+0207033,Lubawka,miejsko-wiejska,powiat kamiennogórski,dolnośląskie,138,10143
+0206011,Karpacz,miejska,powiat karkonoski,dolnośląskie,38,4208
+0206021,Kowary,miejska,powiat karkonoski,dolnośląskie,37,9745
+0206031,Piechowice,miejska,powiat karkonoski,dolnośląskie,43,5743
+0206041,Szklarska Poręba,miejska,powiat karkonoski,dolnośląskie,75,5776
+0206052,Janowice Wielkie,wiejska,powiat karkonoski,dolnośląskie,58,4045
+0206062,Jeżów Sudecki,wiejska,powiat karkonoski,dolnośląskie,94,7898
+0206072,Mysłakowice,wiejska,powiat karkonoski,dolnośląskie,88,9640
+0206082,Podgórzyn,wiejska,powiat karkonoski,dolnośląskie,83,8115
+0206092,Stara Kamienica,wiejska,powiat karkonoski,dolnośląskie,111,5268
+0208011,Duszniki-Zdrój,miejska,powiat kłodzki,dolnośląskie,22,4001
+0208021,Kłodzko,miejska,powiat kłodzki,dolnośląskie,25,24810
+0208031,Kudowa-Zdrój,miejska,powiat kłodzki,dolnośląskie,34,9280
+0208041,Nowa Ruda,miejska,powiat kłodzki,dolnośląskie,37,20421
+0208051,Polanica-Zdrój,miejska,powiat kłodzki,dolnośląskie,17,5937
+0208072,Kłodzko,wiejska,powiat kłodzki,dolnośląskie,253,16480
+0208092,Lewin Kłodzki,wiejska,powiat kłodzki,dolnośląskie,52,1957
+0208112,Nowa Ruda,wiejska,powiat kłodzki,dolnośląskie,140,10586
+0208063,Bystrzyca Kłodzka,miejsko-wiejska,powiat kłodzki,dolnośląskie,339,17207
+0208083,Lądek-Zdrój,miejsko-wiejska,powiat kłodzki,dolnośląskie,117,7468
+0208103,Międzylesie,miejsko-wiejska,powiat kłodzki,dolnośląskie,189,6756
+0208123,Radków,miejsko-wiejska,powiat kłodzki,dolnośląskie,140,8413
+0208133,Stronie Śląskie,miejsko-wiejska,powiat kłodzki,dolnośląskie,146,6758
+0208143,Szczytna,miejsko-wiejska,powiat kłodzki,dolnośląskie,132,6878
+0209011,Chojnów,miejska,powiat legnicki,dolnośląskie,5,12361
+0209022,Chojnów,wiejska,powiat legnicki,dolnośląskie,231,9474
+0209032,Krotoszyce,wiejska,powiat legnicki,dolnośląskie,67,3343
+0209042,Kunice,wiejska,powiat legnicki,dolnośląskie,93,7736
+0209052,Legnickie Pole,wiejska,powiat legnicki,dolnośląskie,85,5334
+0209062,Miłkowice,wiejska,powiat legnicki,dolnośląskie,87,7234
+0209082,Ruja,wiejska,powiat legnicki,dolnośląskie,73,2417
+0209073,Prochowice,miejsko-wiejska,powiat legnicki,dolnośląskie,103,7133
+0210011,Lubań,miejska,powiat lubański,dolnośląskie,16,19545
+0210021,Świeradów-Zdrój,miejska,powiat lubański,dolnośląskie,21,3960
+0210042,Lubań,wiejska,powiat lubański,dolnośląskie,142,6454
+0210062,Platerówka,wiejska,powiat lubański,dolnośląskie,48,1515
+0210072,Siekierczyn,wiejska,powiat lubański,dolnośląskie,49,4407
+0210033,Leśna,miejsko-wiejska,powiat lubański,dolnośląskie,105,9261
+0210053,Olszyna,miejsko-wiejska,powiat lubański,dolnośląskie,47,6268
+0211011,Lubin,miejska,powiat lubiński,dolnośląskie,41,67620
+0211022,Lubin,wiejska,powiat lubiński,dolnośląskie,290,18467
+0211032,Rudna,wiejska,powiat lubiński,dolnośląskie,217,7429
+0211043,Ścinawa,miejsko-wiejska,powiat lubiński,dolnośląskie,164,9356
+0212013,Gryfów Śląski,miejsko-wiejska,powiat lwówecki,dolnośląskie,67,9085
+0212023,Lubomierz,miejsko-wiejska,powiat lwówecki,dolnośląskie,130,5618
+0212033,Lwówek Śląski,miejsko-wiejska,powiat lwówecki,dolnośląskie,240,16087
+0212043,Mirsk,miejsko-wiejska,powiat lwówecki,dolnośląskie,187,8127
+0212053,Wleń,miejsko-wiejska,powiat lwówecki,dolnośląskie,86,3900
+0213012,Cieszków,wiejska,powiat milicki,dolnośląskie,101,4565
+0213022,Krośnice,wiejska,powiat milicki,dolnośląskie,178,7980
+0213033,Milicz,miejsko-wiejska,powiat milicki,dolnośląskie,436,23058
+0214011,Oleśnica,miejska,powiat oleśnicki,dolnośląskie,21,35132
+0214032,Dobroszyce,wiejska,powiat oleśnicki,dolnośląskie,132,7265
+0214042,Dziadowa Kłoda,wiejska,powiat oleśnicki,dolnośląskie,105,4579
+0214062,Oleśnica,wiejska,powiat oleśnicki,dolnośląskie,243,16208
+0214023,Bierutów,miejsko-wiejska,powiat oleśnicki,dolnośląskie,147,9295
+0214053,Międzybórz,miejsko-wiejska,powiat oleśnicki,dolnośląskie,88,5014
+0214073,Syców,miejsko-wiejska,powiat oleśnicki,dolnośląskie,145,16502
+0214083,Twardogóra,miejsko-wiejska,powiat oleśnicki,dolnośląskie,168,12521
+0215011,Oława,miejska,powiat oławski,dolnośląskie,27,33166
+0215022,Domaniów,wiejska,powiat oławski,dolnośląskie,94,4914
+0215042,Oława,wiejska,powiat oławski,dolnośląskie,235,15636
+0215033,Jelcz-Laskowice,miejsko-wiejska,powiat oławski,dolnośląskie,168,23712
+0216022,Gaworzyce,wiejska,powiat polkowicki,dolnośląskie,77,3765
+0216032,Grębocice,wiejska,powiat polkowicki,dolnośląskie,121,5294
+0216062,Radwanice,wiejska,powiat polkowicki,dolnośląskie,84,5088
+0216013,Chocianów,miejsko-wiejska,powiat polkowicki,dolnośląskie,222,12378
+0216043,Polkowice,miejsko-wiejska,powiat polkowicki,dolnośląskie,168,26836
+0216053,Przemków,miejsko-wiejska,powiat polkowicki,dolnośląskie,108,7828
+0217012,Borów,wiejska,powiat strzeliński,dolnośląskie,99,5013
+0217022,Kondratowice,wiejska,powiat strzeliński,dolnośląskie,98,3983
+0217032,Przeworno,wiejska,powiat strzeliński,dolnośląskie,112,4504
+0217043,Strzelin,miejsko-wiejska,powiat strzeliński,dolnośląskie,171,21450
+0217053,Wiązów,miejsko-wiejska,powiat strzeliński,dolnośląskie,142,6832
+0218012,Kostomłoty,wiejska,powiat średzki,dolnośląskie,146,7162
+0218022,Malczyce,wiejska,powiat średzki,dolnośląskie,53,5707
+0218052,Udanin,wiejska,powiat średzki,dolnośląskie,111,4823
+0218033,Miękinia,miejsko-wiejska,powiat średzki,dolnośląskie,179,21613
+0218043,Środa Śląska,miejsko-wiejska,powiat średzki,dolnośląskie,215,19773
+0219011,Świdnica,miejska,powiat świdnicki,dolnośląskie,22,52874
+0219021,Świebodzice,miejska,powiat świdnicki,dolnośląskie,30,21805
+0219032,Dobromierz,wiejska,powiat świdnicki,dolnośląskie,86,4904
+0219052,Marcinowice,wiejska,powiat świdnicki,dolnośląskie,95,6359
+0219072,Świdnica,wiejska,powiat świdnicki,dolnośląskie,208,17997
+0219043,Jaworzyna Śląska,miejsko-wiejska,powiat świdnicki,dolnośląskie,67,10233
+0219063,Strzegom,miejsko-wiejska,powiat świdnicki,dolnośląskie,145,24111
+0219083,Żarów,miejsko-wiejska,powiat świdnicki,dolnośląskie,88,12127
+0220042,Wisznia Mała,wiejska,powiat trzebnicki,dolnośląskie,103,12112
+0220052,Zawonia,wiejska,powiat trzebnicki,dolnośląskie,118,5866
+0220013,Oborniki Śląskie,miejsko-wiejska,powiat trzebnicki,dolnośląskie,154,21088
+0220023,Prusice,miejsko-wiejska,powiat trzebnicki,dolnośląskie,158,9303
+0220033,Trzebnica,miejsko-wiejska,powiat trzebnicki,dolnośląskie,200,25135
+0220063,Żmigród,miejsko-wiejska,powiat trzebnicki,dolnośląskie,292,14131
+0221011,Boguszów-Gorce,miejska,powiat wałbrzyski,dolnośląskie,27,14166
+0221021,Jedlina-Zdrój,miejska,powiat wałbrzyski,dolnośląskie,18,4623
+0221031,Szczawno-Zdrój,miejska,powiat wałbrzyski,dolnośląskie,15,5240
+0221042,Czarny Bór,wiejska,powiat wałbrzyski,dolnośląskie,66,4757
+0221072,Stare Bogaczowice,wiejska,powiat wałbrzyski,dolnośląskie,87,4292
+0221082,Walim,wiejska,powiat wałbrzyski,dolnośląskie,79,5311
+0221053,Głuszyca,miejsko-wiejska,powiat wałbrzyski,dolnośląskie,62,8065
+0221063,Mieroszów,miejsko-wiejska,powiat wałbrzyski,dolnośląskie,76,6202
+0222022,Wińsko,wiejska,powiat wołowski,dolnośląskie,250,7882
+0222013,Brzeg Dolny,miejsko-wiejska,powiat wołowski,dolnośląskie,94,16129
+0222033,Wołów,miejsko-wiejska,powiat wołowski,dolnośląskie,331,21447
+0223012,Czernica,wiejska,powiat wrocławski,dolnośląskie,84,23974
+0223022,Długołęka,wiejska,powiat wrocławski,dolnośląskie,213,43967
+0223032,Jordanów Śląski,wiejska,powiat wrocławski,dolnośląskie,57,3273
+0223052,Kobierzyce,wiejska,powiat wrocławski,dolnośląskie,149,24977
+0223062,Mietków,wiejska,powiat wrocławski,dolnośląskie,83,3831
+0223092,Żórawina,wiejska,powiat wrocławski,dolnośląskie,120,13720
+0223043,Kąty Wrocławskie,miejsko-wiejska,powiat wrocławski,dolnośląskie,177,30202
+0223083,Siechnice,miejsko-wiejska,powiat wrocławski,dolnośląskie,99,30214
+0223073,Sobótka,miejsko-wiejska,powiat wrocławski,dolnośląskie,136,12995
+0224022,Ciepłowody,wiejska,powiat ząbkowicki,dolnośląskie,77,2840
+0224042,Stoszowice,wiejska,powiat ząbkowicki,dolnośląskie,111,5135
+0224013,Bardo,miejsko-wiejska,powiat ząbkowicki,dolnośląskie,73,4957
+0224033,Kamieniec Ząbkowicki,miejsko-wiejska,powiat ząbkowicki,dolnośląskie,96,7411
+0224053,Ząbkowice Śląskie,miejsko-wiejska,powiat ząbkowicki,dolnośląskie,147,20643
+0224063,Ziębice,miejsko-wiejska,powiat ząbkowicki,dolnośląskie,223,15551
+0224073,Złoty Stok,miejsko-wiejska,powiat ząbkowicki,dolnośląskie,75,4025
+0225011,Zawidów,miejska,powiat zgorzelecki,dolnośląskie,6,3761
+0225021,Zgorzelec,miejska,powiat zgorzelecki,dolnośląskie,16,28931
+0225052,Sulików,wiejska,powiat zgorzelecki,dolnośląskie,95,5806
+0225072,Zgorzelec,wiejska,powiat zgorzelecki,dolnośląskie,137,8886
+0225033,Bogatynia,miejsko-wiejska,powiat zgorzelecki,dolnośląskie,136,21280
+0225043,Pieńsk,miejsko-wiejska,powiat zgorzelecki,dolnośląskie,110,8705
+0225063,Węgliniec,miejsko-wiejska,powiat zgorzelecki,dolnośląskie,339,7770
+0226011,Wojcieszów,miejska,powiat złotoryjski,dolnośląskie,32,3431
+0226021,Złotoryja,miejska,powiat złotoryjski,dolnośląskie,12,14168
+0226032,Pielgrzymka,wiejska,powiat złotoryjski,dolnośląskie,105,4229
+0226052,Zagrodno,wiejska,powiat złotoryjski,dolnośląskie,122,4823
+0226062,Złotoryja,wiejska,powiat złotoryjski,dolnośląskie,145,6968
+0226043,Świerzawa,miejsko-wiejska,powiat złotoryjski,dolnośląskie,160,6997
+0261011,Jelenia Góra,miejska,powiat m. Jelenia Góra,dolnośląskie,109,75124
+0262011,Legnica,miejska,powiat m. Legnica,dolnośląskie,56,91948
+0265011,Wałbrzych,miejska,powiat m. Wałbrzych,dolnośląskie,85,100294
+0264011,Wrocław,miejska,powiat m. Wrocław,dolnośląskie,293,673743
+0401011,Aleksandrów Kujawski,miejska,powiat aleksandrowski,kujawsko-pomorskie,7,11474
+0401021,Ciechocinek,miejska,powiat aleksandrowski,kujawsko-pomorskie,15,10153
+0401031,Nieszawa,miejska,powiat aleksandrowski,kujawsko-pomorskie,10,1740
+0401042,Aleksandrów Kujawski,wiejska,powiat aleksandrowski,kujawsko-pomorskie,131,12023
+0401052,Bądkowo,wiejska,powiat aleksandrowski,kujawsko-pomorskie,80,4049
+0401062,Koneck,wiejska,powiat aleksandrowski,kujawsko-pomorskie,68,3101
+0401072,Raciążek,wiejska,powiat aleksandrowski,kujawsko-pomorskie,33,3160
+0401082,Waganiec,wiejska,powiat aleksandrowski,kujawsko-pomorskie,55,4415
+0401092,Zakrzewo,wiejska,powiat aleksandrowski,kujawsko-pomorskie,76,3343
+0402011,Brodnica,miejska,powiat brodnicki,kujawsko-pomorskie,23,28190
+0402062,Bartniczka,wiejska,powiat brodnicki,kujawsko-pomorskie,83,4577
+0402022,Bobrowo,wiejska,powiat brodnicki,kujawsko-pomorskie,145,6040
+0402032,Brodnica,wiejska,powiat brodnicki,kujawsko-pomorskie,127,9499
+0402042,Brzozie,wiejska,powiat brodnicki,kujawsko-pomorskie,94,3726
+0402082,Osiek,wiejska,powiat brodnicki,kujawsko-pomorskie,75,3791
+0402092,Świedziebnia,wiejska,powiat brodnicki,kujawsko-pomorskie,104,4884
+0402102,Zbiczno,wiejska,powiat brodnicki,kujawsko-pomorskie,134,4932
+0402053,Górzno,miejsko-wiejska,powiat brodnicki,kujawsko-pomorskie,120,3731
+0402073,Jabłonowo Pomorskie,miejsko-wiejska,powiat brodnicki,kujawsko-pomorskie,135,8421
+0403012,Białe Błota,wiejska,powiat bydgoski,kujawsko-pomorskie,122,26152
+0403022,Dąbrowa Chełmińska,wiejska,powiat bydgoski,kujawsko-pomorskie,125,8618
+0403032,Dobrcz,wiejska,powiat bydgoski,kujawsko-pomorskie,130,12754
+0403052,Nowa Wieś Wielka,wiejska,powiat bydgoski,kujawsko-pomorskie,148,10374
+0403062,Osielsko,wiejska,powiat bydgoski,kujawsko-pomorskie,102,18489
+0403072,Sicienko,wiejska,powiat bydgoski,kujawsko-pomorskie,180,10939
+0403043,Koronowo,miejsko-wiejska,powiat bydgoski,kujawsko-pomorskie,412,23294
+0403083,Solec Kujawski,miejsko-wiejska,powiat bydgoski,kujawsko-pomorskie,175,16361
+0404011,Chełmno,miejska,powiat chełmiński,kujawsko-pomorskie,14,18052
+0404022,Chełmno,wiejska,powiat chełmiński,kujawsko-pomorskie,114,6067
+0404032,Kijewo Królewskie,wiejska,powiat chełmiński,kujawsko-pomorskie,72,4297
+0404042,Lisewo,wiejska,powiat chełmiński,kujawsko-pomorskie,86,4866
+0404052,Papowo Biskupie,wiejska,powiat chełmiński,kujawsko-pomorskie,70,3992
+0404062,Stolno,wiejska,powiat chełmiński,kujawsko-pomorskie,98,5176
+0404072,Unisław,wiejska,powiat chełmiński,kujawsko-pomorskie,73,6673
+0405011,Golub-Dobrzyń,miejska,powiat golubsko-dobrzyński,kujawsko-pomorskie,8,11261
+0405022,Ciechocin,wiejska,powiat golubsko-dobrzyński,kujawsko-pomorskie,101,3857
+0405032,Golub-Dobrzyń,wiejska,powiat golubsko-dobrzyński,kujawsko-pomorskie,198,8866
+0405052,Radomin,wiejska,powiat golubsko-dobrzyński,kujawsko-pomorskie,81,3947
+0405062,Zbójno,wiejska,powiat golubsko-dobrzyński,kujawsko-pomorskie,84,4195
+0405043,Kowalewo Pomorskie,miejsko-wiejska,powiat golubsko-dobrzyński,kujawsko-pomorskie,141,11152
+0406012,Grudziądz,wiejska,powiat grudziądzki,kujawsko-pomorskie,166,13719
+0406022,Gruta,wiejska,powiat grudziądzki,kujawsko-pomorskie,124,6004
+0406052,Rogóźno,wiejska,powiat grudziądzki,kujawsko-pomorskie,116,3967
+0406062,Świecie nad Osą,wiejska,powiat grudziądzki,kujawsko-pomorskie,95,3709
+0406033,Łasin,miejsko-wiejska,powiat grudziądzki,kujawsko-pomorskie,137,7322
+0406043,Radzyń Chełmiński,miejsko-wiejska,powiat grudziądzki,kujawsko-pomorskie,91,4416
+0407011,Inowrocław,miejska,powiat inowrocławski,kujawsko-pomorskie,30,67378
+0407022,Dąbrowa Biskupia,wiejska,powiat inowrocławski,kujawsko-pomorskie,147,4903
+0407042,Inowrocław,wiejska,powiat inowrocławski,kujawsko-pomorskie,172,11990
+0407082,Rojewo,wiejska,powiat inowrocławski,kujawsko-pomorskie,120,4453
+0407092,Złotniki Kujawskie,wiejska,powiat inowrocławski,kujawsko-pomorskie,136,8827
+0407033,Gniewkowo,miejsko-wiejska,powiat inowrocławski,kujawsko-pomorskie,180,13581
+0407053,Janikowo,miejsko-wiejska,powiat inowrocławski,kujawsko-pomorskie,92,12431
+0407063,Kruszwica,miejsko-wiejska,powiat inowrocławski,kujawsko-pomorskie,262,17827
+0407073,Pakość,miejsko-wiejska,powiat inowrocławski,kujawsko-pomorskie,86,9165
+0408011,Lipno,miejska,powiat lipnowski,kujawsko-pomorskie,11,13380
+0408032,Chrostkowo,wiejska,powiat lipnowski,kujawsko-pomorskie,74,2783
+0408062,Lipno,wiejska,powiat lipnowski,kujawsko-pomorskie,210,11547
+0408082,Tłuchowo,wiejska,powiat lipnowski,kujawsko-pomorskie,99,4445
+0408092,Wielgie,wiejska,powiat lipnowski,kujawsko-pomorskie,134,6657
+0408023,Bobrowniki,miejsko-wiejska,powiat lipnowski,kujawsko-pomorskie,95,2977
+0408043,Dobrzyń nad Wisłą,miejsko-wiejska,powiat lipnowski,kujawsko-pomorskie,116,7075
+0408053,Kikół,miejsko-wiejska,powiat lipnowski,kujawsko-pomorskie,98,6654
+0408073,Skępe,miejsko-wiejska,powiat lipnowski,kujawsko-pomorskie,179,7060
+0409012,Dąbrowa,wiejska,powiat mogileński,kujawsko-pomorskie,110,4343
+0409022,Jeziora Wielkie,wiejska,powiat mogileński,kujawsko-pomorskie,125,4555
+0409033,Mogilno,miejsko-wiejska,powiat mogileński,kujawsko-pomorskie,256,23820
+0409043,Strzelno,miejsko-wiejska,powiat mogileński,kujawsko-pomorskie,184,10859
+0410042,Sadki,wiejska,powiat nakielski,kujawsko-pomorskie,154,6922
+0410013,Kcynia,miejsko-wiejska,powiat nakielski,kujawsko-pomorskie,297,12161
+0410023,Mrocza,miejsko-wiejska,powiat nakielski,kujawsko-pomorskie,150,8851
+0410033,Nakło nad Notecią,miejsko-wiejska,powiat nakielski,kujawsko-pomorskie,187,29774
+0410053,Szubin,miejsko-wiejska,powiat nakielski,kujawsko-pomorskie,332,25166
+0411011,Radziejów,miejska,powiat radziejowski,kujawsko-pomorskie,6,5055
+0411022,Bytoń,wiejska,powiat radziejowski,kujawsko-pomorskie,73,3322
+0411032,Dobre,wiejska,powiat radziejowski,kujawsko-pomorskie,71,4876
+0411042,Osięciny,wiejska,powiat radziejowski,kujawsko-pomorskie,123,7180
+0411062,Radziejów,wiejska,powiat radziejowski,kujawsko-pomorskie,92,4268
+0411072,Topólka,wiejska,powiat radziejowski,kujawsko-pomorskie,103,4488
+0411053,Piotrków Kujawski,miejsko-wiejska,powiat radziejowski,kujawsko-pomorskie,139,8623
+0412011,Rypin,miejska,powiat rypiński,kujawsko-pomorskie,11,15379
+0412022,Brzuze,wiejska,powiat rypiński,kujawsko-pomorskie,86,4850
+0412032,Rogowo,wiejska,powiat rypiński,kujawsko-pomorskie,140,4600
+0412042,Rypin,wiejska,powiat rypiński,kujawsko-pomorskie,132,7274
+0412052,Skrwilno,wiejska,powiat rypiński,kujawsko-pomorskie,124,5395
+0412062,Wąpielsk,wiejska,powiat rypiński,kujawsko-pomorskie,94,3687
+0413032,Sośno,wiejska,powiat sępoleński,kujawsko-pomorskie,163,4470
+0413013,Kamień Krajeński,miejsko-wiejska,powiat sępoleński,kujawsko-pomorskie,163,6496
+0413023,Sępólno Krajeńskie,miejsko-wiejska,powiat sępoleński,kujawsko-pomorskie,229,15055
+0413043,Więcbork,miejsko-wiejska,powiat sępoleński,kujawsko-pomorskie,236,12805
+0414012,Bukowiec,wiejska,powiat świecki,kujawsko-pomorskie,111,4870
+0414022,Dragacz,wiejska,powiat świecki,kujawsko-pomorskie,112,6837
+0414032,Drzycim,wiejska,powiat świecki,kujawsko-pomorskie,108,4793
+0414042,Jeżewo,wiejska,powiat świecki,kujawsko-pomorskie,156,7692
+0414052,Lniano,wiejska,powiat świecki,kujawsko-pomorskie,88,4062
+0414072,Osie,wiejska,powiat świecki,kujawsko-pomorskie,210,5386
+0414102,Świekatowo,wiejska,powiat świecki,kujawsko-pomorskie,64,3526
+0414112,Warlubie,wiejska,powiat świecki,kujawsko-pomorskie,201,6049
+0414063,Nowe,miejsko-wiejska,powiat świecki,kujawsko-pomorskie,107,9638
+0414083,Pruszcz,miejsko-wiejska,powiat świecki,kujawsko-pomorskie,142,9171
+0414093,Świecie,miejsko-wiejska,powiat świecki,kujawsko-pomorskie,175,32807
+0415011,Chełmża,miejska,powiat toruński,kujawsko-pomorskie,8,13691
+0415022,Chełmża,wiejska,powiat toruński,kujawsko-pomorskie,179,9462
+0415032,Czernikowo,wiejska,powiat toruński,kujawsko-pomorskie,170,8868
+0415042,Lubicz,wiejska,powiat toruński,kujawsko-pomorskie,106,21250
+0415052,Łubianka,wiejska,powiat toruński,kujawsko-pomorskie,84,8064
+0415062,Łysomice,wiejska,powiat toruński,kujawsko-pomorskie,127,10987
+0415072,Obrowo,wiejska,powiat toruński,kujawsko-pomorskie,162,20645
+0415082,Wielka Nieszawka,wiejska,powiat toruński,kujawsko-pomorskie,216,5206
+0415092,Zławieś Wielka,wiejska,powiat toruński,kujawsko-pomorskie,178,16130
+0416012,Cekcyn,wiejska,powiat tucholski,kujawsko-pomorskie,252,6792
+0416022,Gostycyn,wiejska,powiat tucholski,kujawsko-pomorskie,136,4887
+0416032,Kęsowo,wiejska,powiat tucholski,kujawsko-pomorskie,109,4217
+0416042,Lubiewo,wiejska,powiat tucholski,kujawsko-pomorskie,163,5817
+0416052,Śliwice,wiejska,powiat tucholski,kujawsko-pomorskie,175,5615
+0416063,Tuchola,miejsko-wiejska,powiat tucholski,kujawsko-pomorskie,240,19589
+0417011,Wąbrzeźno,miejska,powiat wąbrzeski,kujawsko-pomorskie,9,12892
+0417022,Dębowa Łąka,wiejska,powiat wąbrzeski,kujawsko-pomorskie,86,2941
+0417032,Książki,wiejska,powiat wąbrzeski,kujawsko-pomorskie,86,3766
+0417042,Płużnica,wiejska,powiat wąbrzeski,kujawsko-pomorskie,119,4498
+0417052,Ryńsk,wiejska,powiat wąbrzeski,kujawsko-pomorskie,201,8323
+0418011,Kowal,miejska,powiat włocławski,kujawsko-pomorskie,5,3278
+0418022,Baruchowo,wiejska,powiat włocławski,kujawsko-pomorskie,106,3290
+0418032,Boniewo,wiejska,powiat włocławski,kujawsko-pomorskie,78,3169
+0418052,Choceń,wiejska,powiat włocławski,kujawsko-pomorskie,100,7605
+0418072,Fabianki,wiejska,powiat włocławski,kujawsko-pomorskie,76,10243
+0418092,Kowal,wiejska,powiat włocławski,kujawsko-pomorskie,115,3858
+0418102,Lubanie,wiejska,powiat włocławski,kujawsko-pomorskie,69,4311
+0418132,Włocławek,wiejska,powiat włocławski,kujawsko-pomorskie,219,7393
+0418043,Brześć Kujawski,miejsko-wiejska,powiat włocławski,kujawsko-pomorskie,151,11004
+0418063,Chodecz,miejsko-wiejska,powiat włocławski,kujawsko-pomorskie,122,5438
+0418083,Izbica Kujawska,miejsko-wiejska,powiat włocławski,kujawsko-pomorskie,132,7167
+0418113,Lubień Kujawski,miejsko-wiejska,powiat włocławski,kujawsko-pomorskie,151,6752
+0418123,Lubraniec,miejsko-wiejska,powiat włocławski,kujawsko-pomorskie,148,8643
+0419052,Rogowo,wiejska,powiat żniński,kujawsko-pomorskie,179,6597
+0419013,Barcin,miejsko-wiejska,powiat żniński,kujawsko-pomorskie,121,14143
+0419023,Gąsawa,miejsko-wiejska,powiat żniński,kujawsko-pomorskie,136,4930
+0419033,Janowiec Wielkopolski,miejsko-wiejska,powiat żniński,kujawsko-pomorskie,131,8458
+0419043,Łabiszyn,miejsko-wiejska,powiat żniński,kujawsko-pomorskie,167,10585
+0419063,Żnin,miejsko-wiejska,powiat żniński,kujawsko-pomorskie,251,22823
+0461011,Bydgoszcz,miejska,powiat m. Bydgoszcz,kujawsko-pomorskie,176,326434
+0462011,Grudziądz,miejska,powiat m. Grudziądz,kujawsko-pomorskie,58,88658
+0463011,Toruń,miejska,powiat m. Toruń,kujawsko-pomorskie,116,194771
+0464011,Włocławek,miejska,powiat m. Włocławek,kujawsko-pomorskie,85,100807
+0601011,Międzyrzec Podlaski,miejska,powiat bialski,lubelskie,20,15389
+0601021,Terespol,miejska,powiat bialski,lubelskie,10,5121
+0601032,Biała Podlaska,wiejska,powiat bialski,lubelskie,325,15431
+0601042,Drelów,wiejska,powiat bialski,lubelskie,228,5072
+0601052,Janów Podlaski,wiejska,powiat bialski,lubelskie,136,4864
+0601062,Kodeń,wiejska,powiat bialski,lubelskie,151,3243
+0601072,Konstantynów,wiejska,powiat bialski,lubelskie,87,3757
+0601082,Leśna Podlaska,wiejska,powiat bialski,lubelskie,98,4093
+0601092,Łomazy,wiejska,powiat bialski,lubelskie,199,4559
+0601102,Międzyrzec Podlaski,wiejska,powiat bialski,lubelskie,261,10248
+0601122,Rokitno,wiejska,powiat bialski,lubelskie,141,2713
+0601132,Rossosz,wiejska,powiat bialski,lubelskie,76,2056
+0601142,Sławatycze,wiejska,powiat bialski,lubelskie,72,2246
+0601152,Sosnówka,wiejska,powiat bialski,lubelskie,148,2124
+0601162,Terespol,wiejska,powiat bialski,lubelskie,142,5976
+0601172,Tuczna,wiejska,powiat bialski,lubelskie,170,2743
+0601182,Wisznice,wiejska,powiat bialski,lubelskie,173,4479
+0601192,Zalesie,wiejska,powiat bialski,lubelskie,147,4035
+0601113,Piszczac,miejsko-wiejska,powiat bialski,lubelskie,170,6700
+0602011,Biłgoraj,miejska,powiat biłgorajski,lubelskie,21,24769
+0602022,Aleksandrów,wiejska,powiat biłgorajski,lubelskie,54,3168
+0602032,Biłgoraj,wiejska,powiat biłgorajski,lubelskie,263,13520
+0602042,Biszcza,wiejska,powiat biłgorajski,lubelskie,106,3693
+0602082,Księżpol,wiejska,powiat biłgorajski,lubelskie,141,6703
+0602092,Łukowa,wiejska,powiat biłgorajski,lubelskie,149,3943
+0602102,Obsza,wiejska,powiat biłgorajski,lubelskie,113,4012
+0602112,Potok Górny,wiejska,powiat biłgorajski,lubelskie,111,4997
+0602132,Tereszpol,wiejska,powiat biłgorajski,lubelskie,144,3812
+0602053,Frampol,miejsko-wiejska,powiat biłgorajski,lubelskie,108,5632
+0602063,Goraj,miejsko-wiejska,powiat biłgorajski,lubelskie,68,3877
+0602073,Józefów,miejsko-wiejska,powiat biłgorajski,lubelskie,127,6353
+0602123,Tarnogród,miejsko-wiejska,powiat biłgorajski,lubelskie,114,6195
+0602143,Turobin,miejsko-wiejska,powiat biłgorajski,lubelskie,162,5484
+0603011,Rejowiec Fabryczny,miejska,powiat chełmski,lubelskie,14,4003
+0603022,Białopole,wiejska,powiat chełmski,lubelskie,104,2823
+0603032,Chełm,wiejska,powiat chełmski,lubelskie,220,15285
+0603042,Dorohusk,wiejska,powiat chełmski,lubelskie,192,5814
+0603052,Dubienka,wiejska,powiat chełmski,lubelskie,96,2088
+0603062,Kamień,wiejska,powiat chełmski,lubelskie,97,4071
+0603072,Leśniowice,wiejska,powiat chełmski,lubelskie,118,3282
+0603082,Rejowiec Fabryczny,wiejska,powiat chełmski,lubelskie,88,3936
+0603092,Ruda-Huta,wiejska,powiat chełmski,lubelskie,112,4090
+0603102,Sawin,wiejska,powiat chełmski,lubelskie,188,5115
+0603122,Wierzbica,wiejska,powiat chełmski,lubelskie,146,4704
+0603132,Wojsławice,wiejska,powiat chełmski,lubelskie,110,3409
+0603142,Żmudź,wiejska,powiat chełmski,lubelskie,136,2759
+0603153,Rejowiec,miejsko-wiejska,powiat chełmski,lubelskie,106,5968
+0603113,Siedliszcze,miejsko-wiejska,powiat chełmski,lubelskie,154,6358
+0604011,Hrubieszów,miejska,powiat hrubieszowski,lubelskie,33,15935
+0604022,Dołhobyczów,wiejska,powiat hrubieszowski,lubelskie,215,4630
+0604032,Horodło,wiejska,powiat hrubieszowski,lubelskie,130,4766
+0604042,Hrubieszów,wiejska,powiat hrubieszowski,lubelskie,259,9154
+0604052,Mircze,wiejska,powiat hrubieszowski,lubelskie,235,6176
+0604062,Trzeszczany,wiejska,powiat hrubieszowski,lubelskie,90,3719
+0604072,Uchanie,wiejska,powiat hrubieszowski,lubelskie,121,4044
+0604082,Werbkowice,wiejska,powiat hrubieszowski,lubelskie,187,8359
+0605012,Batorz,wiejska,powiat janowski,lubelskie,71,3058
+0605022,Chrzanów,wiejska,powiat janowski,lubelskie,72,2684
+0605032,Dzwola,wiejska,powiat janowski,lubelskie,200,5888
+0605042,Godziszów,wiejska,powiat janowski,lubelskie,102,5435
+0605072,Potok Wielki,wiejska,powiat janowski,lubelskie,99,4457
+0605053,Janów Lubelski,miejsko-wiejska,powiat janowski,lubelskie,179,14576
+0605063,Modliborzyce,miejsko-wiejska,powiat janowski,lubelskie,153,6698
+0606011,Krasnystaw,miejska,powiat krasnostawski,lubelskie,42,17366
+0606022,Fajsławice,wiejska,powiat krasnostawski,lubelskie,71,4437
+0606032,Gorzków,wiejska,powiat krasnostawski,lubelskie,97,3197
+0606052,Krasnystaw,wiejska,powiat krasnostawski,lubelskie,151,8103
+0606062,Kraśniczyn,wiejska,powiat krasnostawski,lubelskie,110,3433
+0606072,Łopiennik Górny,wiejska,powiat krasnostawski,lubelskie,106,3585
+0606092,Rudnik,wiejska,powiat krasnostawski,lubelskie,89,2697
+0606102,Siennica Różana,wiejska,powiat krasnostawski,lubelskie,98,3750
+0606112,Żółkiewka,wiejska,powiat krasnostawski,lubelskie,130,4799
+0606043,Izbica,miejsko-wiejska,powiat krasnostawski,lubelskie,138,7674
+0607011,Kraśnik,miejska,powiat kraśnicki,lubelskie,26,31296
+0607032,Dzierzkowice,wiejska,powiat kraśnicki,lubelskie,87,5229
+0607042,Gościeradów,wiejska,powiat kraśnicki,lubelskie,159,6799
+0607052,Kraśnik,wiejska,powiat kraśnicki,lubelskie,105,7008
+0607062,Szastarka,wiejska,powiat kraśnicki,lubelskie,73,5416
+0607072,Trzydnik Duży,wiejska,powiat kraśnicki,lubelskie,104,5915
+0607092,Wilkołaz,wiejska,powiat kraśnicki,lubelskie,82,5315
+0607102,Zakrzówek,wiejska,powiat kraśnicki,lubelskie,99,6096
+0607023,Annopol,miejsko-wiejska,powiat kraśnicki,lubelskie,151,7969
+0607083,Urzędów,miejsko-wiejska,powiat kraśnicki,lubelskie,119,8172
+0608011,Lubartów,miejska,powiat lubartowski,lubelskie,14,19734
+0608022,Abramów,wiejska,powiat lubartowski,lubelskie,85,3828
+0608032,Firlej,wiejska,powiat lubartowski,lubelskie,126,5642
+0608042,Jeziorzany,wiejska,powiat lubartowski,lubelskie,66,2462
+0608072,Lubartów,wiejska,powiat lubartowski,lubelskie,159,12137
+0608082,Michów,wiejska,powiat lubartowski,lubelskie,136,5439
+0608092,Niedźwiada,wiejska,powiat lubartowski,lubelskie,96,6186
+0608112,Ostrówek,wiejska,powiat lubartowski,lubelskie,90,3687
+0608122,Serniki,wiejska,powiat lubartowski,lubelskie,76,4789
+0608132,Uścimów,wiejska,powiat lubartowski,lubelskie,107,2964
+0608053,Kamionka,miejsko-wiejska,powiat lubartowski,lubelskie,111,6486
+0608063,Kock,miejsko-wiejska,powiat lubartowski,lubelskie,101,5679
+0608103,Ostrów Lubelski,miejsko-wiejska,powiat lubartowski,lubelskie,122,4942
+0609022,Borzechów,wiejska,powiat lubelski,lubelskie,68,3734
+0609042,Garbów,wiejska,powiat lubelski,lubelskie,103,8964
+0609052,Głusk,wiejska,powiat lubelski,lubelskie,64,14879
+0609062,Jabłonna,wiejska,powiat lubelski,lubelskie,131,8323
+0609072,Jastków,wiejska,powiat lubelski,lubelskie,113,15516
+0609082,Konopnica,wiejska,powiat lubelski,lubelskie,93,15968
+0609092,Krzczonów,wiejska,powiat lubelski,lubelskie,128,4073
+0609102,Niedrzwica Duża,wiejska,powiat lubelski,lubelskie,107,12040
+0609112,Niemce,wiejska,powiat lubelski,lubelskie,141,22039
+0609122,Strzyżewice,wiejska,powiat lubelski,lubelskie,109,8164
+0609132,Wojciechów,wiejska,powiat lubelski,lubelskie,81,6021
+0609142,Wólka,wiejska,powiat lubelski,lubelskie,73,14460
+0609152,Wysokie,wiejska,powiat lubelski,lubelskie,114,4081
+0609162,Zakrzew,wiejska,powiat lubelski,lubelskie,75,2645
+0609013,Bełżyce,miejsko-wiejska,powiat lubelski,lubelskie,134,12699
+0609033,Bychawa,miejsko-wiejska,powiat lubelski,lubelskie,146,10863
+0610012,Cyców,wiejska,powiat łęczyński,lubelskie,148,7694
+0610022,Ludwin,wiejska,powiat łęczyński,lubelskie,122,5608
+0610042,Milejów,wiejska,powiat łęczyński,lubelskie,117,8577
+0610052,Puchaczów,wiejska,powiat łęczyński,lubelskie,92,5530
+0610062,Spiczyn,wiejska,powiat łęczyński,lubelskie,83,5944
+0610033,Łęczna,miejsko-wiejska,powiat łęczyński,lubelskie,75,22368
+0611011,Łuków,miejska,powiat łukowski,lubelskie,36,27159
+0611021,Stoczek Łukowski,miejska,powiat łukowski,lubelskie,9,2362
+0611032,Adamów,wiejska,powiat łukowski,lubelskie,99,5116
+0611042,Krzywda,wiejska,powiat łukowski,lubelskie,161,9766
+0611052,Łuków,wiejska,powiat łukowski,lubelskie,307,18550
+0611062,Serokomla,wiejska,powiat łukowski,lubelskie,77,3677
+0611072,Stanin,wiejska,powiat łukowski,lubelskie,161,9199
+0611082,Stoczek Łukowski,wiejska,powiat łukowski,lubelskie,173,7202
+0611092,Trzebieszów,wiejska,powiat łukowski,lubelskie,141,7081
+0611102,Wojcieszków,wiejska,powiat łukowski,lubelskie,109,6483
+0611112,Wola Mysłowska,wiejska,powiat łukowski,lubelskie,121,4364
+0612012,Chodel,wiejska,powiat opolski,lubelskie,108,6286
+0612032,Karczmiska,wiejska,powiat opolski,lubelskie,95,5320
+0612042,Łaziska,wiejska,powiat opolski,lubelskie,109,4547
+0612072,Wilków,wiejska,powiat opolski,lubelskie,78,4154
+0612023,Józefów nad Wisłą,miejsko-wiejska,powiat opolski,lubelskie,142,6021
+0612053,Opole Lubelskie,miejsko-wiejska,powiat opolski,lubelskie,194,16189
+0612063,Poniatowa,miejsko-wiejska,powiat opolski,lubelskie,85,13133
+0613012,Dębowa Kłoda,wiejska,powiat parczewski,lubelskie,188,3584
+0613022,Jabłoń,wiejska,powiat parczewski,lubelskie,110,3523
+0613032,Milanów,wiejska,powiat parczewski,lubelskie,117,3369
+0613052,Podedwórze,wiejska,powiat parczewski,lubelskie,107,1497
+0613062,Siemień,wiejska,powiat parczewski,lubelskie,111,4281
+0613072,Sosnowica,wiejska,powiat parczewski,lubelskie,172,2267
+0613043,Parczew,miejsko-wiejska,powiat parczewski,lubelskie,147,13702
+0614011,Puławy,miejska,powiat puławski,lubelskie,51,43860
+0614022,Baranów,wiejska,powiat puławski,lubelskie,85,3557
+0614032,Janowiec,wiejska,powiat puławski,lubelskie,79,3560
+0614052,Końskowola,wiejska,powiat puławski,lubelskie,90,8376
+0614062,Kurów,wiejska,powiat puławski,lubelskie,101,7376
+0614072,Markuszów,wiejska,powiat puławski,lubelskie,40,2880
+0614092,Puławy,wiejska,powiat puławski,lubelskie,161,12222
+0614102,Wąwolnica,wiejska,powiat puławski,lubelskie,63,4205
+0614112,Żyrzyn,wiejska,powiat puławski,lubelskie,129,6091
+0614043,Kazimierz Dolny,miejsko-wiejska,powiat puławski,lubelskie,72,6289
+0614083,Nałęczów,miejsko-wiejska,powiat puławski,lubelskie,63,8604
+0615011,Radzyń Podlaski,miejska,powiat radzyński,lubelskie,19,14293
+0615022,Borki,wiejska,powiat radzyński,lubelskie,112,5734
+0615042,Kąkolewnica,wiejska,powiat radzyński,lubelskie,148,7547
+0615052,Komarówka Podlaska,wiejska,powiat radzyński,lubelskie,138,3809
+0615062,Radzyń Podlaski,wiejska,powiat radzyński,lubelskie,155,7899
+0615072,Ulan-Majorat,wiejska,powiat radzyński,lubelskie,108,5523
+0615082,Wohyń,wiejska,powiat radzyński,lubelskie,178,6183
+0615033,Czemierniki,miejsko-wiejska,powiat radzyński,lubelskie,107,4033
+0616011,Dęblin,miejska,powiat rycki,lubelskie,38,14132
+0616022,Kłoczew,wiejska,powiat rycki,lubelskie,143,6815
+0616032,Nowodwór,wiejska,powiat rycki,lubelskie,72,3891
+0616052,Stężyca,wiejska,powiat rycki,lubelskie,116,4757
+0616062,Ułęż,wiejska,powiat rycki,lubelskie,83,2823
+0616043,Ryki,miejsko-wiejska,powiat rycki,lubelskie,162,19139
+0617011,Świdnik,miejska,powiat świdnicki,lubelskie,20,36680
+0617022,Mełgiew,wiejska,powiat świdnicki,lubelskie,95,10785
+0617042,Rybczewice,wiejska,powiat świdnicki,lubelskie,99,3179
+0617052,Trawniki,wiejska,powiat świdnicki,lubelskie,84,8429
+0617033,Piaski,miejsko-wiejska,powiat świdnicki,lubelskie,170,10201
+0618011,Tomaszów Lubelski,miejska,powiat tomaszowski,lubelskie,13,17848
+0618022,Bełżec,wiejska,powiat tomaszowski,lubelskie,33,3091
+0618032,Jarczów,wiejska,powiat tomaszowski,lubelskie,107,3144
+0618042,Krynice,wiejska,powiat tomaszowski,lubelskie,74,2974
+0618072,Rachanie,wiejska,powiat tomaszowski,lubelskie,94,4603
+0618082,Susiec,wiejska,powiat tomaszowski,lubelskie,191,6929
+0618092,Tarnawatka,wiejska,powiat tomaszowski,lubelskie,83,3764
+0618102,Telatyn,wiejska,powiat tomaszowski,lubelskie,110,3500
+0618112,Tomaszów Lubelski,wiejska,powiat tomaszowski,lubelskie,171,11108
+0618132,Ulhówek,wiejska,powiat tomaszowski,lubelskie,147,3949
+0618053,Lubycza Królewska,miejsko-wiejska,powiat tomaszowski,lubelskie,208,5552
+0618063,Łaszczów,miejsko-wiejska,powiat tomaszowski,lubelskie,128,5465
+0618123,Tyszowce,miejsko-wiejska,powiat tomaszowski,lubelskie,128,5089
+0619011,Włodawa,miejska,powiat włodawski,lubelskie,18,12123
+0619022,Hanna,wiejska,powiat włodawski,lubelskie,139,2481
+0619032,Hańsk,wiejska,powiat włodawski,lubelskie,180,3384
+0619042,Stary Brus,wiejska,powiat włodawski,lubelskie,131,1808
+0619052,Urszulin,wiejska,powiat włodawski,lubelskie,172,4073
+0619062,Włodawa,wiejska,powiat włodawski,lubelskie,245,5719
+0619072,Wola Uhruska,wiejska,powiat włodawski,lubelskie,151,3594
+0619082,Wyryki,wiejska,powiat włodawski,lubelskie,220,2217
+0620012,Adamów,wiejska,powiat zamojski,lubelskie,111,4414
+0620022,Grabowiec,wiejska,powiat zamojski,lubelskie,128,3550
+0620032,Komarów-Osada,wiejska,powiat zamojski,lubelskie,124,4422
+0620052,Łabunie,wiejska,powiat zamojski,lubelskie,87,5881
+0620062,Miączyn,wiejska,powiat zamojski,lubelskie,156,5010
+0620072,Nielisz,wiejska,powiat zamojski,lubelskie,112,5065
+0620082,Radecznica,wiejska,powiat zamojski,lubelskie,110,5065
+0620092,Sitno,wiejska,powiat zamojski,lubelskie,112,6529
+0620102,Skierbieszów,wiejska,powiat zamojski,lubelskie,139,4715
+0620112,Stary Zamość,wiejska,powiat zamojski,lubelskie,98,4803
+0620122,Sułów,wiejska,powiat zamojski,lubelskie,93,4039
+0620142,Zamość,wiejska,powiat zamojski,lubelskie,196,23953
+0620043,Krasnobród,miejsko-wiejska,powiat zamojski,lubelskie,127,6687
+0620133,Szczebrzeszyn,miejsko-wiejska,powiat zamojski,lubelskie,123,10528
+0620153,Zwierzyniec,miejsko-wiejska,powiat zamojski,lubelskie,154,6092
+0661011,Biała Podlaska,miejska,powiat m. Biała Podlaska,lubelskie,49,54453
+0662011,Chełm,miejska,powiat m. Chełm,lubelskie,40,57214
+0663011,Lublin,miejska,powiat m. Lublin,lubelskie,147,329565
+0664011,Zamość,miejska,powiat m. Zamość,lubelskie,30,58231
+0801011,Kostrzyn nad Odrą,miejska,powiat gorzowski,lubuskie,46,17591
+0801022,Bogdaniec,wiejska,powiat gorzowski,lubuskie,112,7184
+0801032,Deszczno,wiejska,powiat gorzowski,lubuskie,168,10916
+0801042,Kłodawa,wiejska,powiat gorzowski,lubuskie,235,9335
+0801052,Lubiszyn,wiejska,powiat gorzowski,lubuskie,205,7156
+0801062,Santok,wiejska,powiat gorzowski,lubuskie,169,9570
+0801073,Witnica,miejsko-wiejska,powiat gorzowski,lubuskie,279,12145
+0802011,Gubin,miejska,powiat krośnieński,lubuskie,21,15606
+0802022,Bobrowice,wiejska,powiat krośnieński,lubuskie,185,3033
+0802032,Bytnica,wiejska,powiat krośnieński,lubuskie,209,2286
+0802042,Dąbie,wiejska,powiat krośnieński,lubuskie,170,4920
+0802052,Gubin,wiejska,powiat krośnieński,lubuskie,380,7207
+0802072,Maszewo,wiejska,powiat krośnieński,lubuskie,214,2723
+0802063,Krosno Odrzańskie,miejsko-wiejska,powiat krośnieński,lubuskie,211,16942
+0803012,Bledzew,wiejska,powiat międzyrzecki,lubuskie,247,3894
+0803032,Przytoczna,wiejska,powiat międzyrzecki,lubuskie,185,5331
+0803042,Pszczew,wiejska,powiat międzyrzecki,lubuskie,178,4173
+0803023,Międzyrzecz,miejsko-wiejska,powiat międzyrzecki,lubuskie,315,23698
+0803053,Skwierzyna,miejsko-wiejska,powiat międzyrzecki,lubuskie,285,11513
+0803063,Trzciel,miejsko-wiejska,powiat międzyrzecki,lubuskie,178,6230
+0804011,Nowa Sól,miejska,powiat nowosolski,lubuskie,22,36040
+0804032,Kolsko,wiejska,powiat nowosolski,lubuskie,81,3208
+0804052,Nowa Sól,wiejska,powiat nowosolski,lubuskie,176,7328
+0804082,Siedlisko,wiejska,powiat nowosolski,lubuskie,92,3319
+0804023,Bytom Odrzański,miejsko-wiejska,powiat nowosolski,lubuskie,52,5089
+0804043,Kożuchów,miejsko-wiejska,powiat nowosolski,lubuskie,179,15223
+0804063,Nowe Miasteczko,miejsko-wiejska,powiat nowosolski,lubuskie,77,5030
+0804073,Otyń,miejsko-wiejska,powiat nowosolski,lubuskie,95,7049
+0805022,Górzyca,wiejska,powiat słubicki,lubuskie,145,4063
+0805013,Cybinka,miejsko-wiejska,powiat słubicki,lubuskie,280,6150
+0805033,Ośno Lubuskie,miejsko-wiejska,powiat słubicki,lubuskie,198,6167
+0805043,Rzepin,miejsko-wiejska,powiat słubicki,lubuskie,191,9437
+0805053,Słubice,miejsko-wiejska,powiat słubicki,lubuskie,185,20037
+0806032,Stare Kurowo,wiejska,powiat strzelecko-drezdenecki,lubuskie,78,3922
+0806052,Zwierzyn,wiejska,powiat strzelecko-drezdenecki,lubuskie,100,4133
+0806013,Dobiegniew,miejsko-wiejska,powiat strzelecko-drezdenecki,lubuskie,351,6159
+0806023,Drezdenko,miejsko-wiejska,powiat strzelecko-drezdenecki,lubuskie,400,16315
+0806043,Strzelce Krajeńskie,miejsko-wiejska,powiat strzelecko-drezdenecki,lubuskie,319,16129
+0807012,Krzeszyce,wiejska,powiat sulęciński,lubuskie,194,4583
+0807032,Słońsk,wiejska,powiat sulęciński,lubuskie,159,4613
+0807023,Lubniewice,miejsko-wiejska,powiat sulęciński,lubuskie,130,3041
+0807043,Sulęcin,miejsko-wiejska,powiat sulęciński,lubuskie,320,15028
+0807053,Torzym,miejsko-wiejska,powiat sulęciński,lubuskie,375,6230
+0808012,Lubrza,wiejska,powiat świebodziński,lubuskie,122,3581
+0808022,Łagów,wiejska,powiat świebodziński,lubuskie,200,4727
+0808032,Skąpe,wiejska,powiat świebodziński,lubuskie,182,5014
+0808042,Szczaniec,wiejska,powiat świebodziński,lubuskie,113,3646
+0808053,Świebodzin,miejsko-wiejska,powiat świebodziński,lubuskie,226,28909
+0808063,Zbąszynek,miejsko-wiejska,powiat świebodziński,lubuskie,94,8084
+0812013,Sława,miejsko-wiejska,powiat wschowski,lubuskie,327,12420
+0812023,Szlichtyngowa,miejsko-wiejska,powiat wschowski,lubuskie,100,4818
+0812033,Wschowa,miejsko-wiejska,powiat wschowski,lubuskie,197,20013
+0809022,Bojadła,wiejska,powiat zielonogórski,lubuskie,102,3165
+0809072,Świdnica,wiejska,powiat zielonogórski,lubuskie,161,6916
+0809082,Trzebiechów,wiejska,powiat zielonogórski,lubuskie,81,3159
+0809092,Zabór,wiejska,powiat zielonogórski,lubuskie,93,4741
+0809013,Babimost,miejsko-wiejska,powiat zielonogórski,lubuskie,93,6062
+0809033,Czerwieńsk,miejsko-wiejska,powiat zielonogórski,lubuskie,195,10131
+0809043,Kargowa,miejsko-wiejska,powiat zielonogórski,lubuskie,129,5923
+0809053,Nowogród Bobrzański,miejsko-wiejska,powiat zielonogórski,lubuskie,260,8998
+0809063,Sulechów,miejsko-wiejska,powiat zielonogórski,lubuskie,237,25982
+0810011,Gozdnica,miejska,powiat żagański,lubuskie,24,2726
+0810021,Żagań,miejska,powiat żagański,lubuskie,40,23462
+0810032,Brzeźnica,wiejska,powiat żagański,lubuskie,122,3461
+0810062,Niegosławice,wiejska,powiat żagański,lubuskie,136,4250
+0810082,Wymiarki,wiejska,powiat żagański,lubuskie,63,2079
+0810092,Żagań,wiejska,powiat żagański,lubuskie,281,7159
+0810043,Iłowa,miejsko-wiejska,powiat żagański,lubuskie,153,6351
+0810053,Małomice,miejsko-wiejska,powiat żagański,lubuskie,80,5143
+0810073,Szprotawa,miejsko-wiejska,powiat żagański,lubuskie,232,18968
+0811011,Łęknica,miejska,powiat żarski,lubuskie,16,2238
+0811021,Żary,miejska,powiat żarski,lubuskie,33,34837
+0811052,Lipinki Łużyckie,wiejska,powiat żarski,lubuskie,89,3241
+0811072,Przewóz,wiejska,powiat żarski,lubuskie,178,3001
+0811082,Trzebiel,wiejska,powiat żarski,lubuskie,167,5463
+0811092,Tuplice,wiejska,powiat żarski,lubuskie,66,2888
+0811102,Żary,wiejska,powiat żarski,lubuskie,294,12475
+0811033,Brody,miejsko-wiejska,powiat żarski,lubuskie,240,3129
+0811043,Jasień,miejsko-wiejska,powiat żarski,lubuskie,127,6695
+0811063,Lubsko,miejsko-wiejska,powiat żarski,lubuskie,183,17243
+0861011,Gorzów Wielkopolski,miejska,powiat m. Gorzów Wielkopolski,lubuskie,86,115247
+0862011,Zielona Góra,miejska,powiat m. Zielona Góra,lubuskie,275,138932
+1001011,Bełchatów,miejska,powiat bełchatowski,łódzkie,35,52331
+1001022,Bełchatów,wiejska,powiat bełchatowski,łódzkie,201,13105
+1001032,Drużbice,wiejska,powiat bełchatowski,łódzkie,113,5280
+1001042,Kleszczów,wiejska,powiat bełchatowski,łódzkie,104,6287
+1001052,Kluki,wiejska,powiat bełchatowski,łódzkie,119,4318
+1001062,Rusiec,wiejska,powiat bełchatowski,łódzkie,100,4770
+1001072,Szczerców,wiejska,powiat bełchatowski,łódzkie,129,8159
+1001083,Zelów,miejsko-wiejska,powiat bełchatowski,łódzkie,167,14349
+1021011,Brzeziny,miejska,powiat brzeziński,łódzkie,22,11949
+1021022,Brzeziny,wiejska,powiat brzeziński,łódzkie,107,6128
+1021032,Dmosin,wiejska,powiat brzeziński,łódzkie,100,4365
+1021052,Rogów,wiejska,powiat brzeziński,łódzkie,66,4575
+1021043,Jeżów,miejsko-wiejska,powiat brzeziński,łódzkie,64,3142
+1002011,Kutno,miejska,powiat kutnowski,łódzkie,34,40723
+1002022,Bedlno,wiejska,powiat kutnowski,łódzkie,126,5075
+1002052,Krzyżanów,wiejska,powiat kutnowski,łódzkie,103,4005
+1002062,Kutno,wiejska,powiat kutnowski,łódzkie,122,8968
+1002072,Łanięta,wiejska,powiat kutnowski,łódzkie,55,2186
+1002082,Nowe Ostrowy,wiejska,powiat kutnowski,łódzkie,71,3200
+1002092,Oporów,wiejska,powiat kutnowski,łódzkie,68,2415
+1002102,Strzelce,wiejska,powiat kutnowski,łódzkie,90,3720
+1002033,Dąbrowice,miejsko-wiejska,powiat kutnowski,łódzkie,46,1783
+1002043,Krośniewice,miejsko-wiejska,powiat kutnowski,łódzkie,95,7720
+1002113,Żychlin,miejsko-wiejska,powiat kutnowski,łódzkie,77,10876
+1003012,Buczek,wiejska,powiat łaski,łódzkie,92,5041
+1003032,Sędziejowice,wiejska,powiat łaski,łódzkie,120,6203
+1003042,Widawa,wiejska,powiat łaski,łódzkie,179,6863
+1003052,Wodzierady,wiejska,powiat łaski,łódzkie,82,3737
+1003023,Łask,miejsko-wiejska,powiat łaski,łódzkie,145,26898
+1004011,Łęczyca,miejska,powiat łęczycki,łódzkie,9,13065
+1004022,Daszyna,wiejska,powiat łęczycki,łódzkie,81,3629
+1004032,Góra Świętej Małgorzaty,wiejska,powiat łęczycki,łódzkie,90,4251
+1004052,Łęczyca,wiejska,powiat łęczycki,łódzkie,151,8184
+1004072,Świnice Warckie,wiejska,powiat łęczycki,łódzkie,93,3640
+1004082,Witonia,wiejska,powiat łęczycki,łódzkie,61,3023
+1004043,Grabów,miejsko-wiejska,powiat łęczycki,łódzkie,155,5298
+1004063,Piątek,miejsko-wiejska,powiat łęczycki,łódzkie,133,5576
+1005011,Łowicz,miejska,powiat łowicki,łódzkie,23,25972
+1005022,Bielawy,wiejska,powiat łowicki,łódzkie,164,5009
+1005032,Chąśno,wiejska,powiat łowicki,łódzkie,72,2887
+1005042,Domaniewice,wiejska,powiat łowicki,łódzkie,86,4524
+1005062,Kocierzew Południowy,wiejska,powiat łowicki,łódzkie,94,3981
+1005072,Łowicz,wiejska,powiat łowicki,łódzkie,133,7730
+1005082,Łyszkowice,wiejska,powiat łowicki,łódzkie,107,6423
+1005092,Nieborów,wiejska,powiat łowicki,łódzkie,104,9220
+1005102,Zduny,wiejska,powiat łowicki,łódzkie,129,5189
+1005053,Kiernozia,miejsko-wiejska,powiat łowicki,łódzkie,76,3074
+1006022,Andrespol,wiejska,powiat łódzki wschodni,łódzkie,26,14752
+1006032,Brójce,wiejska,powiat łódzki wschodni,łódzkie,69,7285
+1006082,Nowosolna,wiejska,powiat łódzki wschodni,łódzkie,54,5710
+1006073,Koluszki,miejsko-wiejska,powiat łódzki wschodni,łódzkie,155,22799
+1006103,Rzgów,miejsko-wiejska,powiat łódzki wschodni,łódzkie,66,11347
+1006113,Tuszyn,miejsko-wiejska,powiat łódzki wschodni,łódzkie,130,12813
+1007032,Mniszków,wiejska,powiat opoczyński,łódzkie,124,4723
+1007052,Paradyż,wiejska,powiat opoczyński,łódzkie,81,4181
+1007062,Poświętne,wiejska,powiat opoczyński,łódzkie,141,2897
+1007072,Sławno,wiejska,powiat opoczyński,łódzkie,129,7468
+1007013,Białaczów,miejsko-wiejska,powiat opoczyński,łódzkie,115,5498
+1007023,Drzewica,miejsko-wiejska,powiat opoczyński,łódzkie,118,9789
+1007043,Opoczno,miejsko-wiejska,powiat opoczyński,łódzkie,191,31676
+1007083,Żarnów,miejsko-wiejska,powiat opoczyński,łódzkie,141,5544
+1008011,Konstantynów Łódzki,miejska,powiat pabianicki,łódzkie,27,19231
+1008021,Pabianice,miejska,powiat pabianicki,łódzkie,33,60598
+1008032,Dłutów,wiejska,powiat pabianicki,łódzkie,101,4969
+1008042,Dobroń,wiejska,powiat pabianicki,łódzkie,95,8121
+1008052,Ksawerów,wiejska,powiat pabianicki,łódzkie,14,7665
+1008072,Pabianice,wiejska,powiat pabianicki,łódzkie,88,9000
+1008063,Lutomiersk,miejsko-wiejska,powiat pabianicki,łódzkie,134,9482
+1009022,Kiełczygłów,wiejska,powiat pajęczański,łódzkie,87,3772
+1009032,Nowa Brzeźnica,wiejska,powiat pajęczański,łódzkie,135,4332
+1009052,Rząśnia,wiejska,powiat pajęczański,łódzkie,86,4919
+1009062,Siemkowice,wiejska,powiat pajęczański,łódzkie,100,4439
+1009072,Strzelce Wielkie,wiejska,powiat pajęczański,łódzkie,78,4161
+1009082,Sulmierzyce,wiejska,powiat pajęczański,łódzkie,83,4397
+1009013,Działoszyn,miejsko-wiejska,powiat pajęczański,łódzkie,121,11475
+1009043,Pajęczno,miejsko-wiejska,powiat pajęczański,łódzkie,114,11080
+1010012,Aleksandrów,wiejska,powiat piotrkowski,łódzkie,144,4244
+1010022,Czarnocin,wiejska,powiat piotrkowski,łódzkie,72,4016
+1010032,Gorzkowice,wiejska,powiat piotrkowski,łódzkie,102,8205
+1010042,Grabica,wiejska,powiat piotrkowski,łódzkie,128,6056
+1010052,Łęki Szlacheckie,wiejska,powiat piotrkowski,łódzkie,109,3180
+1010062,Moszczenica,wiejska,powiat piotrkowski,łódzkie,112,12562
+1010072,Ręczno,wiejska,powiat piotrkowski,łódzkie,88,3330
+1010102,Wola Krzysztoporska,wiejska,powiat piotrkowski,łódzkie,171,11918
+1010083,Rozprza,miejsko-wiejska,powiat piotrkowski,łódzkie,163,12186
+1010093,Sulejów,miejsko-wiejska,powiat piotrkowski,łódzkie,188,16582
+1010113,Wolbórz,miejsko-wiejska,powiat piotrkowski,łódzkie,152,7842
+1011012,Dalików,wiejska,powiat poddębicki,łódzkie,114,4018
+1011022,Pęczniew,wiejska,powiat poddębicki,łódzkie,128,3353
+1011052,Wartkowice,wiejska,powiat poddębicki,łódzkie,140,6059
+1011062,Zadzim,wiejska,powiat poddębicki,łódzkie,145,4669
+1011033,Poddębice,miejsko-wiejska,powiat poddębicki,łódzkie,225,14524
+1011043,Uniejów,miejsko-wiejska,powiat poddębicki,łódzkie,129,6733
+1012011,Radomsko,miejska,powiat radomszczański,łódzkie,51,42973
+1012022,Dobryszyce,wiejska,powiat radomszczański,łódzkie,51,4596
+1012032,Gidle,wiejska,powiat radomszczański,łódzkie,116,5737
+1012042,Gomunice,wiejska,powiat radomszczański,łódzkie,62,5641
+1012062,Kobiele Wielkie,wiejska,powiat radomszczański,łódzkie,102,4240
+1012072,Kodrąb,wiejska,powiat radomszczański,łódzkie,106,4265
+1012082,Lgota Wielka,wiejska,powiat radomszczański,łódzkie,63,4145
+1012092,Ładzice,wiejska,powiat radomszczański,łódzkie,83,4597
+1012102,Masłowice,wiejska,powiat radomszczański,łódzkie,116,3875
+1012122,Radomsko,wiejska,powiat radomszczański,łódzkie,86,5419
+1012132,Wielgomłyny,wiejska,powiat radomszczański,łódzkie,123,4287
+1012142,Żytno,wiejska,powiat radomszczański,łódzkie,198,4788
+1012053,Kamieńsk,miejsko-wiejska,powiat radomszczański,łódzkie,96,5539
+1012113,Przedbórz,miejsko-wiejska,powiat radomszczański,łódzkie,190,6569
+1013011,Rawa Mazowiecka,miejska,powiat rawski,łódzkie,14,15941
+1013032,Cielądz,wiejska,powiat rawski,łódzkie,93,3923
+1013042,Rawa Mazowiecka,wiejska,powiat rawski,łódzkie,164,8623
+1013052,Regnów,wiejska,powiat rawski,łódzkie,46,1702
+1013062,Sadkowice,wiejska,powiat rawski,łódzkie,121,5112
+1013023,Biała Rawska,miejsko-wiejska,powiat rawski,łódzkie,208,10781
+1014011,Sieradz,miejska,powiat sieradzki,łódzkie,51,38729
+1014032,Brąszewice,wiejska,powiat sieradzki,łódzkie,107,4316
+1014042,Brzeźnio,wiejska,powiat sieradzki,łódzkie,129,6160
+1014052,Burzenin,wiejska,powiat sieradzki,łódzkie,120,5255
+1014062,Goszczanów,wiejska,powiat sieradzki,łódzkie,122,5059
+1014072,Klonowa,wiejska,powiat sieradzki,łódzkie,95,2741
+1014082,Sieradz,wiejska,powiat sieradzki,łódzkie,182,10801
+1014102,Wróblew,wiejska,powiat sieradzki,łódzkie,113,5897
+1014023,Błaszki,miejsko-wiejska,powiat sieradzki,łódzkie,201,13938
+1014093,Warta,miejsko-wiejska,powiat sieradzki,łódzkie,254,11798
+1014113,Złoczew,miejsko-wiejska,powiat sieradzki,łódzkie,117,6783
+1015022,Głuchów,wiejska,powiat skierniewicki,łódzkie,111,5478
+1015032,Godzianów,wiejska,powiat skierniewicki,łódzkie,44,2542
+1015042,Kowiesy,wiejska,powiat skierniewicki,łódzkie,86,2774
+1015052,Lipce Reymontowskie,wiejska,powiat skierniewicki,łódzkie,43,3097
+1015062,Maków,wiejska,powiat skierniewicki,łódzkie,81,5977
+1015072,Nowy Kawęczyn,wiejska,powiat skierniewicki,łódzkie,104,3398
+1015082,Skierniewice,wiejska,powiat skierniewicki,łódzkie,131,8147
+1015092,Słupia,wiejska,powiat skierniewicki,łódzkie,41,2485
+1015013,Bolimów,miejsko-wiejska,powiat skierniewicki,łódzkie,112,3889
+1016011,Tomaszów Mazowiecki,miejska,powiat tomaszowski,łódzkie,41,57438
+1016022,Będków,wiejska,powiat tomaszowski,łódzkie,58,3142
+1016032,Budziszewice,wiejska,powiat tomaszowski,łódzkie,30,2077
+1016042,Czerniewice,wiejska,powiat tomaszowski,łódzkie,128,4809
+1016062,Lubochnia,wiejska,powiat tomaszowski,łódzkie,132,7163
+1016072,Rokiciny,wiejska,powiat tomaszowski,łódzkie,91,6120
+1016082,Rzeczyca,wiejska,powiat tomaszowski,łódzkie,108,4374
+1016092,Tomaszów Mazowiecki,wiejska,powiat tomaszowski,łódzkie,151,11405
+1016112,Żelechlinek,wiejska,powiat tomaszowski,łódzkie,92,3105
+1016053,Inowłódz,miejsko-wiejska,powiat tomaszowski,łódzkie,97,3652
+1016103,Ujazd,miejsko-wiejska,powiat tomaszowski,łódzkie,97,7349
+1017012,Biała,wiejska,powiat wieluński,łódzkie,74,5299
+1017022,Czarnożyły,wiejska,powiat wieluński,łódzkie,70,4370
+1017032,Konopnica,wiejska,powiat wieluński,łódzkie,83,3533
+1017042,Mokrsko,wiejska,powiat wieluński,łódzkie,78,5052
+1017062,Ostrówek,wiejska,powiat wieluński,łódzkie,101,4375
+1017072,Pątnów,wiejska,powiat wieluński,łódzkie,114,6191
+1017082,Skomlin,wiejska,powiat wieluński,łódzkie,55,3201
+1017102,Wierzchlas,wiejska,powiat wieluński,łódzkie,119,6403
+1017053,Osjaków,miejsko-wiejska,powiat wieluński,łódzkie,101,4637
+1017093,Wieluń,miejsko-wiejska,powiat wieluński,łódzkie,131,29525
+1018022,Czastary,wiejska,powiat wieruszowski,łódzkie,63,3875
+1018032,Galewice,wiejska,powiat wieruszowski,łódzkie,136,6125
+1018052,Łubnice,wiejska,powiat wieruszowski,łódzkie,61,3852
+1018062,Sokolniki,wiejska,powiat wieruszowski,łódzkie,80,5103
+1018013,Bolesławiec,miejsko-wiejska,powiat wieruszowski,łódzkie,64,3869
+1018043,Lututów,miejsko-wiejska,powiat wieruszowski,łódzkie,76,4549
+1018073,Wieruszów,miejsko-wiejska,powiat wieruszowski,łódzkie,97,14079
+1019011,Zduńska Wola,miejska,powiat zduńskowolski,łódzkie,25,38402
+1019032,Zapolice,wiejska,powiat zduńskowolski,łódzkie,81,5508
+1019042,Zduńska Wola,wiejska,powiat zduńskowolski,łódzkie,111,12361
+1019023,Szadek,miejsko-wiejska,powiat zduńskowolski,łódzkie,152,7055
+1020011,Głowno,miejska,powiat zgierski,łódzkie,20,13116
+1020021,Ozorków,miejska,powiat zgierski,łódzkie,15,18064
+1020031,Zgierz,miejska,powiat zgierski,łódzkie,42,53543
+1020052,Głowno,wiejska,powiat zgierski,łódzkie,105,4627
+1020062,Ozorków,wiejska,powiat zgierski,łódzkie,96,7248
+1020092,Zgierz,wiejska,powiat zgierski,łódzkie,199,16337
+1020043,Aleksandrów Łódzki,miejsko-wiejska,powiat zgierski,łódzkie,116,35110
+1020073,Parzęczew,miejsko-wiejska,powiat zgierski,łódzkie,104,5284
+1020083,Stryków,miejsko-wiejska,powiat zgierski,łódzkie,158,13011
+1061011,Łódź,miejska,powiat m. Łódź,łódzkie,293,652015
+1062011,Piotrków Trybunalski,miejska,powiat m. Piotrków Trybunalski,łódzkie,67,66519
+1063011,Skierniewice,miejska,powiat m. Skierniewice,łódzkie,35,45184
+1201011,Bochnia,miejska,powiat bocheński,małopolskie,30,28441
+1201022,Bochnia,wiejska,powiat bocheński,małopolskie,131,20824
+1201032,Drwinia,wiejska,powiat bocheński,małopolskie,109,6430
+1201042,Lipnica Murowana,wiejska,powiat bocheński,małopolskie,60,5527
+1201052,Łapanów,wiejska,powiat bocheński,małopolskie,72,8613
+1201072,Rzezawa,wiejska,powiat bocheński,małopolskie,86,11448
+1201082,Trzciana,wiejska,powiat bocheński,małopolskie,44,5716
+1201092,Żegocina,wiejska,powiat bocheński,małopolskie,35,5529
+1201063,Nowy Wiśnicz,miejsko-wiejska,powiat bocheński,małopolskie,82,14418
+1202012,Borzęcin,wiejska,powiat brzeski,małopolskie,103,8108
+1202042,Dębno,wiejska,powiat brzeski,małopolskie,82,14502
+1202052,Gnojnik,wiejska,powiat brzeski,małopolskie,55,8113
+1202062,Iwkowa,wiejska,powiat brzeski,małopolskie,47,6623
+1202072,Szczurowa,wiejska,powiat brzeski,małopolskie,135,9124
+1202023,Brzesko,miejsko-wiejska,powiat brzeski,małopolskie,103,35479
+1202033,Czchów,miejsko-wiejska,powiat brzeski,małopolskie,66,9721
+1203022,Babice,wiejska,powiat chrzanowski,małopolskie,55,8985
+1203013,Alwernia,miejsko-wiejska,powiat chrzanowski,małopolskie,74,12354
+1203033,Chrzanów,miejsko-wiejska,powiat chrzanowski,małopolskie,79,43941
+1203043,Libiąż,miejsko-wiejska,powiat chrzanowski,małopolskie,57,21083
+1203053,Trzebinia,miejsko-wiejska,powiat chrzanowski,małopolskie,105,32321
+1204012,Bolesław,wiejska,powiat dąbrowski,małopolskie,36,2628
+1204032,Gręboszów,wiejska,powiat dąbrowski,małopolskie,49,3162
+1204042,Mędrzechów,wiejska,powiat dąbrowski,małopolskie,44,3285
+1204052,Olesno,wiejska,powiat dąbrowski,małopolskie,78,7634
+1204062,Radgoszcz,wiejska,powiat dąbrowski,małopolskie,88,7465
+1204023,Dąbrowa Tarnowska,miejsko-wiejska,powiat dąbrowski,małopolskie,116,20926
+1204073,Szczucin,miejsko-wiejska,powiat dąbrowski,małopolskie,119,12450
+1205011,Gorlice,miejska,powiat gorlicki,małopolskie,24,25523
+1205042,Gorlice,wiejska,powiat gorlicki,małopolskie,103,16946
+1205052,Lipinki,wiejska,powiat gorlicki,małopolskie,66,6683
+1205062,Łużna,wiejska,powiat gorlicki,małopolskie,56,8340
+1205072,Moszczenica,wiejska,powiat gorlicki,małopolskie,38,4903
+1205082,Ropa,wiejska,powiat gorlicki,małopolskie,49,5492
+1205092,Sękowa,wiejska,powiat gorlicki,małopolskie,195,4938
+1205102,Uście Gorlickie,wiejska,powiat gorlicki,małopolskie,287,6784
+1205023,Biecz,miejsko-wiejska,powiat gorlicki,małopolskie,98,16101
+1205033,Bobowa,miejsko-wiejska,powiat gorlicki,małopolskie,50,9612
+1206012,Czernichów,wiejska,powiat krakowski,małopolskie,84,15436
+1206022,Igołomia-Wawrzeńczyce,wiejska,powiat krakowski,małopolskie,63,7839
+1206032,Iwanowice,wiejska,powiat krakowski,małopolskie,71,9822
+1206042,Jerzmanowice-Przeginia,wiejska,powiat krakowski,małopolskie,68,11189
+1206052,Kocmyrzów-Luborzyca,wiejska,powiat krakowski,małopolskie,83,18243
+1206072,Liszki,wiejska,powiat krakowski,małopolskie,72,18591
+1206082,Michałowice,wiejska,powiat krakowski,małopolskie,51,13379
+1206092,Mogilany,wiejska,powiat krakowski,małopolskie,44,16286
+1206132,Sułoszowa,wiejska,powiat krakowski,małopolskie,53,5672
+1206152,Wielka Wieś,wiejska,powiat krakowski,małopolskie,48,16916
+1206162,Zabierzów,wiejska,powiat krakowski,małopolskie,99,29602
+1206172,Zielonki,wiejska,powiat krakowski,małopolskie,49,27751
+1206063,Krzeszowice,miejsko-wiejska,powiat krakowski,małopolskie,139,31866
+1206103,Skała,miejsko-wiejska,powiat krakowski,małopolskie,75,10954
+1206113,Skawina,miejsko-wiejska,powiat krakowski,małopolskie,100,44002
+1206123,Słomniki,miejsko-wiejska,powiat krakowski,małopolskie,111,13675
+1206143,Świątniki Górne,miejsko-wiejska,powiat krakowski,małopolskie,20,11124
+1207011,Limanowa,miejska,powiat limanowski,małopolskie,19,14430
+1207021,Mszana Dolna,miejska,powiat limanowski,małopolskie,27,7826
+1207032,Dobra,wiejska,powiat limanowski,małopolskie,110,10105
+1207042,Jodłownik,wiejska,powiat limanowski,małopolskie,72,8769
+1207052,Kamienica,wiejska,powiat limanowski,małopolskie,95,7794
+1207062,Laskowa,wiejska,powiat limanowski,małopolskie,72,8179
+1207072,Limanowa,wiejska,powiat limanowski,małopolskie,152,26052
+1207082,Łukowica,wiejska,powiat limanowski,małopolskie,70,10171
+1207092,Mszana Dolna,wiejska,powiat limanowski,małopolskie,170,17638
+1207102,Niedźwiedź,wiejska,powiat limanowski,małopolskie,74,7307
+1207112,Słopnice,wiejska,powiat limanowski,małopolskie,57,7010
+1207122,Tymbark,wiejska,powiat limanowski,małopolskie,33,6373
+1208012,Charsznica,wiejska,powiat miechowski,małopolskie,78,7081
+1208022,Gołcza,wiejska,powiat miechowski,małopolskie,90,5918
+1208032,Kozłów,wiejska,powiat miechowski,małopolskie,86,4422
+1208062,Racławice,wiejska,powiat miechowski,małopolskie,59,2422
+1208072,Słaboszów,wiejska,powiat miechowski,małopolskie,77,3311
+1208043,Książ Wielki,miejsko-wiejska,powiat miechowski,małopolskie,138,4827
+1208053,Miechów,miejsko-wiejska,powiat miechowski,małopolskie,148,18686
+1209022,Lubień,wiejska,powiat myślenicki,małopolskie,75,10094
+1209042,Pcim,wiejska,powiat myślenicki,małopolskie,89,11093
+1209052,Raciechowice,wiejska,powiat myślenicki,małopolskie,61,6429
+1209062,Siepraw,wiejska,powiat myślenicki,małopolskie,32,9638
+1209082,Tokarnia,wiejska,powiat myślenicki,małopolskie,69,8799
+1209092,Wiśniowa,wiejska,powiat myślenicki,małopolskie,67,7527
+1209013,Dobczyce,miejsko-wiejska,powiat myślenicki,małopolskie,66,15530
+1209033,Myślenice,miejsko-wiejska,powiat myślenicki,małopolskie,154,45541
+1209073,Sułkowice,miejsko-wiejska,powiat myślenicki,małopolskie,60,15192
+1210011,Grybów,miejska,powiat nowosądecki,małopolskie,17,5947
+1210022,Chełmiec,wiejska,powiat nowosądecki,małopolskie,112,29725
+1210032,Gródek nad Dunajcem,wiejska,powiat nowosądecki,małopolskie,88,8923
+1210042,Grybów,wiejska,powiat nowosądecki,małopolskie,154,25343
+1210052,Kamionka Wielka,wiejska,powiat nowosądecki,małopolskie,65,10482
+1210062,Korzenna,wiejska,powiat nowosądecki,małopolskie,107,14432
+1210082,Łabowa,wiejska,powiat nowosądecki,małopolskie,119,6019
+1210092,Łącko,wiejska,powiat nowosądecki,małopolskie,133,16666
+1210102,Łososina Dolna,wiejska,powiat nowosądecki,małopolskie,85,11211
+1210122,Nawojowa,wiejska,powiat nowosądecki,małopolskie,50,8862
+1210142,Podegrodzie,wiejska,powiat nowosądecki,małopolskie,65,13583
+1210152,Rytro,wiejska,powiat nowosądecki,małopolskie,42,3667
+1210073,Krynica-Zdrój,miejsko-wiejska,powiat nowosądecki,małopolskie,145,15615
+1210113,Muszyna,miejsko-wiejska,powiat nowosądecki,małopolskie,141,11085
+1210133,Piwniczna-Zdrój,miejsko-wiejska,powiat nowosądecki,małopolskie,126,9941
+1210163,Stary Sącz,miejsko-wiejska,powiat nowosądecki,małopolskie,101,23533
+1211011,Nowy Targ,miejska,powiat nowotarski,małopolskie,51,33065
+1211042,Czorsztyn,wiejska,powiat nowotarski,małopolskie,62,7600
+1211052,Jabłonka,wiejska,powiat nowotarski,małopolskie,213,19154
+1211062,Krościenko nad Dunajcem,wiejska,powiat nowotarski,małopolskie,57,6639
+1211072,Lipnica Wielka,wiejska,powiat nowotarski,małopolskie,67,6053
+1211082,Łapsze Niżne,wiejska,powiat nowotarski,małopolskie,126,9252
+1211092,Nowy Targ,wiejska,powiat nowotarski,małopolskie,208,24063
+1211102,Ochotnica Dolna,wiejska,powiat nowotarski,małopolskie,141,8489
+1211112,Raba Wyżna,wiejska,powiat nowotarski,małopolskie,89,14448
+1211132,Spytkowice,wiejska,powiat nowotarski,małopolskie,32,4705
+1211142,Szaflary,wiejska,powiat nowotarski,małopolskie,54,11271
+1211033,Czarny Dunajec,miejsko-wiejska,powiat nowotarski,małopolskie,218,22176
+1211123,Rabka-Zdrój,miejsko-wiejska,powiat nowotarski,małopolskie,69,16546
+1211023,Szczawnica,miejsko-wiejska,powiat nowotarski,małopolskie,88,6646
+1212011,Bukowno,miejska,powiat olkuski,małopolskie,64,9467
+1212032,Bolesław,wiejska,powiat olkuski,małopolskie,41,7566
+1212042,Klucze,wiejska,powiat olkuski,małopolskie,119,14439
+1212062,Trzyciąż,wiejska,powiat olkuski,małopolskie,96,6914
+1212053,Olkusz,miejsko-wiejska,powiat olkuski,małopolskie,151,45630
+1212073,Wolbrom,miejsko-wiejska,powiat olkuski,małopolskie,147,21884
+1213011,Oświęcim,miejska,powiat oświęcimski,małopolskie,30,35577
+1213052,Osiek,wiejska,powiat oświęcimski,małopolskie,41,8129
+1213062,Oświęcim,wiejska,powiat oświęcimski,małopolskie,75,18987
+1213072,Polanka Wielka,wiejska,powiat oświęcimski,małopolskie,24,4310
+1213082,Przeciszów,wiejska,powiat oświęcimski,małopolskie,35,6355
+1213023,Brzeszcze,miejsko-wiejska,powiat oświęcimski,małopolskie,46,20365
+1213033,Chełmek,miejsko-wiejska,powiat oświęcimski,małopolskie,27,12306
+1213043,Kęty,miejsko-wiejska,powiat oświęcimski,małopolskie,76,33267
+1213093,Zator,miejsko-wiejska,powiat oświęcimski,małopolskie,52,9119
+1214012,Koniusza,wiejska,powiat proszowicki,małopolskie,89,9085
+1214042,Pałecznica,wiejska,powiat proszowicki,małopolskie,48,3446
+1214062,Radziemice,wiejska,powiat proszowicki,małopolskie,58,3170
+1214023,Koszyce,miejsko-wiejska,powiat proszowicki,małopolskie,66,5224
+1214033,Nowe Brzesko,miejsko-wiejska,powiat proszowicki,małopolskie,54,5610
+1214053,Proszowice,miejsko-wiejska,powiat proszowicki,małopolskie,100,15470
+1215011,Jordanów,miejska,powiat suski,małopolskie,21,5403
+1215021,Sucha Beskidzka,miejska,powiat suski,małopolskie,28,8868
+1215032,Budzów,wiejska,powiat suski,małopolskie,73,8834
+1215042,Bystra-Sidzina,wiejska,powiat suski,małopolskie,81,6798
+1215052,Jordanów,wiejska,powiat suski,małopolskie,92,11190
+1215072,Stryszawa,wiejska,powiat suski,małopolskie,114,11886
+1215082,Zawoja,wiejska,powiat suski,małopolskie,129,8776
+1215092,Zembrzyce,wiejska,powiat suski,małopolskie,39,5389
+1215063,Maków Podhalański,miejsko-wiejska,powiat suski,małopolskie,109,15742
+1216022,Gromnik,wiejska,powiat tarnowski,małopolskie,70,8746
+1216032,Lisia Góra,wiejska,powiat tarnowski,małopolskie,105,15619
+1216042,Pleśna,wiejska,powiat tarnowski,małopolskie,83,11740
+1216072,Rzepiennik Strzyżewski,wiejska,powiat tarnowski,małopolskie,71,6509
+1216082,Skrzyszów,wiejska,powiat tarnowski,małopolskie,86,14168
+1216162,Szerzyny,wiejska,powiat tarnowski,małopolskie,82,7502
+1216092,Tarnów,wiejska,powiat tarnowski,małopolskie,83,26417
+1216112,Wierzchosławice,wiejska,powiat tarnowski,małopolskie,75,10525
+1216122,Wietrzychowice,wiejska,powiat tarnowski,małopolskie,48,3724
+1216013,Ciężkowice,miejsko-wiejska,powiat tarnowski,małopolskie,103,10985
+1216053,Radłów,miejsko-wiejska,powiat tarnowski,małopolskie,86,9386
+1216063,Ryglice,miejsko-wiejska,powiat tarnowski,małopolskie,117,11205
+1216103,Tuchów,miejsko-wiejska,powiat tarnowski,małopolskie,100,16985
+1216133,Wojnicz,miejsko-wiejska,powiat tarnowski,małopolskie,79,13071
+1216143,Zakliczyn,miejsko-wiejska,powiat tarnowski,małopolskie,122,12356
+1216153,Żabno,miejsko-wiejska,powiat tarnowski,małopolskie,102,18397
+1217011,Zakopane,miejska,powiat tatrzański,małopolskie,84,25204
+1217022,Biały Dunajec,wiejska,powiat tatrzański,małopolskie,35,6832
+1217032,Bukowina Tatrzańska,wiejska,powiat tatrzański,małopolskie,132,13565
+1217042,Kościelisko,wiejska,powiat tatrzański,małopolskie,137,9076
+1217052,Poronin,wiejska,powiat tatrzański,małopolskie,84,11801
+1218022,Brzeźnica,wiejska,powiat wadowicki,małopolskie,66,10833
+1218042,Lanckorona,wiejska,powiat wadowicki,małopolskie,40,6267
+1218052,Mucharz,wiejska,powiat wadowicki,małopolskie,37,4175
+1218062,Spytkowice,wiejska,powiat wadowicki,małopolskie,52,10098
+1218072,Stryszów,wiejska,powiat wadowicki,małopolskie,46,6786
+1218082,Tomice,wiejska,powiat wadowicki,małopolskie,42,8241
+1218102,Wieprz,wiejska,powiat wadowicki,małopolskie,75,12763
+1218013,Andrychów,miejsko-wiejska,powiat wadowicki,małopolskie,100,41946
+1218033,Kalwaria Zebrzydowska,miejsko-wiejska,powiat wadowicki,małopolskie,75,19889
+1218093,Wadowice,miejsko-wiejska,powiat wadowicki,małopolskie,113,36475
+1219012,Biskupice,wiejska,powiat wielicki,małopolskie,41,11735
+1219022,Gdów,wiejska,powiat wielicki,małopolskie,109,18642
+1219032,Kłaj,wiejska,powiat wielicki,małopolskie,65,11174
+1219043,Niepołomice,miejsko-wiejska,powiat wielicki,małopolskie,96,33173
+1219053,Wieliczka,miejsko-wiejska,powiat wielicki,małopolskie,100,68904
+1261011,Kraków,miejska,powiat m. Kraków,małopolskie,327,806201
+1262011,Nowy Sącz,miejska,powiat m. Nowy Sącz,małopolskie,58,80358
+1263011,Tarnów,miejska,powiat m. Tarnów,małopolskie,72,103129
+1401022,Promna,wiejska,powiat białobrzeski,mazowieckie,120,5439
+1401032,Radzanów,wiejska,powiat białobrzeski,mazowieckie,83,3798
+1401042,Stara Błotnica,wiejska,powiat białobrzeski,mazowieckie,96,5446
+1401052,Stromiec,wiejska,powiat białobrzeski,mazowieckie,157,5398
+1401013,Białobrzegi,miejsko-wiejska,powiat białobrzeski,mazowieckie,78,9766
+1401063,Wyśmierzyce,miejsko-wiejska,powiat białobrzeski,mazowieckie,105,2673
+1402011,Ciechanów,miejska,powiat ciechanowski,mazowieckie,33,41740
+1402022,Ciechanów,wiejska,powiat ciechanowski,mazowieckie,140,7526
+1402042,Gołymin-Ośrodek,wiejska,powiat ciechanowski,mazowieckie,111,3493
+1402052,Grudusk,wiejska,powiat ciechanowski,mazowieckie,97,3299
+1402062,Ojrzeń,wiejska,powiat ciechanowski,mazowieckie,120,4091
+1402072,Opinogóra Górna,wiejska,powiat ciechanowski,mazowieckie,139,5846
+1402082,Regimin,wiejska,powiat ciechanowski,mazowieckie,111,4711
+1402092,Sońsk,wiejska,powiat ciechanowski,mazowieckie,155,7337
+1402033,Glinojeck,miejsko-wiejska,powiat ciechanowski,mazowieckie,154,7124
+1403011,Garwolin,miejska,powiat garwoliński,mazowieckie,22,17268
+1403021,Łaskarzew,miejska,powiat garwoliński,mazowieckie,15,4489
+1403032,Borowie,wiejska,powiat garwoliński,mazowieckie,80,4905
+1403042,Garwolin,wiejska,powiat garwoliński,mazowieckie,136,13500
+1403052,Górzno,wiejska,powiat garwoliński,mazowieckie,91,6695
+1403062,Łaskarzew,wiejska,powiat garwoliński,mazowieckie,88,5238
+1403082,Miastków Kościelny,wiejska,powiat garwoliński,mazowieckie,85,4636
+1403092,Parysów,wiejska,powiat garwoliński,mazowieckie,64,4104
+1403112,Sobolew,wiejska,powiat garwoliński,mazowieckie,95,7809
+1403122,Trojanów,wiejska,powiat garwoliński,mazowieckie,152,7093
+1403132,Wilga,wiejska,powiat garwoliński,mazowieckie,119,5088
+1403073,Maciejowice,miejsko-wiejska,powiat garwoliński,mazowieckie,174,6358
+1403103,Pilawa,miejsko-wiejska,powiat garwoliński,mazowieckie,77,10553
+1403143,Żelechów,miejsko-wiejska,powiat garwoliński,mazowieckie,87,7774
+1404011,Gostynin,miejska,powiat gostyniński,mazowieckie,32,16986
+1404022,Gostynin,wiejska,powiat gostyniński,mazowieckie,271,11750
+1404032,Pacyna,wiejska,powiat gostyniński,mazowieckie,90,3238
+1404052,Szczawin Kościelny,wiejska,powiat gostyniński,mazowieckie,127,4658
+1404043,Sanniki,miejsko-wiejska,powiat gostyniński,mazowieckie,95,5606
+1405011,Milanówek,miejska,powiat grodziski,mazowieckie,13,16424
+1405021,Podkowa Leśna,miejska,powiat grodziski,mazowieckie,10,3799
+1405032,Baranów,wiejska,powiat grodziski,mazowieckie,76,5431
+1405052,Jaktorów,wiejska,powiat grodziski,mazowieckie,55,13504
+1405062,Żabia Wola,wiejska,powiat grodziski,mazowieckie,106,11096
+1405043,Grodzisk Mazowiecki,miejsko-wiejska,powiat grodziski,mazowieckie,107,55453
+1406012,Belsk Duży,wiejska,powiat grójecki,mazowieckie,108,6175
+1406022,Błędów,wiejska,powiat grójecki,mazowieckie,134,7034
+1406032,Chynów,wiejska,powiat grójecki,mazowieckie,135,10179
+1406042,Goszczyn,wiejska,powiat grójecki,mazowieckie,58,2834
+1406062,Jasieniec,wiejska,powiat grójecki,mazowieckie,108,5349
+1406092,Pniewy,wiejska,powiat grójecki,mazowieckie,102,4846
+1406053,Grójec,miejsko-wiejska,powiat grójecki,mazowieckie,121,26225
+1406073,Mogielnica,miejsko-wiejska,powiat grójecki,mazowieckie,141,8156
+1406083,Nowe Miasto nad Pilicą,miejsko-wiejska,powiat grójecki,mazowieckie,159,7110
+1406113,Warka,miejsko-wiejska,powiat grójecki,mazowieckie,202,19121
+1407012,Garbatka-Letnisko,wiejska,powiat kozienicki,mazowieckie,74,4776
+1407032,Gniewoszów,wiejska,powiat kozienicki,mazowieckie,84,3769
+1407042,Grabów nad Pilicą,wiejska,powiat kozienicki,mazowieckie,125,4036
+1407072,Sieciechów,wiejska,powiat kozienicki,mazowieckie,62,3732
+1407023,Głowaczów,miejsko-wiejska,powiat kozienicki,mazowieckie,186,6700
+1407053,Kozienice,miejsko-wiejska,powiat kozienicki,mazowieckie,244,27747
+1407063,Magnuszew,miejsko-wiejska,powiat kozienicki,mazowieckie,141,6393
+1408011,Legionowo,miejska,powiat legionowski,mazowieckie,14,52630
+1408022,Jabłonna,wiejska,powiat legionowski,mazowieckie,65,23356
+1408032,Nieporęt,wiejska,powiat legionowski,mazowieckie,96,17249
+1408052,Wieliszew,wiejska,powiat legionowski,mazowieckie,106,20907
+1408043,Serock,miejsko-wiejska,powiat legionowski,mazowieckie,110,17705
+1409012,Chotcza,wiejska,powiat lipski,mazowieckie,90,2188
+1409042,Rzeczniów,wiejska,powiat lipski,mazowieckie,103,4051
+1409023,Ciepielów,miejsko-wiejska,powiat lipski,mazowieckie,135,5187
+1409033,Lipsko,miejsko-wiejska,powiat lipski,mazowieckie,135,10051
+1409053,Sienno,miejsko-wiejska,powiat lipski,mazowieckie,147,5517
+1409063,Solec nad Wisłą,miejsko-wiejska,powiat lipski,mazowieckie,130,4567
+1410012,Huszlew,wiejska,powiat łosicki,mazowieckie,118,2631
+1410032,Olszanka,wiejska,powiat łosicki,mazowieckie,88,2734
+1410042,Platerów,wiejska,powiat łosicki,mazowieckie,129,4368
+1410052,Sarnaki,wiejska,powiat łosicki,mazowieckie,197,4091
+1410062,Stara Kornica,wiejska,powiat łosicki,mazowieckie,119,4393
+1410023,Łosice,miejsko-wiejska,powiat łosicki,mazowieckie,121,10411
+1411011,Maków Mazowiecki,miejska,powiat makowski,mazowieckie,10,8939
+1411022,Czerwonka,wiejska,powiat makowski,mazowieckie,111,2539
+1411032,Karniewo,wiejska,powiat makowski,mazowieckie,129,4830
+1411042,Krasnosielc,wiejska,powiat makowski,mazowieckie,167,5873
+1411052,Młynarze,wiejska,powiat makowski,mazowieckie,75,1607
+1411062,Płoniawy-Bramura,wiejska,powiat makowski,mazowieckie,135,4859
+1411082,Rzewnie,wiejska,powiat makowski,mazowieckie,112,2419
+1411092,Sypniewo,wiejska,powiat makowski,mazowieckie,128,2912
+1411102,Szelków,wiejska,powiat makowski,mazowieckie,113,3529
+1411073,Różan,miejsko-wiejska,powiat makowski,mazowieckie,85,4229
+1412011,Mińsk Mazowiecki,miejska,powiat miński,mazowieckie,13,39837
+1412151,Sulejówek,miejska,powiat miński,mazowieckie,19,21428
+1412052,Dębe Wielkie,wiejska,powiat miński,mazowieckie,78,11863
+1412082,Jakubów,wiejska,powiat miński,mazowieckie,87,5096
+1412112,Mińsk Mazowiecki,wiejska,powiat miński,mazowieckie,112,16996
+1412142,Stanisławów,wiejska,powiat miński,mazowieckie,107,7044
+1412043,Cegłów,miejsko-wiejska,powiat miński,mazowieckie,96,6073
+1412063,Dobre,miejsko-wiejska,powiat miński,mazowieckie,125,5844
+1412073,Halinów,miejsko-wiejska,powiat miński,mazowieckie,63,18245
+1412093,Kałuszyn,miejsko-wiejska,powiat miński,mazowieckie,94,5517
+1412103,Latowicz,miejsko-wiejska,powiat miński,mazowieckie,114,5135
+1412123,Mrozy,miejsko-wiejska,powiat miński,mazowieckie,145,8647
+1412133,Siennica,miejsko-wiejska,powiat miński,mazowieckie,111,7663
+1413011,Mława,miejska,powiat mławski,mazowieckie,35,30802
+1413022,Dzierzgowo,wiejska,powiat mławski,mazowieckie,151,2741
+1413032,Lipowiec Kościelny,wiejska,powiat mławski,mazowieckie,114,4463
+1413042,Radzanów,wiejska,powiat mławski,mazowieckie,99,2908
+1413052,Strzegowo,wiejska,powiat mławski,mazowieckie,214,7008
+1413062,Stupsk,wiejska,powiat mławski,mazowieckie,118,4439
+1413072,Szreńsk,wiejska,powiat mławski,mazowieckie,109,3786
+1413082,Szydłowo,wiejska,powiat mławski,mazowieckie,123,4194
+1413092,Wieczfnia Kościelna,wiejska,powiat mławski,mazowieckie,120,3630
+1413102,Wiśniewo,wiejska,powiat mławski,mazowieckie,99,5103
+1414011,Nowy Dwór Mazowiecki,miejska,powiat nowodworski,mazowieckie,28,28548
+1414022,Czosnów,wiejska,powiat nowodworski,mazowieckie,128,11052
+1414032,Leoncin,wiejska,powiat nowodworski,mazowieckie,158,5590
+1414052,Pomiechówek,wiejska,powiat nowodworski,mazowieckie,103,9263
+1414043,Nasielsk,miejsko-wiejska,powiat nowodworski,mazowieckie,206,19249
+1414063,Zakroczym,miejsko-wiejska,powiat nowodworski,mazowieckie,72,5869
+1415012,Baranowo,wiejska,powiat ostrołęcki,mazowieckie,197,5963
+1415022,Czarnia,wiejska,powiat ostrołęcki,mazowieckie,94,2217
+1415032,Czerwin,wiejska,powiat ostrołęcki,mazowieckie,170,4723
+1415042,Goworowo,wiejska,powiat ostrołęcki,mazowieckie,219,7818
+1415052,Kadzidło,wiejska,powiat ostrołęcki,mazowieckie,259,10989
+1415062,Lelis,wiejska,powiat ostrołęcki,mazowieckie,196,9952
+1415072,Łyse,wiejska,powiat ostrołęcki,mazowieckie,247,8164
+1415092,Olszewo-Borki,wiejska,powiat ostrołęcki,mazowieckie,197,11026
+1415102,Rzekuń,wiejska,powiat ostrołęcki,mazowieckie,131,12157
+1415112,Troszyn,wiejska,powiat ostrołęcki,mazowieckie,156,4510
+1415083,Myszyniec,miejsko-wiejska,powiat ostrołęcki,mazowieckie,227,9975
+1416011,Ostrów Mazowiecka,miejska,powiat ostrowski,mazowieckie,22,21530
+1416022,Andrzejewo,wiejska,powiat ostrowski,mazowieckie,119,3774
+1416032,Boguty-Pianki,wiejska,powiat ostrowski,mazowieckie,89,2368
+1416052,Małkinia Górna,wiejska,powiat ostrowski,mazowieckie,134,10787
+1416062,Nur,wiejska,powiat ostrowski,mazowieckie,96,2467
+1416072,Ostrów Mazowiecka,wiejska,powiat ostrowski,mazowieckie,283,12636
+1416082,Stary Lubotyń,wiejska,powiat ostrowski,mazowieckie,110,3582
+1416092,Szulborze Wielkie,wiejska,powiat ostrowski,mazowieckie,47,1501
+1416102,Wąsewo,wiejska,powiat ostrowski,mazowieckie,119,3952
+1416112,Zaręby Kościelne,wiejska,powiat ostrowski,mazowieckie,89,3250
+1416043,Brok,miejsko-wiejska,powiat ostrowski,mazowieckie,110,2565
+1417011,Józefów,miejska,powiat otwocki,mazowieckie,24,21217
+1417021,Otwock,miejska,powiat otwocki,mazowieckie,47,43895
+1417032,Celestynów,wiejska,powiat otwocki,mazowieckie,89,11648
+1417052,Kołbiel,wiejska,powiat otwocki,mazowieckie,107,8299
+1417072,Sobienie-Jeziory,wiejska,powiat otwocki,mazowieckie,98,6233
+1417082,Wiązowna,wiejska,powiat otwocki,mazowieckie,102,16002
+1417043,Karczew,miejsko-wiejska,powiat otwocki,mazowieckie,81,15826
+1417063,Osieck,miejsko-wiejska,powiat otwocki,mazowieckie,68,3659
+1418032,Lesznowola,wiejska,powiat piaseczyński,mazowieckie,69,38479
+1418052,Prażmów,wiejska,powiat piaseczyński,mazowieckie,87,13370
+1418013,Góra Kalwaria,miejsko-wiejska,powiat piaseczyński,mazowieckie,144,28395
+1418023,Konstancin-Jeziorna,miejsko-wiejska,powiat piaseczyński,mazowieckie,79,25088
+1418043,Piaseczno,miejsko-wiejska,powiat piaseczyński,mazowieckie,128,97293
+1418063,Tarczyn,miejsko-wiejska,powiat piaseczyński,mazowieckie,114,12463
+1419012,Bielsk,wiejska,powiat płocki,mazowieckie,125,8873
+1419032,Brudzeń Duży,wiejska,powiat płocki,mazowieckie,160,8251
+1419042,Bulkowo,wiejska,powiat płocki,mazowieckie,117,5193
+1419072,Łąck,wiejska,powiat płocki,mazowieckie,94,5364
+1419082,Mała Wieś,wiejska,powiat płocki,mazowieckie,109,5631
+1419092,Nowy Duninów,wiejska,powiat płocki,mazowieckie,146,3934
+1419102,Radzanowo,wiejska,powiat płocki,mazowieckie,104,8705
+1419112,Słubice,wiejska,powiat płocki,mazowieckie,96,4118
+1419122,Słupno,wiejska,powiat płocki,mazowieckie,75,9051
+1419132,Stara Biała,wiejska,powiat płocki,mazowieckie,111,12265
+1419142,Staroźreby,wiejska,powiat płocki,mazowieckie,138,6767
+1419023,Bodzanów,miejsko-wiejska,powiat płocki,mazowieckie,136,7751
+1419053,Drobin,miejsko-wiejska,powiat płocki,mazowieckie,144,7289
+1419063,Gąbin,miejsko-wiejska,powiat płocki,mazowieckie,146,11151
+1419153,Wyszogród,miejsko-wiejska,powiat płocki,mazowieckie,96,5188
+1420011,Płońsk,miejska,powiat płoński,mazowieckie,12,21530
+1420021,Raciąż,miejska,powiat płoński,mazowieckie,8,3966
+1420032,Baboszewo,wiejska,powiat płoński,mazowieckie,162,7414
+1420052,Dzierzążnia,wiejska,powiat płoński,mazowieckie,103,3346
+1420062,Joniec,wiejska,powiat płoński,mazowieckie,73,2781
+1420072,Naruszewo,wiejska,powiat płoński,mazowieckie,160,5876
+1420092,Płońsk,wiejska,powiat płoński,mazowieckie,127,8454
+1420102,Raciąż,wiejska,powiat płoński,mazowieckie,243,7837
+1420122,Załuski,wiejska,powiat płoński,mazowieckie,108,5494
+1420043,Czerwińsk nad Wisłą,miejsko-wiejska,powiat płoński,mazowieckie,144,7144
+1420083,Nowe Miasto,miejsko-wiejska,powiat płoński,mazowieckie,118,4547
+1420113,Sochocin,miejsko-wiejska,powiat płoński,mazowieckie,122,5617
+1421011,Piastów,miejska,powiat pruszkowski,mazowieckie,6,22932
+1421021,Pruszków,miejska,powiat pruszkowski,mazowieckie,19,65461
+1421042,Michałowice,wiejska,powiat pruszkowski,mazowieckie,35,19436
+1421052,Nadarzyn,wiejska,powiat pruszkowski,mazowieckie,73,18306
+1421062,Raszyn,wiejska,powiat pruszkowski,mazowieckie,44,23533
+1421033,Brwinów,miejsko-wiejska,powiat pruszkowski,mazowieckie,69,29999
+1422011,Przasnysz,miejska,powiat przasnyski,mazowieckie,25,16357
+1422032,Czernice Borowe,wiejska,powiat przasnyski,mazowieckie,120,3491
+1422042,Jednorożec,wiejska,powiat przasnyski,mazowieckie,235,6607
+1422052,Krasne,wiejska,powiat przasnyski,mazowieckie,101,3270
+1422062,Krzynowłoga Mała,wiejska,powiat przasnyski,mazowieckie,185,3235
+1422072,Przasnysz,wiejska,powiat przasnyski,mazowieckie,182,6845
+1422023,Chorzele,miejsko-wiejska,powiat przasnyski,mazowieckie,371,9232
+1423012,Borkowice,wiejska,powiat przysuski,mazowieckie,86,3984
+1423032,Klwów,wiejska,powiat przysuski,mazowieckie,87,3096
+1423052,Potworów,wiejska,powiat przysuski,mazowieckie,82,3980
+1423072,Rusinów,wiejska,powiat przysuski,mazowieckie,83,3973
+1423082,Wieniawa,wiejska,powiat przysuski,mazowieckie,104,5074
+1423023,Gielniów,miejsko-wiejska,powiat przysuski,mazowieckie,79,4294
+1423043,Odrzywół,miejsko-wiejska,powiat przysuski,mazowieckie,99,3392
+1423063,Przysucha,miejsko-wiejska,powiat przysuski,mazowieckie,182,10828
+1424012,Gzy,wiejska,powiat pułtuski,mazowieckie,104,3553
+1424022,Obryte,wiejska,powiat pułtuski,mazowieckie,140,4305
+1424032,Pokrzywnica,wiejska,powiat pułtuski,mazowieckie,121,5138
+1424052,Świercze,wiejska,powiat pułtuski,mazowieckie,93,4476
+1424062,Winnica,wiejska,powiat pułtuski,mazowieckie,115,4002
+1424072,Zatory,wiejska,powiat pułtuski,mazowieckie,120,4707
+1424043,Pułtusk,miejsko-wiejska,powiat pułtuski,mazowieckie,134,24130
+1425011,Pionki,miejska,powiat radomski,mazowieckie,18,16089
+1425022,Gózd,wiejska,powiat radomski,mazowieckie,78,9423
+1425042,Jastrzębia,wiejska,powiat radomski,mazowieckie,90,7132
+1425052,Jedlińsk,wiejska,powiat radomski,mazowieckie,139,14574
+1425072,Kowala,wiejska,powiat radomski,mazowieckie,75,12489
+1425082,Pionki,wiejska,powiat radomski,mazowieckie,230,9642
+1425112,Wierzbica,wiejska,powiat radomski,mazowieckie,94,9185
+1425122,Wolanów,wiejska,powiat radomski,mazowieckie,83,9014
+1425132,Zakrzew,wiejska,powiat radomski,mazowieckie,96,14019
+1425033,Iłża,miejsko-wiejska,powiat radomski,mazowieckie,256,13576
+1425063,Jedlnia-Letnisko,miejsko-wiejska,powiat radomski,mazowieckie,66,13618
+1425093,Przytyk,miejsko-wiejska,powiat radomski,mazowieckie,134,7030
+1425103,Skaryszew,miejsko-wiejska,powiat radomski,mazowieckie,171,15540
+1426012,Domanice,wiejska,powiat siedlecki,mazowieckie,47,2470
+1426022,Korczew,wiejska,powiat siedlecki,mazowieckie,105,2334
+1426032,Kotuń,wiejska,powiat siedlecki,mazowieckie,151,8128
+1426042,Mokobody,wiejska,powiat siedlecki,mazowieckie,119,4787
+1426062,Paprotnia,wiejska,powiat siedlecki,mazowieckie,81,2367
+1426072,Przesmyki,wiejska,powiat siedlecki,mazowieckie,117,2767
+1426082,Siedlce,wiejska,powiat siedlecki,mazowieckie,141,19657
+1426092,Skórzec,wiejska,powiat siedlecki,mazowieckie,119,8231
+1426102,Suchożebry,wiejska,powiat siedlecki,mazowieckie,101,4706
+1426112,Wiśniew,wiejska,powiat siedlecki,mazowieckie,126,5735
+1426122,Wodynie,wiejska,powiat siedlecki,mazowieckie,115,4129
+1426132,Zbuczyn,wiejska,powiat siedlecki,mazowieckie,211,9796
+1426053,Mordy,miejsko-wiejska,powiat siedlecki,mazowieckie,170,5334
+1427011,Sierpc,miejska,powiat sierpecki,mazowieckie,18,16941
+1427022,Gozdowo,wiejska,powiat sierpecki,mazowieckie,126,5662
+1427032,Mochowo,wiejska,powiat sierpecki,mazowieckie,144,5526
+1427042,Rościszewo,wiejska,powiat sierpecki,mazowieckie,115,3743
+1427052,Sierpc,wiejska,powiat sierpecki,mazowieckie,150,6583
+1427062,Szczutowo,wiejska,powiat sierpecki,mazowieckie,113,3982
+1427072,Zawidz,wiejska,powiat sierpecki,mazowieckie,186,5822
+1428011,Sochaczew,miejska,powiat sochaczewski,mazowieckie,26,33456
+1428022,Brochów,wiejska,powiat sochaczewski,mazowieckie,120,4419
+1428032,Iłów,wiejska,powiat sochaczewski,mazowieckie,129,5857
+1428042,Młodzieszyn,wiejska,powiat sochaczewski,mazowieckie,118,5589
+1428052,Nowa Sucha,wiejska,powiat sochaczewski,mazowieckie,90,6853
+1428062,Rybno,wiejska,powiat sochaczewski,mazowieckie,73,3423
+1428072,Sochaczew,wiejska,powiat sochaczewski,mazowieckie,91,11993
+1428082,Teresin,wiejska,powiat sochaczewski,mazowieckie,88,11584
+1429011,Sokołów Podlaski,miejska,powiat sokołowski,mazowieckie,17,18361
+1429022,Bielany,wiejska,powiat sokołowski,mazowieckie,110,3470
+1429032,Ceranów,wiejska,powiat sokołowski,mazowieckie,111,1812
+1429042,Jabłonna Lacka,wiejska,powiat sokołowski,mazowieckie,149,4065
+1429062,Repki,wiejska,powiat sokołowski,mazowieckie,169,4612
+1429072,Sabnie,wiejska,powiat sokołowski,mazowieckie,108,3253
+1429082,Sokołów Podlaski,wiejska,powiat sokołowski,mazowieckie,137,5772
+1429092,Sterdyń,wiejska,powiat sokołowski,mazowieckie,130,3385
+1429053,Kosów Lacki,miejsko-wiejska,powiat sokołowski,mazowieckie,200,5334
+1430012,Chlewiska,wiejska,powiat szydłowiecki,mazowieckie,124,5505
+1430032,Mirów,wiejska,powiat szydłowiecki,mazowieckie,53,3738
+1430042,Orońsko,wiejska,powiat szydłowiecki,mazowieckie,82,5918
+1430023,Jastrząb,miejsko-wiejska,powiat szydłowiecki,mazowieckie,55,5127
+1430053,Szydłowiec,miejsko-wiejska,powiat szydłowiecki,mazowieckie,138,17212
+1432022,Izabelin,wiejska,powiat warszawski zachodni,mazowieckie,65,10791
+1432032,Kampinos,wiejska,powiat warszawski zachodni,mazowieckie,85,4472
+1432042,Leszno,wiejska,powiat warszawski zachodni,mazowieckie,125,11072
+1432072,Stare Babice,wiejska,powiat warszawski zachodni,mazowieckie,63,23041
+1432013,Błonie,miejsko-wiejska,powiat warszawski zachodni,mazowieckie,86,22419
+1432053,Łomianki,miejsko-wiejska,powiat warszawski zachodni,mazowieckie,39,31887
+1432063,Ożarów Mazowiecki,miejsko-wiejska,powiat warszawski zachodni,mazowieckie,71,31534
+1433011,Węgrów,miejska,powiat węgrowski,mazowieckie,36,11844
+1433022,Grębków,wiejska,powiat węgrowski,mazowieckie,131,4240
+1433032,Korytnica,wiejska,powiat węgrowski,mazowieckie,180,5509
+1433042,Liw,wiejska,powiat węgrowski,mazowieckie,169,7056
+1433062,Miedzna,wiejska,powiat węgrowski,mazowieckie,116,3576
+1433072,Sadowne,wiejska,powiat węgrowski,mazowieckie,145,5516
+1433082,Stoczek,wiejska,powiat węgrowski,mazowieckie,145,4478
+1433092,Wierzbno,wiejska,powiat węgrowski,mazowieckie,103,2429
+1433053,Łochów,miejsko-wiejska,powiat węgrowski,mazowieckie,195,17260
+1434011,Kobyłka,miejska,powiat wołomiński,mazowieckie,20,28339
+1434021,Marki,miejska,powiat wołomiński,mazowieckie,26,45365
+1434031,Ząbki,miejska,powiat wołomiński,mazowieckie,11,45347
+1434041,Zielonka,miejska,powiat wołomiński,mazowieckie,79,18143
+1434052,Dąbrówka,wiejska,powiat wołomiński,mazowieckie,109,8651
+1434072,Klembów,wiejska,powiat wołomiński,mazowieckie,86,11356
+1434082,Poświętne,wiejska,powiat wołomiński,mazowieckie,104,6491
+1434102,Strachówka,wiejska,powiat wołomiński,mazowieckie,108,2594
+1434063,Jadów,miejsko-wiejska,powiat wołomiński,mazowieckie,117,7056
+1434093,Radzymin,miejsko-wiejska,powiat wołomiński,mazowieckie,129,31286
+1434113,Tłuszcz,miejsko-wiejska,powiat wołomiński,mazowieckie,103,20186
+1434123,Wołomin,miejsko-wiejska,powiat wołomiński,mazowieckie,62,51057
+1435012,Brańszczyk,wiejska,powiat wyszkowski,mazowieckie,167,8082
+1435022,Długosiodło,wiejska,powiat wyszkowski,mazowieckie,168,7414
+1435032,Rząśnik,wiejska,powiat wyszkowski,mazowieckie,167,6818
+1435042,Somianka,wiejska,powiat wyszkowski,mazowieckie,118,5613
+1435062,Zabrodzie,wiejska,powiat wyszkowski,mazowieckie,92,6183
+1435053,Wyszków,miejsko-wiejska,powiat wyszkowski,mazowieckie,165,39331
+1436012,Kazanów,wiejska,powiat zwoleński,mazowieckie,95,4247
+1436022,Policzna,wiejska,powiat zwoleński,mazowieckie,113,5104
+1436032,Przyłęk,wiejska,powiat zwoleński,mazowieckie,131,5758
+1436042,Tczów,wiejska,powiat zwoleński,mazowieckie,72,4792
+1436053,Zwoleń,miejsko-wiejska,powiat zwoleński,mazowieckie,162,14387
+1437022,Kuczbork-Osada,wiejska,powiat żuromiński,mazowieckie,122,4259
+1437042,Lutocin,wiejska,powiat żuromiński,mazowieckie,126,3963
+1437052,Siemiątkowo,wiejska,powiat żuromiński,mazowieckie,113,3166
+1437013,Bieżuń,miejsko-wiejska,powiat żuromiński,mazowieckie,121,4539
+1437033,Lubowidz,miejsko-wiejska,powiat żuromiński,mazowieckie,191,6264
+1437063,Żuromin,miejsko-wiejska,powiat żuromiński,mazowieckie,133,13295
+1438011,Żyrardów,miejska,powiat żyrardowski,mazowieckie,14,38594
+1438032,Puszcza Mariańska,wiejska,powiat żyrardowski,mazowieckie,142,8833
+1438042,Radziejowice,wiejska,powiat żyrardowski,mazowieckie,73,6455
+1438023,Mszczonów,miejsko-wiejska,powiat żyrardowski,mazowieckie,152,11311
+1438053,Wiskitki,miejsko-wiejska,powiat żyrardowski,mazowieckie,151,9960
+1461011,Ostrołęka,miejska,powiat m. Ostrołęka,mazowieckie,33,48229
+1462011,Płock,miejska,powiat m. Płock,mazowieckie,88,111190
+1463011,Radom,miejska,powiat m. Radom,mazowieckie,112,196005
+1464011,Siedlce,miejska,powiat m. Siedlce,mazowieckie,32,75297
+1465011,M.st. Warszawa,miejska,powiat m. Warszawa,mazowieckie,517,1861599
+1601011,Brzeg,miejska,powiat brzeski,opolskie,15,33403
+1601052,Lubsza,wiejska,powiat brzeski,opolskie,212,8936
+1601062,Olszanka,wiejska,powiat brzeski,opolskie,93,4725
+1601022,Skarbimierz,wiejska,powiat brzeski,opolskie,110,8733
+1601033,Grodków,miejsko-wiejska,powiat brzeski,opolskie,286,17927
+1601043,Lewin Brzeski,miejsko-wiejska,powiat brzeski,opolskie,160,12425
+1602022,Branice,wiejska,powiat głubczycki,opolskie,122,6192
+1602013,Baborów,miejsko-wiejska,powiat głubczycki,opolskie,117,5673
+1602033,Głubczyce,miejsko-wiejska,powiat głubczycki,opolskie,294,20847
+1602043,Kietrz,miejsko-wiejska,powiat głubczycki,opolskie,140,9896
+1603011,Kędzierzyn-Koźle,miejska,powiat kędzierzyńsko-kozielski,opolskie,124,54387
+1603022,Bierawa,wiejska,powiat kędzierzyńsko-kozielski,opolskie,119,7536
+1603032,Cisek,wiejska,powiat kędzierzyńsko-kozielski,opolskie,71,5331
+1603042,Pawłowiczki,wiejska,powiat kędzierzyńsko-kozielski,opolskie,153,7021
+1603052,Polska Cerekiew,wiejska,powiat kędzierzyńsko-kozielski,opolskie,60,3745
+1603062,Reńska Wieś,wiejska,powiat kędzierzyńsko-kozielski,opolskie,98,8141
+1604032,Lasowice Wielkie,wiejska,powiat kluczborski,opolskie,211,6348
+1604013,Byczyna,miejsko-wiejska,powiat kluczborski,opolskie,183,8577
+1604023,Kluczbork,miejsko-wiejska,powiat kluczborski,opolskie,217,34121
+1604043,Wołczyn,miejsko-wiejska,powiat kluczborski,opolskie,241,12190
+1605042,Walce,wiejska,powiat krapkowicki,opolskie,69,5152
+1605013,Gogolin,miejsko-wiejska,powiat krapkowicki,opolskie,101,11658
+1605023,Krapkowice,miejsko-wiejska,powiat krapkowicki,opolskie,97,21519
+1605033,Strzeleczki,miejsko-wiejska,powiat krapkowicki,opolskie,118,7220
+1605053,Zdzieszowice,miejsko-wiejska,powiat krapkowicki,opolskie,57,14098
+1606012,Domaszowice,wiejska,powiat namysłowski,opolskie,114,3473
+1606032,Pokój,wiejska,powiat namysłowski,opolskie,133,5021
+1606042,Świerczów,wiejska,powiat namysłowski,opolskie,110,3059
+1606052,Wilków,wiejska,powiat namysłowski,opolskie,101,4183
+1606023,Namysłów,miejsko-wiejska,powiat namysłowski,opolskie,290,26297
+1607022,Kamiennik,wiejska,powiat nyski,opolskie,89,3143
+1607042,Łambinowice,wiejska,powiat nyski,opolskie,124,7161
+1607082,Pakosławice,wiejska,powiat nyski,opolskie,74,3289
+1607092,Skoroszyce,wiejska,powiat nyski,opolskie,104,5866
+1607013,Głuchołazy,miejsko-wiejska,powiat nyski,opolskie,168,22292
+1607033,Korfantów,miejsko-wiejska,powiat nyski,opolskie,180,8364
+1607053,Nysa,miejsko-wiejska,powiat nyski,opolskie,218,53736
+1607063,Otmuchów,miejsko-wiejska,powiat nyski,opolskie,187,12734
+1607073,Paczków,miejsko-wiejska,powiat nyski,opolskie,80,11407
+1608052,Radłów,wiejska,powiat oleski,opolskie,117,4047
+1608062,Rudniki,wiejska,powiat oleski,opolskie,100,7649
+1608072,Zębowice,wiejska,powiat oleski,opolskie,96,3442
+1608013,Dobrodzień,miejsko-wiejska,powiat oleski,opolskie,163,9144
+1608023,Gorzów Śląski,miejsko-wiejska,powiat oleski,opolskie,153,6922
+1608033,Olesno,miejsko-wiejska,powiat oleski,opolskie,241,17214
+1608043,Praszka,miejsko-wiejska,powiat oleski,opolskie,103,12863
+1609012,Chrząstowice,wiejska,powiat opolski,opolskie,82,7161
+1609022,Dąbrowa,wiejska,powiat opolski,opolskie,114,8203
+1609032,Dobrzeń Wielki,wiejska,powiat opolski,opolskie,64,9117
+1609042,Komprachcice,wiejska,powiat opolski,opolskie,51,9357
+1609052,Łubniany,wiejska,powiat opolski,opolskie,126,10107
+1609062,Murów,wiejska,powiat opolski,opolskie,160,5026
+1609092,Popielów,wiejska,powiat opolski,opolskie,175,7630
+1609112,Tarnów Opolski,wiejska,powiat opolski,opolskie,82,9397
+1609132,Turawa,wiejska,powiat opolski,opolskie,172,9930
+1609073,Niemodlin,miejsko-wiejska,powiat opolski,opolskie,183,12557
+1609083,Ozimek,miejsko-wiejska,powiat opolski,opolskie,126,18486
+1609103,Prószków,miejsko-wiejska,powiat opolski,opolskie,118,8954
+1609123,Tułowice,miejsko-wiejska,powiat opolski,opolskie,81,4916
+1610032,Lubrza,wiejska,powiat prudnicki,opolskie,83,4154
+1610013,Biała,miejsko-wiejska,powiat prudnicki,opolskie,196,9853
+1610023,Głogówek,miejsko-wiejska,powiat prudnicki,opolskie,170,12574
+1610043,Prudnik,miejsko-wiejska,powiat prudnicki,opolskie,122,24862
+1611012,Izbicko,wiejska,powiat strzelecki,opolskie,84,5283
+1611022,Jemielnica,wiejska,powiat strzelecki,opolskie,113,7041
+1611033,Kolonowskie,miejsko-wiejska,powiat strzelecki,opolskie,84,5709
+1611043,Leśnica,miejsko-wiejska,powiat strzelecki,opolskie,95,7394
+1611053,Strzelce Opolskie,miejsko-wiejska,powiat strzelecki,opolskie,203,29018
+1611063,Ujazd,miejsko-wiejska,powiat strzelecki,opolskie,83,6366
+1611073,Zawadzkie,miejsko-wiejska,powiat strzelecki,opolskie,82,10446
+1661011,Opole,miejska,powiat m. Opole,opolskie,149,126077
+1801032,Czarna,wiejska,powiat bieszczadzki,podkarpackie,185,2351
+1801052,Lutowiska,wiejska,powiat bieszczadzki,podkarpackie,475,1959
+1801083,Ustrzyki Dolne,miejsko-wiejska,powiat bieszczadzki,podkarpackie,479,16291
+1802022,Domaradz,wiejska,powiat brzozowski,podkarpackie,56,5792
+1802032,Dydnia,wiejska,powiat brzozowski,podkarpackie,130,7520
+1802042,Haczów,wiejska,powiat brzozowski,podkarpackie,72,8967
+1802052,Jasienica Rosielna,wiejska,powiat brzozowski,podkarpackie,57,7554
+1802062,Nozdrzec,wiejska,powiat brzozowski,podkarpackie,121,7495
+1802013,Brzozów,miejsko-wiejska,powiat brzozowski,podkarpackie,103,25875
+1803011,Dębica,miejska,powiat dębicki,podkarpackie,34,42986
+1803032,Czarna,wiejska,powiat dębicki,podkarpackie,148,13340
+1803042,Dębica,wiejska,powiat dębicki,podkarpackie,138,25685
+1803052,Jodłowa,wiejska,powiat dębicki,podkarpackie,60,5239
+1803072,Żyraków,wiejska,powiat dębicki,podkarpackie,110,14449
+1803023,Brzostek,miejsko-wiejska,powiat dębicki,podkarpackie,122,12669
+1803063,Pilzno,miejsko-wiejska,powiat dębicki,podkarpackie,165,18247
+1804011,Jarosław,miejska,powiat jarosławski,podkarpackie,35,35298
+1804021,Radymno,miejska,powiat jarosławski,podkarpackie,14,4935
+1804032,Chłopice,wiejska,powiat jarosławski,podkarpackie,49,5267
+1804042,Jarosław,wiejska,powiat jarosławski,podkarpackie,113,13125
+1804052,Laszki,wiejska,powiat jarosławski,podkarpackie,138,6572
+1804062,Pawłosiów,wiejska,powiat jarosławski,podkarpackie,48,8411
+1804082,Radymno,wiejska,powiat jarosławski,podkarpackie,182,10913
+1804092,Rokietnica,wiejska,powiat jarosławski,podkarpackie,57,4142
+1804102,Roźwienica,wiejska,powiat jarosławski,podkarpackie,69,6147
+1804112,Wiązownica,wiejska,powiat jarosławski,podkarpackie,244,11795
+1804073,Pruchnik,miejsko-wiejska,powiat jarosławski,podkarpackie,80,9260
+1805011,Jasło,miejska,powiat jasielski,podkarpackie,37,32727
+1805022,Brzyska,wiejska,powiat jasielski,podkarpackie,45,6336
+1805032,Dębowiec,wiejska,powiat jasielski,podkarpackie,86,8771
+1805042,Jasło,wiejska,powiat jasielski,podkarpackie,93,15934
+1805062,Krempna,wiejska,powiat jasielski,podkarpackie,204,1697
+1805072,Nowy Żmigród,wiejska,powiat jasielski,podkarpackie,104,8631
+1805082,Osiek Jasielski,wiejska,powiat jasielski,podkarpackie,60,5164
+1805092,Skołyszyn,wiejska,powiat jasielski,podkarpackie,78,11971
+1805112,Tarnowiec,wiejska,powiat jasielski,podkarpackie,63,8998
+1805053,Kołaczyce,miejsko-wiejska,powiat jasielski,podkarpackie,61,8590
+1806012,Cmolas,wiejska,powiat kolbuszowski,podkarpackie,134,7995
+1806062,Dzikowiec,wiejska,powiat kolbuszowski,podkarpackie,121,6264
+1806032,Majdan Królewski,wiejska,powiat kolbuszowski,podkarpackie,155,9577
+1806042,Niwiska,wiejska,powiat kolbuszowski,podkarpackie,95,6201
+1806052,Raniżów,wiejska,powiat kolbuszowski,podkarpackie,97,6915
+1806023,Kolbuszowa,miejsko-wiejska,powiat kolbuszowski,podkarpackie,171,24208
+1807012,Chorkówka,wiejska,powiat krośnieński,podkarpackie,77,13469
+1807102,Jaśliska,wiejska,powiat krośnieński,podkarpackie,166,2072
+1807052,Korczyna,wiejska,powiat krośnieński,podkarpackie,93,11098
+1807062,Krościenko Wyżne,wiejska,powiat krośnieński,podkarpackie,15,5347
+1807072,Miejsce Piastowe,wiejska,powiat krośnieński,podkarpackie,51,13301
+1807092,Wojaszówka,wiejska,powiat krośnieński,podkarpackie,83,9190
+1807023,Dukla,miejsko-wiejska,powiat krośnieński,podkarpackie,235,13847
+1807033,Iwonicz-Zdrój,miejsko-wiejska,powiat krośnieński,podkarpackie,46,10223
+1807043,Jedlicze,miejsko-wiejska,powiat krośnieński,podkarpackie,59,14910
+1807083,Rymanów,miejsko-wiejska,powiat krośnieński,podkarpackie,167,15202
+1821012,Baligród,wiejska,powiat leski,podkarpackie,158,3043
+1821022,Cisna,wiejska,powiat leski,podkarpackie,287,1689
+1821042,Olszanica,wiejska,powiat leski,podkarpackie,94,4661
+1821052,Solina,wiejska,powiat leski,podkarpackie,185,5199
+1821033,Lesko,miejsko-wiejska,powiat leski,podkarpackie,111,10805
+1808011,Leżajsk,miejska,powiat leżajski,podkarpackie,20,12697
+1808022,Grodzisko Dolne,wiejska,powiat leżajski,podkarpackie,79,7718
+1808032,Kuryłówka,wiejska,powiat leżajski,podkarpackie,142,5520
+1808042,Leżajsk,wiejska,powiat leżajski,podkarpackie,199,19829
+1808053,Nowa Sarzyna,miejsko-wiejska,powiat leżajski,podkarpackie,144,20934
+1809011,Lubaczów,miejska,powiat lubaczowski,podkarpackie,26,11313
+1809032,Horyniec-Zdrój,wiejska,powiat lubaczowski,podkarpackie,203,4333
+1809042,Lubaczów,wiejska,powiat lubaczowski,podkarpackie,203,8928
+1809072,Stary Dzików,wiejska,powiat lubaczowski,podkarpackie,156,3993
+1809082,Wielkie Oczy,wiejska,powiat lubaczowski,podkarpackie,146,3647
+1809023,Cieszanów,miejsko-wiejska,powiat lubaczowski,podkarpackie,219,6738
+1809053,Narol,miejsko-wiejska,powiat lubaczowski,podkarpackie,203,7530
+1809063,Oleszyce,miejsko-wiejska,powiat lubaczowski,podkarpackie,152,6083
+1810011,Łańcut,miejska,powiat łańcucki,podkarpackie,19,17703
+1810022,Białobrzegi,wiejska,powiat łańcucki,podkarpackie,56,8689
+1810032,Czarna,wiejska,powiat łańcucki,podkarpackie,78,12105
+1810042,Łańcut,wiejska,powiat łańcucki,podkarpackie,107,21770
+1810052,Markowa,wiejska,powiat łańcucki,podkarpackie,69,6352
+1810062,Rakszawa,wiejska,powiat łańcucki,podkarpackie,66,7235
+1810072,Żołynia,wiejska,powiat łańcucki,podkarpackie,57,6990
+1811011,Mielec,miejska,powiat mielecki,podkarpackie,47,56972
+1811022,Borowa,wiejska,powiat mielecki,podkarpackie,56,5256
+1811032,Czermin,wiejska,powiat mielecki,podkarpackie,80,7056
+1811042,Gawłuszowice,wiejska,powiat mielecki,podkarpackie,34,2743
+1811052,Mielec,wiejska,powiat mielecki,podkarpackie,123,13646
+1811062,Padew Narodowa,wiejska,powiat mielecki,podkarpackie,71,5132
+1811092,Tuszów Narodowy,wiejska,powiat mielecki,podkarpackie,89,8304
+1811102,Wadowice Górne,wiejska,powiat mielecki,podkarpackie,87,7628
+1811073,Przecław,miejsko-wiejska,powiat mielecki,podkarpackie,134,12006
+1811083,Radomyśl Wielki,miejsko-wiejska,powiat mielecki,podkarpackie,160,14240
+1812012,Harasiuki,wiejska,powiat niżański,podkarpackie,169,5727
+1812022,Jarocin,wiejska,powiat niżański,podkarpackie,91,5059
+1812032,Jeżowe,wiejska,powiat niżański,podkarpackie,124,9907
+1812042,Krzeszów,wiejska,powiat niżański,podkarpackie,62,4096
+1812053,Nisko,miejsko-wiejska,powiat niżański,podkarpackie,142,21253
+1812063,Rudnik nad Sanem,miejsko-wiejska,powiat niżański,podkarpackie,79,9827
+1812073,Ulanów,miejsko-wiejska,powiat niżański,podkarpackie,119,7864
+1813032,Fredropol,wiejska,powiat przemyski,podkarpackie,160,5187
+1813042,Krasiczyn,wiejska,powiat przemyski,podkarpackie,124,5121
+1813052,Krzywcza,wiejska,powiat przemyski,podkarpackie,95,4497
+1813062,Medyka,wiejska,powiat przemyski,podkarpackie,61,6245
+1813072,Orły,wiejska,powiat przemyski,podkarpackie,70,8497
+1813082,Przemyśl,wiejska,powiat przemyski,podkarpackie,108,10691
+1813092,Stubno,wiejska,powiat przemyski,podkarpackie,89,3668
+1813102,Żurawica,wiejska,powiat przemyski,podkarpackie,96,12535
+1813013,Bircza,miejsko-wiejska,powiat przemyski,podkarpackie,254,5912
+1813023,Dubiecko,miejsko-wiejska,powiat przemyski,podkarpackie,154,8778
+1814011,Przeworsk,miejska,powiat przeworski,podkarpackie,22,14523
+1814022,Adamówka,wiejska,powiat przeworski,podkarpackie,134,4011
+1814032,Gać,wiejska,powiat przeworski,podkarpackie,36,4510
+1814062,Przeworsk,wiejska,powiat przeworski,podkarpackie,91,14617
+1814082,Tryńcza,wiejska,powiat przeworski,podkarpackie,70,8516
+1814092,Zarzecze,wiejska,powiat przeworski,podkarpackie,49,6942
+1814043,Jawornik Polski,miejsko-wiejska,powiat przeworski,podkarpackie,63,4209
+1814053,Kańczuga,miejsko-wiejska,powiat przeworski,podkarpackie,105,11667
+1814073,Sieniawa,miejsko-wiejska,powiat przeworski,podkarpackie,128,6744
+1815012,Iwierzyce,wiejska,powiat ropczycko-sędziszowski,podkarpackie,66,7793
+1815022,Ostrów,wiejska,powiat ropczycko-sędziszowski,podkarpackie,96,7493
+1815052,Wielopole Skrzyńskie,wiejska,powiat ropczycko-sędziszowski,podkarpackie,93,7742
+1815033,Ropczyce,miejsko-wiejska,powiat ropczycko-sędziszowski,podkarpackie,139,27193
+1815043,Sędziszów Małopolski,miejsko-wiejska,powiat ropczycko-sędziszowski,podkarpackie,154,23806
+1816011,Dynów,miejska,powiat rzeszowski,podkarpackie,25,5997
+1816042,Chmielnik,wiejska,powiat rzeszowski,podkarpackie,53,7387
+1816052,Dynów,wiejska,powiat rzeszowski,podkarpackie,119,6605
+1816072,Hyżne,wiejska,powiat rzeszowski,podkarpackie,51,6980
+1816082,Kamień,wiejska,powiat rzeszowski,podkarpackie,74,6829
+1816092,Krasne,wiejska,powiat rzeszowski,podkarpackie,39,13007
+1816102,Lubenia,wiejska,powiat rzeszowski,podkarpackie,55,6556
+1816122,Świlcza,wiejska,powiat rzeszowski,podkarpackie,108,16729
+1816132,Trzebownisko,wiejska,powiat rzeszowski,podkarpackie,90,24253
+1816023,Błażowa,miejsko-wiejska,powiat rzeszowski,podkarpackie,113,10819
+1816033,Boguchwała,miejsko-wiejska,powiat rzeszowski,podkarpackie,89,22042
+1816063,Głogów Małopolski,miejsko-wiejska,powiat rzeszowski,podkarpackie,141,19720
+1816113,Sokołów Małopolski,miejsko-wiejska,powiat rzeszowski,podkarpackie,134,17331
+1816143,Tyczyn,miejsko-wiejska,powiat rzeszowski,podkarpackie,54,11522
+1817011,Sanok,miejska,powiat sanocki,podkarpackie,39,34345
+1817022,Besko,wiejska,powiat sanocki,podkarpackie,27,4365
+1817032,Bukowsko,wiejska,powiat sanocki,podkarpackie,137,5293
+1817042,Komańcza,wiejska,powiat sanocki,podkarpackie,388,4119
+1817052,Sanok,wiejska,powiat sanocki,podkarpackie,231,18125
+1817062,Tyrawa Wołoska,wiejska,powiat sanocki,podkarpackie,69,1924
+1817082,Zarszyn,wiejska,powiat sanocki,podkarpackie,105,8921
+1817073,Zagórz,miejsko-wiejska,powiat sanocki,podkarpackie,160,12651
+1818011,Stalowa Wola,miejska,powiat stalowowolski,podkarpackie,83,55127
+1818022,Bojanów,wiejska,powiat stalowowolski,podkarpackie,179,7604
+1818032,Pysznica,wiejska,powiat stalowowolski,podkarpackie,147,11934
+1818042,Radomyśl nad Sanem,wiejska,powiat stalowowolski,podkarpackie,134,7233
+1818062,Zaleszany,wiejska,powiat stalowowolski,podkarpackie,87,10984
+1818053,Zaklików,miejsko-wiejska,powiat stalowowolski,podkarpackie,202,8009
+1819012,Czudec,wiejska,powiat strzyżowski,podkarpackie,85,11578
+1819022,Frysztak,wiejska,powiat strzyżowski,podkarpackie,91,10055
+1819032,Niebylec,wiejska,powiat strzyżowski,podkarpackie,104,10245
+1819052,Wiśniowa,wiejska,powiat strzyżowski,podkarpackie,83,7574
+1819043,Strzyżów,miejsko-wiejska,powiat strzyżowski,podkarpackie,140,19749
+1820022,Gorzyce,wiejska,powiat tarnobrzeski,podkarpackie,69,12639
+1820032,Grębów,wiejska,powiat tarnobrzeski,podkarpackie,187,9952
+1820013,Baranów Sandomierski,miejsko-wiejska,powiat tarnobrzeski,podkarpackie,122,11307
+1820043,Nowa Dęba,miejsko-wiejska,powiat tarnobrzeski,podkarpackie,143,17037
+1861011,Krosno,miejska,powiat m. Krosno,podkarpackie,45,44060
+1862011,Przemyśl,miejska,powiat m. Przemyśl,podkarpackie,46,56050
+1863011,Rzeszów,miejska,powiat m. Rzeszów,podkarpackie,129,197268
+1864011,Tarnobrzeg,miejska,powiat m. Tarnobrzeg,podkarpackie,85,43712
+2001011,Augustów,miejska,powiat augustowski,podlaskie,81,28995
+2001022,Augustów,wiejska,powiat augustowski,podlaskie,267,6410
+2001032,Bargłów Kościelny,wiejska,powiat augustowski,podlaskie,188,4998
+2001052,Nowinka,wiejska,powiat augustowski,podlaskie,204,2878
+2001062,Płaska,wiejska,powiat augustowski,podlaskie,372,2281
+2001072,Sztabin,wiejska,powiat augustowski,podlaskie,363,4514
+2001043,Lipsk,miejsko-wiejska,powiat augustowski,podlaskie,184,4373
+2002032,Dobrzyniewo Duże,wiejska,powiat białostocki,podlaskie,161,10380
+2002042,Gródek,wiejska,powiat białostocki,podlaskie,430,4856
+2002052,Juchnowiec Kościelny,wiejska,powiat białostocki,podlaskie,172,18506
+2002082,Poświętne,wiejska,powiat białostocki,podlaskie,114,3067
+2002112,Turośń Kościelna,wiejska,powiat białostocki,podlaskie,140,7060
+2002152,Zawady,wiejska,powiat białostocki,podlaskie,112,2459
+2002013,Choroszcz,miejsko-wiejska,powiat białostocki,podlaskie,164,18083
+2002023,Czarna Białostocka,miejsko-wiejska,powiat białostocki,podlaskie,206,10643
+2002063,Łapy,miejsko-wiejska,powiat białostocki,podlaskie,128,20285
+2002073,Michałowo,miejsko-wiejska,powiat białostocki,podlaskie,410,5860
+2002093,Supraśl,miejsko-wiejska,powiat białostocki,podlaskie,189,18155
+2002103,Suraż,miejsko-wiejska,powiat białostocki,podlaskie,77,1907
+2002123,Tykocin,miejsko-wiejska,powiat białostocki,podlaskie,207,5658
+2002133,Wasilków,miejsko-wiejska,powiat białostocki,podlaskie,127,20956
+2002143,Zabłudów,miejsko-wiejska,powiat białostocki,podlaskie,340,10021
+2003011,Bielsk Podlaski,miejska,powiat bielski,podlaskie,27,23823
+2003021,Brańsk,miejska,powiat bielski,podlaskie,33,3494
+2003032,Bielsk Podlaski,wiejska,powiat bielski,podlaskie,430,6391
+2003042,Boćki,wiejska,powiat bielski,podlaskie,232,3800
+2003052,Brańsk,wiejska,powiat bielski,podlaskie,227,5169
+2003062,Orla,wiejska,powiat bielski,podlaskie,160,2403
+2003072,Rudka,wiejska,powiat bielski,podlaskie,70,1646
+2003082,Wyszki,wiejska,powiat bielski,podlaskie,206,3870
+2004011,Grajewo,miejska,powiat grajewski,podlaskie,19,20899
+2004022,Grajewo,wiejska,powiat grajewski,podlaskie,308,5450
+2004032,Radziłów,wiejska,powiat grajewski,podlaskie,200,4295
+2004062,Wąsosz,wiejska,powiat grajewski,podlaskie,118,3295
+2004043,Rajgród,miejsko-wiejska,powiat grajewski,podlaskie,207,4579
+2004053,Szczuczyn,miejsko-wiejska,powiat grajewski,podlaskie,115,5704
+2005011,Hajnówka,miejska,powiat hajnowski,podlaskie,21,18976
+2005022,Białowieża,wiejska,powiat hajnowski,podlaskie,203,2048
+2005032,Czeremcha,wiejska,powiat hajnowski,podlaskie,97,2667
+2005042,Czyże,wiejska,powiat hajnowski,podlaskie,135,1754
+2005052,Dubicze Cerkiewne,wiejska,powiat hajnowski,podlaskie,151,1309
+2005062,Hajnówka,wiejska,powiat hajnowski,podlaskie,293,3637
+2005082,Narew,wiejska,powiat hajnowski,podlaskie,242,3217
+2005092,Narewka,wiejska,powiat hajnowski,podlaskie,339,3114
+2005073,Kleszczele,miejsko-wiejska,powiat hajnowski,podlaskie,143,2095
+2006011,Kolno,miejska,powiat kolneński,podlaskie,25,9839
+2006022,Grabowo,wiejska,powiat kolneński,podlaskie,129,3224
+2006032,Kolno,wiejska,powiat kolneński,podlaskie,282,7914
+2006042,Mały Płock,wiejska,powiat kolneński,podlaskie,140,4404
+2006062,Turośl,wiejska,powiat kolneński,podlaskie,199,4789
+2006053,Stawiski,miejsko-wiejska,powiat kolneński,podlaskie,165,5532
+2007022,Łomża,wiejska,powiat łomżyński,podlaskie,207,12124
+2007032,Miastkowo,wiejska,powiat łomżyński,podlaskie,115,3986
+2007052,Piątnica,wiejska,powiat łomżyński,podlaskie,220,10265
+2007062,Przytuły,wiejska,powiat łomżyński,podlaskie,71,1919
+2007072,Śniadowo,wiejska,powiat łomżyński,podlaskie,163,5031
+2007082,Wizna,wiejska,powiat łomżyński,podlaskie,133,3617
+2007092,Zbójna,wiejska,powiat łomżyński,podlaskie,186,3931
+2007013,Jedwabne,miejsko-wiejska,powiat łomżyński,podlaskie,159,4877
+2007043,Nowogród,miejsko-wiejska,powiat łomżyński,podlaskie,101,3858
+2008022,Jasionówka,wiejska,powiat moniecki,podlaskie,97,2449
+2008032,Jaświły,wiejska,powiat moniecki,podlaskie,175,4272
+2008052,Krypno,wiejska,powiat moniecki,podlaskie,112,3715
+2008072,Trzcianne,wiejska,powiat moniecki,podlaskie,332,3916
+2008013,Goniądz,miejsko-wiejska,powiat moniecki,podlaskie,377,4588
+2008043,Knyszyn,miejsko-wiejska,powiat moniecki,podlaskie,127,4460
+2008063,Mońki,miejsko-wiejska,powiat moniecki,podlaskie,162,13958
+2009011,Sejny,miejska,powiat sejneński,podlaskie,4,4889
+2009022,Giby,wiejska,powiat sejneński,podlaskie,323,2465
+2009032,Krasnopol,wiejska,powiat sejneński,podlaskie,172,3535
+2009042,Puńsk,wiejska,powiat sejneński,podlaskie,139,3953
+2009052,Sejny,wiejska,powiat sejneński,podlaskie,217,3803
+2010011,Siemiatycze,miejska,powiat siemiatycki,podlaskie,36,13391
+2010032,Dziadkowice,wiejska,powiat siemiatycki,podlaskie,116,2508
+2010042,Grodzisk,wiejska,powiat siemiatycki,podlaskie,203,3760
+2010052,Mielnik,wiejska,powiat siemiatycki,podlaskie,196,2036
+2010062,Milejczyce,wiejska,powiat siemiatycki,podlaskie,151,1600
+2010072,Nurzec-Stacja,wiejska,powiat siemiatycki,podlaskie,215,3452
+2010082,Perlejewo,wiejska,powiat siemiatycki,podlaskie,107,2493
+2010092,Siemiatycze,wiejska,powiat siemiatycki,podlaskie,227,5720
+2010023,Drohiczyn,miejsko-wiejska,powiat siemiatycki,podlaskie,208,5676
+2011022,Janów,wiejska,powiat sokólski,podlaskie,208,3719
+2011032,Korycin,wiejska,powiat sokólski,podlaskie,117,3046
+2011052,Kuźnica,wiejska,powiat sokólski,podlaskie,133,3634
+2011062,Nowy Dwór,wiejska,powiat sokólski,podlaskie,121,2175
+2011072,Sidra,wiejska,powiat sokólski,podlaskie,174,3036
+2011102,Szudziałowo,wiejska,powiat sokólski,podlaskie,301,2727
+2011013,Dąbrowa Białostocka,miejsko-wiejska,powiat sokólski,podlaskie,264,10072
+2011043,Krynki,miejsko-wiejska,powiat sokólski,podlaskie,166,2688
+2011083,Sokółka,miejsko-wiejska,powiat sokólski,podlaskie,314,23866
+2011093,Suchowola,miejsko-wiejska,powiat sokólski,podlaskie,256,6283
+2012012,Bakałarzewo,wiejska,powiat suwalski,podlaskie,123,2966
+2012022,Filipów,wiejska,powiat suwalski,podlaskie,151,4052
+2012032,Jeleniewo,wiejska,powiat suwalski,podlaskie,131,3107
+2012042,Przerośl,wiejska,powiat suwalski,podlaskie,124,2745
+2012052,Raczki,wiejska,powiat suwalski,podlaskie,142,5664
+2012062,Rutka-Tartak,wiejska,powiat suwalski,podlaskie,103,2209
+2012072,Suwałki,wiejska,powiat suwalski,podlaskie,265,8082
+2012082,Szypliszki,wiejska,powiat suwalski,podlaskie,156,3851
+2012092,Wiżajny,wiejska,powiat suwalski,podlaskie,112,1959
+2013011,Wysokie Mazowieckie,miejska,powiat wysokomazowiecki,podlaskie,15,9017
+2013042,Klukowo,wiejska,powiat wysokomazowiecki,podlaskie,124,3941
+2013052,Kobylin-Borzymy,wiejska,powiat wysokomazowiecki,podlaskie,119,2938
+2013062,Kulesze Kościelne,wiejska,powiat wysokomazowiecki,podlaskie,115,2916
+2013072,Nowe Piekuty,wiejska,powiat wysokomazowiecki,podlaskie,110,3557
+2013082,Sokoły,wiejska,powiat wysokomazowiecki,podlaskie,156,5209
+2013102,Wysokie Mazowieckie,wiejska,powiat wysokomazowiecki,podlaskie,167,5478
+2013023,Ciechanowiec,miejsko-wiejska,powiat wysokomazowiecki,podlaskie,201,7970
+2013033,Czyżew,miejsko-wiejska,powiat wysokomazowiecki,podlaskie,130,5983
+2013093,Szepietowo,miejsko-wiejska,powiat wysokomazowiecki,podlaskie,152,6397
+2014011,Zambrów,miejska,powiat zambrowski,podlaskie,19,20848
+2014022,Kołaki Kościelne,wiejska,powiat zambrowski,podlaskie,74,2150
+2014032,Rutki,wiejska,powiat zambrowski,podlaskie,200,5075
+2014042,Szumowo,wiejska,powiat zambrowski,podlaskie,141,4543
+2014052,Zambrów,wiejska,powiat zambrowski,podlaskie,299,8754
+2061011,Białystok,miejska,powiat m. Białystok,podlaskie,102,291688
+2062011,Łomża,miejska,powiat m. Łomża,podlaskie,33,59711
+2063011,Suwałki,miejska,powiat m. Suwałki,podlaskie,66,68231
+2201012,Borzytuchom,wiejska,powiat bytowski,pomorskie,109,3517
+2201032,Czarna Dąbrówka,wiejska,powiat bytowski,pomorskie,298,5687
+2201042,Kołczygłowy,wiejska,powiat bytowski,pomorskie,170,4089
+2201052,Lipnica,wiejska,powiat bytowski,pomorskie,309,5165
+2201072,Parchowo,wiejska,powiat bytowski,pomorskie,131,3820
+2201082,Studzienice,wiejska,powiat bytowski,pomorskie,176,3633
+2201092,Trzebielino,wiejska,powiat bytowski,pomorskie,225,3521
+2201102,Tuchomie,wiejska,powiat bytowski,pomorskie,110,4186
+2201023,Bytów,miejsko-wiejska,powiat bytowski,pomorskie,197,25050
+2201063,Miastko,miejsko-wiejska,powiat bytowski,pomorskie,467,17834
+2202011,Chojnice,miejska,powiat chojnicki,pomorskie,21,38729
+2202032,Chojnice,wiejska,powiat chojnicki,pomorskie,458,19511
+2202052,Konarzyny,wiejska,powiat chojnicki,pomorskie,105,2260
+2202023,Brusy,miejsko-wiejska,powiat chojnicki,pomorskie,400,14263
+2202043,Czersk,miejsko-wiejska,powiat chojnicki,pomorskie,380,21261
+2203011,Człuchów,miejska,powiat człuchowski,pomorskie,13,13031
+2203032,Człuchów,wiejska,powiat człuchowski,pomorskie,361,10812
+2203052,Koczała,wiejska,powiat człuchowski,pomorskie,223,3123
+2203062,Przechlewo,wiejska,powiat człuchowski,pomorskie,244,5842
+2203072,Rzeczenica,wiejska,powiat człuchowski,pomorskie,275,3329
+2203023,Czarne,miejsko-wiejska,powiat człuchowski,pomorskie,235,8516
+2203043,Debrzno,miejsko-wiejska,powiat człuchowski,pomorskie,224,8482
+2204011,Pruszcz Gdański,miejska,powiat gdański,pomorskie,16,32171
+2204022,Cedry Wielkie,wiejska,powiat gdański,pomorskie,124,6794
+2204032,Kolbudy,wiejska,powiat gdański,pomorskie,83,21203
+2204042,Pruszcz Gdański,wiejska,powiat gdański,pomorskie,144,37948
+2204052,Przywidz,wiejska,powiat gdański,pomorskie,129,6159
+2204062,Pszczółki,wiejska,powiat gdański,pomorskie,50,11171
+2204072,Suchy Dąb,wiejska,powiat gdański,pomorskie,85,4217
+2204082,Trąbki Wielkie,wiejska,powiat gdański,pomorskie,163,12065
+2205012,Chmielno,wiejska,powiat kartuski,pomorskie,79,7813
+2205032,Przodkowo,wiejska,powiat kartuski,pomorskie,85,11343
+2205042,Sierakowice,wiejska,powiat kartuski,pomorskie,182,20946
+2205052,Somonino,wiejska,powiat kartuski,pomorskie,112,11310
+2205062,Stężyca,wiejska,powiat kartuski,pomorskie,161,11364
+2205072,Sulęczyno,wiejska,powiat kartuski,pomorskie,131,5704
+2205023,Kartuzy,miejsko-wiejska,powiat kartuski,pomorskie,206,34351
+2205083,Żukowo,miejsko-wiejska,powiat kartuski,pomorskie,164,50982
+2206011,Kościerzyna,miejska,powiat kościerski,pomorskie,16,23296
+2206022,Dziemiany,wiejska,powiat kościerski,pomorskie,125,4435
+2206032,Karsin,wiejska,powiat kościerski,pomorskie,169,6119
+2206042,Kościerzyna,wiejska,powiat kościerski,pomorskie,310,16136
+2206052,Liniewo,wiejska,powiat kościerski,pomorskie,110,4478
+2206062,Lipusz,wiejska,powiat kościerski,pomorskie,109,3757
+2206072,Nowa Karczma,wiejska,powiat kościerski,pomorskie,114,7242
+2206082,Stara Kiszewa,wiejska,powiat kościerski,pomorskie,213,6739
+2207011,Kwidzyn,miejska,powiat kwidzyński,pomorskie,22,36854
+2207022,Gardeja,wiejska,powiat kwidzyński,pomorskie,193,8071
+2207032,Kwidzyn,wiejska,powiat kwidzyński,pomorskie,207,11405
+2207052,Ryjewo,wiejska,powiat kwidzyński,pomorskie,104,5621
+2207062,Sadlinki,wiejska,powiat kwidzyński,pomorskie,112,5963
+2207043,Prabuty,miejsko-wiejska,powiat kwidzyński,pomorskie,197,12232
+2208011,Lębork,miejska,powiat lęborski,pomorskie,18,34000
+2208021,Łeba,miejska,powiat lęborski,pomorskie,17,3024
+2208032,Cewice,wiejska,powiat lęborski,pomorskie,188,7447
+2208042,Nowa Wieś Lęborska,wiejska,powiat lęborski,pomorskie,270,13674
+2208052,Wicko,wiejska,powiat lęborski,pomorskie,215,5532
+2209011,Malbork,miejska,powiat malborski,pomorskie,17,36709
+2209032,Lichnowy,wiejska,powiat malborski,pomorskie,89,4214
+2209042,Malbork,wiejska,powiat malborski,pomorskie,101,5096
+2209062,Miłoradz,wiejska,powiat malborski,pomorskie,94,3232
+2209082,Stare Pole,wiejska,powiat malborski,pomorskie,79,4338
+2209073,Nowy Staw,miejsko-wiejska,powiat malborski,pomorskie,114,7058
+2210011,Krynica Morska,miejska,powiat nowodworski,pomorskie,119,1165
+2210032,Ostaszewo,wiejska,powiat nowodworski,pomorskie,61,2927
+2210042,Stegna,wiejska,powiat nowodworski,pomorskie,349,9246
+2210052,Sztutowo,wiejska,powiat nowodworski,pomorskie,172,3403
+2210023,Nowy Dwór Gdański,miejsko-wiejska,powiat nowodworski,pomorskie,213,16885
+2211011,Hel,miejska,powiat pucki,pomorskie,95,2786
+2211031,Puck,miejska,powiat pucki,pomorskie,17,10463
+2211052,Kosakowo,wiejska,powiat pucki,pomorskie,100,21436
+2211062,Krokowa,wiejska,powiat pucki,pomorskie,214,10502
+2211072,Puck,wiejska,powiat pucki,pomorskie,276,28695
+2211023,Jastarnia,miejsko-wiejska,powiat pucki,pomorskie,104,3484
+2211043,Władysławowo,miejsko-wiejska,powiat pucki,pomorskie,62,14298
+2212011,Ustka,miejska,powiat słupski,pomorskie,11,13722
+2212022,Damnica,wiejska,powiat słupski,pomorskie,167,5613
+2212032,Dębnica Kaszubska,wiejska,powiat słupski,pomorskie,300,8984
+2212042,Główczyce,wiejska,powiat słupski,pomorskie,322,8264
+2212062,Kobylnica,wiejska,powiat słupski,pomorskie,244,14374
+2212072,Potęgowo,wiejska,powiat słupski,pomorskie,228,6484
+2212082,Redzikowo,wiejska,powiat słupski,pomorskie,252,19571
+2212092,Smołdzino,wiejska,powiat słupski,pomorskie,263,3082
+2212102,Ustka,wiejska,powiat słupski,pomorskie,220,8026
+2212053,Kępice,miejsko-wiejska,powiat słupski,pomorskie,293,8173
+2213021,Skórcz,miejska,powiat starogardzki,pomorskie,4,3439
+2213031,Starogard Gdański,miejska,powiat starogardzki,pomorskie,25,45295
+2213042,Bobowo,wiejska,powiat starogardzki,pomorskie,51,3162
+2213052,Kaliska,wiejska,powiat starogardzki,pomorskie,111,5311
+2213062,Lubichowo,wiejska,powiat starogardzki,pomorskie,161,6886
+2213072,Osieczna,wiejska,powiat starogardzki,pomorskie,123,2690
+2213082,Osiek,wiejska,powiat starogardzki,pomorskie,156,2251
+2213102,Skórcz,wiejska,powiat starogardzki,pomorskie,97,4301
+2213112,Smętowo Graniczne,wiejska,powiat starogardzki,pomorskie,86,4824
+2213122,Starogard Gdański,wiejska,powiat starogardzki,pomorskie,196,17258
+2213132,Zblewo,wiejska,powiat starogardzki,pomorskie,138,12211
+2213013,Czarna Woda,miejsko-wiejska,powiat starogardzki,pomorskie,28,3012
+2213093,Skarszewy,miejsko-wiejska,powiat starogardzki,pomorskie,170,14485
+2216022,Mikołajki Pomorskie,wiejska,powiat sztumski,pomorskie,92,3341
+2216032,Stary Dzierzgoń,wiejska,powiat sztumski,pomorskie,186,3433
+2216042,Stary Targ,wiejska,powiat sztumski,pomorskie,141,5891
+2216013,Dzierzgoń,miejsko-wiejska,powiat sztumski,pomorskie,131,8665
+2216053,Sztum,miejsko-wiejska,powiat sztumski,pomorskie,181,17011
+2214011,Tczew,miejska,powiat tczewski,pomorskie,22,56936
+2214032,Morzeszczyn,wiejska,powiat tczewski,pomorskie,91,3330
+2214052,Subkowy,wiejska,powiat tczewski,pomorskie,78,5345
+2214062,Tczew,wiejska,powiat tczewski,pomorskie,171,16260
+2214023,Gniew,miejsko-wiejska,powiat tczewski,pomorskie,194,14325
+2214043,Pelplin,miejsko-wiejska,powiat tczewski,pomorskie,141,15041
+2215011,Reda,miejska,powiat wejherowski,pomorskie,34,28704
+2215021,Rumia,miejska,powiat wejherowski,pomorskie,30,53316
+2215031,Wejherowo,miejska,powiat wejherowski,pomorskie,27,46097
+2215042,Choczewo,wiejska,powiat wejherowski,pomorskie,186,4949
+2215052,Gniewino,wiejska,powiat wejherowski,pomorskie,176,7405
+2215062,Linia,wiejska,powiat wejherowski,pomorskie,120,6441
+2215072,Luzino,wiejska,powiat wejherowski,pomorskie,111,17963
+2215082,Łęczyce,wiejska,powiat wejherowski,pomorskie,233,11990
+2215092,Szemud,wiejska,powiat wejherowski,pomorskie,177,21622
+2215102,Wejherowo,wiejska,powiat wejherowski,pomorskie,194,30959
+2261011,Gdańsk,miejska,powiat m. Gdańsk,pomorskie,683,487371
+2262011,Gdynia,miejska,powiat m. Gdynia,pomorskie,391,241189
+2263011,Słupsk,miejska,powiat m. Słupsk,pomorskie,53,85504
+2264011,Sopot,miejska,powiat m. Sopot,pomorskie,28,31903
+2401011,Będzin,miejska,powiat będziński,śląskie,37,53848
+2401021,Czeladź,miejska,powiat będziński,śląskie,16,29876
+2401081,Sławków,miejska,powiat będziński,śląskie,37,6842
+2401031,Wojkowice,miejska,powiat będziński,śląskie,13,8477
+2401042,Bobrowniki,wiejska,powiat będziński,śląskie,52,12563
+2401052,Mierzęcice,wiejska,powiat będziński,śląskie,49,7985
+2401062,Psary,wiejska,powiat będziński,śląskie,46,12327
+2401073,Siewierz,miejsko-wiejska,powiat będziński,śląskie,114,12767
+2402011,Szczyrk,miejska,powiat bielski,śląskie,39,5283
+2402022,Bestwina,wiejska,powiat bielski,śląskie,38,12203
+2402032,Buczkowice,wiejska,powiat bielski,śląskie,19,11171
+2402052,Jasienica,wiejska,powiat bielski,śląskie,92,25237
+2402062,Jaworze,wiejska,powiat bielski,śląskie,21,7415
+2402072,Kozy,wiejska,powiat bielski,śląskie,27,13169
+2402082,Porąbka,wiejska,powiat bielski,śląskie,65,15441
+2402102,Wilkowice,wiejska,powiat bielski,śląskie,34,13269
+2402043,Czechowice-Dziedzice,miejsko-wiejska,powiat bielski,śląskie,66,44414
+2402093,Wilamowice,miejsko-wiejska,powiat bielski,śląskie,57,18222
+2414011,Bieruń,miejska,powiat bieruńsko-lędziński,śląskie,40,18835
+2414021,Imielin,miejska,powiat bieruńsko-lędziński,śląskie,28,9398
+2414031,Lędziny,miejska,powiat bieruńsko-lędziński,śląskie,32,16333
+2414042,Bojszowy,wiejska,powiat bieruńsko-lędziński,śląskie,35,8576
+2414052,Chełm Śląski,wiejska,powiat bieruńsko-lędziński,śląskie,23,6301
+2403011,Cieszyn,miejska,powiat cieszyński,śląskie,29,32947
+2403021,Ustroń,miejska,powiat cieszyński,śląskie,59,15853
+2403031,Wisła,miejska,powiat cieszyński,śląskie,110,10637
+2403042,Brenna,wiejska,powiat cieszyński,śląskie,95,11761
+2403052,Chybie,wiejska,powiat cieszyński,śląskie,32,9619
+2403062,Dębowiec,wiejska,powiat cieszyński,śląskie,43,5782
+2403072,Goleszów,wiejska,powiat cieszyński,śląskie,66,13130
+2403082,Hażlach,wiejska,powiat cieszyński,śląskie,49,10741
+2403092,Istebna,wiejska,powiat cieszyński,śląskie,84,12204
+2403122,Zebrzydowice,wiejska,powiat cieszyński,śląskie,41,12700
+2403103,Skoczów,miejsko-wiejska,powiat cieszyński,śląskie,64,26187
+2403113,Strumień,miejsko-wiejska,powiat cieszyński,śląskie,58,13233
+2404022,Dąbrowa Zielona,wiejska,powiat częstochowski,śląskie,100,3626
+2404032,Janów,wiejska,powiat częstochowski,śląskie,146,5845
+2404042,Kamienica Polska,wiejska,powiat częstochowski,śląskie,46,5373
+2404052,Kłomnice,wiejska,powiat częstochowski,śląskie,148,12886
+2404072,Konopiska,wiejska,powiat częstochowski,śląskie,79,10822
+2404082,Kruszyna,wiejska,powiat częstochowski,śląskie,93,4659
+2404092,Lelów,wiejska,powiat częstochowski,śląskie,124,4517
+2404102,Mstów,wiejska,powiat częstochowski,śląskie,120,10846
+2404112,Mykanów,wiejska,powiat częstochowski,śląskie,141,15345
+2404132,Poczesna,wiejska,powiat częstochowski,śląskie,60,12414
+2404152,Rędziny,wiejska,powiat częstochowski,śląskie,41,9465
+2404162,Starcza,wiejska,powiat częstochowski,śląskie,20,2895
+2404013,Blachownia,miejsko-wiejska,powiat częstochowski,śląskie,67,12433
+2404063,Koniecpol,miejsko-wiejska,powiat częstochowski,śląskie,147,8651
+2404123,Olsztyn,miejsko-wiejska,powiat częstochowski,śląskie,109,8253
+2404143,Przyrów,miejsko-wiejska,powiat częstochowski,śląskie,81,3539
+2405011,Knurów,miejska,powiat gliwicki,śląskie,34,35619
+2405021,Pyskowice,miejska,powiat gliwicki,śląskie,31,17236
+2405032,Gierałtowice,wiejska,powiat gliwicki,śląskie,38,12671
+2405042,Pilchowice,wiejska,powiat gliwicki,śląskie,70,12715
+2405052,Rudziniec,wiejska,powiat gliwicki,śląskie,159,10828
+2405082,Wielowieś,wiejska,powiat gliwicki,śląskie,116,5806
+2405063,Sośnicowice,miejsko-wiejska,powiat gliwicki,śląskie,117,9063
+2405073,Toszek,miejsko-wiejska,powiat gliwicki,śląskie,100,9242
+2406032,Lipie,wiejska,powiat kłobucki,śląskie,99,5965
+2406042,Miedźno,wiejska,powiat kłobucki,śląskie,113,7433
+2406052,Opatów,wiejska,powiat kłobucki,śląskie,74,6613
+2406062,Panki,wiejska,powiat kłobucki,śląskie,55,4822
+2406072,Popów,wiejska,powiat kłobucki,śląskie,102,5711
+2406082,Przystajń,wiejska,powiat kłobucki,śląskie,89,5703
+2406092,Wręczyca Wielka,wiejska,powiat kłobucki,śląskie,148,17555
+2406013,Kłobuck,miejsko-wiejska,powiat kłobucki,śląskie,130,19652
+2406023,Krzepice,miejsko-wiejska,powiat kłobucki,śląskie,79,8510
+2407011,Lubliniec,miejska,powiat lubliniecki,śląskie,89,23347
+2407022,Boronów,wiejska,powiat lubliniecki,śląskie,57,3322
+2407032,Ciasna,wiejska,powiat lubliniecki,śląskie,134,7208
+2407042,Herby,wiejska,powiat lubliniecki,śląskie,86,6391
+2407052,Kochanowice,wiejska,powiat lubliniecki,śląskie,80,6929
+2407062,Koszęcin,wiejska,powiat lubliniecki,śląskie,129,11850
+2407072,Pawonków,wiejska,powiat lubliniecki,śląskie,119,6475
+2407083,Woźniki,miejsko-wiejska,powiat lubliniecki,śląskie,128,9365
+2408011,Łaziska Górne,miejska,powiat mikołowski,śląskie,20,21116
+2408021,Mikołów,miejska,powiat mikołowski,śląskie,79,41618
+2408031,Orzesze,miejska,powiat mikołowski,śląskie,84,21986
+2408042,Ornontowice,wiejska,powiat mikołowski,śląskie,15,6205
+2408052,Wyry,wiejska,powiat mikołowski,śląskie,35,9077
+2409011,Myszków,miejska,powiat myszkowski,śląskie,73,29379
+2409032,Niegowa,wiejska,powiat myszkowski,śląskie,88,5370
+2409042,Poraj,wiejska,powiat myszkowski,śląskie,57,10583
+2409023,Koziegłowy,miejsko-wiejska,powiat myszkowski,śląskie,160,14111
+2409053,Żarki,miejsko-wiejska,powiat myszkowski,śląskie,101,8130
+2410012,Goczałkowice-Zdrój,wiejska,powiat pszczyński,śląskie,47,6623
+2410022,Kobiór,wiejska,powiat pszczyński,śląskie,48,5103
+2410032,Miedźna,wiejska,powiat pszczyński,śląskie,50,16071
+2410042,Pawłowice,wiejska,powiat pszczyński,śląskie,76,17555
+2410062,Suszec,wiejska,powiat pszczyński,śląskie,75,12722
+2410053,Pszczyna,miejsko-wiejska,powiat pszczyński,śląskie,175,52703
+2411011,Racibórz,miejska,powiat raciborski,śląskie,75,49650
+2411022,Kornowac,wiejska,powiat raciborski,śląskie,26,5144
+2411042,Krzyżanowice,wiejska,powiat raciborski,śląskie,70,10698
+2411062,Nędza,wiejska,powiat raciborski,śląskie,57,6641
+2411072,Pietrowice Wielkie,wiejska,powiat raciborski,śląskie,68,6544
+2411082,Rudnik,wiejska,powiat raciborski,śląskie,74,4804
+2411033,Krzanowice,miejsko-wiejska,powiat raciborski,śląskie,47,5270
+2411053,Kuźnia Raciborska,miejsko-wiejska,powiat raciborski,śląskie,127,10581
+2412022,Gaszowice,wiejska,powiat rybnicki,śląskie,20,9920
+2412032,Jejkowice,wiejska,powiat rybnicki,śląskie,8,4180
+2412042,Lyski,wiejska,powiat rybnicki,śląskie,57,9780
+2412052,Świerklany,wiejska,powiat rybnicki,śląskie,24,12641
+2412013,Czerwionka-Leszczyny,miejsko-wiejska,powiat rybnicki,śląskie,115,40145
+2413011,Kalety,miejska,powiat tarnogórski,śląskie,76,8170
+2413021,Miasteczko Śląskie,miejska,powiat tarnogórski,śląskie,68,6961
+2413031,Radzionków,miejska,powiat tarnogórski,śląskie,13,16034
+2413041,Tarnowskie Góry,miejska,powiat tarnogórski,śląskie,84,61321
+2413052,Krupski Młyn,wiejska,powiat tarnogórski,śląskie,39,3002
+2413062,Ożarowice,wiejska,powiat tarnogórski,śląskie,46,5956
+2413072,Świerklaniec,wiejska,powiat tarnogórski,śląskie,45,13174
+2413082,Tworóg,wiejska,powiat tarnogórski,śląskie,125,8206
+2413092,Zbrosławice,wiejska,powiat tarnogórski,śląskie,148,16336
+2415011,Pszów,miejska,powiat wodzisławski,śląskie,20,13007
+2415021,Radlin,miejska,powiat wodzisławski,śląskie,13,16829
+2415031,Rydułtowy,miejska,powiat wodzisławski,śląskie,15,20168
+2415041,Wodzisław Śląski,miejska,powiat wodzisławski,śląskie,49,44833
+2415052,Godów,wiejska,powiat wodzisławski,śląskie,38,13712
+2415062,Gorzyce,wiejska,powiat wodzisławski,śląskie,65,21138
+2415072,Lubomia,wiejska,powiat wodzisławski,śląskie,42,7640
+2415082,Marklowice,wiejska,powiat wodzisławski,śląskie,14,5337
+2415092,Mszana,wiejska,powiat wodzisławski,śląskie,31,7605
+2416011,Poręba,miejska,powiat zawierciański,śląskie,40,8104
+2416021,Zawiercie,miejska,powiat zawierciański,śląskie,85,46106
+2416032,Irządze,wiejska,powiat zawierciański,śląskie,71,2513
+2416042,Kroczyce,wiejska,powiat zawierciański,śląskie,110,6040
+2416102,Żarnowiec,wiejska,powiat zawierciański,śląskie,125,4420
+2416053,Łazy,miejsko-wiejska,powiat zawierciański,śląskie,133,15534
+2416063,Ogrodzieniec,miejsko-wiejska,powiat zawierciański,śląskie,85,8871
+2416073,Pilica,miejsko-wiejska,powiat zawierciański,śląskie,143,8039
+2416083,Szczekociny,miejsko-wiejska,powiat zawierciański,śląskie,135,6874
+2416093,Włodowice,miejsko-wiejska,powiat zawierciański,śląskie,77,5127
+2417011,Żywiec,miejska,powiat żywiecki,śląskie,50,29732
+2417022,Czernichów,wiejska,powiat żywiecki,śląskie,56,6359
+2417032,Gilowice,wiejska,powiat żywiecki,śląskie,28,6249
+2417042,Jeleśnia,wiejska,powiat żywiecki,śląskie,171,12586
+2417052,Koszarawa,wiejska,powiat żywiecki,śląskie,31,2208
+2417062,Lipowa,wiejska,powiat żywiecki,śląskie,59,10950
+2417072,Łękawica,wiejska,powiat żywiecki,śląskie,43,4528
+2417082,Łodygowice,wiejska,powiat żywiecki,śląskie,36,15259
+2417092,Milówka,wiejska,powiat żywiecki,śląskie,98,9805
+2417102,Radziechowy-Wieprz,wiejska,powiat żywiecki,śląskie,65,12872
+2417112,Rajcza,wiejska,powiat żywiecki,śląskie,132,8301
+2417122,Ślemień,wiejska,powiat żywiecki,śląskie,45,3507
+2417132,Świnna,wiejska,powiat żywiecki,śląskie,39,7877
+2417142,Ujsoły,wiejska,powiat żywiecki,śląskie,110,4169
+2417152,Węgierska Górka,wiejska,powiat żywiecki,śląskie,77,14427
+2461011,Bielsko-Biała,miejska,powiat m. Bielsko-Biała,śląskie,124,165766
+2462011,Bytom,miejska,powiat m. Bytom,śląskie,69,147759
+2463011,Chorzów,miejska,powiat m. Chorzów,śląskie,33,100593
+2464011,Częstochowa,miejska,powiat m. Częstochowa,śląskie,160,205969
+2465011,Dąbrowa Górnicza,miejska,powiat m. Dąbrowa Górnicza,śląskie,189,113460
+2466011,Gliwice,miejska,powiat m. Gliwice,śląskie,134,169915
+2467011,Jastrzębie-Zdrój,miejska,powiat m. Jastrzębie-Zdrój,śląskie,85,82301
+2468011,Jaworzno,miejska,powiat m. Jaworzno,śląskie,152,86812
+2469011,Katowice,miejska,powiat m. Katowice,śląskie,165,279190
+2470011,Mysłowice,miejska,powiat m. Mysłowice,śląskie,66,71280
+2471011,Piekary Śląskie,miejska,powiat m. Piekary Śląskie,śląskie,40,51707
+2472011,Ruda Śląska,miejska,powiat m. Ruda Śląska,śląskie,78,130302
+2473011,Rybnik,miejska,powiat m. Rybnik,śląskie,148,130887
+2474011,Siemianowice Śląskie,miejska,powiat m. Siemianowice Śląskie,śląskie,26,63401
+2475011,Sosnowiec,miejska,powiat m. Sosnowiec,śląskie,91,187115
+2476011,Świętochłowice,miejska,powiat m. Świętochłowice,śląskie,13,45434
+2477011,Tychy,miejska,powiat m. Tychy,śląskie,82,122045
+2478011,Zabrze,miejska,powiat m. Zabrze,śląskie,80,153838
+2479011,Żory,miejska,powiat m. Żory,śląskie,65,61774
+2601022,Gnojno,wiejska,powiat buski,świętokrzyskie,96,4224
+2601052,Solec-Zdrój,wiejska,powiat buski,świętokrzyskie,85,4870
+2601072,Tuczępy,wiejska,powiat buski,świętokrzyskie,84,3588
+2601013,Busko-Zdrój,miejsko-wiejska,powiat buski,świętokrzyskie,235,30637
+2601033,Nowy Korczyn,miejsko-wiejska,powiat buski,świętokrzyskie,117,5444
+2601043,Pacanów,miejsko-wiejska,powiat buski,świętokrzyskie,125,6874
+2601063,Stopnica,miejsko-wiejska,powiat buski,świętokrzyskie,126,7072
+2601083,Wiślica,miejsko-wiejska,powiat buski,świętokrzyskie,100,5108
+2602012,Imielno,wiejska,powiat jędrzejowski,świętokrzyskie,101,4151
+2602042,Nagłowice,wiejska,powiat jędrzejowski,świętokrzyskie,117,4689
+2602052,Oksa,wiejska,powiat jędrzejowski,świętokrzyskie,91,4363
+2602072,Słupia,wiejska,powiat jędrzejowski,świętokrzyskie,108,3905
+2602082,Sobków,wiejska,powiat jędrzejowski,świętokrzyskie,144,8339
+2602023,Jędrzejów,miejsko-wiejska,powiat jędrzejowski,świętokrzyskie,227,26488
+2602033,Małogoszcz,miejsko-wiejska,powiat jędrzejowski,świętokrzyskie,146,11046
+2602063,Sędziszów,miejsko-wiejska,powiat jędrzejowski,świętokrzyskie,146,11720
+2602093,Wodzisław,miejsko-wiejska,powiat jędrzejowski,świętokrzyskie,177,6356
+2603012,Bejsce,wiejska,powiat kazimierski,świętokrzyskie,57,3843
+2603022,Czarnocin,wiejska,powiat kazimierski,świętokrzyskie,70,3573
+2603033,Kazimierza Wielka,miejsko-wiejska,powiat kazimierski,świętokrzyskie,140,15210
+2603043,Opatowiec,miejsko-wiejska,powiat kazimierski,świętokrzyskie,69,2960
+2603053,Skalbmierz,miejsko-wiejska,powiat kazimierski,świętokrzyskie,86,6107
+2604012,Bieliny,wiejska,powiat kielecki,świętokrzyskie,88,9962
+2604062,Górno,wiejska,powiat kielecki,świętokrzyskie,83,15184
+2604092,Masłów,wiejska,powiat kielecki,świętokrzyskie,86,11961
+2604102,Miedziana Góra,wiejska,powiat kielecki,świętokrzyskie,71,12563
+2604112,Mniów,wiejska,powiat kielecki,świętokrzyskie,95,9044
+2604172,Nowiny,wiejska,powiat kielecki,świętokrzyskie,46,8119
+2604162,Raków,wiejska,powiat kielecki,świętokrzyskie,191,5266
+2604182,Strawczyn,wiejska,powiat kielecki,świętokrzyskie,86,11227
+2604192,Zagnańsk,wiejska,powiat kielecki,świętokrzyskie,125,12180
+2604023,Bodzentyn,miejsko-wiejska,powiat kielecki,świętokrzyskie,160,10969
+2604033,Chęciny,miejsko-wiejska,powiat kielecki,świętokrzyskie,127,14760
+2604043,Chmielnik,miejsko-wiejska,powiat kielecki,świętokrzyskie,142,10719
+2604053,Daleszyce,miejsko-wiejska,powiat kielecki,świętokrzyskie,222,16282
+2604073,Łagów,miejsko-wiejska,powiat kielecki,świętokrzyskie,113,6564
+2604083,Łopuszno,miejsko-wiejska,powiat kielecki,świętokrzyskie,177,8701
+2604123,Morawica,miejsko-wiejska,powiat kielecki,świętokrzyskie,140,17920
+2604133,Nowa Słupia,miejsko-wiejska,powiat kielecki,świętokrzyskie,86,8791
+2604143,Piekoszów,miejsko-wiejska,powiat kielecki,świętokrzyskie,103,16850
+2604153,Pierzchnica,miejsko-wiejska,powiat kielecki,świętokrzyskie,105,4702
+2605012,Fałków,wiejska,powiat konecki,świętokrzyskie,132,3945
+2605052,Ruda Maleniecka,wiejska,powiat konecki,świętokrzyskie,110,2837
+2605062,Słupia Konecka,wiejska,powiat konecki,świętokrzyskie,106,2960
+2605072,Smyków,wiejska,powiat konecki,świętokrzyskie,62,3685
+2605023,Gowarczów,miejsko-wiejska,powiat konecki,świętokrzyskie,101,4404
+2605033,Końskie,miejsko-wiejska,powiat konecki,świętokrzyskie,250,32461
+2605043,Radoszyce,miejsko-wiejska,powiat konecki,świętokrzyskie,147,8125
+2605083,Stąporków,miejsko-wiejska,powiat konecki,świętokrzyskie,232,15324
+2606012,Baćkowice,wiejska,powiat opatowski,świętokrzyskie,96,4528
+2606032,Lipnik,wiejska,powiat opatowski,świętokrzyskie,81,4787
+2606062,Sadowie,wiejska,powiat opatowski,świętokrzyskie,82,3757
+2606072,Tarłów,wiejska,powiat opatowski,świętokrzyskie,163,4584
+2606082,Wojciechowice,wiejska,powiat opatowski,świętokrzyskie,87,3760
+2606023,Iwaniska,miejsko-wiejska,powiat opatowski,świętokrzyskie,105,6133
+2606043,Opatów,miejsko-wiejska,powiat opatowski,świętokrzyskie,114,10755
+2606053,Ożarów,miejsko-wiejska,powiat opatowski,świętokrzyskie,183,10090
+2607011,Ostrowiec Świętokrzyski,miejska,powiat ostrowiecki,świętokrzyskie,46,62093
+2607022,Bałtów,wiejska,powiat ostrowiecki,świętokrzyskie,105,3122
+2607032,Bodzechów,wiejska,powiat ostrowiecki,świętokrzyskie,122,12664
+2607062,Waśniów,wiejska,powiat ostrowiecki,świętokrzyskie,112,6315
+2607043,Ćmielów,miejsko-wiejska,powiat ostrowiecki,świętokrzyskie,118,6721
+2607053,Kunów,miejsko-wiejska,powiat ostrowiecki,świętokrzyskie,114,9143
+2608022,Kije,wiejska,powiat pińczowski,świętokrzyskie,100,4283
+2608032,Michałów,wiejska,powiat pińczowski,świętokrzyskie,112,4411
+2608052,Złota,wiejska,powiat pińczowski,świętokrzyskie,82,4228
+2608013,Działoszyce,miejsko-wiejska,powiat pińczowski,świętokrzyskie,106,4577
+2608043,Pińczów,miejsko-wiejska,powiat pińczowski,świętokrzyskie,213,19240
+2609011,Sandomierz,miejska,powiat sandomierski,świętokrzyskie,29,21273
+2609022,Dwikozy,wiejska,powiat sandomierski,świętokrzyskie,85,8159
+2609052,Łoniów,wiejska,powiat sandomierski,świętokrzyskie,87,7140
+2609062,Obrazów,wiejska,powiat sandomierski,świętokrzyskie,71,6086
+2609072,Samborzec,wiejska,powiat sandomierski,świętokrzyskie,85,8047
+2609082,Wilczyce,wiejska,powiat sandomierski,świętokrzyskie,70,3430
+2609033,Klimontów,miejsko-wiejska,powiat sandomierski,świętokrzyskie,100,7465
+2609043,Koprzywnica,miejsko-wiejska,powiat sandomierski,świętokrzyskie,69,6218
+2609093,Zawichost,miejsko-wiejska,powiat sandomierski,świętokrzyskie,80,4006
+2610011,Skarżysko-Kamienna,miejska,powiat skarżyski,świętokrzyskie,64,41224
+2610022,Bliżyn,wiejska,powiat skarżyski,świętokrzyskie,141,7445
+2610032,Łączna,wiejska,powiat skarżyski,świętokrzyskie,62,4799
+2610042,Skarżysko Kościelne,wiejska,powiat skarżyski,świętokrzyskie,53,5500
+2610053,Suchedniów,miejsko-wiejska,powiat skarżyski,świętokrzyskie,75,9135
+2611011,Starachowice,miejska,powiat starachowicki,świętokrzyskie,32,44416
+2611022,Brody,wiejska,powiat starachowicki,świętokrzyskie,161,10119
+2611032,Mirzec,wiejska,powiat starachowicki,świętokrzyskie,111,7913
+2611042,Pawłów,wiejska,powiat starachowicki,świętokrzyskie,137,14855
+2611053,Wąchock,miejsko-wiejska,powiat starachowicki,świętokrzyskie,82,6331
+2612022,Łubnice,wiejska,powiat staszowski,świętokrzyskie,84,3925
+2612062,Rytwiany,wiejska,powiat staszowski,świętokrzyskie,126,6231
+2612013,Bogoria,miejsko-wiejska,powiat staszowski,świętokrzyskie,123,7409
+2612033,Oleśnica,miejsko-wiejska,powiat staszowski,świętokrzyskie,53,3751
+2612043,Osiek,miejsko-wiejska,powiat staszowski,świętokrzyskie,129,7348
+2612053,Połaniec,miejsko-wiejska,powiat staszowski,świętokrzyskie,75,11018
+2612073,Staszów,miejsko-wiejska,powiat staszowski,świętokrzyskie,227,24424
+2612083,Szydłów,miejsko-wiejska,powiat staszowski,świętokrzyskie,108,4342
+2613012,Kluczewsko,wiejska,powiat włoszczowski,świętokrzyskie,137,4904
+2613022,Krasocin,wiejska,powiat włoszczowski,świętokrzyskie,193,10096
+2613032,Moskorzew,wiejska,powiat włoszczowski,świętokrzyskie,73,2533
+2613042,Radków,wiejska,powiat włoszczowski,świętokrzyskie,88,2291
+2613052,Secemin,wiejska,powiat włoszczowski,świętokrzyskie,161,4530
+2613063,Włoszczowa,miejsko-wiejska,powiat włoszczowski,świętokrzyskie,254,18578
+2661011,Kielce,miejska,powiat m. Kielce,świętokrzyskie,110,182295
+2801011,Bartoszyce,miejska,powiat bartoszycki,warmińsko-mazurskie,12,21314
+2801021,Górowo Iławeckie,miejska,powiat bartoszycki,warmińsko-mazurskie,3,3627
+2801032,Bartoszyce,wiejska,powiat bartoszycki,warmińsko-mazurskie,427,10224
+2801052,Górowo Iławeckie,wiejska,powiat bartoszycki,warmińsko-mazurskie,416,6151
+2801043,Bisztynek,miejsko-wiejska,powiat bartoszycki,warmińsko-mazurskie,203,5660
+2801063,Sępopol,miejsko-wiejska,powiat bartoszycki,warmińsko-mazurskie,246,5698
+2802011,Braniewo,miejska,powiat braniewski,warmińsko-mazurskie,12,16015
+2802022,Braniewo,wiejska,powiat braniewski,warmińsko-mazurskie,307,5391
+2802042,Lelkowo,wiejska,powiat braniewski,warmińsko-mazurskie,198,2371
+2802062,Płoskinia,wiejska,powiat braniewski,warmińsko-mazurskie,172,2349
+2802072,Wilczęta,wiejska,powiat braniewski,warmińsko-mazurskie,148,2554
+2802033,Frombork,miejsko-wiejska,powiat braniewski,warmińsko-mazurskie,126,3071
+2802053,Pieniężno,miejsko-wiejska,powiat braniewski,warmińsko-mazurskie,241,5530
+2803011,Działdowo,miejska,powiat działdowski,warmińsko-mazurskie,12,20125
+2803022,Działdowo,wiejska,powiat działdowski,warmińsko-mazurskie,272,9608
+2803032,Iłowo-Osada,wiejska,powiat działdowski,warmińsko-mazurskie,104,6703
+2803052,Płośnica,wiejska,powiat działdowski,warmińsko-mazurskie,163,5081
+2803062,Rybno,wiejska,powiat działdowski,warmińsko-mazurskie,148,6730
+2803043,Lidzbark,miejsko-wiejska,powiat działdowski,warmińsko-mazurskie,255,13169
+2804012,Elbląg,wiejska,powiat elbląski,warmińsko-mazurskie,192,7638
+2804022,Godkowo,wiejska,powiat elbląski,warmińsko-mazurskie,167,2723
+2804032,Gronowo Elbląskie,wiejska,powiat elbląski,warmińsko-mazurskie,89,4764
+2804042,Markusy,wiejska,powiat elbląski,warmińsko-mazurskie,109,3864
+2804052,Milejewo,wiejska,powiat elbląski,warmińsko-mazurskie,96,3253
+2804082,Rychliki,wiejska,powiat elbląski,warmińsko-mazurskie,132,3486
+2804063,Młynary,miejsko-wiejska,powiat elbląski,warmińsko-mazurskie,157,4176
+2804073,Pasłęk,miejsko-wiejska,powiat elbląski,warmińsko-mazurskie,264,18265
+2804093,Tolkmicko,miejsko-wiejska,powiat elbląski,warmińsko-mazurskie,207,5973
+2805011,Ełk,miejska,powiat ełcki,warmińsko-mazurskie,21,59759
+2805022,Ełk,wiejska,powiat ełcki,warmińsko-mazurskie,379,12465
+2805032,Kalinowo,wiejska,powiat ełcki,warmińsko-mazurskie,285,6134
+2805042,Prostki,wiejska,powiat ełcki,warmińsko-mazurskie,231,6683
+2805052,Stare Juchy,wiejska,powiat ełcki,warmińsko-mazurskie,197,3302
+2806011,Giżycko,miejska,powiat giżycki,warmińsko-mazurskie,14,27310
+2806042,Giżycko,wiejska,powiat giżycki,warmińsko-mazurskie,297,8887
+2806052,Kruklanki,wiejska,powiat giżycki,warmińsko-mazurskie,202,2930
+2806062,Miłki,wiejska,powiat giżycki,warmińsko-mazurskie,170,3430
+2806102,Wydminy,wiejska,powiat giżycki,warmińsko-mazurskie,233,5814
+2806083,Ryn,miejsko-wiejska,powiat giżycki,warmińsko-mazurskie,204,5365
+2818012,Banie Mazurskie,wiejska,powiat gołdapski,warmińsko-mazurskie,205,3184
+2818022,Dubeninki,wiejska,powiat gołdapski,warmińsko-mazurskie,205,2635
+2818033,Gołdap,miejsko-wiejska,powiat gołdapski,warmińsko-mazurskie,362,19041
+2807011,Iława,miejska,powiat iławski,warmińsko-mazurskie,22,32188
+2807021,Lubawa,miejska,powiat iławski,warmińsko-mazurskie,17,10633
+2807032,Iława,wiejska,powiat iławski,warmińsko-mazurskie,424,13214
+2807052,Lubawa,wiejska,powiat iławski,warmińsko-mazurskie,236,10391
+2807043,Kisielice,miejsko-wiejska,powiat iławski,warmińsko-mazurskie,173,5533
+2807063,Susz,miejsko-wiejska,powiat iławski,warmińsko-mazurskie,259,11783
+2807073,Zalewo,miejsko-wiejska,powiat iławski,warmińsko-mazurskie,254,6128
+2808011,Kętrzyn,miejska,powiat kętrzyński,warmińsko-mazurskie,10,25113
+2808022,Barciany,wiejska,powiat kętrzyński,warmińsko-mazurskie,295,5601
+2808032,Kętrzyn,wiejska,powiat kętrzyński,warmińsko-mazurskie,285,7619
+2808062,Srokowo,wiejska,powiat kętrzyński,warmińsko-mazurskie,194,3375
+2808043,Korsze,miejsko-wiejska,powiat kętrzyński,warmińsko-mazurskie,250,8700
+2808053,Reszel,miejsko-wiejska,powiat kętrzyński,warmińsko-mazurskie,179,6637
+2809011,Lidzbark Warmiński,miejska,powiat lidzbarski,warmińsko-mazurskie,14,14459
+2809022,Kiwity,wiejska,powiat lidzbarski,warmińsko-mazurskie,145,3059
+2809032,Lidzbark Warmiński,wiejska,powiat lidzbarski,warmińsko-mazurskie,373,6403
+2809042,Lubomino,wiejska,powiat lidzbarski,warmińsko-mazurskie,149,3293
+2809053,Orneta,miejsko-wiejska,powiat lidzbarski,warmińsko-mazurskie,244,10912
+2810011,Mrągowo,miejska,powiat mrągowski,warmińsko-mazurskie,15,20533
+2810032,Mrągowo,wiejska,powiat mrągowski,warmińsko-mazurskie,295,8054
+2810042,Piecki,wiejska,powiat mrągowski,warmińsko-mazurskie,314,7157
+2810052,Sorkwity,wiejska,powiat mrągowski,warmińsko-mazurskie,185,4381
+2810023,Mikołajki,miejsko-wiejska,powiat mrągowski,warmińsko-mazurskie,256,7347
+2811012,Janowiec Kościelny,wiejska,powiat nidzicki,warmińsko-mazurskie,136,2916
+2811022,Janowo,wiejska,powiat nidzicki,warmińsko-mazurskie,192,2510
+2811032,Kozłowo,wiejska,powiat nidzicki,warmińsko-mazurskie,254,5298
+2811043,Nidzica,miejsko-wiejska,powiat nidzicki,warmińsko-mazurskie,379,19736
+2812011,Nowe Miasto Lubawskie,miejska,powiat nowomiejski,warmińsko-mazurskie,11,10089
+2812022,Biskupiec,wiejska,powiat nowomiejski,warmińsko-mazurskie,241,8587
+2812032,Grodziczno,wiejska,powiat nowomiejski,warmińsko-mazurskie,154,5870
+2812042,Kurzętnik,wiejska,powiat nowomiejski,warmińsko-mazurskie,149,8995
+2812052,Nowe Miasto Lubawskie,wiejska,powiat nowomiejski,warmińsko-mazurskie,139,8423
+2813032,Kowale Oleckie,wiejska,powiat olecki,warmińsko-mazurskie,251,4554
+2813052,Świętajno,wiejska,powiat olecki,warmińsko-mazurskie,215,3322
+2813062,Wieliczki,wiejska,powiat olecki,warmińsko-mazurskie,141,3164
+2813043,Olecko,miejsko-wiejska,powiat olecki,warmińsko-mazurskie,267,20956
+2814042,Dywity,wiejska,powiat olsztyński,warmińsko-mazurskie,161,13708
+2814052,Gietrzwałd,wiejska,powiat olsztyński,warmińsko-mazurskie,172,6946
+2814072,Jonkowo,wiejska,powiat olsztyński,warmińsko-mazurskie,169,7811
+2814082,Kolno,wiejska,powiat olsztyński,warmińsko-mazurskie,179,2758
+2814102,Purda,wiejska,powiat olsztyński,warmińsko-mazurskie,318,8975
+2814112,Stawiguda,wiejska,powiat olsztyński,warmińsko-mazurskie,223,14975
+2814122,Świątki,wiejska,powiat olsztyński,warmińsko-mazurskie,164,3711
+2814013,Barczewo,miejsko-wiejska,powiat olsztyński,warmińsko-mazurskie,320,18236
+2814023,Biskupiec,miejsko-wiejska,powiat olsztyński,warmińsko-mazurskie,290,17735
+2814033,Dobre Miasto,miejsko-wiejska,powiat olsztyński,warmińsko-mazurskie,259,14993
+2814063,Jeziorany,miejsko-wiejska,powiat olsztyński,warmińsko-mazurskie,211,6952
+2814093,Olsztynek,miejsko-wiejska,powiat olsztyński,warmińsko-mazurskie,372,13114
+2815011,Ostróda,miejska,powiat ostródzki,warmińsko-mazurskie,14,31336
+2815022,Dąbrówno,wiejska,powiat ostródzki,warmińsko-mazurskie,166,3871
+2815032,Grunwald,wiejska,powiat ostródzki,warmińsko-mazurskie,180,5073
+2815042,Łukta,wiejska,powiat ostródzki,warmińsko-mazurskie,186,4372
+2815052,Małdyty,wiejska,powiat ostródzki,warmińsko-mazurskie,189,5765
+2815092,Ostróda,wiejska,powiat ostródzki,warmińsko-mazurskie,401,15961
+2815063,Miłakowo,miejsko-wiejska,powiat ostródzki,warmińsko-mazurskie,159,4933
+2815073,Miłomłyn,miejsko-wiejska,powiat ostródzki,warmińsko-mazurskie,161,4748
+2815083,Morąg,miejsko-wiejska,powiat ostródzki,warmińsko-mazurskie,311,23010
+2816013,Biała Piska,miejsko-wiejska,powiat piski,warmińsko-mazurskie,420,10354
+2816023,Orzysz,miejsko-wiejska,powiat piski,warmińsko-mazurskie,363,8367
+2816033,Pisz,miejsko-wiejska,powiat piski,warmińsko-mazurskie,634,25941
+2816043,Ruciane-Nida,miejsko-wiejska,powiat piski,warmińsko-mazurskie,358,7307
+2817011,Szczytno,miejska,powiat szczycieński,warmińsko-mazurskie,10,21878
+2817022,Dźwierzuty,wiejska,powiat szczycieński,warmińsko-mazurskie,263,5829
+2817032,Jedwabno,wiejska,powiat szczycieński,warmińsko-mazurskie,312,3451
+2817052,Rozogi,wiejska,powiat szczycieński,warmińsko-mazurskie,224,5190
+2817062,Szczytno,wiejska,powiat szczycieński,warmińsko-mazurskie,347,13567
+2817072,Świętajno,wiejska,powiat szczycieński,warmińsko-mazurskie,280,5334
+2817043,Pasym,miejsko-wiejska,powiat szczycieński,warmińsko-mazurskie,149,5048
+2817083,Wielbark,miejsko-wiejska,powiat szczycieński,warmińsko-mazurskie,348,6238
+2819012,Budry,wiejska,powiat węgorzewski,warmińsko-mazurskie,175,2542
+2819022,Pozezdrze,wiejska,powiat węgorzewski,warmińsko-mazurskie,177,2962
+2819033,Węgorzewo,miejsko-wiejska,powiat węgorzewski,warmińsko-mazurskie,341,15300
+2861011,Elbląg,miejska,powiat m. Elbląg,warmińsko-mazurskie,80,112923
+2862011,Olsztyn,miejska,powiat m. Olsztyn,warmińsko-mazurskie,88,167311
+3001011,Chodzież,miejska,powiat chodzieski,wielkopolskie,13,17321
+3001032,Chodzież,wiejska,powiat chodzieski,wielkopolskie,213,6146
+3001023,Budzyń,miejsko-wiejska,powiat chodzieski,wielkopolskie,209,8290
+3001043,Margonin,miejsko-wiejska,powiat chodzieski,wielkopolskie,123,6302
+3001053,Szamocin,miejsko-wiejska,powiat chodzieski,wielkopolskie,127,7147
+3002011,Czarnków,miejska,powiat czarnkowsko-trzcianecki,wielkopolskie,10,9916
+3002022,Czarnków,wiejska,powiat czarnkowsko-trzcianecki,wielkopolskie,348,11188
+3002032,Drawsko,wiejska,powiat czarnkowsko-trzcianecki,wielkopolskie,163,5566
+3002052,Lubasz,wiejska,powiat czarnkowsko-trzcianecki,wielkopolskie,167,7520
+3002062,Połajewo,wiejska,powiat czarnkowsko-trzcianecki,wielkopolskie,142,5958
+3002043,Krzyż Wielkopolski,miejsko-wiejska,powiat czarnkowsko-trzcianecki,wielkopolskie,174,8237
+3002073,Trzcianka,miejsko-wiejska,powiat czarnkowsko-trzcianecki,wielkopolskie,374,23382
+3002083,Wieleń,miejsko-wiejska,powiat czarnkowsko-trzcianecki,wielkopolskie,430,11675
+3003011,Gniezno,miejska,powiat gnieźnieński,wielkopolskie,41,63549
+3003032,Gniezno,wiejska,powiat gnieźnieński,wielkopolskie,178,14579
+3003042,Kiszkowo,wiejska,powiat gnieźnieński,wielkopolskie,114,5138
+3003062,Łubowo,wiejska,powiat gnieźnieński,wielkopolskie,114,7300
+3003072,Mieleszyn,wiejska,powiat gnieźnieński,wielkopolskie,99,3672
+3003082,Niechanowo,wiejska,powiat gnieźnieński,wielkopolskie,106,5959
+3003023,Czerniejewo,miejsko-wiejska,powiat gnieźnieński,wielkopolskie,112,7261
+3003053,Kłecko,miejsko-wiejska,powiat gnieźnieński,wielkopolskie,132,7112
+3003093,Trzemeszno,miejsko-wiejska,powiat gnieźnieński,wielkopolskie,175,13703
+3003103,Witkowo,miejsko-wiejska,powiat gnieźnieński,wielkopolskie,184,13030
+3004042,Pępowo,wiejska,powiat gostyński,wielkopolskie,87,5729
+3004052,Piaski,wiejska,powiat gostyński,wielkopolskie,101,8239
+3004013,Borek Wielkopolski,miejsko-wiejska,powiat gostyński,wielkopolskie,128,7032
+3004023,Gostyń,miejsko-wiejska,powiat gostyński,wielkopolskie,137,27763
+3004033,Krobia,miejsko-wiejska,powiat gostyński,wielkopolskie,129,12609
+3004063,Pogorzela,miejsko-wiejska,powiat gostyński,wielkopolskie,96,4668
+3004073,Poniec,miejsko-wiejska,powiat gostyński,wielkopolskie,132,7476
+3005012,Granowo,wiejska,powiat grodziski,wielkopolskie,68,5051
+3005032,Kamieniec,wiejska,powiat grodziski,wielkopolskie,132,6210
+3005023,Grodzisk Wielkopolski,miejsko-wiejska,powiat grodziski,wielkopolskie,135,20372
+3005043,Rakoniewice,miejsko-wiejska,powiat grodziski,wielkopolskie,201,13254
+3005053,Wielichowo,miejsko-wiejska,powiat grodziski,wielkopolskie,108,6673
+3006032,Kotlin,wiejska,powiat jarociński,wielkopolskie,84,6937
+3006013,Jaraczewo,miejsko-wiejska,powiat jarociński,wielkopolskie,133,7599
+3006023,Jarocin,miejsko-wiejska,powiat jarociński,wielkopolskie,200,45466
+3006043,Żerków,miejsko-wiejska,powiat jarociński,wielkopolskie,171,9747
+3007012,Blizanów,wiejska,powiat kaliski,wielkopolskie,158,10089
+3007022,Brzeziny,wiejska,powiat kaliski,wielkopolskie,127,5726
+3007032,Ceków-Kolonia,wiejska,powiat kaliski,wielkopolskie,88,4734
+3007042,Godziesze Wielkie,wiejska,powiat kaliski,wielkopolskie,105,10174
+3007062,Lisków,wiejska,powiat kaliski,wielkopolskie,76,5136
+3007072,Mycielin,wiejska,powiat kaliski,wielkopolskie,111,4632
+3007102,Szczytniki,wiejska,powiat kaliski,wielkopolskie,111,7550
+3007112,Żelazków,wiejska,powiat kaliski,wielkopolskie,114,9614
+3007053,Koźminek,miejsko-wiejska,powiat kaliski,wielkopolskie,88,7315
+3007083,Opatówek,miejsko-wiejska,powiat kaliski,wielkopolskie,104,10624
+3007093,Stawiszyn,miejsko-wiejska,powiat kaliski,wielkopolskie,78,6621
+3008012,Baranów,wiejska,powiat kępiński,wielkopolskie,74,8261
+3008022,Bralin,wiejska,powiat kępiński,wielkopolskie,85,6099
+3008042,Łęka Opatowska,wiejska,powiat kępiński,wielkopolskie,78,5159
+3008052,Perzów,wiejska,powiat kępiński,wielkopolskie,75,3763
+3008072,Trzcinica,wiejska,powiat kępiński,wielkopolskie,75,4927
+3008033,Kępno,miejsko-wiejska,powiat kępiński,wielkopolskie,124,24119
+3008063,Rychtal,miejsko-wiejska,powiat kępiński,wielkopolskie,97,3596
+3009011,Koło,miejska,powiat kolski,wielkopolskie,14,19417
+3009022,Babiak,wiejska,powiat kolski,wielkopolskie,134,7351
+3009032,Chodów,wiejska,powiat kolski,wielkopolskie,78,2799
+3009052,Grzegorzew,wiejska,powiat kolski,wielkopolskie,73,5350
+3009072,Koło,wiejska,powiat kolski,wielkopolskie,103,7990
+3009082,Kościelec,wiejska,powiat kolski,wielkopolskie,105,6773
+3009092,Olszówka,wiejska,powiat kolski,wielkopolskie,82,4127
+3009102,Osiek Mały,wiejska,powiat kolski,wielkopolskie,87,6289
+3009043,Dąbie,miejsko-wiejska,powiat kolski,wielkopolskie,130,5730
+3009063,Kłodawa,miejsko-wiejska,powiat kolski,wielkopolskie,129,11820
+3009113,Przedecz,miejsko-wiejska,powiat kolski,wielkopolskie,76,3916
+3010022,Grodziec,wiejska,powiat koniński,wielkopolskie,118,4949
+3010032,Kazimierz Biskupi,wiejska,powiat koniński,wielkopolskie,108,11535
+3010052,Kramsk,wiejska,powiat koniński,wielkopolskie,132,11639
+3010062,Krzymów,wiejska,powiat koniński,wielkopolskie,92,8312
+3010082,Rzgów,wiejska,powiat koniński,wielkopolskie,105,7127
+3010092,Skulsk,wiejska,powiat koniński,wielkopolskie,85,5716
+3010112,Stare Miasto,wiejska,powiat koniński,wielkopolskie,98,12943
+3010132,Wierzbinek,wiejska,powiat koniński,wielkopolskie,148,6915
+3010142,Wilczyn,wiejska,powiat koniński,wielkopolskie,83,5788
+3010013,Golina,miejsko-wiejska,powiat koniński,wielkopolskie,99,12332
+3010043,Kleczew,miejsko-wiejska,powiat koniński,wielkopolskie,110,9608
+3010073,Rychwał,miejsko-wiejska,powiat koniński,wielkopolskie,118,7982
+3010103,Sompolno,miejsko-wiejska,powiat koniński,wielkopolskie,137,10054
+3010123,Ślesin,miejsko-wiejska,powiat koniński,wielkopolskie,145,13937
+3011011,Kościan,miejska,powiat kościański,wielkopolskie,9,23398
+3011032,Kościan,wiejska,powiat kościański,wielkopolskie,202,15896
+3011023,Czempiń,miejsko-wiejska,powiat kościański,wielkopolskie,142,11435
+3011043,Krzywiń,miejsko-wiejska,powiat kościański,wielkopolskie,179,9480
+3011053,Śmigiel,miejsko-wiejska,powiat kościański,wielkopolskie,190,17030
+3012011,Sulmierzyce,miejska,powiat krotoszyński,wielkopolskie,29,2722
+3012052,Rozdrażew,wiejska,powiat krotoszyński,wielkopolskie,80,4934
+3012023,Kobylin,miejsko-wiejska,powiat krotoszyński,wielkopolskie,112,7683
+3012033,Koźmin Wielkopolski,miejsko-wiejska,powiat krotoszyński,wielkopolskie,152,12567
+3012043,Krotoszyn,miejsko-wiejska,powiat krotoszyński,wielkopolskie,256,39389
+3012063,Zduny,miejsko-wiejska,powiat krotoszyński,wielkopolskie,85,7626
+3013012,Krzemieniewo,wiejska,powiat leszczyński,wielkopolskie,113,7774
+3013022,Lipno,wiejska,powiat leszczyński,wielkopolskie,104,9918
+3013052,Święciechowa,wiejska,powiat leszczyński,wielkopolskie,135,8741
+3013062,Wijewo,wiejska,powiat leszczyński,wielkopolskie,62,3728
+3013072,Włoszakowice,wiejska,powiat leszczyński,wielkopolskie,128,9936
+3013033,Osieczna,miejsko-wiejska,powiat leszczyński,wielkopolskie,129,9335
+3013043,Rydzyna,miejsko-wiejska,powiat leszczyński,wielkopolskie,135,10585
+3014012,Chrzypsko Wielkie,wiejska,powiat międzychodzki,wielkopolskie,84,3194
+3014022,Kwilcz,wiejska,powiat międzychodzki,wielkopolskie,142,6080
+3014033,Międzychód,miejsko-wiejska,powiat międzychodzki,wielkopolskie,307,17828
+3014043,Sieraków,miejsko-wiejska,powiat międzychodzki,wielkopolskie,203,8491
+3015012,Kuślin,wiejska,powiat nowotomyski,wielkopolskie,106,5150
+3015032,Miedzichowo,wiejska,powiat nowotomyski,wielkopolskie,209,3893
+3015023,Lwówek,miejsko-wiejska,powiat nowotomyski,wielkopolskie,184,8722
+3015043,Nowy Tomyśl,miejsko-wiejska,powiat nowotomyski,wielkopolskie,186,27759
+3015053,Opalenica,miejsko-wiejska,powiat nowotomyski,wielkopolskie,147,15987
+3015063,Zbąszyń,miejsko-wiejska,powiat nowotomyski,wielkopolskie,180,13667
+3016032,Ryczywół,wiejska,powiat obornicki,wielkopolskie,155,6802
+3016013,Oborniki,miejsko-wiejska,powiat obornicki,wielkopolskie,340,34098
+3016023,Rogoźno,miejsko-wiejska,powiat obornicki,wielkopolskie,216,17912
+3017011,Ostrów Wielkopolski,miejska,powiat ostrowski,wielkopolskie,42,69260
+3017042,Ostrów Wielkopolski,wiejska,powiat ostrowski,wielkopolskie,208,19389
+3017052,Przygodzice,wiejska,powiat ostrowski,wielkopolskie,163,12416
+3017072,Sieroszewice,wiejska,powiat ostrowski,wielkopolskie,163,9298
+3017082,Sośnie,wiejska,powiat ostrowski,wielkopolskie,188,6247
+3017023,Nowe Skalmierzyce,miejsko-wiejska,powiat ostrowski,wielkopolskie,125,15985
+3017033,Odolanów,miejsko-wiejska,powiat ostrowski,wielkopolskie,136,14458
+3017063,Raszków,miejsko-wiejska,powiat ostrowski,wielkopolskie,135,11433
+3018012,Czajków,wiejska,powiat ostrzeszowski,wielkopolskie,71,2455
+3018022,Doruchów,wiejska,powiat ostrzeszowski,wielkopolskie,100,5050
+3018042,Kobyla Góra,wiejska,powiat ostrzeszowski,wielkopolskie,129,6239
+3018052,Kraszewice,wiejska,powiat ostrzeszowski,wielkopolskie,75,3523
+3018033,Grabów nad Prosną,miejsko-wiejska,powiat ostrzeszowski,wielkopolskie,124,7708
+3018063,Mikstat,miejsko-wiejska,powiat ostrzeszowski,wielkopolskie,87,5824
+3018073,Ostrzeszów,miejsko-wiejska,powiat ostrzeszowski,wielkopolskie,187,23767
+3019011,Piła,miejska,powiat pilski,wielkopolskie,103,70054
+3019022,Białośliwie,wiejska,powiat pilski,wielkopolskie,75,4504
+3019062,Szydłowo,wiejska,powiat pilski,wielkopolskie,267,9748
+3019033,Kaczory,miejsko-wiejska,powiat pilski,wielkopolskie,151,7466
+3019043,Łobżenica,miejsko-wiejska,powiat pilski,wielkopolskie,191,9008
+3019053,Miasteczko Krajeńskie,miejsko-wiejska,powiat pilski,wielkopolskie,71,3034
+3019073,Ujście,miejsko-wiejska,powiat pilski,wielkopolskie,126,7593
+3019083,Wyrzysk,miejsko-wiejska,powiat pilski,wielkopolskie,159,13048
+3019093,Wysoka,miejsko-wiejska,powiat pilski,wielkopolskie,123,6070
+3020022,Czermin,wiejska,powiat pleszewski,wielkopolskie,98,4799
+3020042,Gizałki,wiejska,powiat pleszewski,wielkopolskie,108,4417
+3020052,Gołuchów,wiejska,powiat pleszewski,wielkopolskie,136,11020
+3020013,Chocz,miejsko-wiejska,powiat pleszewski,wielkopolskie,74,4395
+3020033,Dobrzyca,miejsko-wiejska,powiat pleszewski,wielkopolskie,117,7629
+3020063,Pleszew,miejsko-wiejska,powiat pleszewski,wielkopolskie,180,28991
+3021011,Luboń,miejska,powiat poznański,wielkopolskie,14,32835
+3021021,Puszczykowo,miejska,powiat poznański,wielkopolskie,16,9292
+3021042,Czerwonak,wiejska,powiat poznański,wielkopolskie,83,28065
+3021052,Dopiewo,wiejska,powiat poznański,wielkopolskie,108,35781
+3021062,Kleszczewo,wiejska,powiat poznański,wielkopolskie,74,11641
+3021072,Komorniki,wiejska,powiat poznański,wielkopolskie,66,36715
+3021132,Rokietnica,wiejska,powiat poznański,wielkopolskie,79,24144
+3021152,Suchy Las,wiejska,powiat poznański,wielkopolskie,116,20659
+3021172,Tarnowo Podgórne,wiejska,powiat poznański,wielkopolskie,102,33585
+3021033,Buk,miejsko-wiejska,powiat poznański,wielkopolskie,91,12888
+3021083,Kostrzyn,miejsko-wiejska,powiat poznański,wielkopolskie,155,20311
+3021093,Kórnik,miejsko-wiejska,powiat poznański,wielkopolskie,186,36665
+3021103,Mosina,miejsko-wiejska,powiat poznański,wielkopolskie,172,35478
+3021113,Murowana Goślina,miejsko-wiejska,powiat poznański,wielkopolskie,172,17054
+3021123,Pobiedziska,miejsko-wiejska,powiat poznański,wielkopolskie,189,21362
+3021143,Stęszew,miejsko-wiejska,powiat poznański,wielkopolskie,175,15538
+3021163,Swarzędz,miejsko-wiejska,powiat poznański,wielkopolskie,102,56650
+3022042,Pakosław,wiejska,powiat rawicki,wielkopolskie,78,4788
+3022013,Bojanowo,miejsko-wiejska,powiat rawicki,wielkopolskie,123,8189
+3022023,Jutrosin,miejsko-wiejska,powiat rawicki,wielkopolskie,115,6879
+3022033,Miejska Górka,miejsko-wiejska,powiat rawicki,wielkopolskie,103,8817
+3022053,Rawicz,miejsko-wiejska,powiat rawicki,wielkopolskie,134,29928
+3023011,Słupca,miejska,powiat słupecki,wielkopolskie,10,12952
+3023022,Lądek,wiejska,powiat słupecki,wielkopolskie,99,5447
+3023032,Orchowo,wiejska,powiat słupecki,wielkopolskie,98,3569
+3023042,Ostrowite,wiejska,powiat słupecki,wielkopolskie,103,4757
+3023052,Powidz,wiejska,powiat słupecki,wielkopolskie,81,2230
+3023062,Słupca,wiejska,powiat słupecki,wielkopolskie,145,9885
+3023072,Strzałkowo,wiejska,powiat słupecki,wielkopolskie,142,9934
+3023083,Zagórów,miejsko-wiejska,powiat słupecki,wielkopolskie,160,8490
+3024011,Obrzycko,miejska,powiat szamotulski,wielkopolskie,4,2391
+3024022,Duszniki,wiejska,powiat szamotulski,wielkopolskie,156,9616
+3024032,Kaźmierz,wiejska,powiat szamotulski,wielkopolskie,128,9434
+3024042,Obrzycko,wiejska,powiat szamotulski,wielkopolskie,111,4425
+3024053,Ostroróg,miejsko-wiejska,powiat szamotulski,wielkopolskie,85,4723
+3024063,Pniewy,miejsko-wiejska,powiat szamotulski,wielkopolskie,158,12375
+3024073,Szamotuły,miejsko-wiejska,powiat szamotulski,wielkopolskie,175,29986
+3024083,Wronki,miejsko-wiejska,powiat szamotulski,wielkopolskie,302,18709
+3025012,Dominowo,wiejska,powiat średzki,wielkopolskie,79,3443
+3025022,Krzykosy,wiejska,powiat średzki,wielkopolskie,111,7340
+3025032,Nowe Miasto nad Wartą,wiejska,powiat średzki,wielkopolskie,119,8586
+3025052,Zaniemyśl,wiejska,powiat średzki,wielkopolskie,107,6905
+3025043,Środa Wielkopolska,miejsko-wiejska,powiat średzki,wielkopolskie,207,33680
+3026012,Brodnica,wiejska,powiat śremski,wielkopolskie,96,4743
+3026023,Dolsk,miejsko-wiejska,powiat śremski,wielkopolskie,124,5781
+3026033,Książ Wielkopolski,miejsko-wiejska,powiat śremski,wielkopolskie,148,8044
+3026043,Śrem,miejsko-wiejska,powiat śremski,wielkopolskie,206,42476
+3027011,Turek,miejska,powiat turecki,wielkopolskie,16,24463
+3027022,Brudzew,wiejska,powiat turecki,wielkopolskie,113,5909
+3027042,Kawęczyn,wiejska,powiat turecki,wielkopolskie,101,4915
+3027052,Malanów,wiejska,powiat turecki,wielkopolskie,107,6440
+3027062,Przykona,wiejska,powiat turecki,wielkopolskie,111,4630
+3027082,Turek,wiejska,powiat turecki,wielkopolskie,109,10746
+3027092,Władysławów,wiejska,powiat turecki,wielkopolskie,91,7898
+3027033,Dobra,miejsko-wiejska,powiat turecki,wielkopolskie,132,5833
+3027073,Tuliszków,miejsko-wiejska,powiat turecki,wielkopolskie,150,10156
+3028011,Wągrowiec,miejska,powiat wągrowiecki,wielkopolskie,18,25398
+3028022,Damasławek,wiejska,powiat wągrowiecki,wielkopolskie,105,4985
+3028062,Wapno,wiejska,powiat wągrowiecki,wielkopolskie,44,2676
+3028072,Wągrowiec,wiejska,powiat wągrowiecki,wielkopolskie,348,12316
+3028033,Gołańcz,miejsko-wiejska,powiat wągrowiecki,wielkopolskie,192,7771
+3028043,Mieścisko,miejsko-wiejska,powiat wągrowiecki,wielkopolskie,135,5681
+3028053,Skoki,miejsko-wiejska,powiat wągrowiecki,wielkopolskie,198,10180
+3029012,Przemęt,wiejska,powiat wolsztyński,wielkopolskie,225,13998
+3029022,Siedlec,wiejska,powiat wolsztyński,wielkopolskie,205,12460
+3029033,Wolsztyn,miejsko-wiejska,powiat wolsztyński,wielkopolskie,250,30214
+3030012,Kołaczkowo,wiejska,powiat wrzesiński,wielkopolskie,116,5587
+3030023,Miłosław,miejsko-wiejska,powiat wrzesiński,wielkopolskie,132,9837
+3030033,Nekla,miejsko-wiejska,powiat wrzesiński,wielkopolskie,96,7916
+3030043,Pyzdry,miejsko-wiejska,powiat wrzesiński,wielkopolskie,138,6491
+3030053,Września,miejsko-wiejska,powiat wrzesiński,wielkopolskie,222,48392
+3031011,Złotów,miejska,powiat złotowski,wielkopolskie,12,18138
+3031042,Lipka,wiejska,powiat złotowski,wielkopolskie,191,5299
+3031062,Tarnówka,wiejska,powiat złotowski,wielkopolskie,133,2969
+3031072,Zakrzewo,wiejska,powiat złotowski,wielkopolskie,162,4833
+3031082,Złotów,wiejska,powiat złotowski,wielkopolskie,292,9979
+3031023,Jastrowie,miejsko-wiejska,powiat złotowski,wielkopolskie,353,10806
+3031033,Krajenka,miejsko-wiejska,powiat złotowski,wielkopolskie,192,7366
+3031053,Okonek,miejsko-wiejska,powiat złotowski,wielkopolskie,326,7911
+3061011,Kalisz,miejska,powiat m. Kalisz,wielkopolskie,69,93137
+3062011,Konin,miejska,powiat m. Konin,wielkopolskie,82,67066
+3063011,Leszno,miejska,powiat m. Leszno,wielkopolskie,32,60051
+3064011,Poznań,miejska,powiat m. Poznań,wielkopolskie,262,538439
+3201011,Białogard,miejska,powiat białogardzki,zachodniopomorskie,26,22418
+3201022,Białogard,wiejska,powiat białogardzki,zachodniopomorskie,328,7253
+3201033,Karlino,miejsko-wiejska,powiat białogardzki,zachodniopomorskie,141,8492
+3201043,Tychowo,miejsko-wiejska,powiat białogardzki,zachodniopomorskie,350,6210
+3202012,Bierzwnik,wiejska,powiat choszczeński,zachodniopomorskie,239,4322
+3202042,Krzęcin,wiejska,powiat choszczeński,zachodniopomorskie,140,3244
+3202023,Choszczno,miejsko-wiejska,powiat choszczeński,zachodniopomorskie,247,20111
+3202033,Drawno,miejsko-wiejska,powiat choszczeński,zachodniopomorskie,321,4606
+3202053,Pełczyce,miejsko-wiejska,powiat choszczeński,zachodniopomorskie,201,7177
+3202063,Recz,miejsko-wiejska,powiat choszczeński,zachodniopomorskie,180,4962
+3203052,Wierzchowo,wiejska,powiat drawski,zachodniopomorskie,229,4025
+3203013,Czaplinek,miejsko-wiejska,powiat drawski,zachodniopomorskie,365,11113
+3203023,Drawsko Pomorskie,miejsko-wiejska,powiat drawski,zachodniopomorskie,409,16321
+3203033,Kalisz Pomorski,miejsko-wiejska,powiat drawski,zachodniopomorskie,478,6839
+3203063,Złocieniec,miejsko-wiejska,powiat drawski,zachodniopomorskie,280,15218
+3204052,Osina,wiejska,powiat goleniowski,zachodniopomorskie,101,2897
+3204062,Przybiernów,wiejska,powiat goleniowski,zachodniopomorskie,229,4817
+3204023,Goleniów,miejsko-wiejska,powiat goleniowski,zachodniopomorskie,443,36986
+3204033,Maszewo,miejsko-wiejska,powiat goleniowski,zachodniopomorskie,210,8533
+3204043,Nowogard,miejsko-wiejska,powiat goleniowski,zachodniopomorskie,339,23428
+3204073,Stepnica,miejsko-wiejska,powiat goleniowski,zachodniopomorskie,293,4702
+3205012,Brojce,wiejska,powiat gryficki,zachodniopomorskie,118,3494
+3205032,Karnice,wiejska,powiat gryficki,zachodniopomorskie,133,3683
+3205072,Rewal,wiejska,powiat gryficki,zachodniopomorskie,43,3590
+3205023,Gryfice,miejsko-wiejska,powiat gryficki,zachodniopomorskie,261,22726
+3205043,Płoty,miejsko-wiejska,powiat gryficki,zachodniopomorskie,239,8068
+3205083,Trzebiatów,miejsko-wiejska,powiat gryficki,zachodniopomorskie,227,14874
+3206012,Banie,wiejska,powiat gryfiński,zachodniopomorskie,206,5763
+3206072,Stare Czarnowo,wiejska,powiat gryfiński,zachodniopomorskie,153,3672
+3206092,Widuchowa,wiejska,powiat gryfiński,zachodniopomorskie,209,4980
+3206023,Cedynia,miejsko-wiejska,powiat gryfiński,zachodniopomorskie,181,3933
+3206033,Chojna,miejsko-wiejska,powiat gryfiński,zachodniopomorskie,332,13094
+3206043,Gryfino,miejsko-wiejska,powiat gryfiński,zachodniopomorskie,254,30102
+3206053,Mieszkowice,miejsko-wiejska,powiat gryfiński,zachodniopomorskie,239,6501
+3206063,Moryń,miejsko-wiejska,powiat gryfiński,zachodniopomorskie,125,4112
+3206083,Trzcińsko-Zdrój,miejsko-wiejska,powiat gryfiński,zachodniopomorskie,170,4802
+3207052,Świerzno,wiejska,powiat kamieński,zachodniopomorskie,140,3966
+3207013,Dziwnów,miejsko-wiejska,powiat kamieński,zachodniopomorskie,40,3561
+3207023,Golczewo,miejsko-wiejska,powiat kamieński,zachodniopomorskie,175,5504
+3207033,Kamień Pomorski,miejsko-wiejska,powiat kamieński,zachodniopomorskie,209,13431
+3207043,Międzyzdroje,miejsko-wiejska,powiat kamieński,zachodniopomorskie,116,6028
+3207063,Wolin,miejsko-wiejska,powiat kamieński,zachodniopomorskie,328,11647
+3208011,Kołobrzeg,miejska,powiat kołobrzeski,zachodniopomorskie,27,43426
+3208022,Dygowo,wiejska,powiat kołobrzeski,zachodniopomorskie,129,5341
+3208042,Kołobrzeg,wiejska,powiat kołobrzeski,zachodniopomorskie,145,11242
+3208052,Rymań,wiejska,powiat kołobrzeski,zachodniopomorskie,146,3649
+3208062,Siemyśl,wiejska,powiat kołobrzeski,zachodniopomorskie,107,3995
+3208072,Ustronie Morskie,wiejska,powiat kołobrzeski,zachodniopomorskie,58,3744
+3208033,Gościno,miejsko-wiejska,powiat kołobrzeski,zachodniopomorskie,116,5324
+3209012,Będzino,wiejska,powiat koszaliński,zachodniopomorskie,166,8550
+3209022,Biesiekierz,wiejska,powiat koszaliński,zachodniopomorskie,113,6746
+3209042,Manowo,wiejska,powiat koszaliński,zachodniopomorskie,185,5735
+3209082,Świeszyno,wiejska,powiat koszaliński,zachodniopomorskie,132,8564
+3209033,Bobolice,miejsko-wiejska,powiat koszaliński,zachodniopomorskie,368,8249
+3209053,Mielno,miejsko-wiejska,powiat koszaliński,zachodniopomorskie,57,4630
+3209063,Polanów,miejsko-wiejska,powiat koszaliński,zachodniopomorskie,393,8004
+3209073,Sianów,miejsko-wiejska,powiat koszaliński,zachodniopomorskie,234,13972
+3218032,Radowo Małe,wiejska,powiat łobeski,zachodniopomorskie,181,3188
+3218013,Dobra,miejsko-wiejska,powiat łobeski,zachodniopomorskie,116,3852
+3218023,Łobez,miejsko-wiejska,powiat łobeski,zachodniopomorskie,227,12807
+3218043,Resko,miejsko-wiejska,powiat łobeski,zachodniopomorskie,285,7227
+3218053,Węgorzyno,miejsko-wiejska,powiat łobeski,zachodniopomorskie,256,6320
+3210022,Boleszkowice,wiejska,powiat myśliborski,zachodniopomorskie,130,2741
+3210052,Nowogródek Pomorski,wiejska,powiat myśliborski,zachodniopomorskie,146,3307
+3210013,Barlinek,miejsko-wiejska,powiat myśliborski,zachodniopomorskie,259,18300
+3210033,Dębno,miejsko-wiejska,powiat myśliborski,zachodniopomorskie,318,19339
+3210043,Myślibórz,miejsko-wiejska,powiat myśliborski,zachodniopomorskie,329,18537
+3211012,Dobra (Szczecińska),wiejska,powiat policki,zachodniopomorskie,110,30056
+3211022,Kołbaskowo,wiejska,powiat policki,zachodniopomorskie,105,15321
+3211033,Nowe Warpno,miejsko-wiejska,powiat policki,zachodniopomorskie,197,1518
+3211043,Police,miejsko-wiejska,powiat policki,zachodniopomorskie,252,39022
+3212012,Bielice,wiejska,powiat pyrzycki,zachodniopomorskie,84,2917
+3212022,Kozielice,wiejska,powiat pyrzycki,zachodniopomorskie,95,2357
+3212042,Przelewice,wiejska,powiat pyrzycki,zachodniopomorskie,162,4480
+3212062,Warnice,wiejska,powiat pyrzycki,zachodniopomorskie,86,3029
+3212033,Lipiany,miejsko-wiejska,powiat pyrzycki,zachodniopomorskie,95,5465
+3212053,Pyrzyce,miejsko-wiejska,powiat pyrzycki,zachodniopomorskie,204,18165
+3213011,Darłowo,miejska,powiat sławieński,zachodniopomorskie,20,12512
+3213021,Sławno,miejska,powiat sławieński,zachodniopomorskie,16,11777
+3213032,Darłowo,wiejska,powiat sławieński,zachodniopomorskie,269,7596
+3213042,Malechowo,wiejska,powiat sławieński,zachodniopomorskie,227,5935
+3213052,Postomino,wiejska,powiat sławieński,zachodniopomorskie,227,6785
+3213062,Sławno,wiejska,powiat sławieński,zachodniopomorskie,284,8298
+3214011,Stargard,miejska,powiat stargardzki,zachodniopomorskie,48,66604
+3214042,Dolice,wiejska,powiat stargardzki,zachodniopomorskie,237,7057
+3214062,Kobylanka,wiejska,powiat stargardzki,zachodniopomorskie,122,6554
+3214082,Marianowo,wiejska,powiat stargardzki,zachodniopomorskie,102,2886
+3214092,Stara Dąbrowa,wiejska,powiat stargardzki,zachodniopomorskie,112,3540
+3214102,Stargard,wiejska,powiat stargardzki,zachodniopomorskie,319,15317
+3214023,Chociwel,miejsko-wiejska,powiat stargardzki,zachodniopomorskie,161,5466
+3214033,Dobrzany,miejsko-wiejska,powiat stargardzki,zachodniopomorskie,135,4509
+3214053,Ińsko,miejsko-wiejska,powiat stargardzki,zachodniopomorskie,154,3093
+3214113,Suchań,miejsko-wiejska,powiat stargardzki,zachodniopomorskie,133,4064
+3215011,Szczecinek,miejska,powiat szczecinecki,zachodniopomorskie,48,37557
+3215052,Grzmiąca,wiejska,powiat szczecinecki,zachodniopomorskie,205,4290
+3215062,Szczecinek,wiejska,powiat szczecinecki,zachodniopomorskie,499,8856
+3215023,Barwice,miejsko-wiejska,powiat szczecinecki,zachodniopomorskie,259,7831
+3215033,Biały Bór,miejsko-wiejska,powiat szczecinecki,zachodniopomorskie,270,4971
+3215043,Borne Sulinowo,miejsko-wiejska,powiat szczecinecki,zachodniopomorskie,485,9212
+3216011,Świdwin,miejska,powiat świdwiński,zachodniopomorskie,22,14547
+3216022,Brzeżno,wiejska,powiat świdwiński,zachodniopomorskie,111,2573
+3216042,Rąbino,wiejska,powiat świdwiński,zachodniopomorskie,180,3267
+3216052,Sławoborze,wiejska,powiat świdwiński,zachodniopomorskie,189,3802
+3216062,Świdwin,wiejska,powiat świdwiński,zachodniopomorskie,247,5324
+3216033,Połczyn-Zdrój,miejsko-wiejska,powiat świdwiński,zachodniopomorskie,344,13724
+3217011,Wałcz,miejska,powiat wałecki,zachodniopomorskie,38,23578
+3217052,Wałcz,wiejska,powiat wałecki,zachodniopomorskie,575,12089
+3217023,Człopa,miejsko-wiejska,powiat wałecki,zachodniopomorskie,349,4547
+3217033,Mirosławiec,miejsko-wiejska,powiat wałecki,zachodniopomorskie,203,5328
+3217043,Tuczno,miejsko-wiejska,powiat wałecki,zachodniopomorskie,250,4461
+3261011,Koszalin,miejska,powiat m. Koszalin,zachodniopomorskie,106,105540
+3262011,Szczecin,miejska,powiat m. Szczecin,zachodniopomorskie,301,389066
+3263011,Świnoujście,miejska,powiat m. Świnoujście,zachodniopomorskie,202,38904

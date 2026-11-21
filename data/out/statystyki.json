@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T12:07:55+01:00",
+  "generated_at": "2026-11-21T16:43:24+01:00",
   "total": 18309,
   "official_records": 74,
   "osm_records": 18293,
@@ -9,7 +9,7 @@
   "public_access": 7937,
   "missing_hours": 11532,
   "verified_last_year": 3223,
-  "avg_quality": 44.6,
+  "avg_quality": 56.1,
   "per_voivodeship": {
     "mazowieckie": 2438,
     "wielkopolskie": 2274,
@@ -41,12 +41,12 @@
     "szerokosc_geograficzna": 100.0,
     "dlugosc_geograficzna": 100.0,
     "wojewodztwo": 100.0,
-    "kod_teryt_gminy": 0.0,
-    "miejscowosc": 0.9,
-    "kod_simc": 0.2,
-    "ulica": 0.8,
-    "nr_budynku": 0.9,
-    "kod_pocztowy": 0.6,
+    "kod_teryt_gminy": 100.0,
+    "miejscowosc": 95.9,
+    "kod_simc": 95.2,
+    "ulica": 76.6,
+    "nr_budynku": 96.1,
+    "kod_pocztowy": 95.8,
     "lokalizacja_opis": 92.2,
     "kondygnacja": 20.1,
     "wewnatrz_budynku": 87.2,
@@ -344,5 +344,147 @@
       "url": "https://dane.gov.pl/pl/dataset/39512",
       "reason": "zasób wskazuje na API dane.um.warszawa.pl, które było niedostępne z sieci prototypu; 113 rekordów OSM ma już powiązanie ref:api-um-warszawa-pl"
     }
-  ]
+  ],
+  "pokrycie": {
+    "zrodlo_ludnosci": "GUS, Powierzchnia i ludność w przekroju terytorialnym w 2024 roku, Tabl. 21 (stan na 1.01.2024), https://stat.gov.pl/obszary-tematyczne/ludnosc/ludnosc/powierzchnia-i-ludnosc-w-przekroju-terytorialnym-w-2024-roku,7,21.html",
+    "gminy": 2477,
+    "gminy_bez_aed": 363,
+    "ludnosc_w_gminach_bez_aed": 1885167,
+    "ludnosc": 37636508,
+    "aed_przypisane": 18256,
+    "aed_bez_gminy": 53,
+    "aed_na_10_tys": 4.85,
+    "wojewodztwa": [
+      {
+        "wojewodztwo": "wielkopolskie",
+        "ludnosc": 3487973,
+        "aed": 2267,
+        "gminy": 226,
+        "gminy_bez_aed": 14,
+        "aed_na_10_tys": 6.5
+      },
+      {
+        "wojewodztwo": "podkarpackie",
+        "ludnosc": 2071676,
+        "aed": 1314,
+        "gminy": 160,
+        "gminy_bez_aed": 10,
+        "aed_na_10_tys": 6.34
+      },
+      {
+        "wojewodztwo": "zachodniopomorskie",
+        "ludnosc": 1631784,
+        "aed": 1010,
+        "gminy": 113,
+        "gminy_bez_aed": 10,
+        "aed_na_10_tys": 6.19
+      },
+      {
+        "wojewodztwo": "lubuskie",
+        "ludnosc": 975023,
+        "aed": 575,
+        "gminy": 82,
+        "gminy_bez_aed": 5,
+        "aed_na_10_tys": 5.9
+      },
+      {
+        "wojewodztwo": "dolnośląskie",
+        "ludnosc": 2879271,
+        "aed": 1514,
+        "gminy": 169,
+        "gminy_bez_aed": 19,
+        "aed_na_10_tys": 5.26
+      },
+      {
+        "wojewodztwo": "warmińsko-mazurskie",
+        "ludnosc": 1357910,
+        "aed": 691,
+        "gminy": 116,
+        "gminy_bez_aed": 19,
+        "aed_na_10_tys": 5.09
+      },
+      {
+        "wojewodztwo": "opolskie",
+        "ludnosc": 936725,
+        "aed": 472,
+        "gminy": 71,
+        "gminy_bez_aed": 2,
+        "aed_na_10_tys": 5.04
+      },
+      {
+        "wojewodztwo": "małopolskie",
+        "ludnosc": 3429632,
+        "aed": 1706,
+        "gminy": 182,
+        "gminy_bez_aed": 11,
+        "aed_na_10_tys": 4.97
+      },
+      {
+        "wojewodztwo": "pomorskie",
+        "ludnosc": 2359573,
+        "aed": 1155,
+        "gminy": 123,
+        "gminy_bez_aed": 6,
+        "aed_na_10_tys": 4.89
+      },
+      {
+        "wojewodztwo": "świętokrzyskie",
+        "ludnosc": 1168499,
+        "aed": 537,
+        "gminy": 102,
+        "gminy_bez_aed": 13,
+        "aed_na_10_tys": 4.6
+      },
+      {
+        "wojewodztwo": "mazowieckie",
+        "ludnosc": 5510527,
+        "aed": 2426,
+        "gminy": 314,
+        "gminy_bez_aed": 83,
+        "aed_na_10_tys": 4.4
+      },
+      {
+        "wojewodztwo": "łódzkie",
+        "ludnosc": 2362519,
+        "aed": 1005,
+        "gminy": 177,
+        "gminy_bez_aed": 34,
+        "aed_na_10_tys": 4.25
+      },
+      {
+        "wojewodztwo": "kujawsko-pomorskie",
+        "ludnosc": 1996003,
+        "aed": 814,
+        "gminy": 144,
+        "gminy_bez_aed": 27,
+        "aed_na_10_tys": 4.08
+      },
+      {
+        "wojewodztwo": "śląskie",
+        "ludnosc": 4320130,
+        "aed": 1725,
+        "gminy": 167,
+        "gminy_bez_aed": 8,
+        "aed_na_10_tys": 3.99
+      },
+      {
+        "wojewodztwo": "lubelskie",
+        "ludnosc": 2011047,
+        "aed": 697,
+        "gminy": 213,
+        "gminy_bez_aed": 64,
+        "aed_na_10_tys": 3.47
+      },
+      {
+        "wojewodztwo": "podlaskie",
+        "ludnosc": 1138216,
+        "aed": 348,
+        "gminy": 118,
+        "gminy_bez_aed": 38,
+        "aed_na_10_tys": 3.06
+      }
+    ],
+    "powiaty_na_mapie": 380
+  },
+  "adresy_z_prg": 17433
 }

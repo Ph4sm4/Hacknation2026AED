@@ -113,7 +113,7 @@ def get_aed(aed_id: str):
         raise HTTPException(404, "Nie znaleziono AED")
     with db.connect() as c:
         reps = [dict(x) for x in c.execute(
-            "SELECT kind, comment, created_at FROM reports WHERE aed_id=? ORDER BY id DESC LIMIT 20", (aed_id,))]
+            "SELECT kind, comment, status, created_at FROM reports WHERE aed_id=? ORDER BY id DESC LIMIT 20", (aed_id,))]
     return {**store.with_live(r), "zgloszenia": reps}
 
 
@@ -131,6 +131,75 @@ def report(aed_id: str, body: ReportIn):
     return {"ok": True}
 
 
+# ============================================================================ moderation
+REPORT_STATUS = Literal["nowe", "przyjete", "odrzucone"]
+
+
+def _aed_summary(aed_id: str) -> dict | None:
+    r = store.by_id.get(aed_id)
+    if not r:
+        return None
+    adres = " ".join(x for x in (r["ulica"], r["nr_budynku"]) if x)
+    return {
+        "id": r["id"], "nazwa": r["nazwa"] or r["lokalizacja_opis"] or "Defibrylator AED",
+        "adres": ", ".join(x for x in (adres, r["miejscowosc"]) if x), "lokalizacja_opis": r["lokalizacja_opis"],
+        "lat": r["szerokosc_geograficzna"], "lon": r["dlugosc_geograficzna"], "wojewodztwo": r["wojewodztwo"],
+        "dysponent_nazwa": r["dysponent_nazwa"], "kontakt_email": r["kontakt_email"],
+        "kontakt_telefon": r["kontakt_telefon"], "zrodla": r["zrodla"], "osm_id": r["osm_id"],
+    }
+
+
+@app.get("/api/moderation/reports", tags=["moderacja"], summary="Kolejka zgłoszeń mieszkańców")
+def moderation_queue(status: REPORT_STATUS | Literal["wszystkie"] = "nowe", limit: int = Query(100, ge=1, le=500),
+                     _: dict = Depends(auth.require_moderator)):
+    with db.connect() as c:
+        counts = {r[0]: r[1] for r in c.execute("SELECT status, COUNT(*) FROM reports GROUP BY status")}
+        where, args = ("", ()) if status == "wszystkie" else ("WHERE r.status=?", (status,))
+        rows = [dict(x) for x in c.execute(
+            "SELECT r.id, r.aed_id, r.kind, r.comment, r.status, r.created_at, r.moderator_note, r.moderated_at, "
+            "u.email AS moderated_by FROM reports r LEFT JOIN users u ON u.id = r.moderated_by "
+            f"{where} ORDER BY r.id DESC LIMIT ?", (*args, limit))]
+        pending = {r[0]: r[1] for r in c.execute(
+            "SELECT aed_id, COUNT(*) FROM reports WHERE status='nowe' GROUP BY aed_id")}
+    for r in rows:
+        r["aed"] = _aed_summary(r["aed_id"])
+        r["inne_nowe_dla_aed"] = max(0, pending.get(r["aed_id"], 0) - (r["status"] == "nowe"))
+    return {"counts": {k: counts.get(k, 0) for k in ("nowe", "przyjete", "odrzucone")}, "data": rows}
+
+
+class ModerationIn(BaseModel):
+    status: REPORT_STATUS
+    note: str = Field("", max_length=500)
+
+
+@app.post("/api/moderation/reports/{report_id}", tags=["moderacja"], summary="Przyjmij / odrzuć zgłoszenie")
+def moderate(report_id: int, body: ModerationIn, user: dict = Depends(auth.require_moderator)):
+    with db.connect() as c:
+        n = c.execute("UPDATE reports SET status=?, moderator_note=?, moderated_at=datetime('now'), moderated_by=? "
+                      "WHERE id=?", (body.status, body.note.strip(), user["id"], report_id)).rowcount
+    if not n:
+        raise HTTPException(404, "Nie ma takiego zgłoszenia")
+    store.load_moderation()
+    return {"ok": True, "id": report_id, "status": body.status}
+
+
+# ============================================================================ coverage
+@app.get("/api/coverage", tags=["pokrycie"], summary="Pokrycie AED w gminach (ranking, białe plamy)")
+def coverage():
+    f = OUT / "pokrycie_gmin.json"
+    if not f.exists():
+        raise HTTPException(404, "Brak danych o pokryciu – uruchom pipeline (make data)")
+    return JSONResponse(json.loads(f.read_text(encoding="utf-8")))
+
+
+@app.get("/api/coverage/powiaty.geojson", tags=["pokrycie"], summary="Pokrycie AED w powiatach (mapa)")
+def coverage_counties():
+    f = OUT / "pokrycie_powiatow.geojson"
+    if not f.exists():
+        raise HTTPException(404, "Brak danych o pokryciu – uruchom pipeline (make data)")
+    return FileResponse(f, media_type="application/geo+json")
+
+
 DOWNLOADS = {
     "aed_polska.csv": ("aed_polska.csv", "text/csv; charset=utf-8"),
     "aed_polska.xlsx": ("aed_polska.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"),
@@ -138,6 +207,7 @@ DOWNLOADS = {
     "aed_polska.json": ("aed_polska.json", "application/json"),
     "oficjalne.csv": ("aed_oficjalne.csv", "text/csv; charset=utf-8"),
     "statystyki.json": ("statystyki.json", "application/json"),
+    "pokrycie_gmin.csv": ("pokrycie_gmin.csv", "text/csv; charset=utf-8"),
 }
 
 
@@ -265,7 +335,8 @@ def register(body: RegisterIn):
                         (body.email.lower(), auth.hash_password(body.password), body.organization.strip(), body.regon))
         uid = cur.lastrowid
     return {"token": auth.make_token(uid), "user": {"id": uid, "email": body.email.lower(),
-                                                    "organization": body.organization, "regon": body.regon}}
+                                                    "organization": body.organization, "regon": body.regon,
+                                                    "is_moderator": body.email.lower() in auth.moderator_emails()}}
 
 
 @app.post("/api/auth/login", tags=["konto"])
@@ -275,7 +346,8 @@ def login(body: LoginIn):
     if not row or not auth.verify_password(body.password, row["password_hash"]):
         raise HTTPException(401, "Nieprawidłowy e-mail lub hasło")
     return {"token": auth.make_token(row["id"]),
-            "user": {"id": row["id"], "email": row["email"], "organization": row["organization"], "regon": row["regon"]}}
+            "user": {"id": row["id"], "email": row["email"], "organization": row["organization"], "regon": row["regon"],
+                     "is_moderator": row["role"] == "moderator" or row["email"] in auth.moderator_emails()}}
 
 
 @app.get("/api/auth/me", tags=["konto"])

@@ -49,10 +49,23 @@ CREATE TABLE IF NOT EXISTS reports (
 """
 
 
+# columns added after the first release – applied in place to existing databases
+MIGRATIONS = [
+    ("users", "role", "TEXT NOT NULL DEFAULT 'dysponent'"),
+    ("reports", "status", "TEXT NOT NULL DEFAULT 'nowe'"),
+    ("reports", "moderator_note", "TEXT DEFAULT ''"),
+    ("reports", "moderated_at", "TEXT"),
+    ("reports", "moderated_by", "INTEGER"),
+]
+
+
 def init() -> None:
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     with connect() as c:
         c.executescript(SCHEMA)
+        for table, col, ddl in MIGRATIONS:
+            if col not in {r["name"] for r in c.execute(f"PRAGMA table_info({table})")}:
+                c.execute(f"ALTER TABLE {table} ADD COLUMN {col} {ddl}")
 
 
 @contextmanager

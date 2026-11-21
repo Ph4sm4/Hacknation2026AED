@@ -66,15 +66,28 @@ def read_token(token: str) -> int | None:
         return None
 
 
+def moderator_emails() -> set[str]:
+    """Extra moderators from the environment (comma separated), e.g. AED_MODERATORS=ops@gdzieaed.pl"""
+    return {e.strip().lower() for e in os.environ.get("AED_MODERATORS", "").split(",") if e.strip()}
+
+
 def current_user(cred: HTTPAuthorizationCredentials | None = Depends(bearer)) -> dict:
     uid = read_token(cred.credentials) if cred else None
     if uid is None:
         raise HTTPException(401, "Wymagane zalogowanie")
     with db.connect() as c:
-        row = c.execute("SELECT id, email, organization, regon, created_at FROM users WHERE id=?", (uid,)).fetchone()
+        row = c.execute("SELECT id, email, organization, regon, role, created_at FROM users WHERE id=?", (uid,)).fetchone()
     if not row:
         raise HTTPException(401, "Konto nie istnieje")
-    return dict(row)
+    user = dict(row)
+    user["is_moderator"] = user.pop("role") == "moderator" or user["email"] in moderator_emails()
+    return user
+
+
+def require_moderator(user: dict = Depends(current_user)) -> dict:
+    if not user["is_moderator"]:
+        raise HTTPException(403, "Dostęp tylko dla moderatorów zgłoszeń")
+    return user
 
 
 def optional_user(cred: HTTPAuthorizationCredentials | None = Depends(bearer)) -> dict | None:

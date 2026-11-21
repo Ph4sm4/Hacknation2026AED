@@ -21,6 +21,8 @@ class Store:
         self.stats: dict = {}
         self.index: GridIndex | None = None
         self.official: list[dict] = []
+        # moderated citizen reports: aed_id -> {"problem": kind, "od": date} or {"potwierdzone": date}
+        self.moderation: dict[str, dict] = {}
 
     def load(self, rebuild: bool = False) -> None:
         if rebuild or not (OUT / "aed_polska.json").exists() or not (OUT / "statystyki.json").exists():
@@ -38,12 +40,36 @@ class Store:
             self.stats = stats
             self.index = GridIndex(data)
             self.official = official
+        self.load_moderation()
+
+    def load_moderation(self) -> None:
+        """Latest accepted report per AED wins: a confirmation clears an earlier accepted problem."""
+        from . import db  # local import: the store is also used by the offline pipeline tests
+
+        state: dict[str, dict] = {}
+        try:
+            with db.connect() as c:
+                rows = c.execute("SELECT aed_id, kind, moderated_at FROM reports WHERE status='przyjete' "
+                                 "ORDER BY moderated_at, id").fetchall()
+        except Exception:  # noqa: BLE001 – no DB yet
+            rows = []
+        for r in rows:
+            date = (r["moderated_at"] or "")[:10]
+            state[r["aed_id"]] = {"potwierdzone": date} if r["kind"] == "potwierdzam" else {"problem": r["kind"], "od": date}
+        self.moderation = state
+
+    def missing(self, aed_id: str) -> bool:
+        return self.moderation.get(aed_id, {}).get("problem") == "brak_urzadzenia"
 
     # ------------------------------------------------------------------ queries
-    @staticmethod
-    def with_live(r: dict, now: datetime | None = None) -> dict:
+    def with_live(self, r: dict, now: datetime | None = None) -> dict:
         out = dict(r)
         out["otwarte_teraz"] = N.is_open(r["godziny_dostepnosci"], now) if r["godziny_dostepnosci"] else None
+        m = self.moderation.get(r["id"], {})
+        out["zgloszony_problem"] = m.get("problem")
+        out["potwierdzone_przez_mieszkanca"] = m.get("potwierdzone")
+        if m.get("problem") in ("zamkniety", "uszkodzony", "brak_urzadzenia"):
+            out["otwarte_teraz"] = False
         return out
 
     def filter(self, *, q: str = "", woj: str = "", access: str = "", h24: bool = False, open_now: bool = False,
@@ -73,9 +99,11 @@ class Store:
 
     def nearest(self, lat: float, lon: float, k: int = 10, open_now: bool = False, public_only: bool = False) -> list[dict]:
         now = datetime.now(N.TZ)
-        hits = self.index.nearest(lat, lon, k=k * 6 if (open_now or public_only) else k)
+        hits = self.index.nearest(lat, lon, k=k * 6 if (open_now or public_only) else k + 5)
         out = []
         for d, r in hits:
+            if self.missing(r["id"]):  # confirmed by a moderator: the device is gone
+                continue
             if public_only and r["dostepnosc"] == "prywatny":
                 continue
             live = self.with_live(r, now)
@@ -92,6 +120,8 @@ class Store:
         """Compact representation for the map: [id, lat, lon, flags, quality]. flags: bit0=24/7, bit1=public, bit2=official."""
         out = []
         for r in self.records:
+            if self.missing(r["id"]):
+                continue
             flags = (1 if r["dostep_24h"] == "tak" else 0) | (2 if r["dostepnosc"] == "publiczny" else 0) | \
                     (4 if any(s != "osm" for s in r["zrodla"]) else 0) | (8 if r["dostepnosc"] == "prywatny" else 0)
             out.append([r["id"], r["szerokosc_geograficzna"], r["dlugosc_geograficzna"], flags, r["wskaznik_jakosci"]])

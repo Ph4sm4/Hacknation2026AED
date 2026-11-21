@@ -1,4 +1,4 @@
-.PHONY: install schema data branding dev api web test screenshots build mobile-snapshot
+.PHONY: install schema data branding dev api web test screenshots build mobile-snapshot geocode
 
 install:
 	pip install -r backend/requirements.txt
@@ -7,8 +7,11 @@ install:
 schema:        ## XLSX + Table Schema + JSON Schema + CSV templates
 	cd backend && python -m aed.build_schema
 
-data:          ## aggregate sources -> data/out
+data:          ## aggregate sources -> data/out (uses the cached GUGiK geocoding, offline)
 	cd backend && python -m aed.pipeline
+
+geocode:       ## refresh the GUGiK reverse-geocoding cache (network; run `make data` afterwards)
+	cd backend && python -m aed.geocode
 
 branding:      ## logo SVG/PNG/JPG/PDF + brand book PDF
 	python branding/build_logo.py && node branding/render.cjs
