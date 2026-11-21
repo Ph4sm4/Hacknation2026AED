@@ -17,6 +17,7 @@
 | **Eksport do dane.gov.pl** – XML harwestera `urn:otwarte-dane:harvester:1.13` walidowany względem oficjalnego XSD + DCAT-AP (JSON-LD) | [`backend/aed/publish.py`](backend/aed/publish.py), [`vendor/dane-gov-pl/`](vendor/dane-gov-pl) |
 | **REST API** (OpenAPI) | `/api/docs` |
 | **Aplikacja web** (WCAG 2.2, responsywna): mapa „Znajdź AED”, dane otwarte, standard, portal dysponenta, strona akcji | [`frontend/`](frontend) |
+| **Aplikacja mobilna mObywatelAED** (iOS, Expo): przycisk alarmowy, mapa najbliższych AED, prowadzenie w Google Maps, 112, Siri, tryb offline | [`mobile/`](mobile) |
 | **Logotyp** (SVG, PNG, JPG, PDF) i **księga znaku** (PDF) | [`branding/out/`](branding/out) |
 | Zrzuty ekranu do prezentacji | [`docs/screenshots/`](docs/screenshots) |
 | Plan, architektura i decyzje projektowe | [`docs/PLAN.md`](docs/PLAN.md) |
@@ -42,6 +43,12 @@
 4. Po zalogowaniu (formularze mają przełącznik widoczności hasła) publikuje zbiór. Dostaje **stały URL zasobu CSV** i **XML harwestera do zarejestrowania w dane.gov.pl**, a portal sam pobiera kolejne aktualizacje.
 5. W sekcji **„Znajdź swoje AED”** odnajduje urządzenia zmapowane przez wolontariuszy OSM, żeby je potwierdzić.
 
+**Osoba w nagłym wypadku – aplikacja mobilna (`mobile/`)**
+1. Na ekranie głównym klika **„Nagły wypadek?”** albo mówi „Hey Siri, emergency in mObywatelAED”.
+2. Widzi przycisk **Zadzwoń 112**, mapę satelitarną z najbliższymi AED i kartę najbliższego urządzenia (miejsce zawieszenia, odległość, czas dojścia, dostępność).
+3. Klika **„Prowadź do AED”**, a Google Maps otwiera trasę pieszą. Komenda Siri „take me to the nearest AED with mObywatelAED” od razu uruchamia nawigację.
+4. Bez internetu aplikacja liczy najbliższe AED z wbudowanej kopii zbioru.
+
 **Integrator / portal (`/dane`, `/api/docs`)**: pobiera zbiór w CSV, XLSX, JSON lub GeoJSON albo korzysta z API (wyszukiwanie, najbliższe AED, filtrowanie, bbox).
 
 ## Uruchomienie
@@ -62,6 +69,8 @@ cd backend && uvicorn aed.api.main:app --port 8000
 
 Aplikacja działa pod `http://localhost:8000`, dokumentacja API pod `http://localhost:8000/api/docs`.
 Tryb deweloperski: `make api`, a w drugim terminalu `make web` (Vite na `:5173` z proxy do API).
+
+Aplikacja mobilna (iOS): instrukcja w [`mobile/README.md`](mobile/README.md). W skrócie: backend z `--host 0.0.0.0`, a potem w `mobile/` `npm install` i `npx expo run:ios --device --configuration Release`.
 
 Docker (nieprzetestowany w środowisku prototypu):
 

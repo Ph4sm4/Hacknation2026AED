@@ -1,4 +1,4 @@
-.PHONY: install schema data branding dev api web test screenshots build
+.PHONY: install schema data branding dev api web test screenshots build mobile-snapshot
 
 install:
 	pip install -r backend/requirements.txt
@@ -27,3 +27,6 @@ test:
 
 screenshots:   ## requires running app on :8000
 	node scripts/screenshots.cjs
+
+mobile-snapshot: ## offline AED snapshot bundled with the mobile app (after `make data`)
+	cd mobile && node scripts/build-aed-snapshot.mjs
