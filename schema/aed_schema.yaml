@@ -1,5 +1,5 @@
 # =============================================================================
-#  Wzorcowy zakres danych o defibrylatorach AED – „Pokaż AED”
+#  Wzorcowy zakres danych o defibrylatorach AED – „GdzieAED”
 #  Jedno źródło prawdy: z tego pliku generowane są
 #    - schema/out/wzorcowy_zakres_danych_AED.xlsx   (wymagany plik konkursowy)
 #    - schema/out/aed.tableschema.json             (Frictionless Table Schema)
@@ -32,9 +32,9 @@ publishing_rules:
   - Rekomendowana licencja – CC0 1.0 (domena publiczna) lub CC BY 4.0.
 dataset_metadata:
   title: "Defibrylatory AED – {nazwa dysponenta}"
-  notes: "Lokalizacje i dostępność automatycznych defibrylatorów zewnętrznych (AED) udostępniane zgodnie z wzorcowym zakresem danych akcji „Pokaż AED”."
+  notes: "Lokalizacje i dostępność automatycznych defibrylatorów zewnętrznych (AED) udostępniane zgodnie z wzorcowym zakresem danych akcji „GdzieAED”."
   category: HEAL            # Zdrowie
-  keywords: [AED, defibrylator, ratownictwo, zdrowie, pierwsza pomoc, Pokaż AED]
+  keywords: [AED, defibrylator, ratownictwo, zdrowie, pierwsza pomoc, GdzieAED]
   update_frequency: weekly
   license: CC0-1.0
 

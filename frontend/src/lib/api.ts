@@ -44,7 +44,7 @@ export type Point = [string, number, number, number, number];
 
 export type User = { id: number; email: string; organization: string; regon: string };
 
-const TOKEN_KEY = "pokazaed.token";
+const TOKEN_KEY = "gdzieaed.token";
 
 export function getToken(): string | null {
   try {

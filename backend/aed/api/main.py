@@ -1,4 +1,4 @@
-"""Pokaż AED – REST API (FastAPI).
+"""GdzieAED – REST API (FastAPI).
 
     uvicorn aed.api.main:app --reload        (from backend/)
 
@@ -28,7 +28,7 @@ from . import auth, db
 from .store import schema, store, to_csv, to_geojson
 
 app = FastAPI(
-    title="Pokaż AED – API",
+    title="GdzieAED – API",
     description="Otwarte API ogólnopolskiego zbioru defibrylatorów AED oraz narzędzia dla dysponentów danych.",
     version=schema.version,
     docs_url="/api/docs", openapi_url="/api/openapi.json", redoc_url=None,

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://pokazaed.example/schema/aed.schema.json",
+  "$id": "https://gdzieaed.example/schema/aed.schema.json",
   "title": "Wzorcowy zakres danych o automatycznych defibrylatorach zewnętrznych (AED)",
   "description": "Jednolity zakres danych, w jakim każdy dysponent (gmina, szpital, szkoła, przewoźnik, firma) udostępnia w portalu dane.gov.pl informacje o posiadanych defibrylatorach AED. Jeden wiersz = jedno urządzenie.",
   "type": "object",

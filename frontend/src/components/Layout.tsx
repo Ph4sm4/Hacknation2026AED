@@ -41,7 +41,7 @@ export function Layout() {
 
       <header className="sticky top-0 z-[1000] border-b border-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
-          <Link to="/" aria-label="Pokaż AED – strona główna">
+          <Link to="/" aria-label="GdzieAED – strona główna">
             <Logo />
           </Link>
           <nav aria-label="Główna nawigacja" className="hidden lg:block">

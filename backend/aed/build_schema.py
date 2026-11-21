@@ -118,7 +118,7 @@ def build_xlsx(schema: Schema, path: Path) -> None:
     ws.title = "Opis"
     ws["A1"] = schema.raw["title"]
     ws["A1"].font = Font(bold=True, size=16, color=RED)
-    ws["A2"] = f"Wersja {schema.version} · akcja „Pokaż AED” · {schema.raw['title_en']}"
+    ws["A2"] = f"Wersja {schema.version} · akcja „GdzieAED” · {schema.raw['title_en']}"
     ws["A2"].font = Font(italic=True, color="555555")
     ws["A4"] = schema.raw["description"]
     ws["A4"].alignment = Alignment(wrap_text=True, vertical="top")
@@ -303,7 +303,7 @@ def build_jsonschema(schema: Schema) -> dict:
         props[f.name] = p
     return {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "$id": "https://pokazaed.example/schema/aed.schema.json",
+        "$id": "https://gdzieaed.example/schema/aed.schema.json",
         "title": schema.raw["title"], "description": schema.raw["description"], "type": "object",
         "properties": props, "required": [f.name for f in schema.fields if f.mandatory],
         "additionalProperties": False,

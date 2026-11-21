@@ -20,7 +20,7 @@ const TITLES: Record<string, string> = {
 function TitleSync() {
   const { pathname } = useLocation();
   useEffect(() => {
-    document.title = `${TITLES[pathname] ?? "Strona"} · Pokaż AED`;
+    document.title = `${TITLES[pathname] ?? "Strona"} · GdzieAED`;
     window.scrollTo(0, 0);
   }, [pathname]);
   return null;

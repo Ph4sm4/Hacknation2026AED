@@ -32,8 +32,11 @@ async function waitTiles(page) {
   });
   const page = await ctx.newPage();
   await page.goto(BASE + "/");
-  await page.getByRole("button", { name: "Użyj mojej lokalizacji" }).click();
-  await page.waitForSelector("ol li button");
+  await page.waitForResponse((r) => r.url().includes("/api/aed/points"));
+  await Promise.all([
+    page.waitForResponse((r) => r.url().includes("/api/aed/nearest") && r.url().includes("lat=52.228")),
+    page.getByRole("button", { name: "Użyj mojej lokalizacji" }).click(),
+  ]);
   await waitTiles(page);
   await shot(page, "01-mapa-najblizsze-aed.png");
   await page.locator("ol li button").first().click();
@@ -55,7 +58,7 @@ async function waitTiles(page) {
   await waitTiles(page);
   await shot(page, "04-mapa-polska.png");
 
-  for (const [route, name] of [["/dane", "05-dane-otwarte.png"], ["/standard", "06-wzorcowy-zakres.png"], ["/akcja", "07-akcja-pokaz-aed.png"]]) {
+  for (const [route, name] of [["/dane", "05-dane-otwarte.png"], ["/standard", "06-wzorcowy-zakres.png"], ["/akcja", "07-akcja-gdzieaed.png"]]) {
     await page.goto(BASE + route);
     await page.waitForLoadState("networkidle");
     await page.waitForTimeout(400);
@@ -101,8 +104,12 @@ async function waitTiles(page) {
   const m = await browser.newContext({ ...devices["iPhone 13"], geolocation: WARSZAWA_CENTRALNA, permissions: ["geolocation"], locale: "pl-PL", timezoneId: "Europe/Warsaw" });
   const mp = await m.newPage();
   await mp.goto(BASE + "/");
-  await mp.getByRole("button", { name: "Użyj mojej lokalizacji" }).click();
-  await mp.waitForSelector("ol li button");
+  await mp.waitForResponse((r) => r.url().includes("/api/aed/points"));
+  await Promise.all([
+    mp.waitForResponse((r) => r.url().includes("/api/aed/nearest") && r.url().includes("lat=52.228")),
+    mp.getByRole("button", { name: "Użyj mojej lokalizacji" }).click(),
+  ]);
+  await mp.waitForTimeout(500);
   await shot(mp, "12-mobile-lista.png");
   await mp.locator("ol li button").first().click();
   await mp.waitForSelector("section[aria-label^='Szczegóły']");

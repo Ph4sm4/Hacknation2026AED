@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Pokaż AED – design tokens
+   GdzieAED – design tokens
    White is the primary surface; medical red = emergency/brand; hospital navy =
    trust/information; AED green only for "available/open" status.
    Border radius is capped at 4px across the whole UI.

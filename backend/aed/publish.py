@@ -71,7 +71,7 @@ def wrap(datasets: list[str]) -> str:
             f'{"".join(datasets)}</ns2:datasets>')
 
 
-TAGS = ["AED", "defibrylator", "ratownictwo", "pierwsza pomoc", "zdrowie", "Pokaż AED"]
+TAGS = ["AED", "defibrylator", "ratownictwo", "pierwsza pomoc", "zdrowie", "GdzieAED"]
 
 
 def national_harvester_xml(base: str, stats: dict) -> str:
@@ -80,16 +80,16 @@ def national_harvester_xml(base: str, stats: dict) -> str:
            ("geojson", "GeoJSON", "Punkty AED w formacie GeoJSON (WGS84)."),
            ("json", "JSON", "Rekordy AED w formacie JSON wraz z metadanymi.")]
     resources = [{
-        "ext_id": f"pokaz-aed-oficjalne-{k}", "url": f"{base}/api/download/oficjalne.{k}",
+        "ext_id": f"gdzieaed-oficjalne-{k}", "url": f"{base}/api/download/oficjalne.{k}",
         "title_pl": f"Defibrylatory AED – dane dysponentów ({label})", "title_en": f"AED defibrillators – holders' data ({label})",
         "desc_pl": d + f" Rekordów: {stats.get('official_records', 0)}. Schemat: {base}/api/schema/tableschema.json",
         "desc_en": "AED locations published by data holders, normalised to the reference data model.",
     } for k, label, d in fmt]
     ds = dataset_xml(
-        ext_id="pokaz-aed-polska", title_pl="Defibrylatory AED w Polsce – zbiór zintegrowany (Pokaż AED)",
+        ext_id="gdzieaed-polska", title_pl="Defibrylatory AED w Polsce – zbiór zintegrowany (GdzieAED)",
         title_en="AED defibrillators in Poland – integrated dataset",
         desc_pl="Ogólnopolski zbiór lokalizacji, dostępności i stanu automatycznych defibrylatorów zewnętrznych (AED), "
-                "zintegrowany z danych publikowanych przez dysponentów w jednolitym, wzorcowym zakresie danych akcji „Pokaż AED”.",
+                "zintegrowany z danych publikowanych przez dysponentów w jednolitym, wzorcowym zakresie danych akcji „GdzieAED”.",
         desc_en="National dataset of AED locations, availability and status integrated from data holders.",
         landing=f"{base}/dane", license="CC-BY-4.0", frequency="daily", resources=resources, tags=TAGS)
     return wrap([ds])
@@ -97,14 +97,14 @@ def national_harvester_xml(base: str, stats: dict) -> str:
 
 def holder_harvester_xml(base: str, sub: dict, user: dict) -> str:
     resources = [{
-        "ext_id": f"pokaz-aed-{sub['id']}-csv", "url": f"{base}/api/holder/submissions/{sub['id']}/data.csv",
+        "ext_id": f"gdzieaed-{sub['id']}-csv", "url": f"{base}/api/holder/submissions/{sub['id']}/data.csv",
         "title_pl": f"{sub['title']} (CSV)", "title_en": "AED defibrillators (CSV)",
         "desc_pl": f"Lokalizacje AED dysponenta {user['organization']} w wzorcowym zakresie danych. Rekordów: {sub['records']}.",
         "desc_en": "AED locations in the reference data model.",
     }]
     ds = dataset_xml(
-        ext_id=f"pokaz-aed-dysponent-{user['id']}", title_pl=sub["title"], title_en="AED defibrillators",
-        desc_pl=f"Defibrylatory AED udostępniane przez: {user['organization']}. Dane zgodne z wzorcowym zakresem danych akcji „Pokaż AED”.",
+        ext_id=f"gdzieaed-dysponent-{user['id']}", title_pl=sub["title"], title_en="AED defibrillators",
+        desc_pl=f"Defibrylatory AED udostępniane przez: {user['organization']}. Dane zgodne z wzorcowym zakresem danych akcji „GdzieAED”.",
         desc_en="AED defibrillators published in the reference data model.",
         landing=f"{base}/dane", license=sub["license"], frequency=sub["update_frequency"], resources=resources, tags=TAGS)
     return wrap([ds])
@@ -120,12 +120,12 @@ def dcat_jsonld(base: str, stats: dict) -> dict:
         "@context": {"dcat": "http://www.w3.org/ns/dcat#", "dct": "http://purl.org/dc/terms/",
                      "foaf": "http://xmlns.com/foaf/0.1/", "vcard": "http://www.w3.org/2006/vcard/ns#"},
         "@id": f"{base}/api/dcat.jsonld", "@type": "dcat:Catalog",
-        "dct:title": "Pokaż AED – katalog danych o defibrylatorach",
+        "dct:title": "GdzieAED – katalog danych o defibrylatorach",
         "dct:description": "Katalog zbiorów danych o automatycznych defibrylatorach zewnętrznych (AED) w Polsce.",
         "dct:language": {"@id": "http://publications.europa.eu/resource/authority/language/POL"},
         "dcat:dataset": [
             {"@id": f"{base}/dane#oficjalne", "@type": "dcat:Dataset",
-             "dct:title": "Defibrylatory AED – dane dysponentów", "dct:identifier": "pokaz-aed-polska",
+             "dct:title": "Defibrylatory AED – dane dysponentów", "dct:identifier": "gdzieaed-polska",
              "dct:description": "Dane AED publikowane przez dysponentów, ujednolicone do wzorcowego zakresu.",
              "dcat:keyword": TAGS, "dcat:theme": {"@id": "http://publications.europa.eu/resource/authority/data-theme/HEAL"},
              "dct:accrualPeriodicity": {"@id": f"http://publications.europa.eu/resource/authority/frequency/{FREQ_DCAT['daily']}"},
@@ -134,7 +134,7 @@ def dcat_jsonld(base: str, stats: dict) -> dict:
              "dcat:distribution": [dist("CSV", "text/csv", "/api/download/oficjalne.csv", "CSV", "CC-BY-4.0"),
                                    dist("GeoJSON", "application/geo+json", "/api/download/oficjalne.geojson", "GeoJSON", "CC-BY-4.0")]},
             {"@id": f"{base}/dane#pelny", "@type": "dcat:Dataset",
-             "dct:title": "Defibrylatory AED – zbiór zintegrowany (z OpenStreetMap)", "dct:identifier": "pokaz-aed-pelny",
+             "dct:title": "Defibrylatory AED – zbiór zintegrowany (z OpenStreetMap)", "dct:identifier": "gdzieaed-pelny",
              "dct:description": "Pełny zbiór: dane dysponentów + OpenStreetMap, z oceną jakości. Licencja ODbL.",
              "dcat:keyword": TAGS, "dcat:theme": {"@id": "http://publications.europa.eu/resource/authority/data-theme/HEAL"},
              "dct:modified": stats.get("generated_at"),

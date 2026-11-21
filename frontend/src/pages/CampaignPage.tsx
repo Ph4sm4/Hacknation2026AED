@@ -21,14 +21,14 @@ export default function CampaignPage() {
           <div className="flex flex-col justify-center">
             <p className="eyebrow">Akcja społeczna · dane.gov.pl</p>
             <h1 className="mt-3 text-5xl font-extrabold leading-[1.02] tracking-tight text-navy sm:text-6xl">
-              Pokaż <span className="text-brand">AED</span>.
+              Gdzie<span className="text-brand">AED</span>?
               <br />
               Każda minuta
               <br />
               się liczy.
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted">
-              Masz defibrylator? Pokaż go wszystkim. Udostępnij dane w portalu dane.gov.pl – tak, żeby świadek zatrzymania krążenia, dyspozytor 112 i każda
+              Masz defibrylator? Pokaż, gdzie jest. Udostępnij dane w portalu dane.gov.pl – tak, żeby świadek zatrzymania krążenia, dyspozytor 112 i każda
               aplikacja ratunkowa wiedzieli, gdzie jest najbliższe AED, czy jest dostępne i czy działa.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -39,14 +39,14 @@ export default function CampaignPage() {
                 Zobacz wzorcowy zakres
               </Link>
             </div>
-            <p className="mt-6 font-bold text-navy">#PokażAED</p>
+            <p className="mt-6 font-bold text-navy">#GdzieAED</p>
           </div>
           <div className="flex items-center justify-center lg:justify-end">
             <div className="flex aspect-square w-full max-w-[420px] flex-col items-center justify-center gap-6 bg-brand p-10 text-white lg:bg-transparent">
-              <div className="bg-white p-8">
-                <LogoMark className="h-40 w-40" title="Znak akcji Pokaż AED" />
-              </div>
-              <p className="text-center text-4xl font-extrabold tracking-tight">Pokaż AED</p>
+              <LogoMark className="h-44 w-44" inverted title="Znak akcji GdzieAED" />
+              <p className="text-center text-5xl font-extrabold uppercase tracking-tight">
+                Gdzie AED
+              </p>
             </div>
           </div>
         </div>
@@ -144,15 +144,15 @@ export default function CampaignPage() {
             <p className="mt-1 text-muted">Logotyp (SVG, PNG, JPG, PDF) i księga znaku – do wykorzystania przez urzędy, szkoły i partnerów.</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <a className="btn btn-navy" href="/brand/pokaz-aed-logo.svg" download>
+            <a className="btn btn-navy" href="/brand/gdzieaed-logo.svg" download>
               <Download className="h-4 w-4" aria-hidden /> Logotyp SVG
             </a>
-            <a className="btn btn-outline" href="/brand/pokaz-aed-ksiega-znaku.pdf" download>
+            <a className="btn btn-outline" href="/brand/gdzieaed-ksiega-znaku.pdf" download>
               <Download className="h-4 w-4" aria-hidden /> Księga znaku PDF
             </a>
             <button
               className="btn btn-outline"
-              onClick={() => navigator.share?.({ title: "Pokaż AED", text: "Pokaż AED – każda minuta się liczy. Udostępnij dane o defibrylatorach w dane.gov.pl.", url: window.location.origin + "/akcja" })}
+              onClick={() => navigator.share?.({ title: "GdzieAED", text: "GdzieAED? Każda minuta się liczy. Pokaż, gdzie jest Twój defibrylator – udostępnij dane w dane.gov.pl.", url: window.location.origin + "/akcja" })}
             >
               <Share2 className="h-4 w-4" aria-hidden /> Udostępnij
             </button>
