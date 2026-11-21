@@ -1,10 +1,11 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import MapView, { Marker, Polyline } from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AedStatusBadges } from '@/components/aed/AedStatusBadge';
+import { AnimatedRoute, StraightLine } from '@/components/aed/AnimatedRoute';
 import { CallRespondersPanel } from '@/components/aed/CallRespondersPanel';
 import { AedGuideEntry } from '@/components/aed/AedGuideEntry';
 import { MorphPressable } from '@/components/aed/MorphPressable';
@@ -14,8 +15,7 @@ import { call112, openAppSettings, openWalkingDirections } from '@/lib/aed/actio
 import { formatDistance, formatWalk } from '@/lib/aed/geo';
 import type { AedItem } from '@/lib/aed/types';
 import { APPROXIMATE_ACCURACY_M, useNearestAed } from '@/lib/aed/useNearestAed';
-import { useWalkingRoutes } from '@/lib/aed/useWalkingRoutes';
-import type { WalkingRoute } from '@/modules/aed-routing';
+import { useWalkingRoutes, type AedRoute } from '@/lib/aed/useWalkingRoutes';
 
 /**
  * Simplified mobile GdzieAED view: 112, map of the nearest AEDs, walking directions in Google Maps.
@@ -24,10 +24,14 @@ import type { WalkingRoute } from '@/modules/aed-routing';
 export default function EmergencyScreen() {
   const { go } = useLocalSearchParams<{ go?: string }>();
   const { status, coords, accuracyM, items: byDistance, source, offlineDate, error, refresh } = useNearestAed(10);
-  // re-ranked by real walking time (MapKit) when available
-  const { routes, ranked: items } = useWalkingRoutes(coords, byDistance);
   const approximate = accuracyM != null && accuracyM > APPROXIMATE_ACCURACY_M;
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  // re-ranked by real walking time (Apple Maps, else OpenStreetMap routing)
+  const { routes, failed, ranked: items } = useWalkingRoutes(
+    coords,
+    byDistance,
+    byDistance.find((a) => a.id === selectedId) ?? null,
+  );
   const [showCpr, setShowCpr] = useState(false);
   const map = useRef<MapView>(null);
   const autoNavigated = useRef(false);
@@ -119,7 +123,16 @@ export default function EmergencyScreen() {
               showsMyLocationButton={false}
               showsBuildings
               accessibilityLabel="Mapa najbliższych defibrylatorów">
-              {route && <Polyline coordinates={route.coordinates} strokeColor="#FFD400" strokeWidth={5} lineDashPattern={[1]} />}
+              {selected && route && (
+                <AnimatedRoute
+                  key={`${selected.id}:${route.coordinates.length}`}
+                  path={route.coordinates}
+                  dest={{ latitude: selected.latitude, longitude: selected.longitude }}
+                />
+              )}
+              {selected && !route && failed[selected.id] && (
+                <StraightLine from={coords} to={{ latitude: selected.latitude, longitude: selected.longitude }} />
+              )}
               {items.map((a) => (
                 <Marker
                   key={a.id}
@@ -209,7 +222,7 @@ export default function EmergencyScreen() {
   );
 }
 
-function AedCard({ aed, nearest, route }: { aed: AedItem; nearest: boolean; route?: WalkingRoute }) {
+function AedCard({ aed, nearest, route }: { aed: AedItem; nearest: boolean; route?: AedRoute }) {
   return (
     <View style={styles.card}>
       <SectionLabel>
@@ -223,7 +236,9 @@ function AedCard({ aed, nearest, route }: { aed: AedItem; nearest: boolean; rout
       {!!aed.address && <Text style={styles.muted}>{aed.address}</Text>}
       {!!aed.placement && <Text style={styles.placement}>{aed.placement}</Text>}
       <Text style={styles.routeNote}>
-        {route ? 'Trasa piesza z Apple Maps, zaznaczona na mapie.' : 'Odległość w linii prostej.'}
+        {route
+          ? `Trasa piesza z ${route.source === 'apple' ? 'Apple Maps' : 'OpenStreetMap (FOSSGIS OSRM)'}, zaznaczona na mapie.`
+          : 'Odległość w linii prostej.'}
       </Text>
       <AedStatusBadges aed={aed} />
       <MorphPressable
