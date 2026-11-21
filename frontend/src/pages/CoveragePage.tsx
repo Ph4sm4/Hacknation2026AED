@@ -93,7 +93,7 @@ export default function CoveragePage() {
         {summary && (
           <section aria-labelledby="h-cov-stats">
             <h2 id="h-cov-stats" className="sr-only">Podsumowanie</h2>
-            <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-4 lg:grid-cols-4">
               <Stat label="AED na 10 tys. mieszkańców" value={nf1.format(summary.aed_na_10_tys)} sub="średnio w Polsce" tone="navy" />
               <Stat
                 label="Gminy bez żadnego AED"
@@ -105,7 +105,6 @@ export default function CoveragePage() {
                 label="Mieszkańcy tych gmin"
                 value={fmt.format(summary.ludnosc_w_gminach_bez_aed)}
                 sub={`${nf1.format((100 * summary.ludnosc_w_gminach_bez_aed) / summary.ludnosc)}% ludności Polski`}
-                tone="warn"
               />
               <Stat label="AED przypisane do gmin" value={fmt.format(summary.aed_przypisane)} sub="granice gmin z PRG GUGiK" />
             </div>
@@ -181,7 +180,7 @@ export default function CoveragePage() {
                     <td className="px-3 py-2 text-muted">{r.powiat} · {r.wojewodztwo}</td>
                     <td className="px-3 py-2 text-right tabular-nums">{fmt.format(r.ludnosc)}</td>
                     <td className="px-3 py-2 text-right tabular-nums">
-                      {r.aed === 0 ? <span className="badge bg-brand-soft text-brand">0</span> : fmt.format(r.aed)}
+                      {r.aed === 0 ? <span className="font-extrabold text-brand">0</span> : fmt.format(r.aed)}
                     </td>
                     <td className="px-3 py-2 text-right tabular-nums">{nf1.format(r.aed_na_10_tys)}</td>
                     <td className="px-3 py-2 text-right tabular-nums">{r.mieszkancow_na_aed ? fmt.format(r.mieszkancow_na_aed) : "–"}</td>

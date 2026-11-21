@@ -1,6 +1,6 @@
 import { Download, FileJson, FileSpreadsheet, FileText } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { PageHeader } from "../components/ui";
+import { PageHeader, Tag } from "../components/ui";
 import { api } from "../lib/api";
 
 type SField = {
@@ -26,9 +26,9 @@ type Schema = {
 };
 
 const REQ = {
-  O: { label: "obowiązkowe", cls: "bg-brand text-white" },
-  Z: { label: "zalecane", cls: "bg-navy text-white" },
-  F: { label: "fakultatywne", cls: "bg-surface text-muted ring-1 ring-line" },
+  O: { label: "obowiązkowe", tone: "brand" as const },
+  Z: { label: "zalecane", tone: "navy" as const },
+  F: { label: "fakultatywne", tone: "muted" as const },
 };
 const TYPE: Record<string, string> = { string: "tekst", number: "liczba", integer: "liczba całk.", boolean: "tak/nie", date: "data", datetime: "data i czas" };
 
@@ -56,7 +56,7 @@ export default function StandardPage() {
         </section>
 
         {s && (
-          <section aria-labelledby="h-rules" className="card border-l-4 border-l-navy p-6">
+          <section aria-labelledby="h-rules" className="card p-6">
             <h2 id="h-rules" className="text-lg font-bold">Zasady publikacji</h2>
             <ol className="mt-3 grid list-decimal gap-x-10 gap-y-2 pl-5 text-sm text-ink marker:font-bold marker:text-navy md:grid-cols-2">
               {s.publishing_rules.map((r) => (
@@ -116,7 +116,7 @@ export default function StandardPage() {
                               )}
                             </td>
                             <td className="px-4 py-2.5 text-muted">{TYPE[f.type]}</td>
-                            <td className="px-4 py-2.5"><span className={`badge ${REQ[f.required].cls}`}>{REQ[f.required].label}</span></td>
+                            <td className="px-4 py-2.5"><Tag tone={REQ[f.required].tone}>{REQ[f.required].label}</Tag></td>
                             <td className="break-words px-4 py-2.5 font-mono text-xs text-muted">{String(f.example ?? "")}</td>
                           </tr>
                         ))}
@@ -135,7 +135,7 @@ export default function StandardPage() {
 
 function FileLink({ href, Icon, title, sub, primary }: { href: string; Icon: typeof FileJson; title: string; sub: string; primary?: boolean }) {
   return (
-    <a href={href} className={`card group flex items-start gap-3 p-4 hover:border-navy ${primary ? "border-t-4 border-t-brand" : ""}`} download>
+    <a href={href} className={`card group flex items-start gap-3 p-4 ring-1 ring-transparent transition hover:ring-ink/20 ${primary ? "bg-brand-soft" : ""}`} download>
       <Icon className={`h-8 w-8 shrink-0 ${primary ? "text-brand" : "text-navy"}`} aria-hidden />
       <span className="min-w-0">
         <span className="flex items-center gap-1.5 font-bold text-ink group-hover:text-navy">

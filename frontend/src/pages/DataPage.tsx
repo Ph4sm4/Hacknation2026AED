@@ -1,6 +1,6 @@
 import { Download, ExternalLink, FileCode2, Database, Link2, Copy, Check } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Alert, PageHeader, Stat } from "../components/ui";
+import { Alert, PageHeader, Stat, Tag } from "../components/ui";
 import { api, fmt } from "../lib/api";
 
 type Stats = {
@@ -46,11 +46,11 @@ export default function DataPage() {
         {s && (
           <section aria-labelledby="h-stats">
             <h2 id="h-stats" className="sr-only">Statystyki</h2>
-            <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-4 lg:grid-cols-4">
               <Stat label="AED w zbiorze" value={fmt.format(s.total)} sub={`z ${s.sources.length} źródeł`} tone="navy" />
               <Stat label="Z danych dysponentów" value={fmt.format(s.official_records)} sub={`${s.matched_official_osm} potwierdzonych też w OSM`} tone="brand" />
-              <Stat label="Dostęp całodobowy" value={pct(s.access_24_7, s.total)} sub={`${fmt.format(s.access_24_7)} urządzeń 24/7`} tone="ok" />
-              <Stat label="Bez godzin dostępności" value={pct(s.missing_hours, s.total)} sub="główna luka w danych" tone="warn" />
+              <Stat label="Dostęp całodobowy" value={pct(s.access_24_7, s.total)} sub={`${fmt.format(s.access_24_7)} urządzeń 24/7`} />
+              <Stat label="Bez godzin dostępności" value={pct(s.missing_hours, s.total)} sub="główna luka w danych" />
             </div>
           </section>
         )}
@@ -88,7 +88,7 @@ export default function DataPage() {
           </div>
         </section>
 
-        <section aria-labelledby="h-dgp" className="card border-t-4 border-t-navy p-6">
+        <section aria-labelledby="h-dgp" className="card p-6">
           <div className="flex items-start gap-4">
             <Database className="mt-1 hidden h-8 w-8 shrink-0 text-navy sm:block" aria-hidden />
             <div className="min-w-0 flex-1">
@@ -157,9 +157,7 @@ export default function DataPage() {
                         <p className="text-xs text-muted">{src.publisher} · stan na {src.snapshot_date}</p>
                       </td>
                       <td className="px-4 py-3">
-                        <span className={`badge ${src.kind === "oficjalne" ? "bg-brand-soft text-brand-dark" : "bg-navy-soft text-navy"}`}>
-                          {src.kind === "oficjalne" ? "dysponent" : "społeczność"}
-                        </span>
+                        <Tag tone={src.kind === "oficjalne" ? "brand" : "navy"}>{src.kind === "oficjalne" ? "Dysponent" : "Społeczność"}</Tag>
                       </td>
                       <td className="px-4 py-3 font-mono text-xs">{src.license}</td>
                       <td className="px-4 py-3 text-right font-semibold tabular-nums">{fmt.format(src.stats.rows ?? 0)}</td>
@@ -178,7 +176,7 @@ export default function DataPage() {
                         <a href={p.url} target="_blank" rel="noreferrer" className="font-semibold text-navy hover:underline">{p.name}</a>
                         <p className="text-xs text-muted">{p.publisher}</p>
                       </td>
-                      <td className="px-4 py-3"><span className="badge bg-surface text-muted ring-1 ring-line">oczekuje</span></td>
+                      <td className="px-4 py-3"><Tag>Oczekuje</Tag></td>
                       <td className="px-4 py-3 font-mono text-xs">CC BY 4.0</td>
                       <td className="px-4 py-3 text-right">—</td>
                       <td className="px-4 py-3 text-xs text-muted">{p.reason}</td>
@@ -204,10 +202,10 @@ export default function DataPage() {
 
 function DownloadCard({ title, badge, desc, files, tone }: { title: string; badge: string; desc: string; files: [string, string][]; tone: "brand" | "navy" }) {
   return (
-    <div className={`card border-t-4 p-5 ${tone === "brand" ? "border-t-brand" : "border-t-navy"}`}>
+    <div className={`card p-5 ${tone === "brand" ? "bg-brand-soft" : ""}`}>
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h3 className="text-lg font-bold">{title}</h3>
-        <span className={`badge ${tone === "brand" ? "bg-brand-soft text-brand-dark" : "bg-navy-soft text-navy"}`}>{badge}</span>
+        <Tag tone={tone}>{badge}</Tag>
       </div>
       <p className="mt-1 text-sm text-muted">{desc}</p>
       <ul className="mt-4 flex flex-wrap gap-2">

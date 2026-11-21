@@ -1,7 +1,7 @@
 import { Check, ExternalLink, Mail, MapPin, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Alert, PageHeader } from "../components/ui";
+import { Alert, PageHeader, Tag, type TagTone } from "../components/ui";
 import { api, fmt } from "../lib/api";
 import { useAuth } from "../lib/auth";
 
@@ -33,13 +33,13 @@ type Report = {
   } | null;
 };
 
-const KIND: Record<string, { label: string; effect: string; tone: string }> = {
-  brak_urzadzenia: { label: "Brak urządzenia", effect: "Po przyjęciu AED znika z wyszukiwania najbliższych i z mapy.", tone: "bg-brand-soft text-brand" },
-  uszkodzony: { label: "Uszkodzony", effect: "Po przyjęciu AED jest oznaczony jako niedostępny.", tone: "bg-brand-soft text-brand" },
-  zamkniety: { label: "Zamknięty / brak dostępu", effect: "Po przyjęciu AED jest oznaczony jako niedostępny.", tone: "bg-warn-soft text-warn" },
-  bledna_lokalizacja: { label: "Błędna lokalizacja", effect: "Po przyjęciu zgłoszenie trafia do poprawy danych.", tone: "bg-warn-soft text-warn" },
-  inne: { label: "Inne", effect: "Informacja dla dysponenta.", tone: "bg-surface text-muted" },
-  potwierdzam: { label: "Potwierdzenie: AED jest na miejscu", effect: "Po przyjęciu AED dostaje datę potwierdzenia przez mieszkańca.", tone: "bg-ok-soft text-ok" },
+const KIND: Record<string, { label: string; effect: string; tone: TagTone }> = {
+  brak_urzadzenia: { label: "Brak urządzenia", effect: "Po przyjęciu AED znika z wyszukiwania najbliższych i z mapy.", tone: "brand" as const },
+  uszkodzony: { label: "Uszkodzony", effect: "Po przyjęciu AED jest oznaczony jako niedostępny.", tone: "brand" as const },
+  zamkniety: { label: "Zamknięty / brak dostępu", effect: "Po przyjęciu AED jest oznaczony jako niedostępny.", tone: "warn" as const },
+  bledna_lokalizacja: { label: "Błędna lokalizacja", effect: "Po przyjęciu zgłoszenie trafia do poprawy danych.", tone: "warn" as const },
+  inne: { label: "Inne", effect: "Informacja dla dysponenta.", tone: "muted" as const },
+  potwierdzam: { label: "Potwierdzenie: AED jest na miejscu", effect: "Po przyjęciu AED dostaje datę potwierdzenia przez mieszkańca.", tone: "ok" as const },
 };
 
 const TABS: { key: Status; label: string }[] = [
@@ -141,7 +141,7 @@ function ReportCard({ r, onDone }: { r: Report; onDone: () => void }) {
     <li className="card p-4 sm:p-5">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="space-y-1">
-          <span className={`badge ${k.tone}`}>{k.label}</span>
+          <Tag tone={k.tone}>{k.label}</Tag>
           <h3 className="text-lg font-bold">{r.aed?.nazwa ?? r.aed_id}</h3>
           {r.aed && (
             <p className="text-sm text-muted">
@@ -153,7 +153,7 @@ function ReportCard({ r, onDone }: { r: Report; onDone: () => void }) {
         <p className="text-sm text-muted">Zgłoszono {dt(r.created_at)}</p>
       </div>
 
-      {r.comment && <blockquote className="mt-3 border-l-4 border-line pl-3 text-ink">„{r.comment}”</blockquote>}
+      {r.comment && <blockquote className="mt-3 rounded-xl bg-surface px-4 py-3 text-ink">„{r.comment}”</blockquote>}
       {r.inne_nowe_dla_aed > 0 && (
         <p className="mt-2 text-sm font-semibold text-warn">Dla tego AED czeka jeszcze {r.inne_nowe_dla_aed} innych zgłoszeń.</p>
       )}

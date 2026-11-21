@@ -1,5 +1,5 @@
-import { Eye, EyeOff, AlertTriangle, CheckCircle2, Info, XCircle } from "lucide-react";
-import { useId, useState, type InputHTMLAttributes, type ReactNode } from "react";
+import { Eye, EyeOff, AlertTriangle, CheckCircle2, Clock, Info, XCircle } from "lucide-react";
+import { Children, Fragment, useId, useState, type InputHTMLAttributes, type ReactNode } from "react";
 
 /** Password input with a visibility (eye) toggle – required by the UX guidelines. */
 export function PasswordInput({
@@ -67,15 +67,18 @@ export function TextField({
   );
 }
 
-/** Swiss figure: a rule on top, small caps label, oversized number. Brand tone = red rule + red number. */
+/**
+ * Key figure, no tile: a large number with a plain-language label under it.
+ * Numbers are black; only the one figure a section wants to stress is red ("brand").
+ * ok / warn stay available for status figures (e.g. a validation report).
+ */
 export function Stat({ label, value, sub, tone = "ink" }: { label: string; value: ReactNode; sub?: ReactNode; tone?: "ink" | "brand" | "navy" | "ok" | "warn" }) {
-  const color = { ink: "text-ink", brand: "text-brand", navy: "text-navy", ok: "text-ok", warn: "text-warn" }[tone];
-  const rule = tone === "brand" ? "border-brand" : "border-ink";
+  const color = { ink: "text-ink", brand: "text-brand", navy: "text-ink", ok: "text-ok", warn: "text-warn" }[tone];
   return (
-    <div className={`border-t-2 ${rule} pt-3`}>
-      <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted">{label}</p>
-      <p className={`mt-2 text-4xl font-black leading-none tracking-[-0.04em] tabular-nums sm:text-5xl ${color}`}>{value}</p>
-      {sub && <p className="mt-2 text-sm text-muted">{sub}</p>}
+    <div>
+      <p className={`text-5xl font-extrabold leading-none tracking-[-0.045em] tabular-nums sm:text-6xl ${color}`}>{value}</p>
+      <p className="mt-3 text-[15px] font-semibold leading-snug text-ink">{label}</p>
+      {sub && <p className="mt-0.5 text-sm text-muted">{sub}</p>}
     </div>
   );
 }
@@ -88,7 +91,7 @@ export function Alert({ tone = "info", title, children }: { tone?: "info" | "ok"
     error: { cls: "border-brand bg-brand-soft text-brand-dark", Icon: XCircle },
   }[tone];
   return (
-    <div role={tone === "error" ? "alert" : "status"} className={`flex gap-3 rounded-sm border-l-4 p-4 text-sm ${map.cls}`}>
+    <div role={tone === "error" ? "alert" : "status"} className={`flex gap-3 rounded-2xl p-4 text-sm ${map.cls}`}>
       <map.Icon className="mt-0.5 h-5 w-5 shrink-0" aria-hidden />
       <div>
         {title && <p className="font-bold">{title}</p>}
@@ -98,11 +101,37 @@ export function Alert({ tone = "info", title, children }: { tone?: "info" | "ok"
   );
 }
 
+export type TagTone = "ok" | "muted" | "ink" | "brand" | "navy" | "warn";
+const TAG_TEXT: Record<TagTone, string> = { ok: "text-ok", muted: "text-muted", ink: "text-ink", brand: "text-brand", navy: "text-navy", warn: "text-warn" };
+
+/** Metadata: optional small icon + plain text. No dots, no boxes; colour only when it carries meaning. */
+export function Tag({ tone = "muted", icon, strong = false, children }: { tone?: TagTone; icon?: ReactNode; strong?: boolean; children: ReactNode }) {
+  return (
+    <span className={`inline-flex items-center gap-1.5 text-[13px] leading-5 ${strong ? "font-semibold" : "font-normal"} ${TAG_TEXT[tone]}`}>
+      {icon}
+      {children}
+    </span>
+  );
+}
+
+/** A line of metadata items separated by space only. */
+export function MetaRow({ children, className = "" }: { children: ReactNode; className?: string }) {
+  const items = Children.toArray(children).filter(Boolean);
+  return (
+    <span className={`flex flex-wrap items-center gap-x-3.5 gap-y-1 ${className}`}>
+      {items.map((c, i) => (
+        <Fragment key={i}>{c}</Fragment>
+      ))}
+    </span>
+  );
+}
+
 export function OpenBadge({ open, h24 }: { open?: boolean | null; h24?: boolean }) {
-  if (h24) return <span className="badge bg-ok text-white">24/7</span>;
-  if (open === true) return <span className="badge bg-ok-soft text-ok">Dostępny teraz</span>;
-  if (open === false) return <span className="badge bg-ink text-white">Teraz niedostępny</span>;
-  return <span className="badge text-muted ring-1 ring-inset ring-ink/20">Godziny nieznane</span>;
+  const icon = <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />;
+  if (h24) return <Tag tone="ok" strong icon={icon}>Całodobowo 24/7</Tag>;
+  if (open === true) return <Tag tone="ok" strong icon={icon}>Dostępny teraz</Tag>;
+  if (open === false) return <Tag tone="ink" strong icon={icon}>Teraz niedostępny</Tag>;
+  return <Tag icon={icon}>Godziny nieznane</Tag>;
 }
 
 export function QualityBar({ value }: { value: number }) {
@@ -117,18 +146,14 @@ export function QualityBar({ value }: { value: number }) {
   );
 }
 
-/** Swiss page opener: label in the narrow column, display headline + lead on the wide one, heavy rule below. */
+/** Page opener: label, headline, lead – no rules, spacing does the separation. */
 export function PageHeader({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
   return (
-    <div className="border-b-2 border-ink bg-white">
-      <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-4 px-4 pb-12 pt-10 sm:pb-16 sm:pt-14 lg:grid-cols-12">
-        <div className="lg:col-span-3 lg:pt-3">
-          <p className="eyebrow">{eyebrow}</p>
-        </div>
-        <div className="lg:col-span-9">
-          <h1 className="h-display">{title}</h1>
-          {children && <div className="lead mt-6 max-w-3xl">{children}</div>}
-        </div>
+    <div className="bg-white">
+      <div className="mx-auto max-w-7xl px-4 pb-6 pt-12 sm:pt-16">
+        <p className="eyebrow">{eyebrow}</p>
+        <h1 className="h-display mt-4 max-w-4xl">{title}</h1>
+        {children && <div className="lead mt-5 max-w-3xl">{children}</div>}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { ArrowRight, CheckCircle2, Download, FileUp, Loader2, Search, Send, UploadCloud, Wand2, XCircle, AlertTriangle } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, type DragEvent, type FormEvent } from "react";
-import { Alert, PageHeader, PasswordInput, Stat, TextField } from "../components/ui";
+import { Alert, PageHeader, PasswordInput, Stat, Tag, TextField } from "../components/ui";
 import { ApiError, api, displayName, fmt, type AED } from "../lib/api";
 import { useAuth } from "../lib/auth";
 
@@ -45,7 +45,7 @@ function AuthPanel() {
             ["Opublikuj", "Dostajesz stały adres zasobu CSV i plik XML harwestera – wklejasz go w dane.gov.pl, a portal sam pobiera aktualizacje."],
           ].map(([t, d], i) => (
             <li key={t} className="flex gap-4">
-              <span className="w-10 shrink-0 text-3xl font-black leading-none tracking-[-0.05em] tabular-nums text-brand">{String(i + 1).padStart(2, "0")}</span>
+              <span className="w-7 shrink-0 text-[15px] font-medium leading-6 tabular-nums text-brand">{String(i + 1).padStart(2, "0")}</span>
               <div>
                 <p className="font-bold">{t}</p>
                 <p className="text-sm text-muted">{d}</p>
@@ -172,7 +172,7 @@ function Dashboard() {
             {user!.regon && ` · REGON ${user!.regon}`}
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-3 sm:w-[360px]">
+        <div className="grid grid-cols-2 gap-8 sm:w-[360px]">
           <Stat label="Zbiory" value={subs.length} tone="navy" />
           <Stat label="Rekordy AED" value={fmt.format(subs.reduce((a, s) => a + s.records, 0))} tone="brand" />
         </div>
@@ -211,7 +211,7 @@ function Submissions({ subs }: { subs: Submission[] }) {
                 </td>
                 <td className="px-4 py-3 text-right font-semibold tabular-nums">{s.records}</td>
                 <td className="px-4 py-3">
-                  <span className={`badge ${s.conformity === 100 ? "bg-ok-soft text-ok" : "bg-warn-soft text-warn"}`}>{s.conformity}%</span>
+                  <Tag tone={s.conformity === 100 ? "ok" : "warn"}>{s.conformity}%</Tag>
                 </td>
                 <td className="space-y-1 px-4 py-3 font-mono text-xs">
                   <a className="block truncate text-navy hover:underline" href={`/api/holder/submissions/${s.id}/data.csv`}>{`${origin}/api/holder/submissions/${s.id}/data.csv`}</a>
@@ -393,7 +393,7 @@ function Report({
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+      <div className="grid grid-cols-2 gap-x-8 gap-y-8 md:grid-cols-5">
         <Stat label="Zgodność" value={`${s.conformity}%`} tone={ok ? "ok" : s.conformity > 0 ? "warn" : "brand"} sub={`${s.valid_rows} z ${s.rows} wierszy poprawnych`} />
         <Stat label="Błędy" value={s.errors} tone={s.errors ? "brand" : "ok"} />
         <Stat label="Ostrzeżenia" value={s.warnings} tone={s.warnings ? "warn" : "ok"} />
@@ -405,9 +405,9 @@ function Report({
         {Object.entries(res.detected)
           .filter(([k]) => ["format", "encoding", "separator", "sheet"].includes(k))
           .map(([k, v]) => (
-            <span key={k} className="badge bg-surface text-muted ring-1 ring-line">
+            <Tag key={k}>
               {k}: {String(v)}
-            </span>
+            </Tag>
           ))}
       </div>
 
@@ -559,7 +559,7 @@ function Publish({ res, defaultTitle, onPublished }: { res: Validation; defaultT
       </Alert>
     );
   return (
-    <form onSubmit={submit} className="card border-t-4 border-t-brand p-5">
+    <form onSubmit={submit} className="card p-6">
       <h3 className="text-lg font-bold">Publikacja w dane.gov.pl</h3>
       {err && <div className="mt-3"><Alert tone="error">{err}</Alert></div>}
       <div className="mt-4 grid gap-4 md:grid-cols-[2fr_1fr_1fr]">

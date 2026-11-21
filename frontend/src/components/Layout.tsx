@@ -2,6 +2,7 @@ import { Menu, Phone, X, LogOut, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "../lib/auth";
+import { EmergencyTicker } from "./EmergencyTicker";
 import { Logo } from "./Logo";
 
 const NAV = [
@@ -22,7 +23,8 @@ export function Layout() {
   useEffect(() => setOpen(false), [loc.pathname]);
 
   return (
-    <div className="flex min-h-dvh flex-col">
+    // the map page is an app screen: exactly one viewport tall, the document never scrolls
+    <div className={fullBleed ? "flex h-dvh flex-col overflow-clip" : "flex min-h-dvh flex-col"}>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-[2000] focus:bg-white focus:p-3 focus:font-semibold">
         Przejdź do treści
       </a>
@@ -30,18 +32,14 @@ export function Layout() {
       {/* Emergency strip – always visible */}
       <div className="bg-brand text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 text-sm">
-          <p className="font-medium tracking-[-0.01em]">
-            <span className="font-extrabold uppercase tracking-[0.06em]">Zatrzymanie krążenia?</span>
-            <span className="mx-2 hidden opacity-60 sm:inline" aria-hidden>/</span>
-            <span className="hidden sm:inline">Dzwoń 112, uciskaj klatkę piersiową, poproś kogoś o AED.</span>
-          </p>
-          <a href="tel:112" className="inline-flex shrink-0 items-center gap-1.5 rounded-sm bg-ink px-3 py-1.5 font-black tracking-[-0.02em] text-white hover:bg-white hover:text-brand">
+          <EmergencyTicker />
+          <a href="tel:112" className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-ink px-3.5 py-1.5 font-black tracking-[-0.02em] text-white transition-[border-radius,background-color,color] duration-300 hover:rounded-[20px] hover:bg-white hover:text-brand">
             <Phone className="h-4 w-4" aria-hidden /> 112
           </a>
         </div>
       </div>
 
-      <header className="sticky top-0 z-[1000] border-b border-ink/15 bg-white">
+      <header className="sticky top-0 z-[1000] border-b border-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-4">
           <Link to="/" aria-label="GdzieAED – strona główna">
             <Logo />
@@ -136,7 +134,7 @@ export function Layout() {
         )}
       </header>
 
-      <main id="main" className="flex-1" tabIndex={-1}>
+      <main id="main" className={fullBleed ? "min-h-0 flex-1 overflow-clip" : "flex-1"} tabIndex={-1}>
         <Outlet />
       </main>
 
@@ -149,7 +147,7 @@ function Footer() {
   return (
     <footer className="mt-24 bg-ink text-white/70">
       <div className="mx-auto max-w-7xl px-4 pb-10 pt-14">
-        <p className="max-w-4xl text-4xl font-black leading-[0.95] tracking-[-0.045em] text-white sm:text-6xl">
+        <p className="max-w-4xl text-3xl font-extrabold leading-tight tracking-[-0.03em] text-white sm:text-5xl">
           GdzieAED? <span className="text-brand">Każda minuta się liczy.</span>
         </p>
         <div className="mt-14 grid gap-10 border-t border-white/20 pt-8 text-sm md:grid-cols-12">
