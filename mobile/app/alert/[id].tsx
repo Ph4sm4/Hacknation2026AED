@@ -282,9 +282,9 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: AED.ink,
   },
-  navigateText: { flex: 1, color: '#fff', fontSize: 17, fontWeight: '900', letterSpacing: -0.4 },
+  navigateText: { flex: 1, color: '#fff', fontSize: 17, fontWeight: '700', letterSpacing: -0.4 },
   section: { borderRadius: AED.radius, backgroundColor: AED.surface, padding: 18, gap: 8 },
-  place: { color: AED.ink, fontSize: 20, fontWeight: '900', letterSpacing: -0.5 },
+  place: { color: AED.ink, fontSize: 20, fontWeight: '700', letterSpacing: -0.5 },
   coords: { color: AED.ink, fontSize: 15, fontWeight: '600', fontVariant: ['tabular-nums'] },
   muted: { color: AED.muted, fontSize: 13, lineHeight: 18 },
   body: { color: AED.ink, fontSize: 15, textAlign: 'center' },
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   answerActive: { backgroundColor: AED.red, borderColor: AED.red },
-  answerText: { color: AED.ink, fontSize: 16, fontWeight: '800' },
+  answerText: { color: AED.ink, fontSize: 16, fontWeight: '600' },
   call112: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -312,5 +312,5 @@ const styles = StyleSheet.create({
     borderColor: AED.red,
     backgroundColor: '#fff',
   },
-  call112Text: { color: AED.red, fontSize: 17, fontWeight: '900' },
+  call112Text: { color: AED.red, fontSize: 17, fontWeight: '700' },
 });

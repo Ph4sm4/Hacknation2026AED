@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  count: { color: '#fff', fontSize: 120, fontWeight: '900', letterSpacing: -6, fontVariant: ['tabular-nums'], lineHeight: 124 },
+  count: { color: '#fff', fontSize: 120, fontWeight: '700', letterSpacing: -6, fontVariant: ['tabular-nums'], lineHeight: 124 },
   countSub: { ...TYPE.label, color: '#fff', opacity: 0.85, marginTop: -4 },
   cycleHint: { color: AED.ink, fontSize: 15, textAlign: 'center', minHeight: 42, fontWeight: '600' },
   row: { flexDirection: 'row', gap: 12, alignSelf: 'stretch' },
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#fff',
   },
-  secondaryText: { color: AED.ink, fontSize: 16, fontWeight: '800' },
+  secondaryText: { color: AED.ink, fontSize: 16, fontWeight: '600' },
   call: {
     alignSelf: 'stretch',
     flexDirection: 'row',
@@ -182,6 +182,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: AED.red,
   },
-  callText: { color: '#fff', fontSize: 24, fontWeight: '900', letterSpacing: -0.8 },
+  callText: { color: '#fff', fontSize: 24, fontWeight: '700', letterSpacing: -0.8 },
   footnote: { color: AED.muted, fontSize: 12, textAlign: 'center', lineHeight: 17 },
 });

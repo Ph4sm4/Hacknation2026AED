@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   step: { flexDirection: 'row', alignItems: 'center', gap: 14, padding: 10, borderRadius: AED.radius, backgroundColor: AED.background },
   picture: { width: 96, height: 96, borderRadius: 12, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
   stepLabel: { ...TYPE.label, fontSize: 10, color: AED.red },
-  stepTitle: { color: AED.ink, fontSize: 17, fontWeight: '800', letterSpacing: -0.3, marginTop: 2 },
+  stepTitle: { color: AED.ink, fontSize: 17, fontWeight: '600', letterSpacing: -0.3, marginTop: 2 },
   stepText: { color: AED.muted, fontSize: 14, lineHeight: 19, marginTop: 3 },
 
   note: { color: AED.muted, fontSize: 14, lineHeight: 19, marginTop: 6, paddingHorizontal: 4 },
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: AED.red,
   },
-  callText: { color: '#fff', fontSize: 20, fontWeight: '900', letterSpacing: -0.6 },
+  callText: { color: '#fff', fontSize: 20, fontWeight: '700', letterSpacing: -0.6 },
   secondary: {
     flex: 1,
     flexDirection: 'row',
@@ -117,5 +117,5 @@ const styles = StyleSheet.create({
     borderColor: AED.ink,
     backgroundColor: '#fff',
   },
-  secondaryText: { color: AED.ink, fontSize: 16, fontWeight: '800', letterSpacing: -0.3 },
+  secondaryText: { color: AED.ink, fontSize: 16, fontWeight: '600', letterSpacing: -0.3 },
 });

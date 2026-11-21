@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     minHeight: 64,
   },
-  callText: { color: '#fff', fontSize: 24, fontWeight: '900', letterSpacing: -0.8 },
+  callText: { color: '#fff', fontSize: 24, fontWeight: '700', letterSpacing: -0.8 },
   cprButton: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -348,7 +348,7 @@ const styles = StyleSheet.create({
     borderColor: AED.ink,
     backgroundColor: '#fff',
   },
-  cprButtonText: { color: AED.ink, fontSize: 17, fontWeight: '800', letterSpacing: -0.3 },
+  cprButtonText: { color: AED.ink, fontSize: 17, fontWeight: '600', letterSpacing: -0.3 },
 
   warning: {
     flexDirection: 'row',
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: AED.ink,
   },
-  smallButtonText: { color: AED.ink, fontWeight: '800', fontSize: 15 },
+  smallButtonText: { color: AED.ink, fontWeight: '600', fontSize: 15 },
 
   labelRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   labelSquare: { width: 8, height: 8, backgroundColor: AED.red, borderRadius: 4 },
@@ -407,7 +407,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: AED.ink,
   },
-  navigateText: { flex: 1, color: '#fff', fontSize: 18, fontWeight: '900', letterSpacing: -0.5 },
+  navigateText: { flex: 1, color: '#fff', fontSize: 18, fontWeight: '700', letterSpacing: -0.5 },
   navigateSub: { ...TYPE.label, color: '#fff', opacity: 0.6, letterSpacing: 1 },
 
   section: {
@@ -417,7 +417,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     gap: 2,
   },
-  sectionTitle: { color: AED.ink, fontSize: 17, fontWeight: '900', letterSpacing: -0.4, flex: 1 },
+  sectionTitle: { color: AED.ink, fontSize: 17, fontWeight: '700', letterSpacing: -0.4, flex: 1 },
   otherRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -428,7 +428,7 @@ const styles = StyleSheet.create({
     borderTopColor: AED.line,
   },
   otherTitle: { color: AED.ink, fontSize: 15, fontWeight: '700' },
-  otherDistance: { color: AED.ink, fontSize: 17, fontWeight: '900', letterSpacing: -0.5 },
+  otherDistance: { color: AED.ink, fontSize: 17, fontWeight: '700', letterSpacing: -0.5 },
   cprToggle: { flexDirection: 'row', alignItems: 'center', minHeight: AED.touch - 8 },
   cprStepRow: { flexDirection: 'row', gap: 12 },
   cprStepNum: { width: 26, color: AED.red, fontSize: 15, fontWeight: '500', fontVariant: ['tabular-nums'], lineHeight: 21 },

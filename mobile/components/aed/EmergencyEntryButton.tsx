@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   label: { ...TYPE.label, color: '#fff', opacity: 0.8 },
-  title: { color: '#fff', fontSize: 22, fontWeight: '900', letterSpacing: -0.7, marginTop: 2 },
+  title: { color: '#fff', fontSize: 22, fontWeight: '700', letterSpacing: -0.7, marginTop: 2 },
   subtitle: { color: '#fff', fontSize: 14, fontWeight: '500', marginTop: 1 },
   arrow: { color: '#fff', fontSize: 28, fontWeight: '300' },
 });

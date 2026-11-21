@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: AED.ink,
   },
-  callTitle: { color: '#fff', fontSize: 17, fontWeight: '900', letterSpacing: -0.4 },
+  callTitle: { color: '#fff', fontSize: 17, fontWeight: '700', letterSpacing: -0.4 },
   callSub: { color: '#fff', opacity: 0.7, fontSize: 13, marginTop: 1 },
   panel: { borderRadius: AED.radius, backgroundColor: AED.surface, padding: 18, gap: 10 },
   labelRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
@@ -171,5 +171,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#fff',
   },
-  secondaryText: { color: AED.ink, fontSize: 15, fontWeight: '800' },
+  secondaryText: { color: AED.ink, fontSize: 15, fontWeight: '600' },
 });

@@ -54,6 +54,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  title: { color: AED.ink, fontSize: 17, fontWeight: '800', letterSpacing: -0.3 },
+  title: { color: AED.ink, fontSize: 17, fontWeight: '600', letterSpacing: -0.3 },
   subtitle: { color: AED.muted, fontSize: 14, marginTop: 1 },
 });

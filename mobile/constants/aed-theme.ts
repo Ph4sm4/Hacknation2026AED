@@ -26,9 +26,9 @@ export const AED = {
 
 /** Typography scale (system font = SF Pro on iOS, the closest Swiss grotesk available natively). */
 export const TYPE = {
-  display: { fontSize: 34, fontWeight: '900', letterSpacing: -1.2, lineHeight: 34 },
-  title: { fontSize: 24, fontWeight: '900', letterSpacing: -0.8, lineHeight: 26 },
-  figure: { fontSize: 40, fontWeight: '900', letterSpacing: -1.6, lineHeight: 40 },
-  label: { fontSize: 11, fontWeight: '800', letterSpacing: 1.6, textTransform: 'uppercase' },
+  display: { fontSize: 34, fontWeight: '700', letterSpacing: -0.8, lineHeight: 34 },
+  title: { fontSize: 24, fontWeight: '700', letterSpacing: -0.5, lineHeight: 26 },
+  figure: { fontSize: 40, fontWeight: '700', letterSpacing: -1, lineHeight: 40 },
+  label: { fontSize: 11, fontWeight: '600', letterSpacing: 1.6, textTransform: 'uppercase' },
   body: { fontSize: 15, lineHeight: 21 },
 } as const;
