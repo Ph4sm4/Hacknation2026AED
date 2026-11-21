@@ -10,6 +10,7 @@ const HolderPage = lazy(() => import("./pages/HolderPage"));
 const CampaignPage = lazy(() => import("./pages/CampaignPage"));
 const CoveragePage = lazy(() => import("./pages/CoveragePage"));
 const ModerationPage = lazy(() => import("./pages/ModerationPage"));
+const GuidePage = lazy(() => import("./pages/GuidePage"));
 
 const TITLES: Record<string, string> = {
   "/": "Znajdź AED",
@@ -19,6 +20,7 @@ const TITLES: Record<string, string> = {
   "/akcja": "O akcji",
   "/pokrycie": "Pokrycie AED",
   "/moderacja": "Moderacja zgłoszeń",
+  "/jak-uzyc-aed": "Jak użyć AED",
 };
 
 function TitleSync() {
@@ -54,6 +56,7 @@ export function App() {
               <Route path="akcja" element={<CampaignPage />} />
               <Route path="pokrycie" element={<CoveragePage />} />
               <Route path="moderacja" element={<ModerationPage />} />
+              <Route path="jak-uzyc-aed" element={<GuidePage />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

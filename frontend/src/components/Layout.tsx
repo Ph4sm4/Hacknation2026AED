@@ -1,4 +1,4 @@
-import { Menu, Phone, X, LogOut, UserRound } from "lucide-react";
+import { HeartPulse, Menu, Phone, X, LogOut, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "../lib/auth";
@@ -7,6 +7,7 @@ import { Logo } from "./Logo";
 
 const NAV = [
   { to: "/", label: "Znajdź AED", end: true },
+  { to: "/jak-uzyc-aed", label: "Jak użyć AED" },
   { to: "/dane", label: "Dane otwarte" },
   { to: "/pokrycie", label: "Pokrycie" },
   { to: "/standard", label: "Wzorcowy zakres" },
@@ -33,6 +34,14 @@ export function Layout() {
       <div className="bg-brand text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 text-sm">
           <EmergencyTicker />
+          <Link
+            to="/jak-uzyc-aed"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1.5 font-bold text-white ring-1 ring-white/50 transition-[border-radius,background-color,color] duration-300 hover:rounded-[20px] hover:bg-white hover:text-brand"
+          >
+            <HeartPulse className="h-4 w-4" aria-hidden />
+            <span className="sm:hidden">Instrukcja</span>
+            <span className="hidden sm:inline">Jak użyć AED?</span>
+          </Link>
           <a href="tel:112" className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-ink px-3.5 py-1.5 font-black tracking-[-0.02em] text-white transition-[border-radius,background-color,color] duration-300 hover:rounded-[20px] hover:bg-white hover:text-brand">
             <Phone className="h-4 w-4" aria-hidden /> 112
           </a>
@@ -44,7 +53,7 @@ export function Layout() {
           <Link to="/" aria-label="GdzieAED – strona główna">
             <Logo />
           </Link>
-          <nav aria-label="Główna nawigacja" className="hidden lg:block">
+          <nav aria-label="Główna nawigacja" className="hidden xl:block">
             <ul className="flex items-center gap-1">
               {NAV.map((n) => (
                 <li key={n.to}>
@@ -63,7 +72,7 @@ export function Layout() {
               ))}
             </ul>
           </nav>
-          <div className="hidden items-center gap-2 lg:flex">
+          <div className="hidden items-center gap-2 xl:flex">
             {user ? (
               <>
                 {user.is_moderator && (
@@ -85,13 +94,13 @@ export function Layout() {
               </Link>
             )}
           </div>
-          <button className="btn btn-outline px-3 lg:hidden" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen((o) => !o)}>
+          <button className="btn btn-outline px-3 xl:hidden" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen((o) => !o)}>
             {open ? <X className="h-5 w-5" aria-hidden /> : <Menu className="h-5 w-5" aria-hidden />}
             <span className="sr-only">Menu</span>
           </button>
         </div>
         {open && (
-          <nav id="mobile-nav" aria-label="Menu mobilne" className="border-t border-line bg-white lg:hidden">
+          <nav id="mobile-nav" aria-label="Menu mobilne" className="border-t border-line bg-white xl:hidden">
             <ul className="mx-auto max-w-7xl px-4 py-2">
               {NAV.map((n) => (
                 <li key={n.to}>

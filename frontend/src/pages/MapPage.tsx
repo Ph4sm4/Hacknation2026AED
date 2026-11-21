@@ -1,7 +1,9 @@
-import { Crosshair, Footprints, MapPin, Navigation, Search, X, Building2, Clock, KeyRound, Layers, Lock, ShieldCheck, Flag, List, Map as MapIcon, Users } from "lucide-react";
+import { Crosshair, Footprints, MapPin, Navigation, Search, X, Building2, Clock, KeyRound, Layers, Lock, ShieldCheck, Flag, List, Map as MapIcon, Users, HeartPulse, ChevronRight } from "lucide-react";
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState, type FormEvent } from "react";
 import { ACCESS_LABEL, SOURCE_LABEL, address, api, displayName, distance, hoursPl, type AED, type Point } from "../lib/api";
 import { Alert, MetaRow, OpenBadge, QualityBar, Tag } from "../components/ui";
+import { AedGuideDialog } from "../components/AedGuide";
+import { GUIDE_STEPS } from "../lib/aedGuide";
 
 const AedMap = lazy(() => import("../components/AedMap"));
 
@@ -290,6 +292,7 @@ function Detail({ aed, origin, onClose }: { aed: AED; origin: [number, number]; 
   const [leaving, setLeaving] = useState(false);
   const close = () => setLeaving(true);
   const [reporting, setReporting] = useState(false);
+  const [guide, setGuide] = useState(false);
   const [kind, setKind] = useState("potwierdzam");
   const [comment, setComment] = useState("");
   const [sent, setSent] = useState(false);
@@ -363,6 +366,26 @@ function Detail({ aed, origin, onClose }: { aed: AED; origin: [number, number]; 
             Dzwoń 112
           </a>
         </div>
+
+        <button
+          type="button"
+          onClick={() => setGuide(true)}
+          className="group flex w-full items-center gap-3 rounded-2xl bg-brand-soft p-3 text-left transition-colors hover:bg-brand/15"
+        >
+          <span className="flex shrink-0 -space-x-3" aria-hidden>
+            {GUIDE_STEPS.slice(0, 3).map((s) => (
+              <span key={s.title} className="h-11 w-11 rounded-xl bg-white p-1 ring-2 ring-brand-soft" dangerouslySetInnerHTML={{ __html: s.svg }} />
+            ))}
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="flex items-center gap-1.5 font-extrabold text-ink">
+              <HeartPulse className="h-4 w-4 text-brand" aria-hidden /> Jak użyć AED?
+            </span>
+            <span className="block text-sm text-muted">5 kroków z rysunkami</span>
+          </span>
+          <ChevronRight className="h-5 w-5 shrink-0 text-brand transition-transform group-hover:translate-x-0.5" aria-hidden />
+        </button>
+        {guide && <AedGuideDialog onClose={() => setGuide(false)} />}
 
         <dl className="divide-y divide-line border-y border-line text-sm">
           {rows.map(([Icon, k, v]) => (
