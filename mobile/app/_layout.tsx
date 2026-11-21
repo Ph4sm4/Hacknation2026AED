@@ -60,6 +60,7 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="emergency" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
         <Stack.Screen name="cpr" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
+        <Stack.Screen name="aed-guide" options={{ headerShown: false, presentation: 'modal' }} />
         <Stack.Screen name="alert/[id]" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
         <Stack.Screen name="responder" options={{ title: 'Tryb ratownika', headerBackTitle: 'Wróć' }} />
         <Stack.Screen name="details" options={{ title: 'Wynik weryfikacji', headerBackTitle: 'Wróć' }} />

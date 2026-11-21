@@ -22,6 +22,13 @@ const SERVICES: Service[] = [
     onPress: () => router.push('/emergency'),
   },
   {
+    title: 'Jak użyć AED',
+    subtitle: 'Instrukcja w 5 krokach z rysunkami',
+    icon: 'book.fill',
+    color: AED.red,
+    onPress: () => router.push('/aed-guide'),
+  },
+  {
     title: 'Metronom RKO',
     subtitle: 'Rytm uciśnięć klatki piersiowej, 110/min',
     icon: 'heart.fill',

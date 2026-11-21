@@ -37,6 +37,7 @@ const MAPPING = {
   lock: 'lock',
   key: 'vpn-key',
   'person.2': 'group',
+  'book.fill': 'menu-book',
 } satisfies IconMapping;
 
 /**

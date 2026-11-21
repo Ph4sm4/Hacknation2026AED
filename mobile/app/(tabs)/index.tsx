@@ -1,6 +1,7 @@
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { AedGuideEntry } from '@/components/aed/AedGuideEntry';
 import { EmergencyEntryButton } from '@/components/aed/EmergencyEntryButton';
 
 export default function HomeScreen() {
@@ -20,6 +21,7 @@ export default function HomeScreen() {
         </View>
 
         <EmergencyEntryButton />
+        <AedGuideEntry />
 
         <View style={styles.configView}>
           <Text style={styles.configText}>Dostosuj</Text>

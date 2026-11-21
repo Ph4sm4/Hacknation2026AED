@@ -5,6 +5,7 @@ import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from
 import MapView, { Marker } from 'react-native-maps';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { AedGuideEntry } from '@/components/aed/AedGuideEntry';
 import { MorphPressable } from '@/components/aed/MorphPressable';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { AED, TYPE } from '@/constants/aed-theme';
@@ -227,6 +228,8 @@ export default function AlertScreen() {
               </Text>
             )}
           </View>
+
+          <AedGuideEntry />
 
           <MorphPressable accessibilityRole="button" onPress={call112} style={styles.call112}>
             <IconSymbol name="phone.fill" size={18} color={AED.red} />

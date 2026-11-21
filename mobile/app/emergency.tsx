@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AedStatusBadges } from '@/components/aed/AedStatusBadge';
 import { CallRespondersPanel } from '@/components/aed/CallRespondersPanel';
+import { AedGuideEntry } from '@/components/aed/AedGuideEntry';
 import { MorphPressable } from '@/components/aed/MorphPressable';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { AED, TYPE } from '@/constants/aed-theme';
@@ -91,6 +92,8 @@ export default function EmergencyScreen() {
           <IconSymbol name="heart.fill" size={20} color={AED.ink} />
           <Text style={styles.cprButtonText}>Metronom RKO</Text>
         </MorphPressable>
+
+        <AedGuideEntry />
 
         {approximate && (
           <View style={styles.warning} accessibilityRole="alert">
