@@ -42,7 +42,7 @@ export default function ResponderScreen() {
   }, []);
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
+    <ScrollView style={styles.screen} contentContainerStyle={styles.content} contentInsetAdjustmentBehavior="automatic">
       <View style={styles.labelRow}>
         <View style={styles.labelSquare} />
         <Text style={styles.label}>Tryb ratownika</Text>

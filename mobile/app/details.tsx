@@ -25,6 +25,7 @@ export default function DetailsScreen() {
     <ScrollView
       style={{ flex: 1 }}
       contentContainerStyle={{ padding: 20, paddingBottom: 60 }}
+      contentInsetAdjustmentBehavior="automatic"
       showsVerticalScrollIndicator={false}
     >
       {/* ✅ WYNIK BEZPIECZEŃSTWA */}
