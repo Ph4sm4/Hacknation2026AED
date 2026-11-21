@@ -1,0 +1,407 @@
+# =============================================================================
+#  Wzorcowy zakres danych o defibrylatorach AED – „Pokaż AED”
+#  Jedno źródło prawdy: z tego pliku generowane są
+#    - schema/out/wzorcowy_zakres_danych_AED.xlsx   (wymagany plik konkursowy)
+#    - schema/out/aed.tableschema.json             (Frictionless Table Schema)
+#    - schema/out/aed.schema.json                  (JSON Schema, draft 2020-12)
+#    - schema/out/szablon_aed.csv                  (pusty szablon dla dysponenta)
+#  oraz walidator plików w portalu dysponenta (backend/aed/validator.py).
+#
+#  Wymagalność:
+#    O – obowiązkowe   (bez nich rekord jest odrzucany)
+#    Z – zalecane      (brak obniża wskaźnik jakości)
+#    F – fakultatywne
+# =============================================================================
+id: aed-pl
+version: "1.0.0"
+title: Wzorcowy zakres danych o automatycznych defibrylatorach zewnętrznych (AED)
+title_en: Reference data model for automated external defibrillators (AED)
+description: >-
+  Jednolity zakres danych, w jakim każdy dysponent (gmina, szpital, szkoła,
+  przewoźnik, firma) udostępnia w portalu dane.gov.pl informacje o posiadanych
+  defibrylatorach AED. Jeden wiersz = jedno urządzenie.
+publishing_rules:
+  - Format CSV, kodowanie UTF-8 (bez BOM), separator przecinek, pierwszy wiersz to nazwy kolumn dokładnie jak w kolumnie „Nazwa pola”.
+  - Alternatywnie XLSX (jeden arkusz, bez scalonych komórek), JSON lub GeoJSON z tymi samymi nazwami pól.
+  - Współrzędne w układzie WGS84 (EPSG:4326), stopnie dziesiętne, kropka jako separator dziesiętny, min. 5 miejsc po przecinku.
+  - Daty w formacie ISO 8601 – RRRR-MM-DD; data i czas – RRRR-MM-DDTGG:MM:SS+01:00.
+  - Wartości logiczne – „tak” / „nie”; brak wiedzy – pole puste (nie wpisujemy „brak”, „-”, „0”).
+  - Godziny dostępności w składni opening_hours (OpenStreetMap), np. „24/7”, „Mo-Fr 08:00-16:00; Sa 09:00-13:00”.
+  - Jeden plik na dysponenta, aktualizowany pod stałym adresem URL (zasób z automatyczną aktualizacją w dane.gov.pl).
+  - Dane kontaktowe wyłącznie instytucjonalne (bez danych osobowych osób fizycznych – RODO).
+  - Rekomendowana licencja – CC0 1.0 (domena publiczna) lub CC BY 4.0.
+dataset_metadata:
+  title: "Defibrylatory AED – {nazwa dysponenta}"
+  notes: "Lokalizacje i dostępność automatycznych defibrylatorów zewnętrznych (AED) udostępniane zgodnie z wzorcowym zakresem danych akcji „Pokaż AED”."
+  category: HEAL            # Zdrowie
+  keywords: [AED, defibrylator, ratownictwo, zdrowie, pierwsza pomoc, Pokaż AED]
+  update_frequency: weekly
+  license: CC0-1.0
+
+enums:
+  dostepnosc:
+    - {value: publiczny,  label: "Publiczny – dostępny dla każdego bez ograniczeń", osm: "yes / permissive"}
+    - {value: ograniczony, label: "Ograniczony – dostępny dla klientów/osób w obiekcie (np. godziny otwarcia, ochrona)", osm: "customers / permit"}
+    - {value: prywatny,   label: "Prywatny – tylko dla pracowników/właściciela", osm: "private / no"}
+  status:
+    - {value: aktywny,    label: "Sprawny i dostępny"}
+    - {value: serwis,     label: "Czasowo niedostępny (przegląd, naprawa)"}
+    - {value: nieaktywny, label: "Niesprawny / niedostępny"}
+    - {value: wycofany,   label: "Usunięty z lokalizacji (rekord archiwalny)"}
+  tak_nie:
+    - {value: tak, label: "Tak"}
+    - {value: nie, label: "Nie"}
+  dostosowanie:
+    - {value: tak,         label: "Dostępny dla osób na wózku"}
+    - {value: ograniczone, label: "Częściowo dostępny"}
+    - {value: nie,         label: "Niedostępny dla osób na wózku"}
+  licencja:
+    - {value: CC0-1.0,   label: "Creative Commons Zero 1.0 (domena publiczna)"}
+    - {value: CC-BY-4.0, label: "Creative Commons Uznanie autorstwa 4.0"}
+    - {value: ODbL-1.0,  label: "Open Database License 1.0 (dane OpenStreetMap)"}
+  wojewodztwo:
+    - {value: dolnośląskie}
+    - {value: kujawsko-pomorskie}
+    - {value: lubelskie}
+    - {value: lubuskie}
+    - {value: łódzkie}
+    - {value: małopolskie}
+    - {value: mazowieckie}
+    - {value: opolskie}
+    - {value: podkarpackie}
+    - {value: podlaskie}
+    - {value: pomorskie}
+    - {value: śląskie}
+    - {value: świętokrzyskie}
+    - {value: warmińsko-mazurskie}
+    - {value: wielkopolskie}
+    - {value: zachodniopomorskie}
+
+groups:
+  - {key: id,   label: "Identyfikacja"}
+  - {key: loc,  label: "Lokalizacja"}
+  - {key: acc,  label: "Dostępność"}
+  - {key: dev,  label: "Urządzenie"}
+  - {key: own,  label: "Dysponent"}
+  - {key: meta, label: "Metadane rekordu"}
+
+fields:
+  # ---------------------------------------------------------------- Identyfikacja
+  - name: id_aed
+    group: id
+    label: Identyfikator AED u dysponenta
+    description: Stały, unikalny w obrębie dysponenta identyfikator urządzenia. Nie zmienia się przy aktualizacjach – umożliwia śledzenie zmian i łączenie danych.
+    type: string
+    required: O
+    constraints: {maxLength: 64, pattern: "^[A-Za-z0-9._/-]+$"}
+    example: "UM-LEG-001"
+    osm: ref
+  - name: nazwa
+    group: id
+    label: Nazwa miejsca
+    description: Nazwa obiektu, w którym znajduje się AED (instytucja, budynek, przystanek).
+    type: string
+    required: O
+    constraints: {maxLength: 200}
+    example: "Urząd Miasta Legionowo"
+    osm: name
+  # ---------------------------------------------------------------- Lokalizacja
+  - name: szerokosc_geograficzna
+    group: loc
+    label: Szerokość geograficzna
+    description: Szerokość geograficzna (WGS84, EPSG:4326) w stopniach dziesiętnych. Dla Polski 49.0–54.9.
+    type: number
+    required: O
+    constraints: {minimum: 49.0, maximum: 54.9}
+    example: 52.395198
+    osm: "geometry (lat)"
+  - name: dlugosc_geograficzna
+    group: loc
+    label: Długość geograficzna
+    description: Długość geograficzna (WGS84, EPSG:4326) w stopniach dziesiętnych. Dla Polski 14.1–24.2.
+    type: number
+    required: O
+    constraints: {minimum: 14.1, maximum: 24.2}
+    example: 20.931382
+    osm: "geometry (lon)"
+  - name: wojewodztwo
+    group: loc
+    label: Województwo
+    description: Nazwa województwa małymi literami.
+    type: string
+    required: Z
+    enum: wojewodztwo
+    example: "mazowieckie"
+    osm: "—"
+  - name: kod_teryt_gminy
+    group: loc
+    label: Kod TERYT gminy (TERC)
+    description: 7-znakowy identyfikator gminy z rejestru TERYT (TERC) – WWPPGGR.
+    type: string
+    required: Z
+    constraints: {pattern: "^[0-9]{7}$"}
+    example: "1408011"
+    osm: "—"
+  - name: miejscowosc
+    group: loc
+    label: Miejscowość
+    description: Nazwa miejscowości.
+    type: string
+    required: O
+    constraints: {maxLength: 100}
+    example: "Legionowo"
+    osm: "addr:city / addr:place"
+  - name: kod_simc
+    group: loc
+    label: Kod SIMC miejscowości
+    description: 7-znakowy identyfikator miejscowości z rejestru TERYT (SIMC).
+    type: string
+    required: F
+    constraints: {pattern: "^[0-9]{7}$"}
+    example: "0920806"
+    osm: "addr:city:simc"
+  - name: ulica
+    group: loc
+    label: Ulica
+    description: Nazwa ulicy wraz z cechą (ul., al., pl.). Puste dla miejscowości bez ulic.
+    type: string
+    required: Z
+    constraints: {maxLength: 150}
+    example: "ul. Piłsudskiego"
+    osm: "addr:street"
+  - name: nr_budynku
+    group: loc
+    label: Numer budynku
+    description: Numer porządkowy budynku.
+    type: string
+    required: Z
+    constraints: {maxLength: 20}
+    example: "41"
+    osm: "addr:housenumber"
+  - name: kod_pocztowy
+    group: loc
+    label: Kod pocztowy
+    description: Kod pocztowy w formacie NN-NNN.
+    type: string
+    required: Z
+    constraints: {pattern: "^[0-9]{2}-[0-9]{3}$"}
+    example: "05-120"
+    osm: "addr:postcode"
+  - name: lokalizacja_opis
+    group: loc
+    label: Dokładne miejsce umieszczenia
+    description: Gdzie dokładnie wisi AED – tak, by znalazła go osoba pierwszy raz w obiekcie (np. „parter, na ścianie przy recepcji, naprzeciw windy”).
+    type: string
+    required: O
+    constraints: {maxLength: 500}
+    example: "Parter, hol główny, na ścianie po lewej od wejścia"
+    osm: "defibrillator:location"
+  - name: kondygnacja
+    group: loc
+    label: Kondygnacja
+    description: Numer kondygnacji (0 – parter, -1 – piwnica/poziom -1).
+    type: integer
+    required: F
+    constraints: {minimum: -10, maximum: 100}
+    example: 0
+    osm: level
+  - name: wewnatrz_budynku
+    group: loc
+    label: Wewnątrz budynku
+    description: „tak” – AED w budynku, „nie” – na zewnątrz (szafka na elewacji, słupek).
+    type: boolean
+    required: Z
+    enum: tak_nie
+    example: "tak"
+    osm: indoor
+  # ---------------------------------------------------------------- Dostępność
+  - name: dostepnosc
+    group: acc
+    label: Dostępność
+    description: Kto może skorzystać z urządzenia.
+    type: string
+    required: O
+    enum: dostepnosc
+    example: "publiczny"
+    osm: access
+  - name: godziny_dostepnosci
+    group: acc
+    label: Godziny dostępności
+    description: Kiedy urządzenie jest fizycznie dostępne – składnia opening_hours (OSM). „24/7” dla dostępu całodobowego.
+    type: string
+    required: O
+    constraints: {maxLength: 255}
+    example: "Mo-Fr 07:30-15:30"
+    osm: opening_hours
+  - name: szafka_zamknieta
+    group: acc
+    label: Szafka zamknięta (klucz/kod)
+    description: „tak”, jeśli do AED potrzebny jest klucz lub kod. Wtedy pole „instrukcja_dostepu” jest wymagane.
+    type: boolean
+    required: Z
+    enum: tak_nie
+    example: "nie"
+    osm: locked
+  - name: instrukcja_dostepu
+    group: acc
+    label: Instrukcja dostępu
+    description: Jak otworzyć szafkę lub uzyskać dostęp (np. „kod podaje dyspozytor 112”, „klucz w portierni”). Nie publikujemy samych kodów.
+    type: string
+    required: F
+    constraints: {maxLength: 300}
+    example: "Szafka z alarmem dźwiękowym – otwiera się bez klucza"
+    osm: "defibrillator:code / description"
+  - name: dostosowanie_dla_wozkow
+    group: acc
+    label: Dostępność dla osób na wózku
+    description: Czy urządzenie jest osiągalne dla osoby poruszającej się na wózku.
+    type: string
+    required: F
+    enum: dostosowanie
+    example: "tak"
+    osm: wheelchair
+  # ---------------------------------------------------------------- Urządzenie
+  - name: status
+    group: dev
+    label: Status urządzenia
+    description: Aktualny stan urządzenia.
+    type: string
+    required: O
+    enum: status
+    example: "aktywny"
+    osm: "disused:emergency (dla wycofanych)"
+  - name: producent
+    group: dev
+    label: Producent
+    description: Producent urządzenia.
+    type: string
+    required: F
+    constraints: {maxLength: 100}
+    example: "Philips"
+    osm: manufacturer
+  - name: model
+    group: dev
+    label: Model
+    description: Model urządzenia.
+    type: string
+    required: F
+    constraints: {maxLength: 100}
+    example: "HeartStart FRx"
+    osm: model
+  - name: tryb_pediatryczny
+    group: dev
+    label: Tryb/elektrody pediatryczne
+    description: „tak”, jeśli AED ma tryb dziecięcy lub elektrody pediatryczne.
+    type: boolean
+    required: Z
+    enum: tak_nie
+    example: "tak"
+    osm: "defibrillator:pediatric"
+  - name: data_ostatniego_przegladu
+    group: dev
+    label: Data ostatniego przeglądu
+    description: Data ostatniego przeglądu technicznego (RRRR-MM-DD).
+    type: date
+    required: Z
+    example: "2026-05-14"
+    osm: "check_date"
+  - name: data_waznosci_elektrod
+    group: dev
+    label: Data ważności elektrod
+    description: Termin ważności elektrod (RRRR-MM-DD).
+    type: date
+    required: F
+    example: "2028-01-31"
+    osm: "—"
+  - name: data_waznosci_baterii
+    group: dev
+    label: Data ważności baterii
+    description: Termin ważności baterii (RRRR-MM-DD).
+    type: date
+    required: F
+    example: "2029-06-30"
+    osm: "—"
+  # ---------------------------------------------------------------- Dysponent
+  - name: dysponent_nazwa
+    group: own
+    label: Dysponent
+    description: Pełna nazwa podmiotu odpowiedzialnego za urządzenie.
+    type: string
+    required: O
+    constraints: {maxLength: 250}
+    example: "Gmina Miasto Legionowo"
+    osm: operator
+  - name: dysponent_regon
+    group: own
+    label: REGON dysponenta
+    description: Numer REGON (9 lub 14 cyfr) – jednoznaczna identyfikacja podmiotu.
+    type: string
+    required: Z
+    constraints: {pattern: "^([0-9]{9}|[0-9]{14})$"}
+    example: "013268657"
+    osm: "operator:ref:regon"
+  - name: kontakt_telefon
+    group: own
+    label: Telefon kontaktowy
+    description: Instytucjonalny numer telefonu w formacie międzynarodowym (+48…).
+    type: string
+    required: F
+    constraints: {pattern: "^\\+?[0-9 ()-]{9,20}$"}
+    example: "+48 22 766 40 00"
+    osm: phone
+  - name: kontakt_email
+    group: own
+    label: E-mail kontaktowy
+    description: Instytucjonalny adres e-mail do zgłaszania usterek i aktualizacji danych.
+    type: string
+    format: email
+    required: F
+    constraints: {maxLength: 150}
+    example: "aed@legionowo.pl"
+    osm: email
+  # ---------------------------------------------------------------- Metadane
+  - name: data_weryfikacji
+    group: meta
+    label: Data weryfikacji w terenie
+    description: Kiedy ostatnio potwierdzono fizycznie obecność i dostępność urządzenia (RRRR-MM-DD).
+    type: date
+    required: O
+    example: "2026-10-02"
+    osm: check_date
+  - name: data_aktualizacji
+    group: meta
+    label: Data aktualizacji rekordu
+    description: Data i czas ostatniej zmiany rekordu (ISO 8601).
+    type: datetime
+    required: O
+    example: "2026-10-02T12:00:00+02:00"
+    osm: "@timestamp"
+  - name: zdjecie_url
+    group: meta
+    label: Zdjęcie (URL)
+    description: Adres URL zdjęcia pokazującego miejsce zawieszenia AED (na licencji otwartej).
+    type: string
+    format: uri
+    required: F
+    example: "https://example.gov.pl/aed/001.jpg"
+    osm: image
+  - name: uwagi
+    group: meta
+    label: Uwagi
+    description: Dodatkowe informacje.
+    type: string
+    required: F
+    constraints: {maxLength: 500}
+    example: ""
+    osm: note
+
+# Pola dodawane przez agregator w zbiorze ogólnopolskim (nie wypełnia ich dysponent)
+aggregate_fields:
+  - {name: id, type: string, label: "Identyfikator w zbiorze ogólnopolskim", description: "Stabilny identyfikator nadany przez agregator: AED-PL-<hash>."}
+  - {name: zrodla, type: string, label: "Źródła danych", description: "Lista źródeł, które potwierdzają rekord (oddzielone „|”)."}
+  - {name: liczba_zrodel, type: integer, label: "Liczba źródeł", description: "Ile niezależnych źródeł potwierdza rekord."}
+  - {name: licencja, type: string, label: "Licencja rekordu", description: "Licencja wynikająca ze źródła (CC0-1.0, CC-BY-4.0, ODbL-1.0)."}
+  - {name: osm_id, type: string, label: "Identyfikator OSM", description: "np. node/1775469258 – jeśli rekord występuje w OpenStreetMap."}
+  - {name: dostep_24h, type: boolean, label: "Dostęp całodobowy", description: "Wyliczane z godzin dostępności."}
+  - {name: wskaznik_jakosci, type: integer, label: "Wskaźnik jakości (0–100)", description: "Kompletność, aktualność i potwierdzenie przez wiele źródeł."}
+  - {name: problemy_jakosci, type: string, label: "Problemy jakości", description: "Lista wykrytych problemów (oddzielone „|”)."}

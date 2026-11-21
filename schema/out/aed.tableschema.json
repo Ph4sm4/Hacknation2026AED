@@ -1,0 +1,398 @@
+{
+  "$schema": "https://specs.frictionlessdata.io/schemas/table-schema.json",
+  "name": "aed-pl",
+  "title": "Wzorcowy zakres danych o automatycznych defibrylatorach zewnętrznych (AED)",
+  "version": "1.0.0",
+  "description": "Jednolity zakres danych, w jakim każdy dysponent (gmina, szpital, szkoła, przewoźnik, firma) udostępnia w portalu dane.gov.pl informacje o posiadanych defibrylatorach AED. Jeden wiersz = jedno urządzenie.",
+  "fields": [
+    {
+      "name": "id_aed",
+      "title": "Identyfikator AED u dysponenta",
+      "description": "Stały, unikalny w obrębie dysponenta identyfikator urządzenia. Nie zmienia się przy aktualizacjach – umożliwia śledzenie zmian i łączenie danych.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "maxLength": 64,
+        "pattern": "^[A-Za-z0-9._/-]+$"
+      },
+      "example": "UM-LEG-001"
+    },
+    {
+      "name": "nazwa",
+      "title": "Nazwa miejsca",
+      "description": "Nazwa obiektu, w którym znajduje się AED (instytucja, budynek, przystanek).",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "maxLength": 200
+      },
+      "example": "Urząd Miasta Legionowo"
+    },
+    {
+      "name": "szerokosc_geograficzna",
+      "title": "Szerokość geograficzna",
+      "description": "Szerokość geograficzna (WGS84, EPSG:4326) w stopniach dziesiętnych. Dla Polski 49.0–54.9.",
+      "type": "number",
+      "constraints": {
+        "required": true,
+        "minimum": 49.0,
+        "maximum": 54.9
+      },
+      "example": 52.395198
+    },
+    {
+      "name": "dlugosc_geograficzna",
+      "title": "Długość geograficzna",
+      "description": "Długość geograficzna (WGS84, EPSG:4326) w stopniach dziesiętnych. Dla Polski 14.1–24.2.",
+      "type": "number",
+      "constraints": {
+        "required": true,
+        "minimum": 14.1,
+        "maximum": 24.2
+      },
+      "example": 20.931382
+    },
+    {
+      "name": "wojewodztwo",
+      "title": "Województwo",
+      "description": "Nazwa województwa małymi literami.",
+      "type": "string",
+      "constraints": {
+        "enum": [
+          "dolnośląskie",
+          "kujawsko-pomorskie",
+          "lubelskie",
+          "lubuskie",
+          "łódzkie",
+          "małopolskie",
+          "mazowieckie",
+          "opolskie",
+          "podkarpackie",
+          "podlaskie",
+          "pomorskie",
+          "śląskie",
+          "świętokrzyskie",
+          "warmińsko-mazurskie",
+          "wielkopolskie",
+          "zachodniopomorskie"
+        ]
+      },
+      "example": "mazowieckie"
+    },
+    {
+      "name": "kod_teryt_gminy",
+      "title": "Kod TERYT gminy (TERC)",
+      "description": "7-znakowy identyfikator gminy z rejestru TERYT (TERC) – WWPPGGR.",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[0-9]{7}$"
+      },
+      "example": "1408011"
+    },
+    {
+      "name": "miejscowosc",
+      "title": "Miejscowość",
+      "description": "Nazwa miejscowości.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "maxLength": 100
+      },
+      "example": "Legionowo"
+    },
+    {
+      "name": "kod_simc",
+      "title": "Kod SIMC miejscowości",
+      "description": "7-znakowy identyfikator miejscowości z rejestru TERYT (SIMC).",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[0-9]{7}$"
+      },
+      "example": "0920806"
+    },
+    {
+      "name": "ulica",
+      "title": "Ulica",
+      "description": "Nazwa ulicy wraz z cechą (ul., al., pl.). Puste dla miejscowości bez ulic.",
+      "type": "string",
+      "constraints": {
+        "maxLength": 150
+      },
+      "example": "ul. Piłsudskiego"
+    },
+    {
+      "name": "nr_budynku",
+      "title": "Numer budynku",
+      "description": "Numer porządkowy budynku.",
+      "type": "string",
+      "constraints": {
+        "maxLength": 20
+      },
+      "example": "41"
+    },
+    {
+      "name": "kod_pocztowy",
+      "title": "Kod pocztowy",
+      "description": "Kod pocztowy w formacie NN-NNN.",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[0-9]{2}-[0-9]{3}$"
+      },
+      "example": "05-120"
+    },
+    {
+      "name": "lokalizacja_opis",
+      "title": "Dokładne miejsce umieszczenia",
+      "description": "Gdzie dokładnie wisi AED – tak, by znalazła go osoba pierwszy raz w obiekcie (np. „parter, na ścianie przy recepcji, naprzeciw windy”).",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "maxLength": 500
+      },
+      "example": "Parter, hol główny, na ścianie po lewej od wejścia"
+    },
+    {
+      "name": "kondygnacja",
+      "title": "Kondygnacja",
+      "description": "Numer kondygnacji (0 – parter, -1 – piwnica/poziom -1).",
+      "type": "integer",
+      "constraints": {
+        "minimum": -10,
+        "maximum": 100
+      },
+      "example": 0
+    },
+    {
+      "name": "wewnatrz_budynku",
+      "title": "Wewnątrz budynku",
+      "description": "„tak” – AED w budynku, „nie” – na zewnątrz (szafka na elewacji, słupek).",
+      "type": "boolean",
+      "trueValues": [
+        "tak"
+      ],
+      "falseValues": [
+        "nie"
+      ],
+      "example": "tak"
+    },
+    {
+      "name": "dostepnosc",
+      "title": "Dostępność",
+      "description": "Kto może skorzystać z urządzenia.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "publiczny",
+          "ograniczony",
+          "prywatny"
+        ]
+      },
+      "example": "publiczny"
+    },
+    {
+      "name": "godziny_dostepnosci",
+      "title": "Godziny dostępności",
+      "description": "Kiedy urządzenie jest fizycznie dostępne – składnia opening_hours (OSM). „24/7” dla dostępu całodobowego.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "maxLength": 255
+      },
+      "example": "Mo-Fr 07:30-15:30"
+    },
+    {
+      "name": "szafka_zamknieta",
+      "title": "Szafka zamknięta (klucz/kod)",
+      "description": "„tak”, jeśli do AED potrzebny jest klucz lub kod. Wtedy pole „instrukcja_dostepu” jest wymagane.",
+      "type": "boolean",
+      "trueValues": [
+        "tak"
+      ],
+      "falseValues": [
+        "nie"
+      ],
+      "example": "nie"
+    },
+    {
+      "name": "instrukcja_dostepu",
+      "title": "Instrukcja dostępu",
+      "description": "Jak otworzyć szafkę lub uzyskać dostęp (np. „kod podaje dyspozytor 112”, „klucz w portierni”). Nie publikujemy samych kodów.",
+      "type": "string",
+      "constraints": {
+        "maxLength": 300
+      },
+      "example": "Szafka z alarmem dźwiękowym – otwiera się bez klucza"
+    },
+    {
+      "name": "dostosowanie_dla_wozkow",
+      "title": "Dostępność dla osób na wózku",
+      "description": "Czy urządzenie jest osiągalne dla osoby poruszającej się na wózku.",
+      "type": "string",
+      "constraints": {
+        "enum": [
+          "tak",
+          "ograniczone",
+          "nie"
+        ]
+      },
+      "example": "tak"
+    },
+    {
+      "name": "status",
+      "title": "Status urządzenia",
+      "description": "Aktualny stan urządzenia.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "aktywny",
+          "serwis",
+          "nieaktywny",
+          "wycofany"
+        ]
+      },
+      "example": "aktywny"
+    },
+    {
+      "name": "producent",
+      "title": "Producent",
+      "description": "Producent urządzenia.",
+      "type": "string",
+      "constraints": {
+        "maxLength": 100
+      },
+      "example": "Philips"
+    },
+    {
+      "name": "model",
+      "title": "Model",
+      "description": "Model urządzenia.",
+      "type": "string",
+      "constraints": {
+        "maxLength": 100
+      },
+      "example": "HeartStart FRx"
+    },
+    {
+      "name": "tryb_pediatryczny",
+      "title": "Tryb/elektrody pediatryczne",
+      "description": "„tak”, jeśli AED ma tryb dziecięcy lub elektrody pediatryczne.",
+      "type": "boolean",
+      "trueValues": [
+        "tak"
+      ],
+      "falseValues": [
+        "nie"
+      ],
+      "example": "tak"
+    },
+    {
+      "name": "data_ostatniego_przegladu",
+      "title": "Data ostatniego przeglądu",
+      "description": "Data ostatniego przeglądu technicznego (RRRR-MM-DD).",
+      "type": "date",
+      "example": "2026-05-14"
+    },
+    {
+      "name": "data_waznosci_elektrod",
+      "title": "Data ważności elektrod",
+      "description": "Termin ważności elektrod (RRRR-MM-DD).",
+      "type": "date",
+      "example": "2028-01-31"
+    },
+    {
+      "name": "data_waznosci_baterii",
+      "title": "Data ważności baterii",
+      "description": "Termin ważności baterii (RRRR-MM-DD).",
+      "type": "date",
+      "example": "2029-06-30"
+    },
+    {
+      "name": "dysponent_nazwa",
+      "title": "Dysponent",
+      "description": "Pełna nazwa podmiotu odpowiedzialnego za urządzenie.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "maxLength": 250
+      },
+      "example": "Gmina Miasto Legionowo"
+    },
+    {
+      "name": "dysponent_regon",
+      "title": "REGON dysponenta",
+      "description": "Numer REGON (9 lub 14 cyfr) – jednoznaczna identyfikacja podmiotu.",
+      "type": "string",
+      "constraints": {
+        "pattern": "^([0-9]{9}|[0-9]{14})$"
+      },
+      "example": "013268657"
+    },
+    {
+      "name": "kontakt_telefon",
+      "title": "Telefon kontaktowy",
+      "description": "Instytucjonalny numer telefonu w formacie międzynarodowym (+48…).",
+      "type": "string",
+      "constraints": {
+        "pattern": "^\\+?[0-9 ()-]{9,20}$"
+      },
+      "example": "+48 22 766 40 00"
+    },
+    {
+      "name": "kontakt_email",
+      "title": "E-mail kontaktowy",
+      "description": "Instytucjonalny adres e-mail do zgłaszania usterek i aktualizacji danych.",
+      "type": "string",
+      "constraints": {
+        "maxLength": 150
+      },
+      "format": "email",
+      "example": "aed@legionowo.pl"
+    },
+    {
+      "name": "data_weryfikacji",
+      "title": "Data weryfikacji w terenie",
+      "description": "Kiedy ostatnio potwierdzono fizycznie obecność i dostępność urządzenia (RRRR-MM-DD).",
+      "type": "date",
+      "constraints": {
+        "required": true
+      },
+      "example": "2026-10-02"
+    },
+    {
+      "name": "data_aktualizacji",
+      "title": "Data aktualizacji rekordu",
+      "description": "Data i czas ostatniej zmiany rekordu (ISO 8601).",
+      "type": "datetime",
+      "constraints": {
+        "required": true
+      },
+      "example": "2026-10-02T12:00:00+02:00"
+    },
+    {
+      "name": "zdjecie_url",
+      "title": "Zdjęcie (URL)",
+      "description": "Adres URL zdjęcia pokazującego miejsce zawieszenia AED (na licencji otwartej).",
+      "type": "string",
+      "format": "uri",
+      "example": "https://example.gov.pl/aed/001.jpg"
+    },
+    {
+      "name": "uwagi",
+      "title": "Uwagi",
+      "description": "Dodatkowe informacje.",
+      "type": "string",
+      "constraints": {
+        "maxLength": 500
+      },
+      "example": ""
+    }
+  ],
+  "primaryKey": [
+    "id_aed"
+  ],
+  "missingValues": [
+    ""
+  ]
+}
