@@ -89,10 +89,29 @@ function fitGently(m: L.Map, b: L.LatLngBounds, panel: boolean) {
 }
 
 /**
+ * Whether the camera is moving (fly / zoom animation / drag). While Leaflet animates, the vector pane is only
+ * CSS-scaled from the last settled view, so geometry added or changed mid-flight is projected for the new zoom
+ * into the old one and appears to float off the streets until the move ends.
+ */
+const moving = new WeakMap<L.Map, boolean>();
+function trackMotion(m: L.Map) {
+  m.on("movestart zoomstart", () => moving.set(m, true));
+  m.on("moveend zoomend", () => moving.set(m, false));
+}
+
+/** Runs `fn` once the camera is still. */
+function whenIdle(m: L.Map, signal: AbortSignal, fn: () => void) {
+  if (signal.aborted) return;
+  if (!moving.get(m)) return fn();
+  m.once("moveend", () => whenIdle(m, signal, fn));
+}
+
+/**
  * Draws `path` into `lines` progressively from start to end (ease-out, 0.6–1.4 s depending on length),
  * then calls `done`. Works with the canvas renderer, so it extends the geometry frame by frame.
+ * Drawing pauses while the camera moves and resumes where it stopped.
  */
-function drawPath(lines: L.Polyline[], path: [number, number][], signal: AbortSignal, done: () => void) {
+function drawPath(m: L.Map, lines: L.Polyline[], path: [number, number][], signal: AbortSignal, done: () => void) {
   const pts = path.map((p) => L.latLng(p));
   const cum = [0];
   for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + pts[i - 1].distanceTo(pts[i]));
@@ -101,13 +120,22 @@ function drawPath(lines: L.Polyline[], path: [number, number][], signal: AbortSi
     lines.forEach((l) => l.setLatLngs(pts));
     done();
   };
-  if (total === 0 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return finish();
+  if (total === 0 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return whenIdle(m, signal, finish);
 
   const duration = Math.min(1400, Math.max(600, total * 1.2));
-  const t0 = performance.now();
+  let t0 = performance.now();
+  let last = t0;
   let raf = 0;
   let seg = 1;
   const frame = (now: number) => {
+    if (moving.get(m)) {
+      // hold the progress: shift the start by the time spent waiting
+      t0 += now - last;
+      last = now;
+      raf = requestAnimationFrame(frame);
+      return;
+    }
+    last = now;
     const t = Math.min(1, (now - t0) / duration);
     if (t === 1) return finish();
     const d = total * (1 - Math.pow(1 - t, 3)); // ease-out cubic
@@ -196,6 +224,7 @@ export default function AedMap({ points, origin, selected, onSelect, onPickOrigi
     m.attributionControl.addAttribution('AED: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> (ODbL), dane.gov.pl');
     m.on("click", (e: L.LeafletMouseEvent) => cbs.current.onPickOrigin(e.latlng.lat, e.latlng.lng));
     hlLayer.current = L.layerGroup().addTo(m);
+    trackMotion(m);
     map.current = m;
     const updateThumb = () => {
       const c = m.getCenter();
@@ -292,14 +321,16 @@ export default function AedMap({ points, origin, selected, onSelect, onPickOrigi
         if (ctrl.signal.aborted) return;
         // no walking route (service down, timeout, rate limit) – fall back to a straight dashed line
         if (!path) {
-          L.polyline([origin, dest], { color: "#C8102E", weight: 3, dashArray: "6 6", interactive: false }).addTo(lg);
+          whenIdle(m, ctrl.signal, () =>
+            L.polyline([origin, dest], { color: "#C8102E", weight: 3, dashArray: "6 6", interactive: false }).addTo(lg),
+          );
           return;
         }
         fitGently(m, L.latLngBounds(path).extend(dest), true);
         // white casing under the red line keeps the route readable on the orthophoto
         const casing = L.polyline([], { color: "#fff", weight: 8, opacity: 0.9, lineCap: "round", lineJoin: "round", interactive: false }).addTo(lg);
         const line = L.polyline([], { color: "#C8102E", weight: 4.5, lineCap: "round", lineJoin: "round", interactive: false }).addTo(lg);
-        drawPath([casing, line], path, ctrl.signal, () => {
+        drawPath(m, [casing, line], path, ctrl.signal, () => {
           // the last metres from the street to the AED itself (routes snap to the nearest footway)
           L.polyline([path[path.length - 1], dest], { color: "#C8102E", weight: 3, dashArray: "2 6", lineCap: "round", interactive: false }).addTo(lg);
         });
