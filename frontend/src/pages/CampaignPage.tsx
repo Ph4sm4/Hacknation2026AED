@@ -23,10 +23,11 @@ export default function CampaignPage() {
             <h1 className="mt-5 text-5xl font-extrabold leading-[1.02] tracking-[-0.035em] text-ink sm:text-6xl">
               Gdzie<span className="text-brand">AED</span>?
               <br />
-              Każda minuta
+              Nawet
               <br />
-              się liczy.
+              minuta…
             </h1>
+            <p className="mt-4 text-2xl font-bold tracking-[-0.02em] text-brand sm:text-3xl">Każda minuta się liczy.</p>
             <p className="mt-6 max-w-lg text-lg text-muted">
               Masz defibrylator? Pokaż, gdzie jest. Udostępnij dane w portalu dane.gov.pl – tak, żeby świadek zatrzymania krążenia, dyspozytor 112 i każda
               aplikacja ratunkowa wiedzieli, gdzie jest najbliższe AED, czy jest dostępne i czy działa.
@@ -152,7 +153,7 @@ export default function CampaignPage() {
             </a>
             <button
               className="btn btn-outline"
-              onClick={() => navigator.share?.({ title: "GdzieAED", text: "GdzieAED? Każda minuta się liczy. Pokaż, gdzie jest Twój defibrylator – udostępnij dane w dane.gov.pl.", url: window.location.origin + "/akcja" })}
+              onClick={() => navigator.share?.({ title: "GdzieAED", text: "GdzieAED? Nawet minuta… Każda minuta się liczy. Pokaż, gdzie jest Twój defibrylator – udostępnij dane w dane.gov.pl.", url: window.location.origin + "/akcja" })}
             >
               <Share2 className="h-4 w-4" aria-hidden /> Udostępnij
             </button>

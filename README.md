@@ -2,7 +2,7 @@
 
 **Misja AED · HackNation 2026 · Ministerstwo Cyfryzacji**
 
-> *GdzieAED? Każda minuta się liczy.* – rozwiązanie, które zbiera rozproszone dane o defibrylatorach AED, ujednolica je do **wzorcowego zakresu danych** i przygotowuje do **automatycznego importu w portalu dane.gov.pl**, a akcja „GdzieAED” zachęca dysponentów do udostępniania danych.
+> *GdzieAED? Nawet minuta… Każda minuta się liczy.* – rozwiązanie, które zbiera rozproszone dane o defibrylatorach AED, ujednolica je do **wzorcowego zakresu danych** i przygotowuje do **automatycznego importu w portalu dane.gov.pl**, a akcja „GdzieAED” zachęca dysponentów do udostępniania danych.
 
 ![Mapa – najbliższe AED](docs/screenshots/01-mapa-najblizsze-aed.png)
 

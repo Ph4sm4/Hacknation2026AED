@@ -17,7 +17,7 @@ The jury runs the prototype.
 | Criterion | Weight | Our answer |
 |---|---|---|
 | Follows dane.gov.pl rules | **30%** | Harvester XML in the portal's own format (XSD 1.13 from its source code, tested), DCAT-AP, CC licences, HEAL category, machine-readable formats only |
-| Logo + slogan | **25%** | Name **GdzieAED**, slogan "GdzieAED? Każda minuta się liczy.", holder CTA "Pokaż, gdzie jest Twój AED." Sign-board mark (concept D "Tablica": heart + bolt + "tu jest" pointer), full brand book; 6 concepts kept in `branding/warianty/` |
+| Logo + slogan | **25%** | Name **GdzieAED**, slogan "GdzieAED? Nawet minuta…", supporting line "Każda minuta się liczy.", holder CTA "Pokaż, gdzie jest Twój AED." Sign-board mark (concept D "Tablica": heart + bolt + "tu jest" pointer), full brand book; 6 concepts kept in `branding/warianty/` |
 | Creativity | 15% | Universal validator with auto-fixes, OSM as a lead list of holders to invite, quality score, "claim your AEDs", citizen reports |
 | Fits the topic | 15% | "Find nearest AED" with open-now / 24/7, exact placement, 112 strip |
 | Data model | 10% | 34 fields, O/Z/F required/recommended/optional, dictionaries, OSM tag mapping, Table Schema + JSON Schema |

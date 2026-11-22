@@ -157,8 +157,9 @@ function Footer() {
     <footer className="mt-24 bg-ink text-white/70">
       <div className="mx-auto max-w-7xl px-4 pb-10 pt-14">
         <p className="max-w-4xl text-3xl font-extrabold leading-tight tracking-[-0.03em] text-white sm:text-5xl">
-          GdzieAED? <span className="text-brand">Każda minuta się liczy.</span>
+          GdzieAED? <span className="text-brand">Nawet minuta…</span>
         </p>
+        <p className="mt-3 text-xl font-bold tracking-[-0.02em] text-white/80 sm:text-2xl">Każda minuta się liczy.</p>
         <div className="mt-14 grid gap-10 border-t border-white/20 pt-8 text-sm md:grid-cols-12">
           <div className="md:col-span-6">
             <Logo inverted />

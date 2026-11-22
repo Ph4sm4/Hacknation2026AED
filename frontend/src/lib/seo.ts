@@ -8,7 +8,7 @@
 import { GUIDE_INTRO, GUIDE_STEPS } from "./aedGuide";
 
 export const SITE_NAME = "GdzieAED";
-export const SITE_TAGLINE = "Każda minuta się liczy.";
+export const SITE_TAGLINE = "Nawet minuta…";
 /** replaced with the public origin by the API when it serves the HTML (PUBLIC_BASE_URL or the request host) */
 export const SITE_URL_PLACEHOLDER = "__SITE_URL__";
 export const OG_IMAGE = "/og-image.png";
