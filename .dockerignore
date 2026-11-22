@@ -1,0 +1,11 @@
+.git
+.env
+.venv
+**/node_modules
+**/__pycache__
+frontend/dist
+data/out
+data/app.sqlite3*
+mobile
+branding
+docs

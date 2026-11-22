@@ -1,0 +1,9 @@
+# One origin for everything: the app container serves both the frontend (it fills in the public URL in
+# SEO tags at request time) and /api/*, so no CORS is needed.
+#
+# SITE_ADDRESS=":80"        plain HTTP on any host name (behind a tunnel such as ngrok)
+# SITE_ADDRESS="gdzieaed.pl" automatic HTTPS from Let's Encrypt (DNS A record must point at this server)
+{$SITE_ADDRESS::80} {
+	encode zstd gzip
+	reverse_proxy app:8000
+}

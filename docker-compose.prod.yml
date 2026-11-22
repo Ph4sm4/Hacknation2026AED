@@ -1,0 +1,53 @@
+# Production stack: the app (API + frontend, one container) behind Caddy. Only port 80 is published;
+# the SQLite database stays on an internal volume.
+#
+#   Tunnel / plain HTTP (e.g. ngrok on a Mac):
+#     docker compose -f docker-compose.prod.yml up -d --build
+#   Own domain with automatic HTTPS (e.g. Oracle Cloud VM, DOMAIN set in .env):
+#     docker compose -f docker-compose.prod.yml -f deploy/docker-compose.https.yml up -d --build
+services:
+  app:
+    build:
+      context: .
+      args:
+        GOOGLE_SITE_VERIFICATION: ${GOOGLE_SITE_VERIFICATION:-}
+        BING_SITE_VERIFICATION: ${BING_SITE_VERIFICATION:-}
+    restart: unless-stopped
+    expose:
+      - "8000"
+    environment:
+      # public origin for canonical/OG tags, sitemap, robots and dane.gov.pl harvester links;
+      # empty = taken from the request's Host header
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-}
+      AED_DB: /data/app.sqlite3
+      AED_SECRET: ${AED_SECRET:-}
+      AED_MODERATORS: ${AED_MODERATORS:-}
+    volumes:
+      - app-data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  caddy:
+    image: caddy:2.8
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    ports:
+      # HTTP_PORT moves it off 80 when another stack on this machine already uses it
+      - "${HTTP_PORT:-80}:80"
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-:80}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  app-data:
+  caddy-data:
+  caddy-config:

@@ -4,6 +4,9 @@ WORKDIR /app/frontend
 COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
 COPY frontend/ ./
+# optional search console tokens, read by frontend/seo-plugin.ts
+ARG GOOGLE_SITE_VERIFICATION=""
+ARG BING_SITE_VERIFICATION=""
 RUN npm run build
 
 # --- API + static frontend ----------------------------------------------------

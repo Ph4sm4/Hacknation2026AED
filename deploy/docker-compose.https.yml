@@ -1,0 +1,12 @@
+# Override for a server with its own domain: Caddy gets a Let's Encrypt certificate for $DOMAIN.
+#   docker compose -f docker-compose.prod.yml -f deploy/docker-compose.https.yml up -d --build
+services:
+  app:
+    environment:
+      PUBLIC_BASE_URL: https://${DOMAIN:?set DOMAIN in .env}
+  caddy:
+    ports:
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      SITE_ADDRESS: ${DOMAIN:?set DOMAIN in .env}
